@@ -3,102 +3,102 @@ package seedu.address.ui;
 import static java.time.Duration.ofMillis;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.address.testutil.TypicalPersons.getTypicalPersons;
-import static seedu.address.ui.testutil.GuiTestAssert.assertCardDisplaysPerson;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_Employee;
+import static seedu.address.testutil.TypicalEmployees.getTypicalEmployees;
+import static seedu.address.ui.testutil.GuiTestAssert.assertCardDisplaysEmployee;
 import static seedu.address.ui.testutil.GuiTestAssert.assertCardEquals;
 
 import java.util.Collections;
 
 import org.junit.Test;
 
-import guitests.guihandles.PersonCardHandle;
-import guitests.guihandles.PersonListPanelHandle;
+import guitests.guihandles.EmployeeCardHandle;
+import guitests.guihandles.EmployeeListPanelHandle;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.model.employee.Address;
+import seedu.address.model.employee.Email;
+import seedu.address.model.employee.Name;
+import seedu.address.model.employee.Employee;
+import seedu.address.model.employee.Phone;
 
-public class PersonListPanelTest extends GuiUnitTest {
-    private static final ObservableList<Person> TYPICAL_PERSONS =
-            FXCollections.observableList(getTypicalPersons());
+public class EmployeeListPanelTest extends GuiUnitTest {
+    private static final ObservableList<Employee> TYPICAL_EmployeeS =
+            FXCollections.observableList(getTypicalEmployees());
 
     private static final long CARD_CREATION_AND_DELETION_TIMEOUT = 2500;
 
-    private final SimpleObjectProperty<Person> selectedPerson = new SimpleObjectProperty<>();
-    private PersonListPanelHandle personListPanelHandle;
+    private final SimpleObjectProperty<Employee> selectedEmployee = new SimpleObjectProperty<>();
+    private EmployeeListPanelHandle EmployeeListPanelHandle;
 
     @Test
     public void display() {
-        initUi(TYPICAL_PERSONS);
+        initUi(TYPICAL_EmployeeS);
 
-        for (int i = 0; i < TYPICAL_PERSONS.size(); i++) {
-            personListPanelHandle.navigateToCard(TYPICAL_PERSONS.get(i));
-            Person expectedPerson = TYPICAL_PERSONS.get(i);
-            PersonCardHandle actualCard = personListPanelHandle.getPersonCardHandle(i);
+        for (int i = 0; i < TYPICAL_EmployeeS.size(); i++) {
+            EmployeeListPanelHandle.navigateToCard(TYPICAL_EmployeeS.get(i));
+            Employee expectedEmployee = TYPICAL_EmployeeS.get(i);
+            EmployeeCardHandle actualCard = EmployeeListPanelHandle.getEmployeeCardHandle(i);
 
-            assertCardDisplaysPerson(expectedPerson, actualCard);
+            assertCardDisplaysEmployee(expectedEmployee, actualCard);
             assertEquals(Integer.toString(i + 1) + ". ", actualCard.getId());
         }
     }
 
     @Test
-    public void selection_modelSelectedPersonChanged_selectionChanges() {
-        initUi(TYPICAL_PERSONS);
-        Person secondPerson = TYPICAL_PERSONS.get(INDEX_SECOND_PERSON.getZeroBased());
-        guiRobot.interact(() -> selectedPerson.set(secondPerson));
+    public void selection_modelSelectedEmployeeChanged_selectionChanges() {
+        initUi(TYPICAL_EmployeeS);
+        Employee secondEmployee = TYPICAL_EmployeeS.get(INDEX_SECOND_Employee.getZeroBased());
+        guiRobot.interact(() -> selectedEmployee.set(secondEmployee));
         guiRobot.pauseForHuman();
 
-        PersonCardHandle expectedPerson = personListPanelHandle.getPersonCardHandle(INDEX_SECOND_PERSON.getZeroBased());
-        PersonCardHandle selectedPerson = personListPanelHandle.getHandleToSelectedCard();
-        assertCardEquals(expectedPerson, selectedPerson);
+        EmployeeCardHandle expectedEmployee = EmployeeListPanelHandle.getEmployeeCardHandle(INDEX_SECOND_Employee.getZeroBased());
+        EmployeeCardHandle selectedEmployee = EmployeeListPanelHandle.getHandleToSelectedCard();
+        assertCardEquals(expectedEmployee, selectedEmployee);
     }
 
     /**
-     * Verifies that creating and deleting large number of persons in {@code PersonListPanel} requires lesser than
+     * Verifies that creating and deleting large number of Employees in {@code EmployeeListPanel} requires lesser than
      * {@code CARD_CREATION_AND_DELETION_TIMEOUT} milliseconds to execute.
      */
     @Test
     public void performanceTest() {
-        ObservableList<Person> backingList = createBackingList(10000);
+        ObservableList<Employee> backingList = createBackingList(10000);
 
         assertTimeoutPreemptively(ofMillis(CARD_CREATION_AND_DELETION_TIMEOUT), () -> {
             initUi(backingList);
             guiRobot.interact(backingList::clear);
-        }, "Creation and deletion of person cards exceeded time limit");
+        }, "Creation and deletion of employee cards exceeded time limit");
     }
 
     /**
-     * Returns a list of persons containing {@code personCount} persons that is used to populate the
-     * {@code PersonListPanel}.
+     * Returns a list of Employees containing {@code EmployeeCount} Employees that is used to populate the
+     * {@code EmployeeListPanel}.
      */
-    private ObservableList<Person> createBackingList(int personCount) {
-        ObservableList<Person> backingList = FXCollections.observableArrayList();
-        for (int i = 0; i < personCount; i++) {
+    private ObservableList<Employee> createBackingList(int EmployeeCount) {
+        ObservableList<Employee> backingList = FXCollections.observableArrayList();
+        for (int i = 0; i < EmployeeCount; i++) {
             Name name = new Name(i + "a");
             Phone phone = new Phone("000");
             Email email = new Email("a@aa");
             Address address = new Address("a");
-            Person person = new Person(name, phone, email, address, Collections.emptySet());
-            backingList.add(person);
+            Employee Employee = new Employee(name, phone, email, address, Collections.emptySet());
+            backingList.add(Employee);
         }
         return backingList;
     }
 
     /**
-     * Initializes {@code personListPanelHandle} with a {@code PersonListPanel} backed by {@code backingList}.
-     * Also shows the {@code Stage} that displays only {@code PersonListPanel}.
+     * Initializes {@code EmployeeListPanelHandle} with a {@code EmployeeListPanel} backed by {@code backingList}.
+     * Also shows the {@code Stage} that displays only {@code EmployeeListPanel}.
      */
-    private void initUi(ObservableList<Person> backingList) {
-        PersonListPanel personListPanel =
-                new PersonListPanel(backingList, selectedPerson, selectedPerson::set);
-        uiPartRule.setUiPart(personListPanel);
+    private void initUi(ObservableList<Employee> backingList) {
+        EmployeeListPanel EmployeeListPanel =
+                new EmployeeListPanel(backingList, selectedEmployee, selectedEmployee::set);
+        uiPartRule.setUiPart(EmployeeListPanel);
 
-        personListPanelHandle = new PersonListPanelHandle(getChildNode(personListPanel.getRoot(),
-                PersonListPanelHandle.PERSON_LIST_VIEW_ID));
+        EmployeeListPanelHandle = new EmployeeListPanelHandle(getChildNode(EmployeeListPanel.getRoot(),
+                EmployeeListPanelHandle.Employee_LIST_VIEW_ID));
     }
 }

@@ -4,10 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BENSON;
-import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EmployeeS;
+import static seedu.address.testutil.TypicalEmployees.ALICE;
+import static seedu.address.testutil.TypicalEmployees.BENSON;
+import static seedu.address.testutil.TypicalEmployees.BOB;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,11 +19,11 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.employee.NameContainsKeywordsPredicate;
+import seedu.address.model.employee.Employee;
+import seedu.address.model.employee.exceptions.EmployeeNotFoundException;
 import seedu.address.testutil.AddressBookBuilder;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.EmployeeBuilder;
 
 public class ModelManagerTest {
     @Rule
@@ -36,7 +36,7 @@ public class ModelManagerTest {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
         assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
-        assertEquals(null, modelManager.getSelectedPerson());
+        assertEquals(null, modelManager.getSelectedEmployee());
     }
 
     @Test
@@ -86,72 +86,72 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void hasPerson_nullPerson_throwsNullPointerException() {
+    public void hasEmployee_nullEmployee_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        modelManager.hasPerson(null);
+        modelManager.hasEmployee(null);
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(modelManager.hasPerson(ALICE));
+    public void hasEmployee_EmployeeNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasEmployee(ALICE));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
-        modelManager.addPerson(ALICE);
-        assertTrue(modelManager.hasPerson(ALICE));
+    public void hasEmployee_EmployeeInAddressBook_returnsTrue() {
+        modelManager.addEmployee(ALICE);
+        assertTrue(modelManager.hasEmployee(ALICE));
     }
 
     @Test
-    public void deletePerson_personIsSelectedAndFirstPersonInFilteredPersonList_selectionCleared() {
-        modelManager.addPerson(ALICE);
-        modelManager.setSelectedPerson(ALICE);
-        modelManager.deletePerson(ALICE);
-        assertEquals(null, modelManager.getSelectedPerson());
+    public void deleteEmployee_EmployeeIsSelectedAndFirstEmployeeInFilteredEmployeeList_selectionCleared() {
+        modelManager.addEmployee(ALICE);
+        modelManager.setSelectedEmployee(ALICE);
+        modelManager.deleteEmployee(ALICE);
+        assertEquals(null, modelManager.getSelectedEmployee());
     }
 
     @Test
-    public void deletePerson_personIsSelectedAndSecondPersonInFilteredPersonList_firstPersonSelected() {
-        modelManager.addPerson(ALICE);
-        modelManager.addPerson(BOB);
-        assertEquals(Arrays.asList(ALICE, BOB), modelManager.getFilteredPersonList());
-        modelManager.setSelectedPerson(BOB);
-        modelManager.deletePerson(BOB);
-        assertEquals(ALICE, modelManager.getSelectedPerson());
+    public void deleteEmployee_EmployeeIsSelectedAndSecondEmployeeInFilteredEmployeeList_firstEmployeeSelected() {
+        modelManager.addEmployee(ALICE);
+        modelManager.addEmployee(BOB);
+        assertEquals(Arrays.asList(ALICE, BOB), modelManager.getFilteredEmployeeList());
+        modelManager.setSelectedEmployee(BOB);
+        modelManager.deleteEmployee(BOB);
+        assertEquals(ALICE, modelManager.getSelectedEmployee());
     }
 
     @Test
-    public void setPerson_personIsSelected_selectedPersonUpdated() {
-        modelManager.addPerson(ALICE);
-        modelManager.setSelectedPerson(ALICE);
-        Person updatedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
-        modelManager.setPerson(ALICE, updatedAlice);
-        assertEquals(updatedAlice, modelManager.getSelectedPerson());
+    public void setEmployee_EmployeeIsSelected_selectedEmployeeUpdated() {
+        modelManager.addEmployee(ALICE);
+        modelManager.setSelectedEmployee(ALICE);
+        Employee updatedAlice = new EmployeeBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        modelManager.setEmployee(ALICE, updatedAlice);
+        assertEquals(updatedAlice, modelManager.getSelectedEmployee());
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredEmployeeList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        modelManager.getFilteredPersonList().remove(0);
+        modelManager.getFilteredEmployeeList().remove(0);
     }
 
     @Test
-    public void setSelectedPerson_personNotInFilteredPersonList_throwsPersonNotFoundException() {
-        thrown.expect(PersonNotFoundException.class);
-        modelManager.setSelectedPerson(ALICE);
+    public void setSelectedEmployee_EmployeeNotInFilteredEmployeeList_throwsEmployeeNotFoundException() {
+        thrown.expect(EmployeeNotFoundException.class);
+        modelManager.setSelectedEmployee(ALICE);
     }
 
     @Test
-    public void setSelectedPerson_personInFilteredPersonList_setsSelectedPerson() {
-        modelManager.addPerson(ALICE);
-        assertEquals(Collections.singletonList(ALICE), modelManager.getFilteredPersonList());
-        modelManager.setSelectedPerson(ALICE);
-        assertEquals(ALICE, modelManager.getSelectedPerson());
+    public void setSelectedEmployee_EmployeeInFilteredEmployeeList_setsSelectedEmployee() {
+        modelManager.addEmployee(ALICE);
+        assertEquals(Collections.singletonList(ALICE), modelManager.getFilteredEmployeeList());
+        modelManager.setSelectedEmployee(ALICE);
+        assertEquals(ALICE, modelManager.getSelectedEmployee());
     }
 
     @Test
     public void equals() {
-        AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        AddressBook addressBook = new AddressBookBuilder().withEmployee(ALICE).withEmployee(BENSON).build();
         AddressBook differentAddressBook = new AddressBook();
         UserPrefs userPrefs = new UserPrefs();
 
@@ -174,11 +174,11 @@ public class ModelManagerTest {
 
         // different filteredList -> returns false
         String[] keywords = ALICE.getName().fullName.split("\\s+");
-        modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        modelManager.updateFilteredEmployeeList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
-        modelManager.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        modelManager.updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EmployeeS);
 
         // different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();

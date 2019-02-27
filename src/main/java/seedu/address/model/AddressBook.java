@@ -7,16 +7,16 @@ import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.employee.Employee;
+import seedu.address.model.employee.UniqueEmployeeList;
 
 /**
  * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Duplicates are not allowed (by .isSameEmployee comparison)
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
-    private final UniquePersonList persons;
+    private final UniqueEmployeeList Employees;
     private final InvalidationListenerManager invalidationListenerManager = new InvalidationListenerManager();
 
     /*
@@ -27,13 +27,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        persons = new UniquePersonList();
+        Employees = new UniqueEmployeeList();
     }
 
     public AddressBook() {}
 
     /**
-     * Creates an AddressBook using the Persons in the {@code toBeCopied}
+     * Creates an AddressBook using the Employees in the {@code toBeCopied}
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
@@ -43,11 +43,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the employee list with {@code Employees}.
+     * {@code Employees} must not contain duplicate Employees.
      */
-    public void setPersons(List<Person> persons) {
-        this.persons.setPersons(persons);
+    public void setEmployees(List<Employee> Employees) {
+        this.Employees.setEmployees(Employees);
         indicateModified();
     }
 
@@ -57,37 +57,37 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setEmployees(newData.getEmployeeList());
     }
 
-    //// person-level operations
+    //// employee-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a employee with the same identity as {@code employee} exists in the address book.
      */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return persons.contains(person);
+    public boolean hasEmployee(Employee Employee) {
+        requireNonNull(Employee);
+        return Employees.contains(Employee);
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a employee to the address book.
+     * The employee must not already exist in the address book.
      */
-    public void addPerson(Person p) {
-        persons.add(p);
+    public void addEmployee(Employee p) {
+        Employees.add(p);
         indicateModified();
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
+     * Replaces the given employee {@code target} in the list with {@code editedEmployee}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The employee identity of {@code editedEmployee} must not be the same as another existing employee in the address book.
      */
-    public void setPerson(Person target, Person editedPerson) {
-        requireNonNull(editedPerson);
+    public void setEmployee(Employee target, Employee editedEmployee) {
+        requireNonNull(editedEmployee);
 
-        persons.setPerson(target, editedPerson);
+        Employees.setEmployee(target, editedEmployee);
         indicateModified();
     }
 
@@ -95,8 +95,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removePerson(Person key) {
-        persons.remove(key);
+    public void removeEmployee(Employee key) {
+        Employees.remove(key);
         indicateModified();
     }
 
@@ -121,24 +121,24 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return Employees.asUnmodifiableObservableList().size() + " Employees";
         // TODO: refine later
     }
 
     @Override
-    public ObservableList<Person> getPersonList() {
-        return persons.asUnmodifiableObservableList();
+    public ObservableList<Employee> getEmployeeList() {
+        return Employees.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && persons.equals(((AddressBook) other).persons));
+                && Employees.equals(((AddressBook) other).Employees));
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return Employees.hashCode();
     }
 }

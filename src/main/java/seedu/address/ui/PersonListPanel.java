@@ -11,59 +11,59 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Person;
+import seedu.address.model.employee.Employee;
 
 /**
- * Panel containing the list of persons.
+ * Panel containing the list of Employees.
  */
-public class PersonListPanel extends UiPart<Region> {
-    private static final String FXML = "PersonListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
+public class EmployeeListPanel extends UiPart<Region> {
+    private static final String FXML = "EmployeeListPanel.fxml";
+    private final Logger logger = LogsCenter.getLogger(EmployeeListPanel.class);
 
     @FXML
-    private ListView<Person> personListView;
+    private ListView<Employee> EmployeeListView;
 
-    public PersonListPanel(ObservableList<Person> personList, ObservableValue<Person> selectedPerson,
-            Consumer<Person> onSelectedPersonChange) {
+    public EmployeeListPanel(ObservableList<Employee> EmployeeList, ObservableValue<Employee> selectedEmployee,
+            Consumer<Employee> onSelectedEmployeeChange) {
         super(FXML);
-        personListView.setItems(personList);
-        personListView.setCellFactory(listView -> new PersonListViewCell());
-        personListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            logger.fine("Selection in person list panel changed to : '" + newValue + "'");
-            onSelectedPersonChange.accept(newValue);
+        EmployeeListView.setItems(EmployeeList);
+        EmployeeListView.setCellFactory(listView -> new EmployeeListViewCell());
+        EmployeeListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            logger.fine("Selection in employee list panel changed to : '" + newValue + "'");
+            onSelectedEmployeeChange.accept(newValue);
         });
-        selectedPerson.addListener((observable, oldValue, newValue) -> {
-            logger.fine("Selected person changed to: " + newValue);
+        selectedEmployee.addListener((observable, oldValue, newValue) -> {
+            logger.fine("Selected employee changed to: " + newValue);
 
-            // Don't modify selection if we are already selecting the selected person,
+            // Don't modify selection if we are already selecting the selected employee,
             // otherwise we would have an infinite loop.
-            if (Objects.equals(personListView.getSelectionModel().getSelectedItem(), newValue)) {
+            if (Objects.equals(EmployeeListView.getSelectionModel().getSelectedItem(), newValue)) {
                 return;
             }
 
             if (newValue == null) {
-                personListView.getSelectionModel().clearSelection();
+                EmployeeListView.getSelectionModel().clearSelection();
             } else {
-                int index = personListView.getItems().indexOf(newValue);
-                personListView.scrollTo(index);
-                personListView.getSelectionModel().clearAndSelect(index);
+                int index = EmployeeListView.getItems().indexOf(newValue);
+                EmployeeListView.scrollTo(index);
+                EmployeeListView.getSelectionModel().clearAndSelect(index);
             }
         });
     }
 
     /**
-     * Custom {@code ListCell} that displays the graphics of a {@code Person} using a {@code PersonCard}.
+     * Custom {@code ListCell} that displays the graphics of a {@code Employee} using a {@code EmployeeCard}.
      */
-    class PersonListViewCell extends ListCell<Person> {
+    class EmployeeListViewCell extends ListCell<Employee> {
         @Override
-        protected void updateItem(Person person, boolean empty) {
-            super.updateItem(person, empty);
+        protected void updateItem(Employee Employee, boolean empty) {
+            super.updateItem(Employee, empty);
 
-            if (empty || person == null) {
+            if (empty || Employee == null) {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new PersonCard(person, getIndex() + 1).getRoot());
+                setGraphic(new EmployeeCard(Employee, getIndex() + 1).getRoot());
             }
         }
     }
