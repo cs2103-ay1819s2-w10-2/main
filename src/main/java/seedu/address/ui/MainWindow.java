@@ -16,6 +16,8 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.Tab;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -36,6 +38,18 @@ public class MainWindow extends UiPart<Stage> {
     private ProjectListPanel projectListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private SideTabPanel sideTabPanel;
+    private EmployeeTab employeetab;
+    private ProjectTab projecttab;
+
+    @FXML
+    private Tab employeeTabPlaceholder;
+
+    @FXML
+    private Tab projectTabPlaceholder;
+
+    @FXML
+    private TabPane sideTabPlaceholder;
 
     @FXML
     private StackPane browserPlaceholder;
@@ -45,12 +59,6 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private MenuItem helpMenuItem;
-
-    @FXML
-    private StackPane employeeListPanelPlaceholder;
-
-    @FXML
-    private StackPane projectListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -118,13 +126,22 @@ public class MainWindow extends UiPart<Stage> {
         browserPanel = new BrowserPanel(logic.selectedEmployeeProperty());
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
-
         employeeListPanel = new EmployeeListPanel(logic.getFilteredEmployeeList(), logic.selectedEmployeeProperty(),
                 logic::setSelectedEmployee);
-        employeeListPanelPlaceholder.getChildren().add(employeeListPanel.getRoot());
+        employeetab = new EmployeeTab(employeeListPanel.getRoot());
 
         projectListPanel = new ProjectListPanel(logic.getFilteredProjectList());
-        projectListPanelPlaceholder.getChildren().add(projectListPanel.getRoot());
+        projecttab = new ProjectTab(projectListPanel.getRoot());
+
+        sideTabPanel = new SideTabPanel();
+        employeetab.panel = employeeListPanel;
+        projecttab.panel = projectListPanel;
+        employeeTabPlaceholder.setContent(employeeListPanel.getRoot());
+        projectTabPlaceholder.setContent(projectListPanel.getRoot());
+
+        sideTabPlaceholder = new TabPane();
+        sideTabPlaceholder.getTabs().addAll(employeetab.getTab(),projecttab.getTab());
+        sideTabPlaceholder.getChildrenUnmodifiable();
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
