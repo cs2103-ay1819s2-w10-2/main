@@ -51,19 +51,19 @@
 
         <SplitPane id="splitPane" fx:id="splitPane" dividerPositions="0.4" VBox.vgrow="ALWAYS">
            <items>
-          <TabPane fx:id="sideTabPlaceholder" prefWidth="340" >
+          <TabPane fx:id="sideTabPlaceholder" styleClass="tab-pane" prefWidth="340" >
               <padding>
                   <Insets top="10" right="10" bottom="10" left="10" />
               </padding>
               <tabs>
                   <Tab fx:id="employeeTabPlaceholder" text="Employee" closable="false">
                       <content>
-                          <StackPane prefHeight="150.0" prefWidth="200.0" />
+                          <StackPane prefHeight="200.0" prefWidth="300.0" />
                       </content>
                   </Tab>
                   <Tab fx:id="projectTabPlaceholder" text="Project" closable="false">
                       <content>
-                          <StackPane prefHeight="150.0" prefWidth="200.0" />
+                          <StackPane prefHeight="200.0" prefWidth="300.0" />
                       </content>
                   </Tab>
               </tabs>
