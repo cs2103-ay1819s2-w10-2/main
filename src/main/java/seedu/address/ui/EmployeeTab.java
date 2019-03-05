@@ -9,13 +9,8 @@ import javafx.scene.control.ListView;
 public class EmployeeTab extends UiPart<Region> {
     private static final String FXML = "EmployeeTab.fxml";
 
-    public EmployeeListPanel panel;
-
     @javafx.fxml.FXML
     private Tab tab;
-
-    //@javafx.fxml.FXML
-    //private ListView<Employee> employeeListView;
 
     public EmployeeTab(Node value) {
         super(FXML);

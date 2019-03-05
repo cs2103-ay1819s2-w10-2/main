@@ -38,7 +38,6 @@ public class MainWindow extends UiPart<Stage> {
     private ProjectListPanel projectListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private SideTabPanel sideTabPanel;
     private EmployeeTab employeetab;
     private ProjectTab projecttab;
 
@@ -133,14 +132,11 @@ public class MainWindow extends UiPart<Stage> {
         projectListPanel = new ProjectListPanel(logic.getFilteredProjectList());
         projecttab = new ProjectTab(projectListPanel.getRoot());
 
-        //sideTabPanel = new SideTabPanel();
-
         employeeTabPlaceholder.setContent(employeeListPanel.getRoot());
         projectTabPlaceholder.setContent(projectListPanel.getRoot());
 
         sideTabPlaceholder = new TabPane();
         sideTabPlaceholder.getTabs().addAll(employeetab.getTab(),projecttab.getTab());
-
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
