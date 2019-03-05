@@ -31,12 +31,41 @@
 
 .tab-pane {
     -fx-padding: 0 0 0 1;
+    -fx-tab-min-width:80;
+    -fx-tab-min-height:30;
 }
 
 .tab-pane .tab-header-area {
     -fx-padding: 0 0 0 0;
     -fx-min-height: 0;
     -fx-max-height: 0;
+}
+
+.tab-pane .tab-header-area .tab-header-background
+{
+   -fx-background-color: -fx-text-box-border, #ffffff;
+   -fx-background-color: -fx-outer-border, #C0C0C0;
+   -fx-background-color: -fx-inner-border, #383838;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #3c3c3c;
+}
+
+.tab-pane .tab-label {
+    -fx-text-fill: #ffffff;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #e6e6e6;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #000000;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
 }
 
 .table-view {
@@ -75,6 +104,7 @@
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: -fx-focus-color;
 }
+
 
 .split-pane:horizontal .split-pane-divider {
     -fx-background-color: derive(#1d1d1d, 20%);
