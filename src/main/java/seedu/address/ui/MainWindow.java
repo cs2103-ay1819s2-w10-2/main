@@ -133,15 +133,14 @@ public class MainWindow extends UiPart<Stage> {
         projectListPanel = new ProjectListPanel(logic.getFilteredProjectList());
         projecttab = new ProjectTab(projectListPanel.getRoot());
 
-        sideTabPanel = new SideTabPanel();
-        employeetab.panel = employeeListPanel;
-        projecttab.panel = projectListPanel;
+        //sideTabPanel = new SideTabPanel();
+
         employeeTabPlaceholder.setContent(employeeListPanel.getRoot());
         projectTabPlaceholder.setContent(projectListPanel.getRoot());
 
         sideTabPlaceholder = new TabPane();
         sideTabPlaceholder.getTabs().addAll(employeetab.getTab(),projecttab.getTab());
-        sideTabPlaceholder.getChildrenUnmodifiable();
+
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());

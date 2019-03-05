@@ -14,8 +14,8 @@ public class EmployeeTab extends UiPart<Region> {
     @javafx.fxml.FXML
     private Tab tab;
 
-    @javafx.fxml.FXML
-    private ListView<Employee> employeeListView;
+    //@javafx.fxml.FXML
+    //private ListView<Employee> employeeListView;
 
     public EmployeeTab(Node value) {
         super(FXML);

@@ -6,6 +6,7 @@ import javafx.scene.Node;
 
 public class ProjectTab extends UiPart<Region> {
     private static final String FXML = "ProjectTab.fxml";
+
     public ProjectListPanel panel;
 
     @javafx.fxml.FXML
@@ -13,8 +14,8 @@ public class ProjectTab extends UiPart<Region> {
 
     public ProjectTab(Node value) {
         super(FXML);
-        this.tab = new Tab();
-        this.tab.setContent(value);
+        this.tab = new Tab("Project", value);
+        //this.tab.setContent(value);
     }
     public Tab getTab() {
         return this.tab;

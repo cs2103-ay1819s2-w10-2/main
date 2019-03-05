@@ -19,9 +19,6 @@ import seedu.address.model.project.Project;
 public class SideTabPanel extends UiPart<Region> {
     private static final String FXML = "SideTabPanel.fxml";
 
-    //public EmployeeListPanel employeeListPanel;
-    //public ProjectListPanel projectListPanel;
-
     @javafx.fxml.FXML
     private TabPane tabpane;
 
