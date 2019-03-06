@@ -111,4 +111,14 @@ public class LogicManager implements Logic {
     public void setSelectedEmployee(Employee employee) {
         model.setSelectedEmployee(employee);
     }
+
+    @Override
+    public ReadOnlyProperty<Project> selectedProjectProperty() {
+        return model.selectedProjectProperty();
+    }
+
+    @Override
+    public void setSelectedProject(Project project) {
+        model.setSelectedProject(project);
+    }
 }

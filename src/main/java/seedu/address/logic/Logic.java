@@ -74,4 +74,19 @@ public interface Logic {
      * @see seedu.address.model.Model#setSelectedEmployee(Employee)
      */
     void setSelectedEmployee(Employee employee);
+
+    /**
+     * Selected project in the filtered project list.
+     * null if no project is selected.
+     *
+     * @see seedu.address.model.Model#selectedProjectProperty()
+     */
+    ReadOnlyProperty<Project> selectedProjectProperty();
+
+    /**
+     * Sets the selected project in the filtered project list.
+     *
+     * @see seedu.address.model.Model#setSelectedProject(Project)
+     */
+    void setSelectedProject(Project project);
 }
