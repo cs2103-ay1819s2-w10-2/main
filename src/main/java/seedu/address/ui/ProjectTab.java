@@ -14,7 +14,9 @@ public class ProjectTab extends UiPart<Region> {
         super(FXML);
         this.tab = new Tab("Project", value);
     }
+    
     public Tab getTab() {
         return this.tab;
     }
+
 }
