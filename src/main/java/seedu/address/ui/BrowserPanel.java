@@ -14,6 +14,7 @@ import javafx.scene.web.WebView;
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.employee.Employee;
+import seedu.address.model.project.Project;
 
 /**
  * The Browser Panel of the App.
@@ -31,7 +32,7 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private WebView browser;
 
-    public BrowserPanel(ObservableValue<Employee> selectedEmployee) {
+    public BrowserPanel(ObservableValue<Employee> selectedEmployee, ObservableValue<Project> selectedProject) {
         super(FXML);
 
         // To prevent triggering events for typing inside the loaded Web page.
@@ -46,12 +47,23 @@ public class BrowserPanel extends UiPart<Region> {
             loadEmployeePage(newValue);
         });
 
+        selectedProject.addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) {
+                loadDefaultPage();
+                return;
+            }
+            loadProjectPage(newValue);
+        });
+
         loadDefaultPage();
     }
 
     private void loadEmployeePage(Employee employee) {
         loadPage(SEARCH_PAGE_URL + employee.getName().fullName);
     }
+
+    //TODO CHANGE
+    private void loadProjectPage(Project project) { loadPage(SEARCH_PAGE_URL + project.getProjectName());}
 
     public void loadPage(String url) {
         Platform.runLater(() -> browser.getEngine().load(url));
