@@ -15,7 +15,7 @@ class JsonAdaptedMilestone {
     private final String date;
 
     /**
-     * Constructs a {@code JsonAdaptedMilestone} with the given {@code tagName}.
+     * Constructs a {@code JsonAdaptedMilestone} with the given {@code skillName}.
      */
     @JsonCreator
     public JsonAdaptedMilestone(@JsonProperty("milestone") String milestone, @JsonProperty("date") String date) {
@@ -24,7 +24,7 @@ class JsonAdaptedMilestone {
     }
 
     /**
-     * Converts a given {@code Tag} into this class for Jackson use.
+     * Converts a given {@code Skill} into this class for Jackson use.
      */
     public JsonAdaptedMilestone(Milestone source) {
         milestone = source.milestone;

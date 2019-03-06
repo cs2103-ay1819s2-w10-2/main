@@ -39,10 +39,10 @@ public class TypicalProjects {
     /*
     // Manually added - Project's details found in {@code CommandTestUtil}
     public static final Project AMY = new ProjectBuilder().withProjectName(VALID_NAME_AMY).withClient(VALID_PHONE_AMY)
-            .withDeadline(VALID_EMAIL_AMY).withClient(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
+            .withDeadline(VALID_EMAIL_AMY).withClient(VALID_ADDRESS_AMY).withSkills(VALID_SKILL_C).build();
     public static final Project BOB = new ProjectBuilder().withProjectName(VALID_NAME_BOB).withClient(VALID_PHONE_BOB)
-            .withDeadline(VALID_EMAIL_BOB).withClient(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-            .build();
+            .withDeadline(VALID_EMAIL_BOB).withClient(VALID_ADDRESS_BOB)
+            .withSkills(VALID_SKILL_JAVA, VALID_SKILL_C).build();
     */
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

@@ -1,0 +1,34 @@
+{
+  "employees" : [],
+  "projects" : [
+    {"projectName" :  "Project Alice",
+      "client" :  "Dehui",
+      "deadline" :  "11/02/2019",
+      "milestones" :  []},
+    {"projectName" :  "Project Benson",
+      "client" :  "Jeff",
+      "deadline" :  "123/01/2011",
+      "milestones" :  []},
+    {"projectName" :  "Project Carl",
+      "client" :  "Darryl",
+      "deadline" :  "12/12/2012",
+      "milestones" :  []},
+    {"projectName" :  "Project Daniel",
+      "client" :  "Shune",
+      "deadline" :  "21/12/2012",
+      "milestones" :  []},
+    {"projectName" :  "Project Elle",
+      "client" :  "Jothi",
+      "deadline" :  "22/03/2019",
+      "milestones" :  []},
+    {"projectName" :  "Project Fiona",
+      "client" :  "SOC",
+      "deadline" :  "01/01/2020",
+      "milestones" :  []},
+    {"projectName" :  "Project George",
+      "client" :  "FASS",
+      "deadline" :  "11/02/2021",
+      "milestones" :  []}
+
+  ]
+}

@@ -56,7 +56,7 @@ public class Project {
         }
 
         return otherProject != null
-                && otherProject.getProjectName() == getProjectName();
+                && otherProject.getProjectName().equals(getProjectName());
     }
 
     /**

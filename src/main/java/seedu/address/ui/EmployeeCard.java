@@ -37,7 +37,7 @@ public class EmployeeCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
-    private FlowPane tags;
+    private FlowPane skills;
 
     public EmployeeCard(Employee employee, int displayedIndex) {
         super(FXML);
@@ -47,7 +47,7 @@ public class EmployeeCard extends UiPart<Region> {
         phone.setText(employee.getPhone().value);
         address.setText(employee.getAddress().value);
         email.setText(employee.getEmail().value);
-        employee.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        employee.getSkills().forEach(skill -> skills.getChildren().add(new Label(skill.skillName)));
     }
 
     @Override
