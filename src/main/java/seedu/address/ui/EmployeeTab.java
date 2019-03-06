@@ -1,7 +1,7 @@
 package seedu.address.ui;
 
-import javafx.scene.control.Tab;
 import javafx.scene.Node;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.Region;
 
 /**
