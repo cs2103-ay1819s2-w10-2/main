@@ -122,14 +122,15 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        browserPanel = new BrowserPanel(logic.selectedEmployeeProperty());
+        browserPanel = new BrowserPanel(logic.selectedEmployeeProperty(), logic.selectedProjectProperty());
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
         employeeListPanel = new EmployeeListPanel(logic.getFilteredEmployeeList(), logic.selectedEmployeeProperty(),
                 logic::setSelectedEmployee);
         employeetab = new EmployeeTab(employeeListPanel.getRoot());
 
-        projectListPanel = new ProjectListPanel(logic.getFilteredProjectList());
+        projectListPanel = new ProjectListPanel(logic.getFilteredProjectList(), logic.selectedProjectProperty(),
+                logic::setSelectedProject);
         projecttab = new ProjectTab(projectListPanel.getRoot());
 
         employeeTabPlaceholder.setContent(employeeListPanel.getRoot());
