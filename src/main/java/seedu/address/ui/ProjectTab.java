@@ -17,5 +17,4 @@ public class ProjectTab extends UiPart<Region> {
     public Tab getTab() {
         return this.tab;
     }
-
 }
