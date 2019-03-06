@@ -16,17 +16,17 @@ public class EmployeeCardTest extends GuiUnitTest {
 
     @Test
     public void display() {
-        // no tags
-        Employee employeeWithNoTags = new EmployeeBuilder().withTags(new String[0]).build();
-        EmployeeCard employeeCard = new EmployeeCard(employeeWithNoTags, 1);
+        // no skills
+        Employee employeeWithNoSkills = new EmployeeBuilder().withSkills(new String[0]).build();
+        EmployeeCard employeeCard = new EmployeeCard(employeeWithNoSkills, 1);
         uiPartRule.setUiPart(employeeCard);
-        assertCardDisplay(employeeCard, employeeWithNoTags, 1);
+        assertCardDisplay(employeeCard, employeeWithNoSkills, 1);
 
-        // with tags
-        Employee employeeWithTags = new EmployeeBuilder().build();
-        employeeCard = new EmployeeCard(employeeWithTags, 2);
+        // with skills
+        Employee employeeWithSkills = new EmployeeBuilder().build();
+        employeeCard = new EmployeeCard(employeeWithSkills, 2);
         uiPartRule.setUiPart(employeeCard);
-        assertCardDisplay(employeeCard, employeeWithTags, 2);
+        assertCardDisplay(employeeCard, employeeWithSkills, 2);
     }
 
     @Test

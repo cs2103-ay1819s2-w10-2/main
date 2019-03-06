@@ -6,7 +6,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SKILL_JAVA;
 import static seedu.address.testutil.TypicalEmployees.ALICE;
 import static seedu.address.testutil.TypicalEmployees.BOB;
 
@@ -24,7 +24,7 @@ public class EmployeeTest {
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
         Employee employee = new EmployeeBuilder().build();
         thrown.expect(UnsupportedOperationException.class);
-        employee.getTags().remove(0);
+        employee.getSkills().remove(0);
     }
 
     @Test
@@ -45,16 +45,16 @@ public class EmployeeTest {
 
         // same name, same phone, different attributes -> returns true
         editedAlice = new EmployeeBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withSkills(VALID_SKILL_JAVA).build();
         assertTrue(ALICE.isSameEmployee(editedAlice));
 
         // same name, same email, different attributes -> returns true
         editedAlice = new EmployeeBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withSkills(VALID_SKILL_JAVA).build();
         assertTrue(ALICE.isSameEmployee(editedAlice));
 
         // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withSkills(VALID_SKILL_JAVA).build();
         assertTrue(ALICE.isSameEmployee(editedAlice));
     }
 
@@ -93,7 +93,7 @@ public class EmployeeTest {
         assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
-        editedAlice = new EmployeeBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new EmployeeBuilder(ALICE).withSkills(VALID_SKILL_JAVA).build();
         assertFalse(ALICE.equals(editedAlice));
     }
 }

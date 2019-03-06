@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SKILL_JAVA;
 import static seedu.address.testutil.TypicalEmployees.ALICE;
 import static seedu.address.testutil.TypicalEmployees.BOB;
 
@@ -46,7 +46,7 @@ public class UniqueEmployeeListTest {
     @Test
     public void contains_employeeWithSameIdentityFieldsInList_returnsTrue() {
         uniqueEmployeeList.add(ALICE);
-        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withSkills(VALID_SKILL_JAVA)
                 .build();
         assertTrue(uniqueEmployeeList.contains(editedAlice));
     }
@@ -94,7 +94,7 @@ public class UniqueEmployeeListTest {
     @Test
     public void setEmployee_editedEmployeeHasSameIdentity_success() {
         uniqueEmployeeList.add(ALICE);
-        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withSkills(VALID_SKILL_JAVA)
                 .build();
         uniqueEmployeeList.setEmployee(ALICE, editedAlice);
         UniqueEmployeeList expectedUniqueEmployeeList = new UniqueEmployeeList();

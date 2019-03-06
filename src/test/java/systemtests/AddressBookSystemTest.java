@@ -38,7 +38,7 @@ import seedu.address.logic.commands.ListEmployeeCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
-import seedu.address.testutil.TypicalEmployees;
+import seedu.address.testutil.TestUtil;
 import seedu.address.ui.BrowserPanel;
 import seedu.address.ui.CommandBox;
 
@@ -82,7 +82,7 @@ public abstract class AddressBookSystemTest {
      * Returns the data to be loaded into the file in {@link #getDataFileLocation()}.
      */
     protected AddressBook getInitialData() {
-        return TypicalEmployees.getTypicalAddressBookWithEmployees();
+        return TestUtil.typicalAddressBook();
     }
 
     /**

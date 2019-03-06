@@ -20,7 +20,7 @@ import seedu.address.model.project.Project;
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
 
-    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "Employeees list contains duplicate employee(s).";
+    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "Employees list contains duplicate employee(s).";
     public static final String MESSAGE_DUPLICATE_PROJECT = "Project list contains duplicate project(s).";
 
     private final List<JsonAdaptedEmployee> employees = new ArrayList<>();

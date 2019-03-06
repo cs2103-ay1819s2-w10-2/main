@@ -15,7 +15,7 @@ import seedu.address.model.employee.Email;
 import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.skill.Skill;
 
 /**
  * Jackson-friendly version of {@link Employee}.
@@ -28,7 +28,7 @@ class JsonAdaptedEmployee {
     private final String phone;
     private final String email;
     private final String address;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<JsonAdaptedSkill> skills = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedEmployee} with the given employee details.
@@ -36,13 +36,13 @@ class JsonAdaptedEmployee {
     @JsonCreator
     public JsonAdaptedEmployee(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                                @JsonProperty("email") String email, @JsonProperty("address") String address,
-                               @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                               @JsonProperty("skills") List<JsonAdaptedSkill> skills) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
+        if (skills != null) {
+            this.skills.addAll(skills);
         }
     }
 
@@ -54,8 +54,8 @@ class JsonAdaptedEmployee {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
-        tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
+        skills.addAll(source.getSkills().stream()
+                .map(JsonAdaptedSkill::new)
                 .collect(Collectors.toList()));
     }
 
@@ -65,9 +65,9 @@ class JsonAdaptedEmployee {
      * @throws IllegalValueException if there were any data constraints violated in the adapted employee.
      */
     public Employee toModelType() throws IllegalValueException {
-        final List<Tag> employeeTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            employeeTags.add(tag.toModelType());
+        final List<Skill> employeeSkills = new ArrayList<>();
+        for (JsonAdaptedSkill skill : skills) {
+            employeeSkills.add(skill.toModelType());
         }
 
         if (name == null) {
@@ -102,8 +102,8 @@ class JsonAdaptedEmployee {
         }
         final Address modelAddress = new Address(address);
 
-        final Set<Tag> modelTags = new HashSet<>(employeeTags);
-        return new Employee(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        final Set<Skill> modelSkills = new HashSet<>(employeeSkills);
+        return new Employee(modelName, modelPhone, modelEmail, modelAddress, modelSkills);
     }
 
 }

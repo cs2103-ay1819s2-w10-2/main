@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CLIENT_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SKILL_JAVA;
 import static seedu.address.testutil.TypicalEmployees.ALICE;
 import static seedu.address.testutil.TypicalEmployees.getTypicalAddressBookWithEmployees;
 import static seedu.address.testutil.TypicalProjects.PROJECT_ALICE;
@@ -61,7 +61,7 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateEmployees_throwsDuplicateEmployeeException() {
         // Two employees with the same identity fields
-        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withSkills(VALID_SKILL_JAVA)
                 .build();
         List<Employee> newEmployees = Arrays.asList(ALICE, editedAlice);
         AddressBookStub newData = new AddressBookStub(newEmployees);
@@ -109,7 +109,7 @@ public class AddressBookTest {
     @Test
     public void hasEmployee_employeeWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addEmployee(ALICE);
-        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+        Employee editedAlice = new EmployeeBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withSkills(VALID_SKILL_JAVA)
                 .build();
         assertTrue(addressBook.hasEmployee(editedAlice));
     }

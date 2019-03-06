@@ -9,18 +9,18 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_SKILL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.SKILL_DESC_C;
+import static seedu.address.logic.commands.CommandTestUtil.SKILL_DESC_JAVA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SKILL;
 import static seedu.address.testutil.TypicalEmployees.ALICE;
 import static seedu.address.testutil.TypicalEmployees.AMY;
 import static seedu.address.testutil.TypicalEmployees.BOB;
@@ -42,7 +42,7 @@ import seedu.address.model.employee.Email;
 import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.skill.Skill;
 import seedu.address.testutil.EmployeeBuilder;
 import seedu.address.testutil.EmployeeUtil;
 
@@ -61,7 +61,7 @@ public class AddEmployeeCommandSystemTest extends AddressBookSystemTest {
         Employee toAdd = AMY;
         String command = "   " + AddEmployeeCommand.COMMAND_WORD + "  " + AddEmployeeCommand.ADD_EMPLOYEE_KEYWORD + " "
             + NAME_DESC_AMY + "  " + PHONE_DESC_AMY + " " + EMAIL_DESC_AMY + "   " + ADDRESS_DESC_AMY + "   "
-            + TAG_DESC_FRIEND + " ";
+            + SKILL_DESC_C + " ";
         assertCommandSuccess(command, toAdd);
 
         /* Case: undo adding Amy to the list -> Amy deleted */
@@ -78,7 +78,7 @@ public class AddEmployeeCommandSystemTest extends AddressBookSystemTest {
         /* Case: add a employee with all fields same as another employee in the address book except name -> added */
         toAdd = new EmployeeBuilder(AMY).withName(VALID_NAME_BOB).build();
         command = AddEmployeeCommand.COMMAND_WORD + " " + AddEmployeeCommand.ADD_EMPLOYEE_KEYWORD + NAME_DESC_BOB
-            + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + TAG_DESC_FRIEND;
+            + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + SKILL_DESC_C;
         assertCommandSuccess(command, toAdd);
 
         /* Case: add a employee with all fields same as another employee in the address book except phone and email
@@ -94,8 +94,8 @@ public class AddEmployeeCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: add a employee with tags, command with parameters in random order -> added */
         toAdd = BOB;
-        command = AddEmployeeCommand.COMMAND_WORD + " " + AddEmployeeCommand.ADD_EMPLOYEE_KEYWORD + TAG_DESC_FRIEND
-            + PHONE_DESC_BOB + ADDRESS_DESC_BOB + NAME_DESC_BOB + TAG_DESC_HUSBAND + EMAIL_DESC_BOB;
+        command = AddEmployeeCommand.COMMAND_WORD + " " + AddEmployeeCommand.ADD_EMPLOYEE_KEYWORD + SKILL_DESC_C
+            + PHONE_DESC_BOB + ADDRESS_DESC_BOB + NAME_DESC_BOB + SKILL_DESC_JAVA + EMAIL_DESC_BOB;
         assertCommandSuccess(command, toAdd);
 
         /* Case: add a employee, missing tags -> added */
@@ -135,7 +135,7 @@ public class AddEmployeeCommandSystemTest extends AddressBookSystemTest {
         assertCommandFailure(command, AddEmployeeCommand.MESSAGE_DUPLICATE_EMPLOYEE);
 
         /* Case: add a duplicate employee except with different tags -> rejected */
-        command = EmployeeUtil.getAddEmployeeCommand(HOON) + " " + PREFIX_TAG.getPrefix() + "friends";
+        command = EmployeeUtil.getAddEmployeeCommand(HOON) + " " + PREFIX_SKILL.getPrefix() + "friends";
         assertCommandFailure(command, AddEmployeeCommand.MESSAGE_DUPLICATE_EMPLOYEE);
 
         /* Case: missing name -> rejected */
@@ -182,10 +182,10 @@ public class AddEmployeeCommandSystemTest extends AddressBookSystemTest {
             + PHONE_DESC_AMY + EMAIL_DESC_AMY + INVALID_ADDRESS_DESC;
         assertCommandFailure(command, Address.MESSAGE_CONSTRAINTS);
 
-        /* Case: invalid tag -> rejected */
+        /* Case: invalid skill -> rejected */
         command = AddEmployeeCommand.COMMAND_WORD + " " + AddEmployeeCommand.ADD_EMPLOYEE_KEYWORD + NAME_DESC_AMY
-            + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + INVALID_TAG_DESC;
-        assertCommandFailure(command, Tag.MESSAGE_CONSTRAINTS);
+            + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + INVALID_SKILL_DESC;
+        assertCommandFailure(command, Skill.MESSAGE_CONSTRAINTS);
     }
 
     /**

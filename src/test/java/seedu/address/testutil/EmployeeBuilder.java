@@ -8,7 +8,7 @@ import seedu.address.model.employee.Email;
 import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.skill.Skill;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -25,14 +25,14 @@ public class EmployeeBuilder {
     private Phone phone;
     private Email email;
     private Address address;
-    private Set<Tag> tags;
+    private Set<Skill> skills;
 
     public EmployeeBuilder() {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
-        tags = new HashSet<>();
+        skills = new HashSet<>();
     }
 
     /**
@@ -43,7 +43,7 @@ public class EmployeeBuilder {
         phone = employeeToCopy.getPhone();
         email = employeeToCopy.getEmail();
         address = employeeToCopy.getAddress();
-        tags = new HashSet<>(employeeToCopy.getTags());
+        skills = new HashSet<>(employeeToCopy.getSkills());
     }
 
     /**
@@ -55,10 +55,10 @@ public class EmployeeBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Employee} that we are building.
+     * Parses the {@code skills} into a {@code Set<Skill>} and set it to the {@code Employee} that we are building.
      */
-    public EmployeeBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+    public EmployeeBuilder withSkills(String ... skills) {
+        this.skills = SampleDataUtil.getSkillSet(skills);
         return this;
     }
 
@@ -87,7 +87,7 @@ public class EmployeeBuilder {
     }
 
     public Employee build() {
-        return new Employee(name, phone, email, address, tags);
+        return new Employee(name, phone, email, address, skills);
     }
 
 }

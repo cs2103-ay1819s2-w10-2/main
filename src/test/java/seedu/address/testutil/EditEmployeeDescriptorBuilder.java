@@ -10,7 +10,7 @@ import seedu.address.model.employee.Email;
 import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.skill.Skill;
 
 /**
  * A utility class to help with building EditEmployeeDescriptor objects.
@@ -36,7 +36,7 @@ public class EditEmployeeDescriptorBuilder {
         descriptor.setPhone(employee.getPhone());
         descriptor.setEmail(employee.getEmail());
         descriptor.setAddress(employee.getAddress());
-        descriptor.setTags(employee.getTags());
+        descriptor.setSkills(employee.getSkills());
     }
 
     /**
@@ -72,12 +72,12 @@ public class EditEmployeeDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditEmployeeDescriptor}
+     * Parses the {@code skills} into a {@code Set<Skill>} and set it to the {@code EditEmployeeDescriptor}
      * that we are building.
      */
-    public EditEmployeeDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
+    public EditEmployeeDescriptorBuilder withSkills(String... skills) {
+        Set<Skill> skillSet = Stream.of(skills).map(Skill::new).collect(Collectors.toSet());
+        descriptor.setSkills(skillSet);
         return this;
     }
 
