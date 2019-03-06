@@ -1,9 +1,12 @@
 package seedu.address.ui;
 
 import javafx.scene.control.Tab;
-import javafx.scene.layout.Region;
 import javafx.scene.Node;
+import javafx.scene.layout.Region;
 
+/**
+ * Tab to contain project list
+ */
 public class ProjectTab extends UiPart<Region> {
     private static final String FXML = "ProjectTab.fxml";
 

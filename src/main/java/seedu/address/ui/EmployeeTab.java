@@ -1,11 +1,12 @@
 package seedu.address.ui;
 
 import javafx.scene.control.Tab;
-import javafx.scene.layout.Region;
 import javafx.scene.Node;
-import seedu.address.model.employee.Employee;
-import javafx.scene.control.ListView;
+import javafx.scene.layout.Region;
 
+/**
+ * Tab to contain the employee list
+ */
 public class EmployeeTab extends UiPart<Region> {
     private static final String FXML = "EmployeeTab.fxml";
 

@@ -15,9 +15,9 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.exceptions.ParseException;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Tab;
+import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -136,7 +136,7 @@ public class MainWindow extends UiPart<Stage> {
         projectTabPlaceholder.setContent(projectListPanel.getRoot());
 
         sideTabPlaceholder = new TabPane();
-        sideTabPlaceholder.getTabs().addAll(employeetab.getTab(),projecttab.getTab());
+        sideTabPlaceholder.getTabs().addAll(employeetab.getTab(), projecttab.getTab());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
