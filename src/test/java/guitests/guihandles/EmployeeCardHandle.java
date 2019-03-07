@@ -19,14 +19,14 @@ public class EmployeeCardHandle extends NodeHandle<Node> {
     private static final String ADDRESS_FIELD_ID = "#address";
     private static final String PHONE_FIELD_ID = "#phone";
     private static final String EMAIL_FIELD_ID = "#email";
-    private static final String TAGS_FIELD_ID = "#tags";
+    private static final String SKILLS_FIELD_ID = "#skills";
 
     private final Label idLabel;
     private final Label nameLabel;
     private final Label addressLabel;
     private final Label phoneLabel;
     private final Label emailLabel;
-    private final List<Label> tagLabels;
+    private final List<Label> skillLabels;
 
     public EmployeeCardHandle(Node cardNode) {
         super(cardNode);
@@ -37,8 +37,8 @@ public class EmployeeCardHandle extends NodeHandle<Node> {
         phoneLabel = getChildNode(PHONE_FIELD_ID);
         emailLabel = getChildNode(EMAIL_FIELD_ID);
 
-        Region tagsContainer = getChildNode(TAGS_FIELD_ID);
-        tagLabels = tagsContainer
+        Region skillsContainer = getChildNode(SKILLS_FIELD_ID);
+        skillLabels = skillsContainer
                 .getChildrenUnmodifiable()
                 .stream()
                 .map(Label.class::cast)
@@ -65,8 +65,8 @@ public class EmployeeCardHandle extends NodeHandle<Node> {
         return emailLabel.getText();
     }
 
-    public List<String> getTags() {
-        return tagLabels
+    public List<String> getSkills() {
+        return skillLabels
                 .stream()
                 .map(Label::getText)
                 .collect(Collectors.toList());
@@ -80,8 +80,8 @@ public class EmployeeCardHandle extends NodeHandle<Node> {
                 && getAddress().equals(employee.getAddress().value)
                 && getPhone().equals(employee.getPhone().value)
                 && getEmail().equals(employee.getEmail().value)
-                && ImmutableMultiset.copyOf(getTags()).equals(ImmutableMultiset.copyOf(employee.getTags().stream()
-                        .map(tag -> tag.tagName)
+                && ImmutableMultiset.copyOf(getSkills()).equals(ImmutableMultiset.copyOf(employee.getSkills().stream()
+                        .map(skill -> skill.skillName)
                         .collect(Collectors.toList())));
     }
 }

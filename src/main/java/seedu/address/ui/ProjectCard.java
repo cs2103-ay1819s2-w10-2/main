@@ -40,8 +40,8 @@ public class ProjectCard extends UiPart<Region> {
         this.project = project;
         id.setText(displayedIndex + ". ");
         name.setText(project.getProjectName().projectName);
-        client.setText(project.getClient().client);
-        deadline.setText(project.getDeadline().deadline);
+        client.setText("Client: " + project.getClient().client);
+        deadline.setText("Deadline: " + project.getDeadline().deadline);
     }
 
     @Override
