@@ -17,6 +17,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.exceptions.EmployeeNotFoundException;
+import seedu.address.model.project.exceptions.ProjectNotFoundException;
 import seedu.address.model.project.Project;
 
 /**
@@ -30,6 +31,7 @@ public class ModelManager implements Model {
     private final FilteredList<Employee> filteredEmployees;
     private final FilteredList<Project> filteredProjects;
     private final SimpleObjectProperty<Employee> selectedEmployee = new SimpleObjectProperty<>();
+    private final SimpleObjectProperty<Project> selectedProject = new SimpleObjectProperty<>();
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -46,7 +48,7 @@ public class ModelManager implements Model {
         filteredEmployees.addListener(this::ensureSelectedEmployeeIsValid);
 
         filteredProjects = new FilteredList<>(versionedAddressBook.getProjectList());
-        filteredEmployees.addListener(this::ensureSelectedEmployeeIsValid);
+        filteredProjects.addListener(this::ensureSelectedProjectIsValid);
 
     }
 
@@ -264,6 +266,58 @@ public class ModelManager implements Model {
             }
         }
     }
+
+    //========= Selected project ==================================================================================
+
+    @Override
+    public ReadOnlyProperty<Project> selectedProjectProperty() {
+        return selectedProject;
+    }
+    @Override
+    public Project getSelectedProject() {
+        return selectedProject.getValue();
+    }
+
+    //TODO CHANGE THIS
+    @Override
+    public void setSelectedProject(Project project) {
+        if (project != null && !filteredProjects.contains(project)) {
+            throw new ProjectNotFoundException();
+        }
+        selectedProject.setValue(project);
+    }
+
+    /**
+     * Ensures {@code selectedProject} is a valid project in {@code filteredProject}.
+     */
+    private void ensureSelectedProjectIsValid(ListChangeListener.Change<? extends Project> change) {
+        while (change.next()) {
+            if (selectedProject.getValue() == null) {
+                // null is always a valid selected project, so we do not need to check that it is valid anymore.
+                return;
+            }
+
+            boolean wasSelectedProjectReplaced = change.wasReplaced()
+                    && change.getAddedSize() == change.getRemovedSize()
+                    && change.getRemoved().contains(selectedProject.getValue());
+            if (wasSelectedProjectReplaced) {
+                // Update selectedProject to its new value.
+                int index = change.getRemoved().indexOf(selectedProject.getValue());
+                selectedProject.setValue(change.getAddedSubList().get(index));
+                continue;
+            }
+
+            boolean wasSelectedProjectRemoved = change.getRemoved().stream()
+                    .anyMatch(removedProject -> selectedProject.getValue().isSameProject(removedProject));
+            if (wasSelectedProjectRemoved) {
+                // Select the project that came before it in the list,
+                // or clear the selection if there is no such project.
+                selectedProject.setValue(change.getFrom() > 0 ? change.getList().get(change.getFrom() - 1) : null);
+            }
+        }
+    }
+
+//===================================================================================================
 
     @Override
     public boolean equals(Object obj) {

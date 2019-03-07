@@ -12,7 +12,7 @@ public class Deadline {
     public static final String MESSAGE_CONSTRAINTS = "Deadlines should be in the format DD/MM/YYYY";
 
     /*
-     * The first character of the name must not be a whitespace,
+     * The first character of the input must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";

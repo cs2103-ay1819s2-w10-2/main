@@ -93,6 +93,23 @@ public interface Model {
      */
     void updateFilteredEmployeeList(Predicate<Employee> predicate);
 
+    /**
+     * Selected employee in the filtered employee list.
+     * null if no employee is selected.
+     */
+    ReadOnlyProperty<Employee> selectedEmployeeProperty();
+
+    /**
+     * Returns the selected employee in the filtered employee list.
+     * null if no employee is selected.
+     */
+    Employee getSelectedEmployee();
+
+    /**
+     * Sets the selected employee in the filtered employee list.
+     */
+    void setSelectedEmployee(Employee employee);
+
 
     //------------- Methods related to projects ----------------------------------------------------------
     /**
@@ -127,6 +144,23 @@ public interface Model {
      */
     ObservableList<Project> getProjectList();
 
+    /**
+     * Selected project in the filtered projects list.
+     * null if no project is selected.
+     */
+    ReadOnlyProperty<Project> selectedProjectProperty();
+
+    /**
+     * Returns the selected project in the filtered projects list.
+     * null if no project is selected.
+     */
+    Project getSelectedProject();
+
+    /**
+     * Sets the selected project in the filtered projects list.
+     */
+    void setSelectedProject(Project project);
+
     //-------------------------------------------------------------------------------------------
 
     /**
@@ -154,20 +188,4 @@ public interface Model {
      */
     void commitAddressBook();
 
-    /**
-     * Selected employee in the filtered employee list.
-     * null if no employee is selected.
-     */
-    ReadOnlyProperty<Employee> selectedEmployeeProperty();
-
-    /**
-     * Returns the selected employee in the filtered employee list.
-     * null if no employee is selected.
-     */
-    Employee getSelectedEmployee();
-
-    /**
-     * Sets the selected employee in the filtered employee list.
-     */
-    void setSelectedEmployee(Employee employee);
 }

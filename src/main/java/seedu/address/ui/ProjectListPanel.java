@@ -1,6 +1,9 @@
 package seedu.address.ui;
+import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -19,10 +22,33 @@ public class ProjectListPanel extends UiPart<Region> {
     @FXML
     private ListView<Project> projectListView;
 
-    public ProjectListPanel(ObservableList<Project> projectList) {
+    public ProjectListPanel(ObservableList<Project> projectList,
+                            ObservableValue<Project>selectedProject,
+                            Consumer<Project> onSelectedProjectChange) {
         super(FXML);
         projectListView.setItems(projectList);
-        projectListView.setCellFactory(listView -> new ProjectListViewCell());
+        projectListView.setCellFactory(listView -> new ProjectListPanel.ProjectListViewCell());
+        projectListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            logger.fine("Selection in employee list panel changed to : '" + newValue + "'");
+            onSelectedProjectChange.accept(newValue);
+        });
+        selectedProject.addListener((observable, oldValue, newValue) -> {
+            logger.fine("Selected employee changed to: " + newValue);
+
+            // Don't modify selection if we are already selecting the selected employee,
+            // otherwise we would have an infinite loop.
+            if (Objects.equals(projectListView.getSelectionModel().getSelectedItem(), newValue)) {
+                return;
+            }
+
+            if (newValue == null) {
+                projectListView.getSelectionModel().clearSelection();
+            } else {
+                int index = projectListView.getItems().indexOf(newValue);
+                projectListView.scrollTo(index);
+                projectListView.getSelectionModel().clearAndSelect(index);
+            }
+        });
     }
 
     /**
