@@ -138,6 +138,7 @@ public class MainWindow extends UiPart<Stage> {
         sideTabPlaceholder = new TabPane();
         sideTabPlaceholder.getTabs().addAll(employeetab.getTab(), projecttab.getTab());
 
+
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 

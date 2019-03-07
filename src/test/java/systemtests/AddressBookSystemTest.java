@@ -24,6 +24,7 @@ import org.junit.ClassRule;
 import guitests.guihandles.BrowserPanelHandle;
 import guitests.guihandles.CommandBoxHandle;
 import guitests.guihandles.EmployeeListPanelHandle;
+import guitests.guihandles.ProjectListPanelHandle;
 import guitests.guihandles.MainMenuHandle;
 import guitests.guihandles.MainWindowHandle;
 import guitests.guihandles.ResultDisplayHandle;
@@ -32,9 +33,12 @@ import guitests.guihandles.StatusBarFooterHandle;
 import seedu.address.TestApp;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindEmployeeCommand;
+import seedu.address.logic.commands.FindProjectCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListEmployeeCommand;
+import seedu.address.logic.commands.ListProjectCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -104,6 +108,10 @@ public abstract class AddressBookSystemTest {
         return mainWindowHandle.getEmployeeListPanel();
     }
 
+    public ProjectListPanelHandle getProjectListPanel() {
+        return mainWindowHandle.getProjectListPanel();
+    }
+
     public MainMenuHandle getMainMenu() {
         return mainWindowHandle.getMainMenu();
     }
@@ -166,6 +174,40 @@ public abstract class AddressBookSystemTest {
     protected void deleteAllEmployees() {
         executeCommand(ClearCommand.COMMAND_WORD);
         assertEquals(0, getModel().getAddressBook().getEmployeeList().size());
+    }
+
+    /**
+     * Displays all projects in the projects list.
+     */
+    protected void showAllProjects() {
+        executeCommand(ListCommand.COMMAND_WORD + " " + ListProjectCommand.LIST_PROJECT_KEYWORD);
+        assertEquals(getModel().getAddressBook().getEmployeeList().size(), getModel().getFilteredEmployeeList().size());
+    }
+
+    /**
+     * Displays all projects with any parts of their names matching {@code keyword} (case-insensitive).
+     */
+    protected void showProjectsWithName(String keyword) {
+        executeCommand(FindCommand.COMMAND_WORD + " " + FindProjectCommand.FIND_PROJECT_KEYWORD
+                + " " + keyword);
+        assertTrue(getModel().getFilteredProjectList().size() <
+                getModel().getAddressBook().getProjectList().size());
+    }
+
+    /**
+     * Selects the project at {@code index} of the displayed list.
+     */
+    protected void selectProject(Index index) {
+        executeCommand(SelectCommand.COMMAND_WORD + " " + index.getOneBased());
+        assertEquals(index.getZeroBased(), getProjectListPanel().getSelectedCardIndex());
+    }
+
+    /**
+     * Deletes all projects in the address book.
+     */
+    protected void deleteAllProjects() {
+        executeCommand(ClearCommand.COMMAND_WORD);
+        assertEquals(0, getModel().getAddressBook().getProjectList().size());
     }
 
     /**
