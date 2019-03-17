@@ -30,10 +30,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#removing-employee-from-project">3.1. Removing employee from project</a></li>
-<li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#find-employee-project-skill-feature">3.2. Find Employee/Project/Skill feature</a></li>
+<li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -576,9 +577,76 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.2. Undo/Redo feature</a></h3>
+<h3 id="find-employee-project-skill-feature"><a class="link" href="#find-employee-project-skill-feature">3.2. Find Employee/Project/Skill feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>For the current <code>find</code> feature, there are 3 main commands that the user can execute:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>find employee [keywords]</code> - display employees with name containing keywords</p>
+</li>
+<li>
+<p><code>find project [keywords]</code> - display projects with name containing keywords</p>
+</li>
+<li>
+<p><code>find skill [keywords]</code> - display employees who has skills matching the keywords</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>FindCommandParser</code> differentiate these 3 commands based on the <code>COMMAND_KEYWORDS</code> entered by the users (e.g. employee/project/skill).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>find employee</code> command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findcommand_sequence_diagram.png" alt="findcommand sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Usage Scenario example for <code>find employee</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>find employee John</code> to look for employees whose names contains the word 'John'.</p>
+</li>
+<li>
+<p><code>PocketProjectParser</code> will parse and identify the command as a <code>FindCommand</code> and pass on the argument <code>employee John</code> to <code>FindCommandParser</code>.</p>
+</li>
+<li>
+<p><code>FindCommandParser</code> identify the command based on the <code>COMMAND_KEYWORD</code> employee.</p>
+</li>
+<li>
+<p><code>find employee</code> command is executed. Employees with name consisting the keywords are filtered out from the employeelist and the <code>filteredEmployees</code> list which is the list displayed on the ui is updated.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The working mechanism for <code>find project</code> is similar to <code>find employee</code>. Instead of updating the <code>filteredEmployees</code>, <code>filteredProjects</code> is updated instead to display the list of projects with name consisting the keywords.</p>
+</div>
+<div class="paragraph">
+<p>For <code>find skill</code> command, the <code>List&lt;Skills&gt;skills</code> from employee is retrieved as a <code>String</code> to match against the keywords. Then the matched employees are filtered and displayed on the ui.
+==== Design Consideration
+===== Aspect: How <code>find</code> command is parsed
+Alternative 1: Have a nested <code>FindCommandParser</code> (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Let <code>PocketProjectParser</code> handle parsing of all the <code>find</code> commands</p>
+</div>
+<div class="paragraph">
+<p>Using Alternative 1 is better as it provides better abstraction as the details of the 3 different commands will be hidden away. Hence it is more in line with OOP principles. There will also be less clutter in <code>FindCommandParser</code> as there are already a lot of other commands being parsed.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.3. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -708,7 +776,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -778,20 +846,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -822,7 +890,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2279,4 +2347,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-17 13:21:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-17 16:21:31 UTC</div></div></div></body></html>
