@@ -29,7 +29,7 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#removing-employee-from-project">3.1. Removing employee from project</a></li>
+<li><a href="#remove-employee-milestone-from-projects-feature">3.1. Remove employee/milestone from projects feature</a></li>
 <li><a href="#find-employee-project-skill-feature">3.2. Find Employee/Project/Skill feature</a></li>
 <li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
@@ -569,17 +569,84 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="removing-employee-from-project"><a class="link" href="#removing-employee-from-project">3.1. Removing employee from project</a></h3>
+<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">3.1. Remove employee/milestone from projects feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The removing of employee or milestone from projects is facilitated by the model component of the PocketProject.
+This feature currently supports these two commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removefrom [project name] employee [employee index]</code>&#8201;&#8212;&#8201;removes the employee at index <code>[employee index]</code> in the list of employees in the project named <code>[project name]</code>.</p>
+</li>
+<li>
+<p><code>removefrom [project name] milestone [milestone index]</code>&#8201;&#8212;&#8201;removes the milestone at index <code>[milestone index]</code> in the list of milestones in the project named <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code> and <code>Model#removeMilestoneFrom(Project, Milestone)</code>.
+The methods does not take in indices as arguments since the corresponding Employee or Milestone object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>
+or <code>RemoveMilestoneFromCommand#execute()</code>
+before the methods of <code>Model</code> are called.
+The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone is similar:</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/remove_employee_from_sequence.png" alt="remove employee from sequence" width="1000">
+<img src="images/remove_employee_from_sequence_diagram.png" alt="remove employee from sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the removal of employee/milestone feature behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of employees and milestones in the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters <code>removefrom Apollo employee 1</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as falling under the class of <code>RemoveFromCommand</code> (which constitutes of <code>RemoveEmployeeFromCommand</code>
+and <code>RemoveMilestoneFromCommand</code> by the <code>removefrom</code> keyword and passes the rest of the string to the <code>RemoveFromCommandParser</code> to identify which type of <code>RemoveFromCommand</code> is being executed and what are the arguments.
+The <code>RemoveFromCommandParser</code> then creates command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to remove the corresponding objects.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes 'removefrom Apollo milestone 2'. The execution of this command is similar to step 2, just that the type of object changes from <code>Employee</code> to <code>Milestone</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code> or <code>[milestone index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo employee 1</code>) is parsed</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Let <code>PocketProjectParser</code> handle the whole string and construct the command.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Having 2 parsing stages where the <code>PocketProjectParser</code> identify that the command string is trying to execute a <code>RemoveFromCommand</code> from the <code>removefrom</code> key word, then passes
+the rest of the string to another specialized <code>RemoveFromCommandParser</code>. (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 2 is better  as it provides better abstraction as the details of the 2 different types of <code>RemoveFromCommand</code> will be hidden away, hence it is more in line with OOP principles.
+There will also be less clutter in <code>PocketProjectParser</code> as there are already a lot of other commands being parsed.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="find-employee-project-skill-feature"><a class="link" href="#find-employee-project-skill-feature">3.2. Find Employee/Project/Skill feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>For the current <code>find</code> feature, there are 3 main commands that the user can execute:</p>
 </div>
@@ -630,10 +697,15 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>The working mechanism for <code>find project</code> is similar to <code>find employee</code>. Instead of updating the <code>filteredEmployees</code>, <code>filteredProjects</code> is updated instead to display the list of projects with name consisting the keywords.</p>
 </div>
 <div class="paragraph">
-<p>For <code>find skill</code> command, the <code>List&lt;Skills&gt;skills</code> from employee is retrieved as a <code>String</code> to match against the keywords. Then the matched employees are filtered and displayed on the ui.
-==== Design Consideration
-===== Aspect: How <code>find</code> command is parsed
-Alternative 1: Have a nested <code>FindCommandParser</code> (current implementation)</p>
+<p>For <code>find skill</code> command, the <code>List&lt;Skills&gt;skills</code> from employee is retrieved as a <code>String</code> to match against the keywords. Then the matched employees are filtered and displayed on the ui.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-code-find-code-command-is-parsed"><a class="link" href="#aspect-how-code-find-code-command-is-parsed">Aspect: How <code>find</code> command is parsed</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Have a nested <code>FindCommandParser</code> (current implementation)</p>
 </div>
 <div class="paragraph">
 <p>Alternative 2: Let <code>PocketProjectParser</code> handle parsing of all the <code>find</code> commands</p>
@@ -643,10 +715,11 @@ Alternative 1: Have a nested <code>FindCommandParser</code> (current implementat
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.3. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -776,7 +849,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -2347,4 +2420,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 06:31:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 06:31:55 UTC</div></div></div></body></html>
