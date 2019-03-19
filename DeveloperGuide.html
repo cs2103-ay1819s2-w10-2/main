@@ -34,10 +34,11 @@
 <li><a href="#add-employee-milestone-to-projects-feature">5.1. Add employee/milestone to projects feature</a></li>
 <li><a href="#remove-employee-milestone-from-projects-feature">5.2. Remove employee/milestone from projects feature</a></li>
 <li><a href="#find-employee-project-skill-feature">5.3. Find Employee/Project/Skill feature</a></li>
-<li><a href="#undo-redo-feature">5.4. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">5.5. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">5.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">5.7. Configuration</a></li>
+<li><a href="#list-employee-project-feature">5.4. List Employee/Project feature</a></li>
+<li><a href="#undo-redo-feature">5.5. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">5.6. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">5.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">5.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">6. Documentation</a>
@@ -847,9 +848,76 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">5.4. Undo/Redo feature</a></h3>
+<h3 id="list-employee-project-feature"><a class="link" href="#list-employee-project-feature">5.4. List Employee/Project feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">5.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">5.4.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>For the current list feature, there are 2 main commands that the user can execute:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list employee</code> - displays all employees</p>
+</li>
+<li>
+<p><code>list project</code> - displays all projects</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>ListCommandParser</code> will parse the user input based on the <code>COMMAND_KEYWORD</code> entered by the user, and then execute the appropriate command based on the keyword given.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the list employee command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listcommand_sequence_diagram.png" alt="listcommand sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Usage Scenario example for <code>list employee</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>list employee</code> to list all employees in PocketProject.</p>
+</li>
+<li>
+<p><code>PocketProjectParser</code> will parse and identify the command as a <code>ListCommand</code> and pass the argument employee to <code>ListCommandParser</code>.</p>
+</li>
+<li>
+<p><code>ListCommandParser</code> identifies the command to execute based on the <code>COMMAND_KEYWORD</code> and returns a <code>ListEmployeeCommand</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> then executes <code>ListEmployeeCommand</code>. All the employees in PocketProject will be returned by the <code>filteredEmployees</code> list.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The mechanism for <code>list project</code> is similar to <code>list employee</code>, apart from the fact that a <code>ListProjectCommand</code> is executed instead.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.4.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-code-list-command-code-is-parsed"><a class="link" href="#aspect-how-code-list-command-code-is-parsed">Aspect: How <code>list command</code> is parsed</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Have a separate command parser for all <code>list</code> commands (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Let <code>PocketProjectParser</code> handle parsing of all the <code>list</code> commands</p>
+</div>
+<div class="paragraph">
+<p>Using Alternative 1 is better as it provides better abstraction as the <code>listCommandParser</code> will handle all <code>list</code> commands. It also reduces the cluttering in the main <code>PocketProjectParser</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">5.5. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">5.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedPocketProject</code>.
 It extends <code>PocketProject</code> with an undo/redo history, stored internally as an <code>pocketProjectStateList</code> and <code>currentStatePointer</code>.
@@ -979,7 +1047,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">5.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">5.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1049,20 +1117,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">5.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">5.6. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">5.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">5.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 5.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 5.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1093,7 +1161,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">5.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">5.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2550,4 +2618,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 19:12:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 08:03:55 UTC</div></div></div></body></html>
