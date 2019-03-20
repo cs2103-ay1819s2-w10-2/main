@@ -1,9 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>PocketProject - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Pocket Project - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>PocketProject - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Pocket Project - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>Authors: <code>Daryl Tan, Jeff Gan, Jothinandan Pillay, Lin Dehui, Shune Lei</code></p>
+</div>
+<div class="paragraph">
+<p>Since: <code>August 2018</code> License: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -15,17 +18,17 @@
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-an-employee-or-project-to-the-application-code-add-code">4.2. Adding an employee or project to the application: <code>add</code></a></li>
-<li><a href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">4.3. Delete a project or an employee from the application <code>delete</code></a></li>
-<li><a href="#listing-all-employees-or-projects-code-list-code">4.4. Listing all employees or projects : <code>list</code></a></li>
-<li><a href="#editing-an-employee-code-edit-code">4.5. Editing an employee : <code>edit</code></a></li>
+<li><a href="#add-an-employee-or-project-to-the-application-code-add-code">4.2. Add an employee or project to the application: <code>add</code></a></li>
+<li><a href="#delete-an-employee-or-a-project-from-the-application-code-delete-code">4.3. Delete an employee or a project from the application <code>delete</code></a></li>
+<li><a href="#listing-all-employees-or-projects-in-application-code-list-code">4.4. Listing all employees or projects in application : <code>list</code></a></li>
+<li><a href="#edit-an-employee-in-the-application-code-edit-code">4.5. Edit an employee in the application : <code>edit</code></a></li>
 <li><a href="#locating-employees-projects-or-skills-by-name-code-find-code">4.6. Locating employees, projects or skills by name: <code>find</code></a></li>
-<li><a href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.7. Add an employee or milestone to a project : <code>addto</code></a></li>
-<li><a href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.8. Remove an employee or milestone from a project : <code>removefrom</code></a></li>
-<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.9. To indicate the project has been completed : <code>complete</code></a></li>
-<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.10. Sort the projects by name or deadline : <code>sort</code></a></li>
-<li><a href="#display-statistics-regarding-all-the-projects-code-stats-code">4.11. Display statistics regarding all the projects : <code>stats</code></a></li>
-<li><a href="#selects-an-employee-or-project-code-select-code">4.12. Selects an employee or project : <code>select</code></a></li>
+<li><a href="#view-the-details-of-employees-or-projects-code-view-code">4.7. View the details of employees or projects : <code>view</code></a></li>
+<li><a href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.8. Add an employee or milestone to a project : <code>addto</code></a></li>
+<li><a href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.9. Remove an employee or milestone from a project : <code>removefrom</code></a></li>
+<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></li>
+<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.11. Sort the projects by name or deadline : <code>sort</code></a></li>
+<li><a href="#display-statistics-regarding-all-the-projects-code-stats-code">4.12. Display statistics regarding all the projects : <code>stats</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.13. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">4.14. Saving the data</a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
@@ -62,10 +65,10 @@ working on particular project and all the projects currently under a single empl
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>pocketproject.jar</code> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your Pocket Project.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -88,7 +91,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named
-<code>John Doe</code> to the Address Book.</p>
+<code>John Doe</code> to the Pocket Project.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd employee shown in the current list</p>
@@ -127,19 +130,24 @@ special information such as tips and warnings.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any useful tips or things that users
+need to take note of while using the Pocket Project application.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon will be used to indicate any useful tips or shortcuts
-that users can take note of while using the PocketProject application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon indicates any shortcuts
+that users can use while using the Pocket Project application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon will be used to indicate any warnings that users
- can take note of while using the PocketProject application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that users
+ can take note of while using the Pocket Project application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-smart.png" alt="ug smart" width="60"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The graduation cap icon will be used to indicate any advanced usages or
- extra technical information about how a particular command works should
+<td class="tableblock halign-left valign-top"><p class="tableblock">The graduation cap icon indicates any advanced usages or
+ extra technical information about how a particular command works should the
  users be interested to know.</p></td>
 </tr>
 </tbody>
@@ -166,7 +174,7 @@ that users can take note of while using the PocketProject application.</p></td>
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[s/Skill]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>s/Java</code>, <code>s/Java s/HTML</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, then  <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -179,14 +187,14 @@ that users can take note of while using the PocketProject application.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-employee-or-project-to-the-application-code-add-code"><a class="link" href="#adding-an-employee-or-project-to-the-application-code-add-code">4.2. Adding an employee or project to the application: <code>add</code></a></h3>
+<h3 id="add-an-employee-or-project-to-the-application-code-add-code"><a class="link" href="#add-an-employee-or-project-to-the-application-code-add-code">4.2. Add an employee or project to the application: <code>add</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-employee-to-the-application-code-add-employee-code"><a class="link" href="#add-an-employee-to-the-application-code-add-employee-code">4.2.1. Add an employee to the application: <code>add employee</code></a></h4>
 <div class="paragraph">
-<p>Adds an employee to the list of employees.<br>
-Format: <code>add employee n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [s/SKILL]&#8230;&#8203;</code></p>
+<p>Adds an employee to the list of employees.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Tip: An employee can have any number of skills (including 0).</p>
+<p>Format: <code>add employee n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [s/SKILL]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -197,13 +205,22 @@ Tip: An employee can have any number of skills (including 0).</p>
 <p><code>add employee n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
 </li>
 <li>
-<p><code>add employee n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add employee n/Betsy Crowe e/betsycrowe@example.com a/Newgate Prison p/1234567 s/HTML</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Adds a project to the list of projects.<br>
-Format: <code>add project n/NAME d/DEADLINE c/CLIENT_NAME</code></p>
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+An employee can have any number of skills (including 0).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-project-to-the-application-code-add-project-code"><a class="link" href="#add-a-project-to-the-application-code-add-project-code">4.2.2. Add a project to the application: <code>add project</code></a></h4>
+<div class="paragraph">
+<p>Adds a project to the list of projects.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add project n/NAME d/DEADLINE c/CLIENT_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -213,36 +230,36 @@ Format: <code>add project n/NAME d/DEADLINE c/CLIENT_NAME</code></p>
 <li>
 <p><code>add project n/Apollo d/12/12/2019 c/FairPrice</code></p>
 </li>
+<li>
+<p><code>add project n/Xtreme c/John Smith d/13/04/2020</code></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Shortcut: Users can simple use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
+Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
 while keying in a command into the CLI.</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="delete-a-project-or-an-employee-from-the-application-code-delete-code"><a class="link" href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">4.3. Delete a project or an employee from the application <code>delete</code></a></h3>
+<h3 id="delete-an-employee-or-a-project-from-the-application-code-delete-code"><a class="link" href="#delete-an-employee-or-a-project-from-the-application-code-delete-code">4.3. Delete an employee or a project from the application <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="delete-an-employee-from-the-application-code-delete-employee-code"><a class="link" href="#delete-an-employee-from-the-application-code-delete-employee-code">4.3.1. Delete an employee from the application: <code>delete employee</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified employee from the employee list.<br>
-Format: <code>delete employee INDEX</code></p>
+<p>Deletes the specified employee from the employee list.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the employee at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed employee list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>delete employee INDEX</code></p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Deletes the employee at the specified <code>INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of employees.</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -252,18 +269,29 @@ Format: <code>delete employee INDEX</code></p>
 <li>
 <p><code>list employees</code><br>
 <code>delete employee 2</code><br>
-Deletes the 2nd person in the employee list.</p>
+Deletes the 2nd person in the displayed employee list.</p>
 </li>
 <li>
 <p><code>find employee Betsy</code><br>
 <code>delete employee 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st person in the resultant employee list shown by the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Deletes the project from the list of projects.<br>
-Format: <code>delete project PROJECT_NAME</code></p>
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Either the <code>list employee</code> command or the <code>find employee</code> command needs to be invoked
+before calling the <code>delete employee</code> command as the index is referenced from the last returned list
+of employees.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-project-from-the-application-code-delete-project-code"><a class="link" href="#delete-a-project-from-the-application-code-delete-project-code">4.3.2. Delete a project from the application: <code>delete project</code></a></h4>
+<div class="paragraph">
+<p>Deletes the project from the list of projects.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete project PROJECT_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -272,52 +300,55 @@ Format: <code>delete project PROJECT_NAME</code></p>
 <p><code>delete project Apollo</code><br>
 Deletes project "Apollo" from project list.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-employees-or-projects-code-list-code"><a class="link" href="#listing-all-employees-or-projects-code-list-code">4.4. Listing all employees or projects : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all employees in the employee list.<br>
-Format: <code>list employees</code></p>
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
+while keying in a command into the CLI.</p>
 </div>
-<div class="paragraph">
-<p>Shows a list of all projects in the project list.<br>
-Format: <code>list projects</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-employee-code-edit-code"><a class="link" href="#editing-an-employee-code-edit-code">4.5. Editing an employee : <code>edit</code></a></h3>
+<h3 id="listing-all-employees-or-projects-in-application-code-list-code"><a class="link" href="#listing-all-employees-or-projects-in-application-code-list-code">4.4. Listing all employees or projects in application : <code>list</code></a></h3>
+<div class="sect3">
+<h4 id="list-all-employees-in-the-application-code-list-employees-code"><a class="link" href="#list-all-employees-in-the-application-code-list-employees-code">4.4.1. List all employees in the application: <code>list employees</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing employee.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SKILL]&#8230;&#8203;</code></p>
+<p>Shows a list of all employees in the employee list.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the employee at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed employee list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing skills, the existing skills of the person will be removed i.e adding of skills is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s skills by typing <code>s/</code> without specifying any skills after it.</p>
-</li>
-<li>
-<p>When editing skills, the existing skills of the employee will be removed i.e adding of skills is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the employee&#8217;s skills by typing <code>t/</code> without specifying any skills after it.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>list employees</code></p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="list-all-projects-in-the-application-code-list-projects-code"><a class="link" href="#list-all-projects-in-the-application-code-list-projects-code">4.4.2. List all projects in the application: <code>list projects</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all projects in the project list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list projects</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
+while keying in a command into the CLI.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-an-employee-in-the-application-code-edit-code"><a class="link" href="#edit-an-employee-in-the-application-code-edit-code">4.5. Edit an employee in the application : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing employee.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SKILL]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Edits the employee at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed employee list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+At least one of the optional fields must be provided and all existing values will be updated with the input values.
+When editing skills, the existing skills of the person will be removed i.e adding of skills is not cumulative.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -329,29 +360,33 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SKILL]&#823
 Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower s/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing skills.
-Edits the phone number and email address of the 1st employee to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 2 n/Betsy Crower s/Java</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and sets Java as the only skill.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd employee to be <code>Betsy Crower</code> and clears all existing skills.</p>
+<p>`edit 2 n/Betsy Crower s/C s/HTML` +
+Edits the name of the 2nd employee to be `Betsy Crower` and sets C and HTML as the skills.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+You can remove all the person&#8217;s skills by typing <code>s/</code> without specifying any skills after it.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="locating-employees-projects-or-skills-by-name-code-find-code"><a class="link" href="#locating-employees-projects-or-skills-by-name-code-find-code">4.6. Locating employees, projects or skills by name: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="find-employees-in-the-application-code-find-employee-code"><a class="link" href="#find-employees-in-the-application-code-find-employee-code">4.6.1. Find employees in the application: <code>find employee</code></a></h4>
 <div class="paragraph">
-<p>There are 3 different commands that can be used to find entities in the PocketProject:</p>
+<p>Finds employees whose names contain any of the given keywords.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Finds employees whose names contain any of the given keywords.<br>
-Format: <code>find employee KEYWORD [MORE_KEYWORDS]</code></p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Format: <code>find employee KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -372,10 +407,14 @@ Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">4.6.2. Find projects in the application: <code>find project</code></a></h4>
 <div class="paragraph">
-<p>2.
-Finds projects whose names contain any of the given keywords.<br>
-Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds projects whose names contain any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -388,10 +427,22 @@ Returns a list of projects with names that contain Apollo</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="find-employees-with-skills-code-find-skill-code"><a class="link" href="#find-employees-with-skills-code-find-skill-code">4.6.3. Find employees with skills: <code>find skill</code></a></h4>
 <div class="paragraph">
-<p>3.
-Finds employees with the chosen skill.<br>
-Format: <code>find skill KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds employees with the chosen skill.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find skill KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -402,45 +453,28 @@ Format: <code>find skill KEYWORD [MORE_KEYWORDS]</code></p>
 <p><code>find skill java</code><br>
 Returns a list of employees who has java skill.</p>
 </li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>`find skill java C`
+Returns a list of employees who have either java or C or both.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-</ul>
-</div>
-</div>
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </div>
 <div class="paragraph">
-<p>An example usage scenario:</p>
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee', 'p' as an alias for 'project', 's' as an alias for 'skills'
+while keying in a command into the CLI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-command-usage-scenario"><a class="link" href="#find-command-usage-scenario">4.6.4. Find Command Usage Scenario</a></h4>
 <div class="paragraph">
 <p>For example, to delete Bernice Yu from the employee list, you can follow these steps:</p>
 </div>
@@ -453,23 +487,24 @@ Returns a list of employees who has java skill.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2: <code>delete 1</code> - deletes Bernice Yu who is the 1st employee in the result of the <code>find employee Bernice</code> command.
-=== View the details of employees or projects or milestones : <code>view</code></p>
+<p>Step 2: <code>delete 1</code> - deletes Bernice Yu who is the 1st employee in the result of the <code>find employee Bernice</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-the-details-of-employees-or-projects-code-view-code"><a class="link" href="#view-the-details-of-employees-or-projects-code-view-code">4.7. View the details of employees or projects : <code>view</code></a></h3>
+<div class="sect3">
+<h4 id="view-details-of-an-employee-code-view-employee-code"><a class="link" href="#view-details-of-an-employee-code-view-employee-code">4.7.1. View details of an employee: <code>view employee</code></a></h4>
+<div class="paragraph">
+<p>Returns a view of details of the chosen employee.</p>
 </div>
 <div class="paragraph">
-<p>Returns the list of milestones and employees in a project.<br>
-Format: <code>view project PROJECT_NAME</code></p>
+<p>Format: <code>view employee EMPLOYEE_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="paragraph">
-<p><code>view project Apollo</code><br>
-Displays details of the project named “Apollo”</p>
-</div>
-<div class="paragraph">
-<p>Returns a view of details of the chosen employee.<br>
-Format: <code>view employee EMPLOYEE_INDEX</code></p>
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+When viewing the employee, the GitHub page of the employee
+will also be loaded.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -480,40 +515,100 @@ Format: <code>view employee EMPLOYEE_INDEX</code></p>
 Displays details of the employee at index 3</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="add-an-employee-or-milestone-to-a-project-code-addto-code"><a class="link" href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.7. Add an employee or milestone to a project : <code>addto</code></a></h3>
+<div class="sect3">
+<h4 id="view-details-of-a-project-code-view-project-code"><a class="link" href="#view-details-of-a-project-code-view-project-code">4.7.2. View details of a project: <code>view project</code></a></h4>
 <div class="paragraph">
-<p>Adds an employee to a project.<br>
-Format: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
+<p>Returns the list of milestones and employees in a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view project PROJECT_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>addto Apollo employee John Doe</code><br>
-John Doe is added to Project Apollo.</p>
+<p><code>view project Apollo</code><br>
+Displays details (client, deadline, employees, milestones) of project “Apollo”.</p>
 </div>
 <div class="paragraph">
-<p><code>addto Starrer employee Vanessa Peterson</code><br>
-Vanessa Peterson is added to Project Starrer.</p>
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
+while keying in a command into the CLI.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-an-employee-or-milestone-to-a-project-code-addto-code"><a class="link" href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.8. Add an employee or milestone to a project : <code>addto</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-employee-to-a-project-code-addto-employee-code"><a class="link" href="#add-an-employee-to-a-project-code-addto-employee-code">4.8.1. Add an employee to a project: <code>addto employee</code></a></h4>
+<div class="paragraph">
+<p>Adds an employee to a project.</p>
 </div>
 <div class="paragraph">
-<p>Adds a milestone to a project<br>
-Format: <code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code></p>
+<p>Format: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Adds the employee at the specified <code>INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of employees.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list employees</code><br>
+<code>addto Apollo employee 2</code><br>
+Adds the 2nd person in the displayed employee list to project "Apollo".</p>
+</li>
+<li>
+<p><code>find employee John Han</code><br>
+<code>addto Apollo employee 5</code><br>
+Adds the 5th person in the displayed employee list to project "Apollo".</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-milestone-to-a-project-code-addto-milestone-code"><a class="link" href="#add-a-milestone-to-a-project-code-addto-milestone-code">4.8.2. Add a milestone to a project: <code>addto milestone</code></a></h4>
+<div class="paragraph">
+<p>Adds a milestone to a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+Date must be of the format DD/MM/YYYY</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="paragraph">
-<p><code>addto Apollo milestone “Completed UI for program” 23/11/2015</code><br>
-Milestone added to Project Apollo</p>
+<p><code>addto Apollo milestone Completed UI for program 23/11/2015</code><br>
+Milestone added to project "Apollo".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'milestone'
+while keying in a command into the CLI.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-an-employee-or-milestone-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.8. Remove an employee or milestone from a project : <code>removefrom</code></a></h3>
+<h3 id="remove-an-employee-or-milestone-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.9. Remove an employee or milestone from a project : <code>removefrom</code></a></h3>
+<div class="sect3">
+<h4 id="remove-an-employee-from-a-project-code-removefrom-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-employee-code">4.9.1. Remove an employee from a project: <code>removefrom employee</code></a></h4>
 <div class="paragraph">
-<p>Removing an employee from a project:<br>
-Format: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
+<p>Removing an employee from a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -521,11 +616,16 @@ Format: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
 <div class="paragraph">
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo employee 3</code><br>
-Removes the employee at index 3 from Project Apollo.</p>
+Removes the employee at 3rd position at displayed list of employees from Project Apollo.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-milestone-from-a-project-code-removefrom-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-milestone-code">4.9.2. Remove a milestone from a project: <code>removefrom milestone</code></a></h4>
+<div class="paragraph">
+<p>Removing a milestone from a project.</p>
 </div>
 <div class="paragraph">
-<p>Removing a milestone from a project:<br>
-Format: <code>removefrom PROJECT_NAME milestone MS_INDEX</code></p>
+<p>Format: <code>removefrom PROJECT_NAME milestone MS_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -533,11 +633,26 @@ Format: <code>removefrom PROJECT_NAME milestone MS_INDEX</code></p>
 <div class="paragraph">
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo milestone 1</code><br>
-Removes the milestone at index 1 from Project Apollo.</p>
+Removes the milestone at 1st position of displayed list of milestone from Project Apollo.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Removes the employee at the specified <code>INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of employees.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'milestone'
+while keying in a command into the CLI.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.9. To indicate the project has been completed : <code>complete</code></a></h3>
+<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
 <p>Indicates that a project is completed.
 Format: <code>complete PROJ_NAME</code></p>
@@ -551,31 +666,38 @@ Project Apollo has been finished and delivered to client.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.10. Sort the projects by name or deadline : <code>sort</code></a></h3>
+<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.11. Sort the projects by name or deadline : <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Returns a sorted list of projects by the sort key value.<br>
-Available keys: name, deadline<br>
-Name: returns list in lexicographical order<br>
-Deadline: returns list by earliest deadline first.<br>
-Format: <code>sort KEY_VALUE</code></p>
+<p>Returns a sorted list of projects by the sort key value.
+Available keys: name, deadline.</p>
+</div>
+<div class="paragraph">
+<p>Name: returns list in lexicographic order<br>
+Deadline: returns list by earliest deadline first.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort KEY_VALUE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="paragraph">
 <p><code>sort name</code><br>
-Projects have been sorted by name.</p>
+List of project have been sorted by name.</p>
 </div>
 <div class="paragraph">
 <p><code>sort deadline</code><br>
-Projects have been sorted by impending deadline.</p>
+List of projects have been sorted by deadline with the
+earliest deadline displayed at the top of the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-regarding-all-the-projects-code-stats-code"><a class="link" href="#display-statistics-regarding-all-the-projects-code-stats-code">4.11. Display statistics regarding all the projects : <code>stats</code></a></h3>
+<h3 id="display-statistics-regarding-all-the-projects-code-stats-code"><a class="link" href="#display-statistics-regarding-all-the-projects-code-stats-code">4.12. Display statistics regarding all the projects : <code>stats</code></a></h3>
 <div class="paragraph">
-<p>Returns the number of completed projects and number of currently ongoing projects.
-Format: <code>stats</code></p>
+<p>Returns the number of completed projects and number of currently ongoing projects.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -584,47 +706,6 @@ Format: <code>stats</code></p>
 <p><code>stats</code><br>
 Total number of ongoing projects: 4<br>
 Total number of completed projects: 9</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selects-an-employee-or-project-code-select-code"><a class="link" href="#selects-an-employee-or-project-code-select-code">4.12. Selects an employee or project : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the employee identified by the index number used in the displayed employee list.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the employee and loads the Google search page the employee at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed employee list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd employee in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st employee in the results of the <code>find</code> command.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -637,7 +718,7 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.14. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Pocket Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
@@ -659,8 +740,11 @@ There is no need to save manually.</p>
 <h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p><strong>Q</strong>: How do I transfer my data to another Computer?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
+data of your previous Pocket Project folder.</p>
 </div>
 </div>
 </div>
@@ -675,11 +759,20 @@ alphabet (A-Z).</p>
 </li>
 <li>
 <p><code>command line interface (cli)</code> a means of interacting with a computer program where the user issues commands to the
-program in the form of successive lines of text</p>
+program in the form of successive lines of text.</p>
+</li>
+<li>
+<p><code>lexicographic</code> ordering of words based on how it would appear in a dictionary.</p>
 </li>
 <li>
 <p><code>milestone</code> a key event that is completed during the entire timeline
 of the project.</p>
+</li>
+<li>
+<p><code>one-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 1.</p>
+</li>
+<li>
+<p><code>zero-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 0.</p>
 </li>
 </ol>
 </div>
@@ -711,12 +804,12 @@ e.g. <code>edit employee 2 n/James Lee e/jameslee@example.com</code></p>
 e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find skill Java</code></p>
 </li>
 <li>
-<p><strong>View</strong>:<br>
-e.g.</p>
+<p><strong>View</strong> : <code>view employee EMPLOYEE_INDEX</code> , <code>view project PROJECT_NAME</code><br>
+e.g. <code>view employee 3</code> <code>view project Apollo</code></p>
 </li>
 <li>
 <p><strong>Addto</strong>: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code> ,<code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code><br>
-e.g. <code>addto Apollo employee John Doe</code> <code>addto Apollo milestone "Completed UI for program" 23/11/2015</code></p>
+e.g. <code>addto Apollo employee 2</code> <code>addto Apollo milestone Completed UI for program 23/11/2015</code></p>
 </li>
 <li>
 <p><strong>Removefrom</strong>: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code> <code>removefrom PROJECT_NAME milestone MS_INDEX</code><br>
@@ -742,4 +835,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 14:59:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 18:23:53 UTC</div></div></div></body></html>
