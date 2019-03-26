@@ -6,15 +6,22 @@
 <p>Authors: <code>Daryl Tan, Jeff Gan, Jothinandan Pillay, Lin Dehui, Shune Lei</code></p>
 </div>
 <div class="paragraph">
-<p>Since: <code>August 2018</code> License: <code>MIT</code></p>
+<p>Since: <code>January 2019</code> License: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#legends">3. Legends</a></li>
+<li><a href="#background-information">2. Background Information</a></li>
+<li><a href="#before-we-begin">3. Before We Begin</a>
+<ul class="sectlevel2">
+<li><a href="#quick-start">3.1. Quick Start</a></li>
+<li><a href="#symbols">3.2. Symbols</a></li>
+<li><a href="#command-format">3.3. Command Format</a></li>
+<li><a href="#glossary">3.4. Glossary</a></li>
+</ul>
+</li>
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
@@ -29,15 +36,17 @@
 <li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></li>
 <li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.11. Sort the projects by name or deadline : <code>sort</code></a></li>
 <li><a href="#display-statistics-regarding-all-the-projects-code-stats-code">4.12. Display statistics regarding all the projects : <code>stats</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.14. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#project-commands-code-coming-in-v2-0-code">4.16. Project commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#project-commands-code-coming-in-v2-0-code">4.19. Project commands <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
-<li><a href="#glossary">6. Glossary</a></li>
-<li><a href="#command-summary">7. Command Summary</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -45,11 +54,14 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PocketProject is primarily an application for software engineering project managers who are currently in-charge of
+<p>Pocket Project is primarily an application for software engineering project managers who are currently in-charge of
 a team of large employees and many projects. This application employs the use of a Command Line Interface(CLI) to easily
 navigate through the application which contributes to the efficiency and user-friendliness of the end product.
 This application allows managers to keep track of all the employees and their related background information such as their
-GitHub account username and relevant skills. Additionally, it also helps to keep track of all the projects that the manager
+GitHub account username and relevant skills.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, it also helps to keep track of all the projects that the manager
 is currently involved with and key details of the project such the client, deadline and milestones can also be stored.
 Through the combination of the two main components, the application allows the storing and viewing of all the employees
 working on particular project and all the projects currently under a single employee among other functionalities.</p>
@@ -57,8 +69,34 @@ working on particular project and all the projects currently under a single empl
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="background-information"><a class="link" href="#background-information">2. Background Information</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>When first seeing our application, many of you may wonder what is the significance
+behind this project. Well, the current issues cannot be seen at the surface level and requires
+a deeper look. To present all the information in a nutshell, our application provides
+everything that a manager will ever need at the tip of his fingertips. Being able to better
+handle project and man management leads to a more organized workflow and inevitably, a more
+productive environment which can set a strong foundation for the lifecycle of various projects.</p>
+</div>
+<div class="paragraph">
+<p>In addition, the inability to track the progress of a project has been cited as one of the top reasons
+as to why a product fails, and thus our application aims to potentially solve this problem
+by having both a milestones feature and a task manager to mainly see not only what has been completed, but
+also the proposed schedule for the weeks ahead until the project is due for completion.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-we-begin"><a class="link" href="#before-we-begin">3. Before We Begin</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section will outline key things to take note of before reading the user guide.
+The information provided in this section will be useful in understanding certain
+symbols and terms used further on in the user guide.</p>
+</div>
+<div class="sect2">
+<h3 id="quick-start"><a class="link" href="#quick-start">3.1. Quick Start</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -108,10 +146,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="legends"><a class="link" href="#legends">3. Legends</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="symbols"><a class="link" href="#symbols">3.2. Symbols</a></h3>
 <div class="paragraph">
 <p>The following section details and previews a few legends that will
 be used throughout the user guide. These legends are used to represent
@@ -153,10 +189,8 @@ that users can use while using the Pocket Project application.</p></td>
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="command-format"><a class="link" href="#command-format">3.3. Command Format</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -179,6 +213,44 @@ that users can use while using the Pocket Project application.</p></td>
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="glossary"><a class="link" href="#glossary">3.4. Glossary</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>alphanumeric</code> only contains either digits (0-9) or letters of the English
+alphabet (A-Z).</p>
+</li>
+<li>
+<p><code>command line interface (cli)</code> a means of interacting with a computer program where the user issues commands to the
+program in the form of successive lines of text.</p>
+</li>
+<li>
+<p><code>lexicographic</code> ordering of words based on how it would appear in a dictionary.</p>
+</li>
+<li>
+<p><code>milestone</code> a key event that is completed during the entire timeline
+of the project.</p>
+</li>
+<li>
+<p><code>one-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 1.</p>
+</li>
+<li>
+<p><code>zero-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 0.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section will outline the various features and commands available to the user and will
+outline how the various commands can be used through examples and illustrations.</p>
 </div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
@@ -713,27 +785,113 @@ Total number of completed projects: 9</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.13. Exiting the program : <code>exit</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.13. Undoing previous command : <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Restores the Pocket Project to the state before the previous <em>undoable</em> command was executed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Undoable commands: those commands that modify the Pocket Project&#8217;s content
+(<code>add</code>, <code>delete</code>, <code>addto</code>, <code>removefrom</code>, <code>edit</code> and <code>clear</code>).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete employee 1</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>delete employee 1</code> command)<br></p>
+</li>
+<li>
+<p><code>view employee 1</code><br>
+<code>list</code><br>
+<code>undo</code><br>
+The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><code>delete project 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete project 1</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.14. Redoing the previously undone command : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete employee 1</code><br>
+<code>undo</code> (reverses the <code>delete employee 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete employee 1</code> command)<br></p>
+</li>
+<li>
+<p><code>delete project 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete project 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete project 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete project 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+The redo command can only be called if there is an undo command that has not been
+"redo-ne" yet.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the Pocket Project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.14. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Pocket Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="project-commands-code-coming-in-v2-0-code"><a class="link" href="#project-commands-code-coming-in-v2-0-code">4.16. Project commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="project-commands-code-coming-in-v2-0-code"><a class="link" href="#project-commands-code-coming-in-v2-0-code">4.19. Project commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Commands related to managing of project will be added soon.}</em></p>
 </div>
@@ -753,37 +911,7 @@ data of your previous Pocket Project folder.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">6. Glossary</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>alphanumeric</code> only contains either digits (0-9) or letters of the English
-alphabet (A-Z).</p>
-</li>
-<li>
-<p><code>command line interface (cli)</code> a means of interacting with a computer program where the user issues commands to the
-program in the form of successive lines of text.</p>
-</li>
-<li>
-<p><code>lexicographic</code> ordering of words based on how it would appear in a dictionary.</p>
-</li>
-<li>
-<p><code>milestone</code> a key event that is completed during the entire timeline
-of the project.</p>
-</li>
-<li>
-<p><code>one-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 1.</p>
-</li>
-<li>
-<p><code>zero-based indexing</code> way of numbering in which the initial element of a sequence is assigned the index 0.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -839,4 +967,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 18:38:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-26 12:50:19 UTC</div></div></div></body></html>
