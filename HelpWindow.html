@@ -31,8 +31,8 @@
 <li><a href="#edit-an-employee-in-the-application-code-edit-code">4.5. Edit an employee in the application : <code>edit</code></a></li>
 <li><a href="#locating-employees-projects-or-skills-by-name-code-find-code">4.6. Locating employees, projects or skills by name: <code>find</code></a></li>
 <li><a href="#view-the-details-of-employees-or-projects-code-view-code">4.7. View the details of employees or projects : <code>view</code></a></li>
-<li><a href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.8. Add an employee or milestone to a project : <code>addto</code></a></li>
-<li><a href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.9. Remove an employee or milestone from a project : <code>removefrom</code></a></li>
+<li><a href="#add-an-employee-milestone-user-story-to-a-project-code-addto-code">4.8. Add an employee/milestone/user story to a project : <code>addto</code></a></li>
+<li><a href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></li>
 <li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></li>
 <li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code">4.11. Sort the projects by name or deadline : <code>sort</code></a></li>
 <li><a href="#display-statistics-regarding-all-the-projects-code-stats-code">4.12. Display statistics regarding all the projects : <code>stats</code></a></li>
@@ -614,7 +614,7 @@ while keying in a command into the CLI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-an-employee-or-milestone-to-a-project-code-addto-code"><a class="link" href="#add-an-employee-or-milestone-to-a-project-code-addto-code">4.8. Add an employee or milestone to a project : <code>addto</code></a></h3>
+<h3 id="add-an-employee-milestone-user-story-to-a-project-code-addto-code"><a class="link" href="#add-an-employee-milestone-user-story-to-a-project-code-addto-code">4.8. Add an employee/milestone/user story to a project : <code>addto</code></a></h3>
 <div class="sect3">
 <h4 id="add-an-employee-to-a-project-code-addto-employee-code"><a class="link" href="#add-an-employee-to-a-project-code-addto-employee-code">4.8.1. Add an employee to a project: <code>addto employee</code></a></h4>
 <div class="paragraph">
@@ -675,9 +675,42 @@ Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'mil
 while keying in a command into the CLI.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="add-a-user-story-to-a-project-code-addto-userstory-code"><a class="link" href="#add-a-user-story-to-a-project-code-addto-userstory-code">4.8.3. Add a user story to a project <code>addto userstory</code></a></h4>
+<div class="paragraph">
+<p>Adds a user story to a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code></p>
+</div>
+<div class="paragraph">
+<p><code>STORY_IMPORTANCE</code>: The priority/importance level of the user story, ranging from 1 to 3. 3 being the most
+important and 1 being the least.</p>
+</div>
+<div class="paragraph">
+<p><code>STORY</code>: A valid user story must be in the following format - as a &#8230;&#8203; i want to &#8230;&#8203; so that &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+Note that <code>as a</code>, <code>i want to</code> and <code>so that</code> are keywords which are required in a valid user story.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>addto Apollo userstory i/1 as a user i want to try out new things so that i can have fun</code></p>
+</div>
+<div class="paragraph">
+<p><code>addto Apollo userstory as a lazy user i want to have shortcuts for my commands i/2</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+There is no specific order for either the user story or the importance level so either way is acceptable.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="remove-an-employee-or-milestone-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-or-milestone-from-a-project-code-removefrom-code">4.9. Remove an employee or milestone from a project : <code>removefrom</code></a></h3>
+<h3 id="remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></h3>
 <div class="sect3">
 <h4 id="remove-an-employee-from-a-project-code-removefrom-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-employee-code">4.9.1. Remove an employee from a project: <code>removefrom employee</code></a></h4>
 <div class="paragraph">
@@ -724,6 +757,23 @@ The index must be a <strong>positive integer</strong> and cannot be larger than 
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
 Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'milestone'
 while keying in a command into the CLI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-user-story-from-a-project-code-removefrom-userstory-code"><a class="link" href="#remove-a-user-story-from-a-project-code-removefrom-userstory-code">4.9.3. Remove a user story from a project: <code>removefrom userstory</code></a></h4>
+<div class="paragraph">
+<p>Removing a user story from a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>removefrom PROJ_NAME userstory INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>view project Apollo</code><br>
+<code>removefrom Apollo userstory 1</code><br>
+Removes the user story at the 1st position of the displayed list of user stories from Project Apollo.</p>
 </div>
 </div>
 </div>
@@ -967,4 +1017,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 10:52:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-28 14:08:43 UTC</div></div></div></body></html>

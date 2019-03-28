@@ -37,7 +37,7 @@
 </li>
 <li><a href="#implementation">6. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#add-employee-milestone-to-projects-feature">6.1. Add employee/milestone to projects feature</a></li>
+<li><a href="#add-employee-milestone-user-story-to-projects-feature">6.1. Add employee/milestone/user story to projects feature</a></li>
 <li><a href="#remove-employee-milestone-from-projects-feature">6.2. Remove employee/milestone from projects feature</a></li>
 <li><a href="#find-employee-project-skill-feature">6.3. Find Employee/Project/Skill feature</a></li>
 <li><a href="#list-employee-project-feature">6.4. List Employee/Project feature</a></li>
@@ -691,7 +691,7 @@ As a more OOP model, we can store a <code>Skill</code> list in <code>Pocket Proj
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="add-employee-milestone-to-projects-feature"><a class="link" href="#add-employee-milestone-to-projects-feature">6.1. Add employee/milestone to projects feature</a></h3>
+<h3 id="add-employee-milestone-user-story-to-projects-feature"><a class="link" href="#add-employee-milestone-user-story-to-projects-feature">6.1. Add employee/milestone/user story to projects feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">6.1.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -706,15 +706,18 @@ by the model component of the PocketProject application. This feature supports t
 <li>
 <p><code>addto [project name] milestone [milestone details]</code>&#8201;&#8212;&#8201;adds the milestone specified in <code>[milestone details]</code> to the list of milestones in the project named <code>[project name]</code>.</p>
 </li>
+<li>
+<p><code>addto [project name] userstory i/IMPORTANCE [story]</code>&#8201;&#8212;&#8201;adds the user story specified in <code>[story]</code> to the list of user stories in the project with name <code>[project name]</code></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code> and <code>Model#addMilestoneTo(Project, Milestone)</code>.
-These two methods only take in the project and employee/milestone as arguments as the correct Employee/Milestone object would be located by
-<code>AddEmployeeToCommand#excute()</code> or <code>AddMilestoneToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code>, <code>Model#addMilestoneTo(Project, Milestone)</code> and <code>Model#addUserStoryTo(Projectm UserStory)</code>.
+These three methods only take in the project and employee/milestone as arguments as the correct Employee/Milestone/UserStory object would be located by
+<code>AddEmployeeToCommand#excute()</code>, <code>AddMilestoneToCommand#execute()</code> or <code>AddUserStoryToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the addition of employee/milestone to a project feature behaves at each step.</p>
+<p>Given below is an example usage scenario and how the addition of employee/milestone/user story to a project feature behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p><code>AddEmployeeTo Command</code></p>
@@ -732,7 +735,13 @@ The <code>AddToCommandParser</code> then creates command object and passes it to
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>addto Apollo milestone [milestone details]'. The rest of the execution process is
-similar to Step 2 of the `AddEmployeeTo Command</code> mentioned above. Only the object added is decided between an employee or a
+similar to Step 2 of the `AddEmployeeTo Command</code> mentioned above. Only the object added is decided between an employee, user story or a
+milestone depending on the user input.</p>
+</div>
+<div class="paragraph">
+<p><code>AddUserStoryTo Command</code>
+Step 1. The user enters the command <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The rest of the
+execution process is similar to Step 2 of the <code>AddEmployeeTo Command</code>.Only the object added is decided between an employee, user story or a
 milestone depending on the user input.</p>
 </div>
 <div class="paragraph">
@@ -742,7 +751,30 @@ the milestone added needs to be of the correct format. If not, exceptions would 
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-planned-implementations"><a class="link" href="#future-planned-implementations">6.1.2. Future Planned Implementations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">6.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project"><a class="link" href="#aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project">Aspect: How to structure the user story details to be inputted into the project</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Use a <code>regex</code> to indicate the importance/priority of a user story, then have the user key in the user story in the specified format <code>as a&#8230;&#8203;i want to&#8230;&#8203;so that&#8230;&#8203;</code>(Current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Use only <code>regex</code> to denote the different parts of a user story. For example, <code>i/</code> to denote the importance level, <code>u/</code> to denote user etc&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Alternative 3: Store the entire string as given by the user as it is and not parse the input.</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 3 is the simplest and most straight forward way to handle the user input, but it does not provide much functionality. As user stories should be organised and easy to read as a list,
+we will need to use some sort of <code>TableView</code> or <code>ListView</code> to view the stories. Thus, using alternative 3 will only allow the entire string to be generated and is not user friendly.
+Between alternative 2 and alternative 1, alternative 2 provides an easier way for the program to generate and partition the input using <code>regex</code> expressions. However, as there are many parts to a user
+story, having to remember 4 different <code>regex</code> expressions may be hard for a user to remember and may be inconvenient. Using alternative 1 is a mix of both 2 and 3, which allows abit more flexibility
+and smoothness for a user by allowing them to type in full sentences how they would normally do for a user story, while allowing proper classification of the components of the story to be able to
+be displayed in the UI component as a <code>TableView</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-planned-implementations"><a class="link" href="#future-planned-implementations">6.1.3. Future Planned Implementations</a></h4>
 <div class="paragraph">
 <p>The following additional features are scheduled to be implemented in future version.</p>
 </div>
@@ -775,8 +807,8 @@ input as such:</p>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">6.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The removing of employee or milestone from projects is facilitated by the model component of the PocketProject.
-This feature currently supports these two commands:</p>
+<p>The removing of employee,milestone or user story from projects is facilitated by the model component of the PocketProject.
+This feature currently supports these three commands:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -786,14 +818,16 @@ This feature currently supports these two commands:</p>
 <li>
 <p><code>removefrom [project name] milestone [milestone index]</code>&#8201;&#8212;&#8201;removes the milestone at index <code>[milestone index]</code> in the list of milestones in the project named <code>[project name]</code>.</p>
 </li>
+<li>
+<p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code> and <code>Model#removeMilestoneFrom(Project, Milestone)</code>.
-The methods does not take in indices as arguments since the corresponding Employee or Milestone object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>
-or <code>RemoveMilestoneFromCommand#execute()</code>
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
+The methods does not take in indices as arguments since the corresponding Employee,Milestone or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
 before the methods of <code>Model</code> are called.
-The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone is similar:</p>
+The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone and user stories are similar:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -801,7 +835,7 @@ The sequence diagram for the execution of the removing of employee from a projec
 </div>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the removal of employee/milestone feature behaves at each step.</p>
+<p>Given below is an example usage scenario and how the removal of employee/milestone/user story feature behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of employees and milestones in the project named "Apollo" by executing the `view</code> command.</p>
@@ -820,7 +854,7 @@ Tip: The <code>[project name]</code> entered must be valid and exists in the app
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">6.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo employee 1</code>) is parsed</a></h5>
 <div class="paragraph">
@@ -895,7 +929,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-find-code-command-is-parsed"><a class="link" href="#aspect-how-code-find-code-command-is-parsed">Aspect: How <code>find</code> command is parsed</a></h5>
 <div class="paragraph">
@@ -962,7 +996,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-list-command-code-is-parsed"><a class="link" href="#aspect-how-code-list-command-code-is-parsed">Aspect: How <code>list command</code> is parsed</a></h5>
 <div class="paragraph">
@@ -1026,7 +1060,7 @@ which return the list of ongoing and completed projects respectively.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-number-of-projects-is-obtained"><a class="link" href="#aspect-how-the-number-of-projects-is-obtained">Aspect: How the number of projects is obtained.</a></h5>
 <div class="paragraph">
@@ -1175,7 +1209,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -2758,4 +2792,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 10:52:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-28 14:08:43 UTC</div></div></div></body></html>
