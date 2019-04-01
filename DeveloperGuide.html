@@ -80,17 +80,11 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-delete-project">C.1. Use case: Delete project</a></li>
-<li><a href="#use-case-add-employee-to-project">C.2. Use case: Add employee to project</a></li>
-<li><a href="#use-case-remove-employee-from-project">C.3. Use case: Remove employee from project</a></li>
-<li><a href="#use-case-editting-an-employee-details">C.4. Use case: Editting an employee details</a></li>
-<li><a href="#use-case-add-milestone-to-project">C.5. Use case: Add milestone to project</a></li>
-<li><a href="#use-case-remove-milestone-from-project">C.6. Use case: Remove milestone from project</a></li>
-<li><a href="#use-case-add-user-story-to-project">C.7. Use case: Add user story to project</a></li>
-<li><a href="#use-case-remove-user-story-from-project">C.8. Use case: Remove user story from project</a></li>
-<li><a href="#use-case-add-project-task-to-project">C.9. Use case: Add project task to project</a></li>
-<li><a href="#use-case-remove-project-task-from-project">C.10. Use case: Remove project task from project</a></li>
-<li><a href="#use-case-finding-all-keywords">C.11. Use case: Finding all keywords</a></li>
+<li><a href="#use-case-delete-command">C.1. Use case: Delete Command</a></li>
+<li><a href="#use-case-add-employee-milestone-userstory-task-to-project-command">C.2. Use case: Add Employee/Milestone/UserStory/Task To Project Command</a></li>
+<li><a href="#use-case-remove-employee-milestone-userstory-task-from-project-command">C.3. Use case: Remove Employee/Milestone/UserStory/Task From Project Command</a></li>
+<li><a href="#use-case-edit-command">C.4. Use case: Edit Command</a></li>
+<li><a href="#use-case-find-command">C.5. Use case: Find Command</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -99,17 +93,17 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#adding-an-employee">G.2. Adding an employee</a></li>
-<li><a href="#deleting-an-employee">G.3. Deleting an employee</a></li>
+<li><a href="#add-command">G.2. Add Command</a></li>
+<li><a href="#delete-command">G.3. Delete Command</a></li>
 <li><a href="#editing-an-employee">G.4. Editing an employee</a></li>
-<li><a href="#deleting-a-project">G.5. Deleting a project</a></li>
-<li><a href="#removing-an-employee-from-a-project">G.6. Removing an employee from a project</a></li>
+<li><a href="#deleting-a-project-3">G.5. Deleting a project</a></li>
+<li><a href="#removing-an-employee-from-a-project-2">G.6. Removing an employee from a project</a></li>
 <li><a href="#removing-a-milestone-from-a-porject">G.7. Removing a milestone from a porject</a></li>
 <li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.8. Finding an employee/project by keywords in their names</a></li>
 <li><a href="#finding-employees-with-specific-skills">G.9. Finding employees with specific skills</a></li>
 <li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.10. Finding projects with specific keywords in their name, description or deadline</a></li>
 <li><a href="#indicating-a-project-as-completed">G.11. Indicating a project as completed</a></li>
-<li><a href="#clearing-all-data-from-the-app">G.12. clearing all data from the app</a></li>
+<li><a href="#clearing-all-data-from-the-app">G.12. Clearing all data from the app</a></li>
 <li><a href="#exiting-from-the-app">G.13. Exiting from the app</a></li>
 <li><a href="#undoing-a-data-modification">G.14. Undoing a data modification</a></li>
 <li><a href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></li>
@@ -2050,9 +2044,13 @@ which enhances administrative procedures and improves efficiency.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>PocketProject</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>PocketProject</code> and the <strong>Actor</strong>
+is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-employee" class="discrete">Use case: Delete employee</h3>
+<div class="sect2">
+<h3 id="use-case-delete-command"><a class="link" href="#use-case-delete-command">C.1. Use case: Delete Command</a></h3>
+<div class="sect3">
+<h4 id="deleting-an-employee"><a class="link" href="#deleting-an-employee">C.1.1. Deleting an employee</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2078,20 +2076,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The given index is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2099,10 +2097,11 @@ which enhances administrative procedures and improves efficiency.</p>
 </ul>
 </div>
 </li>
-</ul>
+</ol>
 </div>
-<div class="sect2">
-<h3 id="use-case-delete-project"><a class="link" href="#use-case-delete-project">C.1. Use case: Delete project</a></h3>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-project"><a class="link" href="#deleting-a-project">C.1.2. Deleting a project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2128,20 +2127,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The given index is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2150,11 +2149,11 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 <li>
-<p>3b. The project name specified is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The project name specified is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3b1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2162,11 +2161,14 @@ which enhances administrative procedures and improves efficiency.</p>
 </ul>
 </div>
 </li>
-</ul>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-add-employee-to-project"><a class="link" href="#use-case-add-employee-to-project">C.2. Use case: Add employee to project</a></h3>
+<h3 id="use-case-add-employee-milestone-userstory-task-to-project-command"><a class="link" href="#use-case-add-employee-milestone-userstory-task-to-project-command">C.2. Use case: Add Employee/Milestone/UserStory/Task To Project Command</a></h3>
+<div class="sect3">
+<h4 id="adding-an-employee-to-project"><a class="link" href="#adding-an-employee-to-project">C.2.1. Adding an employee to project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2192,20 +2194,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The given index is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2214,11 +2216,11 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 <li>
-<p>3b. The project name given is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The project name given is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3b1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2227,11 +2229,11 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 <li>
-<p>3c. The employee is already in the project.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The employee is already in the project.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3c1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2239,11 +2241,131 @@ which enhances administrative procedures and improves efficiency.</p>
 </ul>
 </div>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-milestone-to-a-project"><a class="link" href="#adding-a-milestone-to-a-project">C.2.2. Adding a milestone to a project</a></h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a milestone to the project</p>
+</li>
+<li>
+<p>PocketProject adds the milestone to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The milestone to be added is already specified in the project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
 </ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-task-to-a-milestone-in-a-project"><a class="link" href="#adding-a-task-to-a-milestone-in-a-project">C.2.3. Adding a task to a milestone in a project</a></h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a project task to the project</p>
+</li>
+<li>
+<p>PocketProject adds the project task to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The project task to be added is already specified in the project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-an-user-story-to-a-project"><a class="link" href="#adding-an-user-story-to-a-project">C.2.4. Adding an user story to a project</a></h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a user story to the project</p>
+</li>
+<li>
+<p>PocketProject adds the user story to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The user story to be added is already specified in the project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-remove-employee-from-project"><a class="link" href="#use-case-remove-employee-from-project">C.3. Use case: Remove employee from project</a></h3>
+<h3 id="use-case-remove-employee-milestone-userstory-task-from-project-command"><a class="link" href="#use-case-remove-employee-milestone-userstory-task-from-project-command">C.3. Use case: Remove Employee/Milestone/UserStory/Task From Project Command</a></h3>
+<div class="sect3">
+<h4 id="removing-an-employee-from-a-project"><a class="link" href="#removing-an-employee-from-a-project">C.3.1. Removing an employee from a project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2269,78 +2391,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3b. The project name given is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3b1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-editting-an-employee-details"><a class="link" href="#use-case-editting-an-employee-details">C.4. Use case: Editting an employee details</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view an employee in a project</p>
-</li>
-<li>
-<p>PocketProject shows the employee details</p>
-</li>
-<li>
-<p>User requests to edit an employee details</p>
-</li>
-<li>
-<p>PocketProject edits the employee&#8217;s details</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
+<p>The given index is invalid.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a. The new employee has the exact same details as another employee.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2348,47 +2412,24 @@ which enhances administrative procedures and improves efficiency.</p>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-add-milestone-to-project"><a class="link" href="#use-case-add-milestone-to-project">C.5. Use case: Add milestone to project</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
-<p>User requests to add a milestone to the project</p>
+<p>The project name given is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
 </li>
-<li>
-<p>PocketProject adds the milestone to the project specified.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+</ul>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Extensions</strong>
-* 1a. The milestone to be added is already specified in the project.</p>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-remove-milestone-from-project"><a class="link" href="#use-case-remove-milestone-from-project">C.6. Use case: Remove milestone from project</a></h3>
+<div class="sect3">
+<h4 id="removing-a-milestone-from-a-project"><a class="link" href="#removing-a-milestone-from-a-project">C.3.2. Removing a milestone from a project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2414,20 +2455,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The given index is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2436,159 +2477,23 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 <li>
-<p>3b. The project name given is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The project name given is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3b1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-add-user-story-to-project"><a class="link" href="#use-case-add-user-story-to-project">C.7. Use case: Add user story to project</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a user story to the project</p>
-</li>
-<li>
-<p>PocketProject adds the user story to the project specified.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Extensions</strong>
-* 1a. The user story to be added is already specified in the project.</p>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-remove-user-story-from-project"><a class="link" href="#use-case-remove-user-story-from-project">C.8. Use case: Remove user story from project</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view user stories in a project</p>
-</li>
-<li>
-<p>PocketProject shows a list of user stories in the project</p>
-</li>
-<li>
-<p>User requests to delete a specific user story in the list</p>
-</li>
-<li>
-<p>PocketProject deletes the user story from the project</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3b. The project name given is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3b1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-add-project-task-to-project"><a class="link" href="#use-case-add-project-task-to-project">C.9. Use case: Add project task to project</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a project task to the project</p>
-</li>
-<li>
-<p>PocketProject adds the project task to the project specified.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong>
-* 1a. The project task to be added is already specified in the project.</p>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. PocketProject shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-remove-project-task-from-project"><a class="link" href="#use-case-remove-project-task-from-project">C.10. Use case: Remove project task from project</a></h3>
+<div class="sect3">
+<h4 id="removing-a-project-task-from-a-milestone-in-a-project"><a class="link" href="#removing-a-project-task-from-a-milestone-in-a-project">C.3.3. Removing a project task from a milestone in a project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2614,20 +2519,20 @@ which enhances administrative procedures and improves efficiency.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>2a. The list is empty.</p>
+<p>The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given milestone index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The given milestone index is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3a1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2636,11 +2541,11 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 <li>
-<p>3b. The project name given is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>The project name given is invalid.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>3b1. PocketProject shows an error message.</p>
+<p>PocketProject shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2648,11 +2553,126 @@ which enhances administrative procedures and improves efficiency.</p>
 </ul>
 </div>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-an-user-story-from-a-project"><a class="link" href="#removing-an-user-story-from-a-project">C.3.4. Removing an user story from a project</a></h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view user stories in a project</p>
+</li>
+<li>
+<p>PocketProject shows a list of user stories in the project</p>
+</li>
+<li>
+<p>User requests to delete a specific user story in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the user story from the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>The given index is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
 </ul>
+</div>
+</li>
+<li>
+<p>The project name given is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-finding-all-keywords"><a class="link" href="#use-case-finding-all-keywords">C.11. Use case: Finding all keywords</a></h3>
+<h3 id="use-case-edit-command"><a class="link" href="#use-case-edit-command">C.4. Use case: Edit Command</a></h3>
+<div class="sect3">
+<h4 id="editing-an-employee-s-details"><a class="link" href="#editing-an-employee-s-details">C.4.1. Editing an employee&#8217;s details</a></h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view an employee in a project</p>
+</li>
+<li>
+<p>PocketProject shows the employee details</p>
+</li>
+<li>
+<p>User requests to edit an employee details</p>
+</li>
+<li>
+<p>PocketProject edits the employee&#8217;s details</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The new employee has the exact same details as another employee.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-find-command"><a class="link" href="#use-case-find-command">C.5. Use case: Find Command</a></h3>
+<div class="sect3">
+<h4 id="finding-all-keywords-in-project"><a class="link" href="#finding-all-keywords-in-project">C.5.1. Finding all keywords in  project</a></h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2668,6 +2688,7 @@ which enhances administrative procedures and improves efficiency.</p>
 </div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>
@@ -2800,12 +2821,14 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-employee"><a class="link" href="#adding-an-employee">G.2. Adding an employee</a></h3>
+<h3 id="add-command"><a class="link" href="#add-command">G.2. Add Command</a></h3>
+<div class="sect3">
+<h4 id="adding-an-employee"><a class="link" href="#adding-an-employee">G.2.1. Adding an employee</a></h4>
 <div class="paragraph">
 <p>Assuming that the employees added here do not exist in the app beforehand.</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Test case: <code>add employee n/John p/12345678 e/a@gmail.com g/abc.com</code><br>
 Expected: An employee named 'John', with phone number '12345678', email '<a href="mailto:a@gmail.com">a@gmail.com</a>' and github address 'abc.com' is added.</p>
@@ -2825,14 +2848,16 @@ Expected: Addition failed because of lack of '@' in the given email.</p>
 </ol>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="deleting-an-employee"><a class="link" href="#deleting-an-employee">G.3. Deleting an employee</a></h3>
+<h3 id="delete-command"><a class="link" href="#delete-command">G.3. Delete Command</a></h3>
+<div class="sect3">
+<h4 id="deleting-an-employee-2"><a class="link" href="#deleting-an-employee-2">G.3.1. Deleting an employee</a></h4>
+<div class="paragraph">
+<p>Deleting a employee while all employees are listed</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>Deleting a employee while all employees are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
 </li>
@@ -2850,8 +2875,35 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-project-2"><a class="link" href="#deleting-a-project-2">G.3.2. Deleting a project</a></h4>
+<div class="paragraph">
+<p>Deleting a project while all projects are listed</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 1</code><br>
+Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete project p</code><br>
+Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 0</code><br>
+Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
+Expected: Similar to previous.</p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2882,7 +2934,7 @@ Expected: Command fails as there is no employee at index 3.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-project"><a class="link" href="#deleting-a-project">G.5. Deleting a project</a></h3>
+<h3 id="deleting-a-project-3"><a class="link" href="#deleting-a-project-3">G.5. Deleting a project</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2915,7 +2967,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-an-employee-from-a-project"><a class="link" href="#removing-an-employee-from-a-project">G.6. Removing an employee from a project</a></h3>
+<h3 id="removing-an-employee-from-a-project-2"><a class="link" href="#removing-an-employee-from-a-project-2">G.6. Removing an employee from a project</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3029,7 +3081,7 @@ Expected: Error detail shown. The Timestamp in the status bar is not updated.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.12. clearing all data from the app</a></h3>
+<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.12. Clearing all data from the app</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3140,4 +3192,4 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 06:46:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 12:49:25 UTC</div></div></div></body></html>
