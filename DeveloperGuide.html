@@ -39,7 +39,7 @@
 <ul class="sectlevel2">
 <li><a href="#add-employee-milestone-user-story-to-projects-feature">6.1. Add employee/milestone/user story to projects feature</a></li>
 <li><a href="#remove-employee-milestone-from-projects-feature">6.2. Remove employee/milestone from projects feature</a></li>
-<li><a href="#find-employee-project-skill-feature">6.3. Find Employee/Project/Skill feature</a></li>
+<li><a href="#find-employee-project-skill-all-feature">6.3. Find Employee/Project/Skill/All feature</a></li>
 <li><a href="#list-employee-project-feature">6.4. List Employee/Project feature</a></li>
 <li><a href="#proposed-stats-feature">6.5. [Proposed] Stats feature</a></li>
 <li><a href="#undo-redo-feature">6.6. Undo/Redo feature</a></li>
@@ -78,15 +78,42 @@
 <li><a href="#faq">10. FAQ</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-delete-project">C.1. Use case: Delete project</a></li>
+<li><a href="#use-case-add-employee-to-project">C.2. Use case: Add employee to project</a></li>
+<li><a href="#use-case-remove-employee-from-project">C.3. Use case: Remove employee from project</a></li>
+<li><a href="#use-case-editting-an-employee-details">C.4. Use case: Editting an employee details</a></li>
+<li><a href="#use-case-add-milestone-to-project">C.5. Use case: Add milestone to project</a></li>
+<li><a href="#use-case-remove-milestone-from-project">C.6. Use case: Remove milestone from project</a></li>
+<li><a href="#use-case-add-user-story-to-project">C.7. Use case: Add user story to project</a></li>
+<li><a href="#use-case-remove-user-story-from-project">C.8. Use case: Remove user story from project</a></li>
+<li><a href="#use-case-add-project-task-to-project">C.9. Use case: Add project task to project</a></li>
+<li><a href="#use-case-remove-project-task-from-project">C.10. Use case: Remove project task from project</a></li>
+<li><a href="#use-case-finding-all-keywords">C.11. Use case: Finding all keywords</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary-2">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-employee">G.2. Deleting a employee</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#adding-an-employee">G.2. Adding an employee</a></li>
+<li><a href="#deleting-an-employee">G.3. Deleting an employee</a></li>
+<li><a href="#editing-an-employee">G.4. Editing an employee</a></li>
+<li><a href="#deleting-a-project">G.5. Deleting a project</a></li>
+<li><a href="#removing-an-employee-from-a-project">G.6. Removing an employee from a project</a></li>
+<li><a href="#removing-a-milestone-from-a-porject">G.7. Removing a milestone from a porject</a></li>
+<li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.8. Finding an employee/project by keywords in their names</a></li>
+<li><a href="#finding-employees-with-specific-skills">G.9. Finding employees with specific skills</a></li>
+<li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.10. Finding projects with specific keywords in their name, description or deadline</a></li>
+<li><a href="#indicating-a-project-as-completed">G.11. Indicating a project as completed</a></li>
+<li><a href="#clearing-all-data-from-the-app">G.12. clearing all data from the app</a></li>
+<li><a href="#exiting-from-the-app">G.13. Exiting from the app</a></li>
+<li><a href="#undoing-a-data-modification">G.14. Undoing a data modification</a></li>
+<li><a href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></li>
+<li><a href="#saving-data">G.16. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -880,11 +907,11 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-employee-project-skill-feature"><a class="link" href="#find-employee-project-skill-feature">6.3. Find Employee/Project/Skill feature</a></h3>
+<h3 id="find-employee-project-skill-all-feature"><a class="link" href="#find-employee-project-skill-all-feature">6.3. Find Employee/Project/Skill/All feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">6.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>For the current <code>find</code> feature, there are 3 main commands that the user can execute:</p>
+<p>For the current <code>find</code> feature, there are 4 main commands that the user can execute:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -896,6 +923,9 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </li>
 <li>
 <p><code>find skill [keywords]</code> - display employees who has skills matching the keywords</p>
+</li>
+<li>
+<p><code>find all [keywords]</code> - display projects which contains words matching the keywords</p>
 </li>
 </ol>
 </div>
@@ -925,12 +955,18 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <p><code>FindCommandParser</code> identify the command based on the <code>COMMAND_KEYWORD</code> employee.</p>
 </li>
 <li>
-<p><code>find employee</code> command is executed. Employees with name consisting the keywords are filtered out from the employeelist and the <code>filteredEmployees</code> list which is the list displayed on the ui is updated.</p>
+<p><code>find employee</code> command is executed. Employees with name consisting the keywords are filtered out from the employeelist. The filtering is done using a predicate that checks through the names of the employee int the application.</p>
+</li>
+<li>
+<p>Finally, the <code>filteredEmployees</code> list which is the list displayed on the ui is updated.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>The working mechanism for <code>find project</code> is similar to <code>find employee</code>. Instead of updating the <code>filteredEmployees</code>, <code>filteredProjects</code> is updated instead to display the list of projects with name consisting the keywords.</p>
+</div>
+<div class="paragraph">
+<p>For <code>find all</code> command, the predicate is used to check for the matching keywords in the project name , description, client and deadline, thereby filtering out any projects that contains the keyword in any component of the project.</p>
 </div>
 <div class="paragraph">
 <p>For <code>find skill</code> command, the <code>List&lt;Skills&gt;skills</code> from employee is retrieved as a <code>String</code> to match against the keywords. Then the matched employees are filtered and displayed on the ui.</p>
@@ -1775,7 +1811,8 @@ data of your previous Pocket Project folder.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage employees and projects faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: manage employees and projects faster than a typical mouse/GUI driven application
+which enhances administrative procedures and improves efficiency.</p>
 </div>
 </div>
 </div>
@@ -1783,7 +1820,7 @@ data of your previous Pocket Project folder.</p>
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (good to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
@@ -1802,46 +1839,211 @@ data of your previous Pocket Project folder.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>First-Time User Related Stories</strong></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Be able to add/delete projects in the app</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of any new projects and remove unnecessary entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-time user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the usages of different instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to it if I forget the format and purpose of different commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-time user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to read a detailed but simple the user guide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily understand how to use the features of the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-time user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see a list of available instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">navigate and use the application effectively by knowing what commands are available to me</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-time user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear the application and remove all data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trial the very various features and reset the application after</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>General User Related Stories</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">general user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a help function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refer to it if I forget the format and purpose of different features and commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">general user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to be able to undo/revert my commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly revert back and forth any of my latest commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">general user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to be able to have flexibility when keying in dates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can improve speed and efficiency.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Project Manager Related Stories</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to add/delete employees in the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of any new employees and remove employees who have left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to view personal details such as contact number and email of my employees in the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily retrieve certain information that would be useful in handling administrative matters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to add/delete projects in the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of any new projects and remove unnecessary entries</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to view details of the project such as description and client in the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily view important project details that would be useful in handling administrative matters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all the current ongoing projects listed by deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of which projects require immediate attention</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assign employees to project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all employees working on particular project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all projects a particular employee is working on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">better allocate or re-allocate any workload to achieve better balance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to find a particular employee/project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly refer or retrieve details of a particular employee/project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to edit a particular employee/project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update or change details of a particular employee/project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to clear all the date in the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly reset and have an empty application should I change team or company</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to be able to have flexibility when keying in dates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can have greater efficiency in keying inputs and speed up administrative procedures.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see total number of projects listed as completed and ongoing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how many projects have been successfully completed and the number of ongoing projects at a glance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the employees by total number of projects contributed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of each employees contribution to the company.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the employees by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find an employee more easily.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the project by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find a project more easily.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort the project by deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see which projects need to be more urgently completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Software Engineering Project Manager Related Stories</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See all the current ongoing projects listed by importance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of which projects require immediate attention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add/delete skills/frameworks to an employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know what sort of background knowledge he has and what tasks he is suitable for.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find all employees that have a certain skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Assign the right people with the required skills to the right projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add/delete skills/frameworks to a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know what are the relevant skills required to complete a particular project.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add/delete skills from employees</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update the skills possessed by employees as and when required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find all employees that have a certain skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assign the right people with the required skills to the right projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add/delete milestones to a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of major completion points during the course of the project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add/delete tasks to a milestone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all the tasks associated with a particular milestone</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add/delete user stories to a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">formulate ideas and prioritize the features that need to be implemented.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See total number of projects listed as completed and ongoing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of how many projects have been successfully completed and the number of ongoing projects at a glance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit milestones in a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update any changes in my current milestone</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See a recommended list of employees based on the skill requirement of a project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easily assign employees with the required skills to the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit tasks in a milestone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update any changes in my current tasks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Software engineering project manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit user stories in a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update any changes in my current user stories</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1899,8 +2101,574 @@ data of your previous Pocket Project folder.</p>
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="use-case-delete-project"><a class="link" href="#use-case-delete-project">C.1. Use case: Delete project</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list projects</p>
+</li>
+<li>
+<p>PocketProject shows a list of projects</p>
+</li>
+<li>
+<p>User requests to delete a specific project in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name specified is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-employee-to-project"><a class="link" href="#use-case-add-employee-to-project">C.2. Use case: Add employee to project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list employees</p>
+</li>
+<li>
+<p>PocketProject shows a list of employees</p>
+</li>
+<li>
+<p>User requests to add a specific employee in the list to the project</p>
+</li>
+<li>
+<p>PocketProject adds the employee to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name given is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The employee is already in the project.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-remove-employee-from-project"><a class="link" href="#use-case-remove-employee-from-project">C.3. Use case: Remove employee from project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view employees in a project</p>
+</li>
+<li>
+<p>PocketProject shows a list of employees in the project</p>
+</li>
+<li>
+<p>User requests to delete a specific employee in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the employee from the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name given is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editting-an-employee-details"><a class="link" href="#use-case-editting-an-employee-details">C.4. Use case: Editting an employee details</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view an employee in a project</p>
+</li>
+<li>
+<p>PocketProject shows the employee details</p>
+</li>
+<li>
+<p>User requests to edit an employee details</p>
+</li>
+<li>
+<p>PocketProject edits the employee&#8217;s details</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The new employee has the exact same details as another employee.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-milestone-to-project"><a class="link" href="#use-case-add-milestone-to-project">C.5. Use case: Add milestone to project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a milestone to the project</p>
+</li>
+<li>
+<p>PocketProject adds the milestone to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a. The milestone to be added is already specified in the project.</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-remove-milestone-from-project"><a class="link" href="#use-case-remove-milestone-from-project">C.6. Use case: Remove milestone from project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view milestones in a project</p>
+</li>
+<li>
+<p>PocketProject shows a list of milestones in the project</p>
+</li>
+<li>
+<p>User requests to delete a specific milestone in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the milestone from the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name given is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-user-story-to-project"><a class="link" href="#use-case-add-user-story-to-project">C.7. Use case: Add user story to project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a user story to the project</p>
+</li>
+<li>
+<p>PocketProject adds the user story to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a. The user story to be added is already specified in the project.</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-remove-user-story-from-project"><a class="link" href="#use-case-remove-user-story-from-project">C.8. Use case: Remove user story from project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view user stories in a project</p>
+</li>
+<li>
+<p>PocketProject shows a list of user stories in the project</p>
+</li>
+<li>
+<p>User requests to delete a specific user story in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the user story from the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name given is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-project-task-to-project"><a class="link" href="#use-case-add-project-task-to-project">C.9. Use case: Add project task to project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a project task to the project</p>
+</li>
+<li>
+<p>PocketProject adds the project task to the project specified.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a. The project task to be added is already specified in the project.</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-remove-project-task-from-project"><a class="link" href="#use-case-remove-project-task-from-project">C.10. Use case: Remove project task from project</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view project tasks in a project</p>
+</li>
+<li>
+<p>PocketProject shows a list of project tasks in the project in the specific milestone</p>
+</li>
+<li>
+<p>User requests to delete a specific task in the list</p>
+</li>
+<li>
+<p>PocketProject deletes the task from the project</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given milestone index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The project name given is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. PocketProject shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-finding-all-keywords"><a class="link" href="#use-case-finding-all-keywords">C.11. Use case: Finding all keywords</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find all occurences of a keyword in a project</p>
+</li>
+<li>
+<p>PocketProject returns any project found with the keyword specified</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -2032,7 +2800,33 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-employee"><a class="link" href="#deleting-a-employee">G.2. Deleting a employee</a></h3>
+<h3 id="adding-an-employee"><a class="link" href="#adding-an-employee">G.2. Adding an employee</a></h3>
+<div class="paragraph">
+<p>Assuming that the employees added here do not exist in the app beforehand.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add employee n/John p/12345678 e/a@gmail.com g/abc.com</code><br>
+Expected: An employee named 'John', with phone number '12345678', email '<a href="mailto:a@gmail.com">a@gmail.com</a>' and github address 'abc.com' is added.</p>
+</li>
+<li>
+<p>Test case: <code>add employee n/John p/12a345678 e/a@gmail.com g/abc.com</code><br>
+Expected: Adding of employees fails. Message about phone numbers can only contain numbers is returned.</p>
+</li>
+<li>
+<p>Test case: <code>add employee n/Peter p/12345678 e/a@gmail.com g/abc.com</code> twice in a row<br>
+Expected: The second addition fails because the employee already exists.</p>
+</li>
+<li>
+<p>Test case: <code>add employee n/Jack p/12345678 e/a.gmail.com g/abc.com</code><br>
+Expected: Addition failed because of lack of '@' in the given email.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-employee"><a class="link" href="#deleting-an-employee">G.3. Deleting an employee</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2043,15 +2837,15 @@ Expected: The most recent window size and location is retained.</p>
 <p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>delete employee 1</code><br>
+Expected: First employee is deleted from the list. Details of the deleted employee shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
+<p>Test case: <code>delete employee 0</code><br>
 Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete employee</code>, <code>delete employee y</code>,  (where y is not a positive integer), <code>delete employee x</code>, (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2059,12 +2853,274 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="editing-an-employee"><a class="link" href="#editing-an-employee">G.4. Editing an employee</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Assumption: Two addition of employee commands has been called on a blank pocket project: <code>add employee n/Peter p/12345678 e/a@gmail.com g/abc.com</code>
++ and <code>add employee n/John p/87654321 e/b@gmail.com g/cba.com</code>. Peter is the first in the display list and John second.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>edit 1 n/Peter p/22345678 e/a@gmail.com g/abc.com</code><br>
+Expected: Command is executed successfully and the phone number of peter is changed.</p>
+</li>
+<li>
+<p><code>edit 1 n/John p/22345678 e/a@gmail.com g/abc.com</code><br>
+Expected: Command fails as John already exists.</p>
+</li>
+<li>
+<p><code>edit 3 n/Alice p/32345678 e/c@gmail.com g/ccc.com</code><br>
+Expected: Command fails as there is no employee at index 3.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="deleting-a-project"><a class="link" href="#deleting-a-project">G.5. Deleting a project</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a project while all projects are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 1</code><br>
+Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete project p</code><br>
+Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 0</code><br>
+Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-an-employee-from-a-project"><a class="link" href="#removing-an-employee-from-a-project">G.6. Removing an employee from a project</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>prerequisites: project with the name 'Apollo' exists and has 3 employees in it.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>removefrom Apollo employee 1</code><br>
+Expected: First employee in Apollo is removed from it. Details of the removed employee is shown in the status message and timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo employee 4</code><br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo employee x</code> where x is not a positive integer<br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom X employee 1</code> where no project in the app has the name 'X'<br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-a-milestone-from-a-porject"><a class="link" href="#removing-a-milestone-from-a-porject">G.7. Removing a milestone from a porject</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>removefrom Apollo milestone 1</code> where the project named 'Apollo' exists in app and is ongoing and there is at least one<br>
+milestone for the project.
+Expected: The first milestone in the list of milestones for the project is removed.</p>
+</li>
+<li>
+<p>Test case: <code>remove from Apollo milestone 0</code><br>
+Expected: Command fails and an error message is returned.</p>
+</li>
+<li>
+<p>Test case: <code>remove from invalid milestone 1</code> where no project named 'invalid' exists<br>
+Expected: Command fails and an error message is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-an-employee-project-by-keywords-in-their-names"><a class="link" href="#finding-an-employee-project-by-keywords-in-their-names">G.8. Finding an employee/project by keywords in their names</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find project a b c</code><br>
+Expected: projects with 'a', 'b' or 'c' in their names as separate words would be listed</p>
+</li>
+<li>
+<p>Test case: <code>find employee x y z</code><br>
+Expected: employees with 'x', 'y' or 'z' in their names as separate words would be listed</p>
+</li>
+<li>
+<p>Test case <code>find abc</code><br>
+Expected: error will be returned</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-employees-with-specific-skills"><a class="link" href="#finding-employees-with-specific-skills">G.9. Finding employees with specific skills</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find skill java</code><br>
+Expected: All employees with the skill java will be listed</p>
+</li>
+<li>
+<p>Test case: <code>find abc java</code><br>
+Expected: error will be returned</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-projects-with-specific-keywords-in-their-name-description-or-deadline"><a class="link" href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.10. Finding projects with specific keywords in their name, description or deadline</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find all software food</code><br>
+Expected: Returns a list of projects containing the word 'software' or 'food' or both in their name, description or deadline.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="indicating-a-project-as-completed"><a class="link" href="#indicating-a-project-as-completed">G.11. Indicating a project as completed</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>complete 1</code> where there this at least one project shown in the list of projects<br>
+Expected: The first project in the list is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>complete Project Apollo</code> where there is a project named 'Project Apollo' in the app<br>
+Expected: The project named 'Project Apollo' is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>complete x</code> where x is neither the index of a displayed project nor the name of an existing project<br>
+Expected: Error detail shown. The Timestamp in the status bar is not updated.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.12. clearing all data from the app</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>clear</code><br>
+Expected: All data of employees and projects are deleted from the app.</p>
+</li>
+<li>
+<p>Test case: <code>clear q23rfdq3w</code><br>
+Expected: All data cleared. The string of characters after the word clear is ignored.</p>
+</li>
+<li>
+<p>Test case: <code>clear</code> with leading and trailing whitespaces<br>
+Expected: Data still cleared. Leading and trailing spaces are ignored.</p>
+</li>
+<li>
+<p>Test case: <code>abc clear</code><br>
+Expected: Error message about unrecognized command is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-from-the-app"><a class="link" href="#exiting-from-the-app">G.13. Exiting from the app</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>exit</code><br>
+Expected: The window of the app should close. The effect is the same as clicking on the cross icon on the top right.</p>
+</li>
+<li>
+<p>Test case: <code>exit q23rfdq3w</code><br>
+Expected: The app ends. The string of characters after the word clear is ignored.</p>
+</li>
+<li>
+<p>Test case: <code>exit</code> with leading and trailing whitespaces<br>
+Expected: The app ends. Leading and trailing spaces are ignored.</p>
+</li>
+<li>
+<p>Test case: <code>abc exit</code><br>
+Expected: Error message about unrecognized command is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-a-data-modification"><a class="link" href="#undoing-a-data-modification">G.14. Undoing a data modification</a></h3>
+<div class="paragraph">
+<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>undo</code><br>
+Expected: The first command will delete the first employee in the list from the app while the undo command will restore it.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>list employee</code> followed by <code>undo</code><br>
+Expected: The first employee in the list is deleted by the delete command. The list command lists all the remaining employees. The undo command<br>
+restores the deleted employee. The undo command ignores the list command which does not modify internal data and will only undo the last data modifying command.</p>
+</li>
+<li>
+<p>Test case: <code>undo</code> is entered as the first command on start-up<br>
+Expected: Output Messages says that there is no more command to undo.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 1</code> is followed by repetitions of <code>undo</code> and <code>redo</code><br>
+Expected: The <code>undo</code> and <code>redo</code> can go on forever because redo is a data modification that can be undone.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-a-data-modification-that-has-been-undone"><a class="link" href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></h3>
+<div class="paragraph">
+<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>undo</code> followed by <code>redo</code><br>
+Expected: The first command will delete the first employee in the list from the app while the undo command will restore it. The redo command deletes it again.</p>
+</li>
+<li>
+<p>Test case: <code>redo</code> is entered as the first command on start-up<br>
+Expected: Output error message. There is no undone command to redo.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.16. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2084,4 +3140,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 06:23:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 06:46:11 UTC</div></div></div></body></html>

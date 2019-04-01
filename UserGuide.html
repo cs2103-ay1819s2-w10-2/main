@@ -34,8 +34,8 @@
 <li><a href="#add-an-employee-milestone-user-story-to-a-project-code-addto-code">4.8. Add an employee/milestone/user story to a project : <code>addto</code></a></li>
 <li><a href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></li>
 <li><a href="#edits-a-project-in-the-application-code-editproject-code">4.10. Edits a project in the application: <code>editproject</code></a></li>
-<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code-coming-in-v2-0">4.11. To indicate the project has been completed : <code>complete</code> [coming in v2.0]</a></li>
-<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.12. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></li>
+<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.11. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></li>
+<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.12. To indicate the project has been completed : <code>complete</code></a></li>
 <li><a href="#display-statistics-regarding-all-the-projects-code-stats-code">4.13. Display statistics regarding all the projects : <code>stats</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">4.14. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">4.15. Redoing the previously undone command : <code>redo</code></a></li>
@@ -733,7 +733,7 @@ There is no specific order for either the user story or the importance level so 
 <div class="sect2">
 <h3 id="remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></h3>
 <div class="sect3">
-<h4 id="remove-an-employee-from-a-project-code-removefrom-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-employee-code">4.9.1. Remove an employee from a project: <code>removefrom employee</code></a></h4>
+<h4 id="remove-an-employee-from-a-project-code-removefrom-project_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-project_name-employee-code">4.9.1. Remove an employee from a project: <code>removefrom PROJECT_NAME employee</code></a></h4>
 <div class="paragraph">
 <p>Removing an employee from a project.</p>
 </div>
@@ -750,7 +750,7 @@ Removes the employee at 3rd position at displayed list of employees from Project
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-milestone-from-a-project-code-removefrom-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-milestone-code">4.9.2. Remove a milestone from a project: <code>removefrom milestone</code></a></h4>
+<h4 id="remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code">4.9.2. Remove a milestone from a project: <code>removefrom PROJECT_NAME milestone</code></a></h4>
 <div class="paragraph">
 <p>Removing a milestone from a project.</p>
 </div>
@@ -830,21 +830,7 @@ Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and
 </div>
 </div>
 <div class="sect2">
-<h3 id="to-indicate-the-project-has-been-completed-code-complete-code-coming-in-v2-0"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code-coming-in-v2-0">4.11. To indicate the project has been completed : <code>complete</code> [coming in v2.0]</a></h3>
-<div class="paragraph">
-<p>Indicates that a project is completed.
-Format: <code>complete PROJ_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="paragraph">
-<p><code>complete Project Apollo</code><br>
-Project Apollo has been finished and delivered to client.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.12. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></h3>
+<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.11. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Returns a sorted list of projects by the sort key value.
 Available keys: name, deadline.</p>
@@ -867,6 +853,26 @@ List of project have been sorted by name.</p>
 <p><code>sort deadline</code><br>
 List of projects have been sorted by deadline with the
 earliest deadline displayed at the top of the list.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.12. To indicate the project has been completed : <code>complete</code></a></h3>
+<div class="paragraph">
+<p>Indicates that a project is completed.
+Format: <code>complete PROJ_NAME</code> or <code>complete PROJECT_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>complete Project Apollo</code><br>
+Project Apollo has been indicated as completed and removed from the list of ongoing projects.</p>
+</div>
+<div class="paragraph">
+<p><code>list projects</code><br>
+The list of ongoing projects are listed.
+<code>complete 1</code><br>
+The first project in the shown list is indicated as completed.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1030,12 +1036,12 @@ e.g. <code>delete employee 3</code> <code>delete project 1</code></p>
 e.g. <code>list employee</code> <code>list project</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit employee INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [g/GITHUB] [s/Skill]&#8230;&#8203;</code><br>
-e.g. <code>edit employee 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [g/GITHUB] [s/Skill]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find COMMAND_KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find skill Java</code></p>
+e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find skill Java</code> <code>find all software</code></p>
 </li>
 <li>
 <p><strong>View</strong> : <code>view employee EMPLOYEE_INDEX</code> , <code>view project PROJECT_NAME</code><br>
@@ -1069,4 +1075,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 06:23:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 06:46:11 UTC</div></div></div></body></html>
