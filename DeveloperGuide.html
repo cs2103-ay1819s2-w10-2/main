@@ -107,7 +107,10 @@
 <li><a href="#exiting-from-the-app">G.13. Exiting from the app</a></li>
 <li><a href="#undoing-a-data-modification">G.14. Undoing a data modification</a></li>
 <li><a href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></li>
-<li><a href="#saving-data">G.16. Saving data</a></li>
+<li><a href="#adding-a-project">G.16. Adding a project</a></li>
+<li><a href="#adding-a-milestone">G.17. Adding a milestone</a></li>
+<li><a href="#adding-a-userstory">G.18. Adding a UserStory</a></li>
+<li><a href="#saving-data">G.19. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -3172,7 +3175,162 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.16. Saving data</a></h3>
+<h3 id="adding-a-project"><a class="link" href="#adding-a-project">G.16. Adding a project</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new project</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: Project list doesn&#8217;t already contain a project named 'Apollo'.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp d/23/11/2020</code><br>
+Expected: A new project is added to the list. Details of the added project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Ap.ollo c/SymbCorp d/23/11/2020</code><br>
+Expected: No new project is added. Invalid project name error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/Symb.Corp d/23/11/2020</code><br>
+Expected: No new project is added. Invalid client name error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp d/30/02/2020</code><br>
+Expected: No new project is added. Invalid date error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project c/SymbCorp d/23/11/2020</code><br>
+Expected: No new project is added. Invalid command format error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo d/23/11/2020</code><br>
+Expected: No new project is added. Invalid command format error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp</code><br>
+Expected: No new project is added. Invalid command format error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a new project that has at most 1 field different from an existing project.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: This test case assumes that the command <code>add project n/Apollo c/SymbCorp d/23/11/2020</code> has been entered successfully at least once before.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp d/23/11/2020</code><br>
+Expected: No new project is added. Duplicate project error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo1 c/SymbCorp d/23/11/2020</code><br>
+Expected: A new project is added to the list. Details of the added project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp1 d/23/11/2020</code><br>
+Expected: No new project is added. Duplicate project error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add project n/Apollo c/SymbCorp d/10/11/2020</code><br>
+Expected: No new project is added. Duplicate project error details shown in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-milestone"><a class="link" href="#adding-a-milestone">G.17. Adding a milestone</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a milestone to a project</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: The project list contains a project with name 'Apollo' but not a project with name 'Not Found'. 'Apollo' doesn&#8217;t already contain milestones with names 'Finished UserGuide' and 'Finished DevGuide'.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone Finished UserGuide 23/04/2019</code><br>
+Expected: A new milestone is added to 'Apollo'. Details of the added milestone shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addto Not Found milestone Finished UserGuide 23/04/2019</code><br>
+Expected: No new milestone is added. Invalid project name error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone 23/04/2019</code><br>
+Expected: No new milestone is added. Invalid command format error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone Finished UserGuide 234/04/2019</code><br>
+Expected: No new milestone is added. Invalid command format error details shown in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a new milestone that has at most 1 field different from an existing milestone in a project.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: This test case assumes that the command <code>addto Apollo milestone Finished UserGuide 23/04/2019</code> has been entered successfully at least once before.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone Finished UserGuide 23/04/2019</code><br>
+Expected: No new milestone is added. Duplicate milestone error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone Finished DevGuide 23/04/2019</code><br>
+Expected: A new milestone is added to 'Apollo'. Details of the added milestone shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo milestone Finished UserGuide 11/04/2019</code><br>
+Expected: A new milestone is added to 'Apollo'. Details of the added milestone shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-userstory"><a class="link" href="#adding-a-userstory">G.18. Adding a UserStory</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new user story to a project</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The project list contains a project with name 'Apollo' but not a project with name 'Not Found'.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo userstory as a project manager i want to add employees into a project so that i can track which employees are in a project i/2</code><br>
+Expected: A new user story is added to 'Apollo'. Details of the added user story shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo userstory as a project manager i want to add employees into a project so that i can track which employees are in a project i/4</code><br>
+Expected: No new user story is added. Invalid command format error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other invalid add userstory commands to try: <code>addto Apollo userstory x AAA y AAA z AAA</code> (where expected <code>x</code> = as a, <code>y</code> = i want to, <code>z</code> = so that, <code>AAA</code> can be anything. Modify <code>x</code> or <code>y</code> or <code>z</code> to be different from expected.)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.19. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3192,4 +3350,4 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 12:49:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-01 15:37:49 UTC</div></div></div></body></html>
