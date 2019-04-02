@@ -369,13 +369,17 @@ of employees.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>delete project Apollo</code><br>
 Deletes project "Apollo" from project list.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>delete project 2</code><br>
 Deletes the second project shown in the most recent displayed list of projects.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
@@ -606,10 +610,14 @@ will also be loaded.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>list employees</code><br>
 <code>view employee 3</code><br>
 Displays details of the employee at index 3</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -623,9 +631,13 @@ Displays details of the employee at index 3</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>view project Apollo</code><br>
 Displays details (client, deadline, employees, milestones) of project “Apollo”.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
@@ -686,9 +698,13 @@ Date must be of the format DD/MM/YYYY</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>addto Apollo milestone Completed UI for program 23/11/2015</code><br>
 Milestone added to project "Apollo".</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
@@ -697,7 +713,44 @@ while keying in a command into the CLI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-user-story-to-a-project-code-addto-userstory-code"><a class="link" href="#add-a-user-story-to-a-project-code-addto-userstory-code">4.8.3. Add a user story to a project <code>addto userstory</code></a></h4>
+<h4 id="add-a-task-to-a-project-milestone-code-addto-projecttask-code"><a class="link" href="#add-a-task-to-a-project-milestone-code-addto-projecttask-code">4.8.3. Add a task to a project milestone: <code>addto projecttask</code></a></h4>
+<div class="paragraph">
+<p>Adds a task to a project milestone.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addto PROJECT_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Adds the project task to the milestone at the specified <code>MILESTONE_INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of milestones.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
+Adds to the milestone at index 1 in project with name "Apollo", a new project task called "Create feature XYZ".</p>
+</li>
+<li>
+<p><code>addto Apollo projecttask m/2 n/Modify feature XYZ</code><br>
+Adds to the milestone at index 2 in project with name "Apollo", a new project task called "Modify feature XYZ".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+There is no specific order for either the project task name or the milestone index so either way is acceptable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-user-story-to-a-project-code-addto-userstory-code"><a class="link" href="#add-a-user-story-to-a-project-code-addto-userstory-code">4.8.4. Add a user story to a project: <code>addto userstory</code></a></h4>
 <div class="paragraph">
 <p>Adds a user story to a project.</p>
 </div>
@@ -718,11 +771,15 @@ Note that <code>as a</code>, <code>i want to</code> and <code>so that</code> are
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>addto Apollo userstory i/1 as a user i want to try out new things so that i can have fun</code></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>addto Apollo userstory as a lazy user i want to have shortcuts for my commands i/2</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
@@ -743,10 +800,14 @@ There is no specific order for either the user story or the importance level so 
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo employee 3</code><br>
 Removes the employee at 3rd position at displayed list of employees from Project Apollo.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -760,10 +821,14 @@ Removes the employee at 3rd position at displayed list of employees from Project
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo milestone 1</code><br>
 Removes the milestone at 1st position of displayed list of milestone from Project Apollo.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
@@ -791,10 +856,14 @@ while keying in a command into the CLI.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo userstory 1</code><br>
 Removes the user story at the 1st position of the displayed list of user stories from Project Apollo.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -811,9 +880,13 @@ Removes the user story at the 1st position of the displayed list of user stories
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>editproject Apollo n/Gemini c/John d/12/09/2020 desc/An application for project management</code><br>
 Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and the description to 'An application for project management'</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -845,14 +918,18 @@ Deadline: returns list by earliest deadline first.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>sort name</code><br>
 List of project have been sorted by name.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>sort deadline</code><br>
 List of projects have been sorted by deadline with the
 earliest deadline displayed at the top of the list.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -864,15 +941,19 @@ Format: <code>complete PROJ_NAME</code> or <code>complete PROJECT_INDEX</code></
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>complete Project Apollo</code><br>
 Project Apollo has been indicated as completed and removed from the list of ongoing projects.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p><code>list projects</code><br>
 The list of ongoing projects are listed.
 <code>complete 1</code><br>
 The first project in the shown list is indicated as completed.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -886,10 +967,14 @@ The first project in the shown list is indicated as completed.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>stats</code><br>
 Total number of ongoing projects: 4<br>
 Total number of completed projects: 9</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1048,8 +1133,8 @@ e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find
 e.g. <code>view employee 3</code> <code>view project Apollo</code></p>
 </li>
 <li>
-<p><strong>Addto</strong>: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code> ,<code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code><br>
-e.g. <code>addto Apollo employee 2</code> <code>addto Apollo milestone Completed UI for program 23/11/2015</code></p>
+<p><strong>Addto</strong>: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code> ,<code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code>, <code>addto PROJECT_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code><br>
+e.g. <code>addto Apollo employee 2</code> <code>addto Apollo milestone Completed UI for program 23/11/2015</code> <code>addto Apollo projecttask n/Create feature XYZ m/1</code></p>
 </li>
 <li>
 <p><strong>Removefrom</strong>: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code> <code>removefrom PROJECT_NAME milestone MS_INDEX</code><br>
@@ -1075,4 +1160,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 07:12:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:10:34 UTC</div></div></div></body></html>
