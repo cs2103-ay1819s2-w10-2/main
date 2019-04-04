@@ -41,7 +41,7 @@
 <li><a href="#remove-employee-milestone-from-projects-feature">6.2. Remove employee/milestone from projects feature</a></li>
 <li><a href="#find-employee-project-skill-all-feature">6.3. Find Employee/Project/Skill/All feature</a></li>
 <li><a href="#list-employee-project-feature">6.4. List Employee/Project feature</a></li>
-<li><a href="#proposed-stats-feature">6.5. [Proposed] Stats feature</a></li>
+<li><a href="#stats-feature">6.5. Stats feature</a></li>
 <li><a href="#undo-redo-feature">6.6. Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">6.7. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">6.8. Logging</a></li>
@@ -1053,49 +1053,51 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-stats-feature"><a class="link" href="#proposed-stats-feature">6.5. [Proposed] Stats feature</a></h3>
+<h3 id="stats-feature"><a class="link" href="#stats-feature">6.5. Stats feature</a></h3>
 <div class="sect3">
-<h4 id="planned-implementation"><a class="link" href="#planned-implementation">6.5.1. Planned Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">6.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The displaying of statistics in Pocket Project will be facilitated by the model component. This feature is
-planned to support 1 main command:</p>
+planned to support 2 main commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>stats</code>&#8201;&#8212;&#8201;Displays the total number of projects and the respective number of ongoing and completed projects</p>
+<p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, closest deadline etc.</p>
+</li>
+<li>
+<p><code>stats PROJECT_INDEX</code> or <code>stats PROJECT_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJECT_INDEX or PROJECT_NAME.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The operation will be supported by the methods in the <code>Model</code> interface: <code>Model#getProjectList()</code> and <code>Model#getCompletedProjectList</code>.
-These two methods each will retrieve an unmodifiable list of ongoing projects and completed projects respectively.</p>
+<p>The operation will be supported by the methods in the <code>Model</code> interface: <code>Model#overallStats()</code> and <code>Model#individualStats(Project)</code>.
+<code>Model#overallStats()</code> will retrieve the data on all the projects/employees to pass to <code>StatsUtil</code>, an utility class to produce a string which describes
+the status of all projects. <code>Model#individualStats(Project)</code> passes the given project to <code>StatsUtil</code> to produce a string in a similar fashion.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the stats command will work:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/stats_sequence_diagram.png" alt="stats sequence diagram" width="1000">
-</div>
+<p>The following sequence diagrams show how the stats command will work:</p>
 </div>
 <div class="paragraph">
-<p>Usage Scenario example for <code>stats</code>:</p>
+<p>Overview of all projects:
+image::OverallStatsSequenceDiagram.png[width="1000"]
+Individual Project:
+image::IndividualStatsSequenceDiagram.png[width="1000"]
+Usage Scenario example for <code>stats</code>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>stats</code> to view project statistics in Pocket Project.</p>
+<p>User executes <code>stats</code>/<code>stats PROJECT_INDEX</code>/<code>stats PROJECT_NAME</code> to view project statistics in Pocket Project.</p>
 </li>
 <li>
-<p><code>PocketProjectParser</code> will parse and identify the command as a <code>StatsCommand</code> and returns a <code>StatsCommand</code>.</p>
+<p><code>PocketProjectParser</code> will parse and identify the command as a <code>IndividualStatsCommand</code> or <code>OverallStatsCommand</code>, parse any additional argument accordingly and return the command object.</p>
 </li>
 <li>
-<p><code>LogicManager</code> then executes <code>StatsCommand</code>, calling the <code>Model#getProjectList()</code> and <code>Model#getCompletedProjectList()</code> methods
-which return the list of ongoing and completed projects respectively.</p>
+<p><code>LogicManager</code> then executes the returned command, calling the <code>Model#individualStats()</code> or <code>Model#overallStats(Project)</code> accordingly to obtain the string describing the status of concern.</p>
 </li>
 <li>
-<p><code>StatsCommand</code> then returns the total number of projects and the respective number of ongoing and completed projects.</p>
+<p>The returned string is used to construct the result of the command.</p>
 </li>
 </ol>
 </div>
@@ -1103,16 +1105,21 @@ which return the list of ongoing and completed projects respectively.</p>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.5.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-the-number-of-projects-is-obtained"><a class="link" href="#aspect-how-the-number-of-projects-is-obtained">Aspect: How the number of projects is obtained.</a></h5>
+<h5 id="aspect-how-the-string-is-constructed"><a class="link" href="#aspect-how-the-string-is-constructed">Aspect: How the string is constructed.</a></h5>
 <div class="paragraph">
-<p>Alternative 1: Obtain the required project lists through <code>Model</code> and and get the size of the lists.</p>
+<p>Alternative 1: Retrieve all the relevant project(s), find out the relevant information and construct the string in the <code>execute()</code> method
+of the command object.</p>
 </div>
 <div class="paragraph">
-<p>Alternative 2: Let <code>UniqueProjectList</code> keep track of the number of projects and implement a <code>UniqueProjectList#getSize()</code> method which is called by <code>StatsCommand</code>.</p>
+<p>Alternative 2: Do the construction in the model.</p>
 </div>
 <div class="paragraph">
-<p>Using Alternative 1 is better as the Pocket Project statistics only need to be displayed when the user executes <code>stats</code>.
-Alternative 2 would require additional checks to ensure that there is live update of project statistics in <code>UniqueProjectList</code> every time a project is added, deleted or completed.</p>
+<p>Alternative 3: Do it somewhere else.</p>
+</div>
+<div class="paragraph">
+<p>I have decided to use alternative 3 and create a specialized helper class to scrap the relevant information from the list of projects/employees to
+produce the string. This is chosen because I have decided to have several helper methods to construct the different parts of the string(e.g. about the number of ongoing projects, project with closest deadline etc..).
+It would be inappropriate to put these methods under the command class or the model because they are not very related.</p>
 </div>
 </div>
 </div>
@@ -3350,4 +3357,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 14:06:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 06:47:29 UTC</div></div></div></body></html>
