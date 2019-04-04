@@ -17,9 +17,10 @@
 <li><a href="#before-we-begin">3. Before We Begin</a>
 <ul class="sectlevel2">
 <li><a href="#quick-start">3.1. Quick Start</a></li>
-<li><a href="#symbols">3.2. Symbols</a></li>
-<li><a href="#command-format">3.3. Command Format</a></li>
-<li><a href="#glossary">3.4. Glossary</a></li>
+<li><a href="#navigating-the-interface">3.2. Navigating the interface</a></li>
+<li><a href="#symbols">3.3. Symbols</a></li>
+<li><a href="#command-format">3.4. Command Format</a></li>
+<li><a href="#glossary">3.5. Glossary</a></li>
 </ul>
 </li>
 <li><a href="#Features">4. Features</a>
@@ -28,23 +29,22 @@
 <li><a href="#add-an-employee-or-project-to-the-application-code-add-code">4.2. Add an employee or project to the application: <code>add</code></a></li>
 <li><a href="#delete-an-employee-or-a-project-from-the-application-code-delete-code">4.3. Delete an employee or a project from the application <code>delete</code></a></li>
 <li><a href="#listing-all-employees-or-projects-in-application-code-list-code">4.4. Listing all employees or projects in application : <code>list</code></a></li>
-<li><a href="#edit-an-employee-in-the-application-code-edit-code">4.5. Edit an employee in the application : <code>edit</code></a></li>
+<li><a href="#edit-an-employee-project-in-the-application-code-edit-code">4.5. Edit an employee/project in the application : <code>edit</code></a></li>
 <li><a href="#locating-employees-projects-or-skills-by-name-code-find-code">4.6. Locating employees, projects or skills by name: <code>find</code></a></li>
 <li><a href="#view-the-details-of-employees-or-projects-code-view-code">4.7. View the details of employees or projects : <code>view</code></a></li>
 <li><a href="#add-an-employee-milestone-user-story-to-a-project-code-addto-code">4.8. Add an employee/milestone/user story to a project : <code>addto</code></a></li>
 <li><a href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></li>
-<li><a href="#edits-a-project-in-the-application-code-editproject-code">4.10. Edits a project in the application: <code>editproject</code></a></li>
-<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.11. To indicate the project has been completed : <code>complete</code></a></li>
-<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.12. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></li>
-<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code-2">4.13. To indicate the project has been completed : <code>complete</code></a></li>
-<li><a href="#display-statistics-regarding-the-projects-code-stats-code">4.14. Display statistics regarding the projects : <code>stats</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">4.15. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.16. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.17. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.19. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#project-commands-code-coming-in-v2-0-code">4.21. Project commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></li>
+<li><a href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.11. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></li>
+<li><a href="#to-indicate-the-project-has-been-completed-code-complete-code-2">4.12. To indicate the project has been completed : <code>complete</code></a></li>
+<li><a href="#display-statistics-regarding-the-projects-code-stats-code">4.13. Display statistics regarding the projects : <code>stats</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.14. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.15. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#project-commands-code-coming-in-v2-0-code">4.20. Project commands <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -111,11 +111,12 @@ symbols and terms used further on in the user guide.</p>
 <p>Copy the file to the folder you want to use as the home folder for your Pocket Project.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds as shown below.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/startup_ui.png" alt="startup ui" width="790">
 </div>
+<div class="title">Figure 1. Pocket Project UI</div>
 </div>
 </li>
 <li>
@@ -149,7 +150,53 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="symbols"><a class="link" href="#symbols">3.2. Symbols</a></h3>
+<h3 id="navigating-the-interface"><a class="link" href="#navigating-the-interface">3.2. Navigating the interface</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/ui_annotated.png" alt="ui annotated">
+</div>
+<div class="title">Figure 2. Pocket Project UI with different components</div>
+</div>
+<div class="paragraph">
+<p>As shown above, there are 5 main components in Pocket Project interface:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Command Box: where you key in the command</p>
+</li>
+<li>
+<p>Result Box: show the result of the command that is keyed in</p>
+</li>
+<li>
+<p>Side tab Panel: display either project list or employee list</p>
+</li>
+<li>
+<p>Prev/Next Button: to navigate through the project/employee details</p>
+</li>
+<li>
+<p>Detail panel: display details of an employee/project</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There are several detail panels to display the details of the employees and the projects as shown below. You can toggle between these panel by using the Prev/Next Button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/employee_detail_panel.png" alt="employee detail panel">
+</div>
+<div class="title">Figure 3. Detail Panels of an employee [1] Summary: display name, skills, phone, email of the employee [2] Projects: the list of projects the employee is working on [3] Github: github page of the employee</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/project_detail_panel.png" alt="project detail panel">
+</div>
+<div class="title">Figure 4. Detail Panels of a project [1] Summary: display project name, client and deadline of the project [2] User Stories for the project [3] List of employees working on the project</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="symbols"><a class="link" href="#symbols">3.3. Symbols</a></h3>
 <div class="paragraph">
 <p>The following section details and previews a few legends that will
 be used throughout the user guide. These legends are used to represent
@@ -192,7 +239,7 @@ that users can use while using the Pocket Project application.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="command-format"><a class="link" href="#command-format">3.3. Command Format</a></h3>
+<h3 id="command-format"><a class="link" href="#command-format">3.4. Command Format</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -218,7 +265,7 @@ that users can use while using the Pocket Project application.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="glossary"><a class="link" href="#glossary">3.4. Glossary</a></h3>
+<h3 id="glossary"><a class="link" href="#glossary">3.5. Glossary</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -416,12 +463,14 @@ while keying in a command into the CLI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-an-employee-in-the-application-code-edit-code"><a class="link" href="#edit-an-employee-in-the-application-code-edit-code">4.5. Edit an employee in the application : <code>edit</code></a></h3>
+<h3 id="edit-an-employee-project-in-the-application-code-edit-code"><a class="link" href="#edit-an-employee-project-in-the-application-code-edit-code">4.5. Edit an employee/project in the application : <code>edit</code></a></h3>
+<div class="sect3">
+<h4 id="edit-an-employee-in-the-application-code-edit-employee-code"><a class="link" href="#edit-an-employee-in-the-application-code-edit-employee-code">4.5.1. Edit an employee in the application: <code>edit employee</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing employee.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GITHUB] [s/SKILL]&#8230;&#8203;</code></p>
+<p>Format: <code>edit employee INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GITHUB] [s/SKILL]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
@@ -438,16 +487,16 @@ When editing skills, the existing skills of the person will be removed i.e addin
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+<p><code>edit employee 1 p/91234567 e/johndoe@example.com</code><br>
 Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower s/Java</code><br>
+<p><code>edit employee 2 n/Betsy Crower s/Java</code><br>
 Edits the name of the 2nd person to be <code>Betsy Crower</code> and sets Java as the only skill.</p>
 </li>
 <li>
-<p>`edit 2 n/Betsy Crower s/C s/HTML` +
-Edits the name of the 2nd employee to be `Betsy Crower` and sets C and HTML as the skills.</p>
+<p><code>edit employee 2 n/Betsy Crower s/C s/HTML</code><br>
+Edits the name of the 2nd employee to be <code>Betsy Crower</code> and sets C and HTML as the skills.</p>
 </li>
 </ul>
 </div>
@@ -458,6 +507,39 @@ The index must be a <strong>positive integer</strong> and cannot be larger than 
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
 You can remove all the person&#8217;s skills by typing <code>s/</code> without specifying any skills after it.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-name-client-deadline-description-of-a-project-code-edit-project-info-code"><a class="link" href="#edits-name-client-deadline-description-of-a-project-code-edit-project-info-code">4.5.2. Edits name/client/deadline/description of a project: <code>edit project info</code></a></h4>
+<div class="paragraph">
+<p>Edits the existing project components such as project name, client, deadline, description of the project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit project PROJECT_NAME info[n/name] [c/client] [d/deadline] [desc/description]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit project Apollo info n/Gemini c/John d/12/09/2020 desc/An application for project management</code><br>
+Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and the description to 'An application for project management'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-milestone-of-a-project-code-edit-project-milestone-code-coming-in-v2-0"><a class="link" href="#edits-milestone-of-a-project-code-edit-project-milestone-code-coming-in-v2-0">4.5.3. Edits milestone of a project: <code>edit project milestone</code> [coming in v2.0]</a></h4>
+<div class="paragraph">
+<p>Edits the existing milestone in the milestone list of a project.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-userstory-of-a-project-code-edit-project-userstory-code-coming-in-v2-0"><a class="link" href="#edits-userstory-of-a-project-code-edit-project-userstory-code-coming-in-v2-0">4.5.4. Edits UserStory of a project: <code>edit project userstory</code> [coming in v2.0]</a></h4>
+<div class="paragraph">
+<p>Edits the existing userstory in the userstory list of a project.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -582,11 +664,6 @@ while keying in a command into the CLI.</p>
 </div>
 <div class="paragraph">
 <p>Step 1: <code>find employee Bernice</code> - to narrow down the list to all employees with name containing Bernice</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/findEmployeeBernice.png" alt="findEmployeeBernice" width="800">
-</div>
 </div>
 <div class="paragraph">
 <p>Step 2: <code>delete 1</code> - deletes Bernice Yu who is the 1st employee in the result of the <code>find employee Bernice</code> command.</p>
@@ -869,42 +946,7 @@ Removes the user story at the 1st position of the displayed list of user stories
 </div>
 </div>
 <div class="sect2">
-<h3 id="edits-a-project-in-the-application-code-editproject-code"><a class="link" href="#edits-a-project-in-the-application-code-editproject-code">4.10. Edits a project in the application: <code>editproject</code></a></h3>
-<div class="sect3">
-<h4 id="edits-name-client-deadline-description-of-a-project-code-editproject-code"><a class="link" href="#edits-name-client-deadline-description-of-a-project-code-editproject-code">4.10.1. Edits name/client/deadline/description of a project: <code>editproject</code></a></h4>
-<div class="paragraph">
-<p>Edits the existing project components such as project name, client, deadline, description of the project.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>editproject PROJECT_NAME [n/name] [c/client] [d/deadline] [desc/description]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editproject Apollo n/Gemini c/John d/12/09/2020 desc/An application for project management</code><br>
-Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and the description to 'An application for project management'</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edits-milestone-of-a-project-code-editproject-project_name-milestone-code-coming-in-v2-0"><a class="link" href="#edits-milestone-of-a-project-code-editproject-project_name-milestone-code-coming-in-v2-0">4.10.2. Edits milestone of a project: <code>editproject PROJECT_NAME milestone</code> [coming in v2.0]</a></h4>
-<div class="paragraph">
-<p>Edits the existing milestone in the milestone list of a project.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edits-userstory-of-a-project-code-editproject-project_name-userstory-code-coming-in-v2-0"><a class="link" href="#edits-userstory-of-a-project-code-editproject-project_name-userstory-code-coming-in-v2-0">4.10.3. Edits UserStory of a project: <code>editproject PROJECT_NAME userstory</code> [coming in v2.0]</a></h4>
-<div class="paragraph">
-<p>Edits the existing userstory in the userstory list of a project.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.11. To indicate the project has been completed : <code>complete</code></a></h3>
+<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
 <p>Indicates that a project is completed on a certain date+
 Format: <code>complete PROJECT_NAME DATE</code>
@@ -923,7 +965,7 @@ The first project in the most recently display list of projects is completed on 
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.12. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></h3>
+<h3 id="sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0"><a class="link" href="#sort-the-projects-by-name-or-deadline-code-sort-code-coming-in-v2-0">4.11. Sort the projects by name or deadline : <code>sort</code> [coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>Returns a sorted list of projects by the sort key value.
 Available keys: name, deadline.</p>
@@ -953,7 +995,7 @@ earliest deadline displayed at the top of the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="to-indicate-the-project-has-been-completed-code-complete-code-2"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code-2">4.13. To indicate the project has been completed : <code>complete</code></a></h3>
+<h3 id="to-indicate-the-project-has-been-completed-code-complete-code-2"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code-2">4.12. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
 <p>Indicates that a project is completed.
 Format: <code>complete PROJ_NAME</code> or <code>complete PROJECT_INDEX</code></p>
@@ -977,7 +1019,7 @@ The first project in the shown list is indicated as completed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-regarding-the-projects-code-stats-code"><a class="link" href="#display-statistics-regarding-the-projects-code-stats-code">4.14. Display statistics regarding the projects : <code>stats</code></a></h3>
+<h3 id="display-statistics-regarding-the-projects-code-stats-code"><a class="link" href="#display-statistics-regarding-the-projects-code-stats-code">4.13. Display statistics regarding the projects : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Returns an overview of all ongoing projects/the progress of an individual project.</p>
 </div>
@@ -1005,7 +1047,7 @@ fill in stuff (not implemeted yet).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.15. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.14. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the Pocket Project to the state before the previous <em>undoable</em> command was executed.</p>
 </div>
@@ -1043,7 +1085,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.16. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.15. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.</p>
 </div>
@@ -1082,7 +1124,7 @@ The redo command can only be called if there is an undo command that has not bee
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.17. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Pocket Project.</p>
 </div>
@@ -1091,27 +1133,27 @@ The redo command can only be called if there is an undo command that has not bee
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.19. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Pocket Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="project-commands-code-coming-in-v2-0-code"><a class="link" href="#project-commands-code-coming-in-v2-0-code">4.21. Project commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="project-commands-code-coming-in-v2-0-code"><a class="link" href="#project-commands-code-coming-in-v2-0-code">4.20. Project commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Commands related to managing of project will be added soon.}</em></p>
 </div>
@@ -1187,4 +1229,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 15:41:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 15:51:27 UTC</div></div></div></body></html>
