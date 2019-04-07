@@ -323,10 +323,10 @@ outline how the various commands can be used through examples and illustrations.
 <div class="ulist">
 <ul>
 <li>
-<p><code>add employee n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add employee n/John Doe p/98765432 e/johnd@example.com g/johnballer s/Java</code></p>
 </li>
 <li>
-<p><code>add employee n/Betsy Crowe e/betsycrowe@example.com a/Newgate Prison p/1234567 s/HTML</code></p>
+<p><code>add employee n/Betsy Crowe e/betsycrowe@example.com g/BetBet p/1234567 s/HTML</code></p>
 </li>
 </ul>
 </div>
@@ -355,11 +355,6 @@ An employee can have any number of skills (including 0).</p>
 <p><code>add project n/Xtreme c/John Smith d/13/04/2020</code></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
-while keying in a command into the CLI.</p>
 </div>
 </div>
 </div>
@@ -412,7 +407,7 @@ of employees.</p>
 <p>Deletes the project from the list of projects.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete project PROJECT_NAME</code> or <code>delete project PROJECT_INDEX</code></p>
+<p>Format: <code>delete project PROJ_NAME</code> or <code>delete project PROJ_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -428,11 +423,6 @@ Deletes project "Apollo" from project list.</p>
 Deletes the second project shown in the most recent displayed list of projects.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
-while keying in a command into the CLI.</p>
 </div>
 </div>
 </div>
@@ -454,11 +444,6 @@ while keying in a command into the CLI.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>list projects</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
-while keying in a command into the CLI.</p>
 </div>
 </div>
 </div>
@@ -515,7 +500,7 @@ You can remove all the person&#8217;s skills by typing <code>s/</code> without s
 <p>Edits the existing project components such as project name, client, deadline, description of the project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit project PROJECT_NAME info[n/name] [c/client] [d/deadline] [desc/description]</code></p>
+<p>Format: <code>edit project PROJ_NAME info[n/name] [c/client] [d/deadline] [desc/description]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -679,11 +664,6 @@ Persons matching at least one keyword will be returned (i.e. <code>OR</code> sea
 <p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
 Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee', 'p' as an alias for 'project', 's' as an alias for 'skills'
-while keying in a command into the CLI. [coming soon]</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="find-command-usage-scenario"><a class="link" href="#find-command-usage-scenario">4.6.6. Find Command Usage Scenario</a></h4>
@@ -732,7 +712,7 @@ Displays details of the employee at index 3</p>
 <p>Returns the list of milestones and employees in a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>view project PROJECT_NAME</code></p>
+<p>Format: <code>view project PROJ_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -745,11 +725,6 @@ Displays details (client, deadline, employees, milestones) of project â€œApolloâ
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'p' as an alias for 'project'
-while keying in a command into the CLI.</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -760,7 +735,7 @@ while keying in a command into the CLI.</p>
 <p>Adds an employee to a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
+<p>Format: <code>addto PROJ_NAME employee EMPLOYEE_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
@@ -795,7 +770,7 @@ Adds the 5th person in the displayed employee list to project "Apollo".</p>
 <p>Adds a milestone to a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code></p>
+<p>Format: <code>addto PROJ_NAME milestone MS_DETAILS MS_DATE</code></p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
@@ -812,11 +787,6 @@ Milestone added to project "Apollo".</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'milestone'
-while keying in a command into the CLI.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="add-a-task-to-a-project-milestone-code-addto-projecttask-code"><a class="link" href="#add-a-task-to-a-project-milestone-code-addto-projecttask-code">4.8.3. Add a task to a project milestone: <code>addto projecttask</code></a></h4>
@@ -824,7 +794,7 @@ while keying in a command into the CLI.</p>
 <p>Adds a task to a project milestone.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addto PROJECT_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code></p>
+<p>Format: <code>addto PROJ_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
@@ -861,7 +831,7 @@ There is no specific order for either the project task name or the milestone ind
 <p>Adds a user story to a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code></p>
+<p>Format: <code>addto PROJ_NAME userstory i/STORY_IMPORTANCE STORY</code></p>
 </div>
 <div class="paragraph">
 <p><code>STORY_IMPORTANCE</code>: The priority/importance level of the user story, ranging from 1 to 3. 3 being the most
@@ -872,7 +842,8 @@ important and 1 being the least.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-Note that <code>as a</code>, <code>i want to</code> and <code>so that</code> are keywords which are required in a valid user story.</p>
+Note that <code>as a</code>, <code>i want to</code> and <code>so that</code> are keywords which help us to segment your user story into the respective categories: user, function and reason.
+Hence these keywords cannot be used more than once.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -896,12 +867,12 @@ There is no specific order for either the user story or the importance level so 
 <div class="sect2">
 <h3 id="remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">4.9. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></h3>
 <div class="sect3">
-<h4 id="remove-an-employee-from-a-project-code-removefrom-project_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-project_name-employee-code">4.9.1. Remove an employee from a project: <code>removefrom PROJECT_NAME employee</code></a></h4>
+<h4 id="remove-an-employee-from-a-project-code-removefrom-proj_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-proj_name-employee-code">4.9.1. Remove an employee from a project: <code>removefrom PROJ_NAME employee</code></a></h4>
 <div class="paragraph">
 <p>Removing an employee from a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
+<p>Format: <code>removefrom PROJ_NAME employee EMPLOYEE_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -917,12 +888,12 @@ Removes the employee at 3rd position at displayed list of employees from Project
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code">4.9.2. Remove a milestone from a project: <code>removefrom PROJECT_NAME milestone</code></a></h4>
+<h4 id="remove-a-milestone-from-a-project-code-removefrom-proj_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-proj_name-milestone-code">4.9.2. Remove a milestone from a project: <code>removefrom PROJ_NAME milestone</code></a></h4>
 <div class="paragraph">
 <p>Removing a milestone from a project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>removefrom PROJECT_NAME milestone MS_INDEX</code></p>
+<p>Format: <code>removefrom PROJ_NAME milestone MS_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -944,11 +915,6 @@ The index refers to the index number (one-based) shown in the displayed list of 
 <div class="paragraph">
 <p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
 The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Users can simply use 'e' as an alias for 'employee' and 'm' as an alias for 'milestone'
-while keying in a command into the CLI.</p>
 </div>
 </div>
 <div class="sect3">
@@ -977,8 +943,8 @@ Removes the user story at the 1st position of the displayed list of user stories
 <h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.10. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
 <p>Indicates that a project is completed on a certain date+
-Format: <code>complete PROJECT_NAME DATE</code>
-or <code>complete PROJECT_INDEX DATE</code></p>
+Format: <code>complete PROJ_NAME DATE</code>
+or <code>complete PROJ_INDEX DATE</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1026,7 +992,7 @@ earliest deadline displayed at the top of the list.</p>
 <h3 id="to-indicate-the-project-has-been-completed-code-complete-code-2"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code-2">4.12. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
 <p>Indicates that a project is completed.
-Format: <code>complete PROJ_NAME</code> or <code>complete PROJECT_INDEX</code></p>
+Format: <code>complete PROJ_NAME</code> or <code>complete PROJ_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1052,7 +1018,7 @@ The first project in the shown list is indicated as completed.</p>
 <p>Returns an overview of all ongoing projects/the progress of an individual project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>stats</code> or <code>stats PROJECT_NAME</code>/<code>stats PROJECT_INDEX</code></p>
+<p>Format: <code>stats</code> or <code>stats PROJ_NAME</code>/<code>stats PROJ_INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>+
@@ -1226,19 +1192,19 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find skill Java</code> <code>find all software</code></p>
 </li>
 <li>
-<p><strong>View</strong> : <code>view employee EMPLOYEE_INDEX</code> , <code>view project PROJECT_NAME</code><br>
+<p><strong>View</strong> : <code>view employee EMPLOYEE_INDEX</code> , <code>view project PROJ_NAME</code><br>
 e.g. <code>view employee 3</code> <code>view project Apollo</code></p>
 </li>
 <li>
-<p><strong>Addto</strong>: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code> ,<code>addto PROJECT_NAME milestone MS_DETAILS MS_DATE</code>, <code>addto PROJECT_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code><br>
+<p><strong>Addto</strong>: <code>addto PROJ_NAME employee EMPLOYEE_INDEX</code> ,<code>addto PROJ_NAME milestone MS_DETAILS MS_DATE</code>, <code>addto PROJ_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code><br>
 e.g. <code>addto Apollo employee 2</code> <code>addto Apollo milestone Completed UI for program 23/11/2015</code> <code>addto Apollo projecttask n/Create feature XYZ m/1</code></p>
 </li>
 <li>
-<p><strong>Removefrom</strong>: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code> <code>removefrom PROJECT_NAME milestone MS_INDEX</code><br>
+<p><strong>Removefrom</strong>: <code>removefrom PROJ_NAME employee EMPLOYEE_INDEX</code> <code>removefrom PROJ_NAME milestone MS_INDEX</code><br>
 e.g. <code>removefrom Apollo employee 1</code> <code>removefrom Apollo milestone 1</code></p>
 </li>
 <li>
-<p><strong>Complete</strong> : <code>complete PROJECT_NAME</code><br>
+<p><strong>Complete</strong> : <code>complete PROJ_NAME</code><br>
 e.g. <code>complete Apollo</code></p>
 </li>
 <li>
@@ -1257,4 +1223,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 07:47:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 12:57:22 UTC</div></div></div></body></html>
