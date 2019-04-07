@@ -1066,7 +1066,7 @@ planned to support 2 main commands:</p>
 <p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, closest deadline etc.</p>
 </li>
 <li>
-<p><code>stats PROJECT_INDEX</code> or <code>stats PROJECT_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJECT_INDEX or PROJECT_NAME.</p>
+<p><code>stats PROJ_INDEX</code> or <code>stats PROJ_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJ_INDEX or PROJ_NAME.</p>
 </li>
 </ul>
 </div>
@@ -1088,7 +1088,7 @@ Usage Scenario example for <code>stats</code>:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>stats</code>/<code>stats PROJECT_INDEX</code>/<code>stats PROJECT_NAME</code> to view project statistics in Pocket Project.</p>
+<p>User executes <code>stats</code>/<code>stats PROJ_INDEX</code>/<code>stats PROJ_NAME</code> to view project statistics in Pocket Project.</p>
 </li>
 <li>
 <p><code>PocketProjectParser</code> will parse and identify the command as a <code>IndividualStatsCommand</code> or <code>OverallStatsCommand</code>, parse any additional argument accordingly and return the command object.</p>
@@ -1138,16 +1138,16 @@ which will store the relevant user stories as a <code>SortedUserStoryList</code>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code>&#8201;&#8212;&#8201;Adds the <code>story</code> to the project indicated by the <code>PROJECT_NAME</code>.</p>
+<p><code>addto PROJ_NAME userstory i/STORY_IMPORTANCE STORY</code>&#8201;&#8212;&#8201;Adds the <code>story</code> to the project indicated by the <code>PROJ_NAME</code>.</p>
 </li>
 <li>
-<p><code>removefrom PROJECT_NAME userstory INDEX</code>&#8201;&#8212;&#8201;Removes the user story at the specific index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJECT_NAME</code>.</p>
+<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;Removes the user story at the specific index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
 </li>
 <li>
-<p><code>edit project PROJECT_NAME userstory INDEX STORY</code>&#8201;&#8212;&#8201;Edits the user story at the specified index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJECT_NAME</code>.</p>
+<p><code>edit project PROJ_NAME userstory INDEX STORY</code>&#8201;&#8212;&#8201;Edits the user story at the specified index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
 </li>
 <li>
-<p><code>update PROJECT_NAME userstory INDEX STATUS&#8201;&#8212;&#8201;Updates the status of the user story at the specified index of the `SortedUserStoryList</code> in the project indicated by the <code>PROJECT_NAME</code>.</p>
+<p><code>update PROJ_NAME userstory INDEX STATUS&#8201;&#8212;&#8201;Updates the status of the user story at the specified index of the `SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
 </li>
 </ul>
 </div>
@@ -1226,10 +1226,10 @@ order of the user stories in the <code>SortedUserStoryList</code> hence changing
 <div class="ulist">
 <ul>
 <li>
-<p><code>addto PROJECT_NAME userstory [story]</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-user-story-to-projects-feature">Section 6.1, &#8220;Add employee/milestone/user story to projects feature&#8221;</a></p>
+<p><code>addto PROJ_NAME userstory [story]</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-user-story-to-projects-feature">Section 6.1, &#8220;Add employee/milestone/user story to projects feature&#8221;</a></p>
 </li>
 <li>
-<p><code>removefrom PROJECT_NAME userstory INDEX</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-from-projects-feature">Section 6.2, &#8220;Remove employee/milestone from projects feature&#8221;</a></p>
+<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-from-projects-feature">Section 6.2, &#8220;Remove employee/milestone from projects feature&#8221;</a></p>
 </li>
 </ul>
 </div>
@@ -3187,15 +3187,11 @@ Expected: Returns a list of projects containing the word 'software' or 'food' or
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>complete 1</code> where there this at least one project shown in the list of projects<br>
+<p>Test case: <code>complete 1 11/11/2011</code> where there this at least one project shown in the list of projects<br>
 Expected: The first project in the list is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>complete Project Apollo</code> where there is a project named 'Project Apollo' in the app<br>
-Expected: The project named 'Project Apollo' is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>complete x</code> where x is neither the index of a displayed project nor the name of an existing project<br>
+<p>Test case: <code>complete x 11/11/2011</code> where x is not the index of a displayed project<br>
 Expected: Error detail shown. The Timestamp in the status bar is not updated.</p>
 </li>
 </ol>
@@ -3468,4 +3464,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 12:57:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 14:58:06 UTC</div></div></div></body></html>
