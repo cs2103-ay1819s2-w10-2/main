@@ -924,7 +924,7 @@ by the model component of the PocketProject application. This feature supports t
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code>, <code>Model#addMilestoneTo(Project, Milestone)</code> and <code>Model#addUserStoryTo(Projectm UserStory)</code>.
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code>, <code>Model#addMilestoneTo(Project, Milestone)</code> and <code>Model#addUserStoryTo(Project, UserStory)</code>.
 These three methods only take in the project and employee/milestone as arguments as the correct Employee/Milestone/UserStory object would be located by
 <code>AddEmployeeToCommand#excute()</code>, <code>AddMilestoneToCommand#execute()</code> or <code>AddUserStoryToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
 </div>
@@ -1367,7 +1367,7 @@ It would be inappropriate to put these methods under the command class or the mo
 <div class="sect2">
 <h3 id="user-story-feature"><a class="link" href="#user-story-feature">6.8. User Story feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">6.8.1. Implementation</a></h4>
+<h4 id="general-implementation"><a class="link" href="#general-implementation">6.8.1. General Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of user stories in Pocket Project is facilitated by the <code>model</code> component, and in particular, the <code>Project</code> class
 which will store the relevant user stories as a <code>SortedUserStoryList</code>.</p>
@@ -1378,16 +1378,16 @@ which will store the relevant user stories as a <code>SortedUserStoryList</code>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addto PROJ_NAME userstory i/STORY_IMPORTANCE STORY</code>&#8201;&#8212;&#8201;Adds the <code>story</code> to the project indicated by the <code>PROJ_NAME</code>.</p>
+<p><code>addto [project name] userstory i/STORY_IMPORTANCE [story]</code>&#8201;&#8212;&#8201;Adds the user story specified in <code>[story]</code> to the list of user stories in the project with name <code>[project name]</code></p>
 </li>
 <li>
-<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;Removes the user story at the specific index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
+<p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;Removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
 </li>
 <li>
-<p><code>edit project PROJ_NAME userstory INDEX STORY</code>&#8201;&#8212;&#8201;Edits the user story at the specified index of the <code>SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
+<p><code>edit project [project_name] userstory [userstory index] [story]</code>&#8201;&#8212;&#8201; Edits the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
 </li>
 <li>
-<p><code>update PROJ_NAME userstory INDEX STATUS&#8201;&#8212;&#8201;Updates the status of the user story at the specified index of the `SortedUserStoryList</code> in the project indicated by the <code>PROJ_NAME</code>.</p>
+<p><code>update [project_name] userstory [userstory index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the user story at the <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
 </li>
 </ul>
 </div>
@@ -1460,18 +1460,275 @@ which will store the relevant user stories as a <code>SortedUserStoryList</code>
 <p>This is to faciliate users to find important user stories by ensuring a neatly ordered list by relevance of the user story. If a user wishes to do so, they can also sort the list by <code>UserStoryStatus</code> using the JavaFX <code>TableColumn</code> built-in sort to see which user stories are in progress or on hold. Note that doing so would directly change the
 order of the user stories in the <code>SortedUserStoryList</code> hence changing the index of the user story. In general, the GUI is updated to reflect the actual list stored within <code>SortedUserStoryList</code> hence any command which acts on an index would affect the user story in that index shown on the GUI.</p>
 </div>
-<div class="paragraph">
-<p>For example usage scenarios for adding user stories as removing of user stories, refer to the following:</p>
 </div>
+<div class="sect3">
+<h4 id="implementation-of-individual-commands"><a class="link" href="#implementation-of-individual-commands">6.8.2. Implementation of individual commands</a></h4>
+<div class="sect4">
+<h5 id="add-user-story-to-project-command"><a class="link" href="#add-user-story-to-project-command">Add user story to project command</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addto PROJ_NAME userstory [story]</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-user-story-to-projects-feature">Section 6.2, &#8220;Add employee/milestone/user story to projects feature&#8221;</a></p>
-</li>
-<li>
-<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-from-projects-feature">Section 6.3, &#8220;Remove employee/milestone from projects feature&#8221;</a></p>
+<p><code>addto [project name] userstory i/STORY_IMPORTANCE [story]</code>&#8201;&#8212;&#8201;adds the user story specified in <code>[story]</code> to the list of user stories in the project with name <code>[project name]</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>This operation is supported by the <code>Model#addUserStoryTo(Project, UserStory)</code> method as well as the <code>Model#getProjectWithName(Name)</code> method in the <code>Model</code> interface.
+It takes in the project and user story as arguments. The specified user story is created and the project specified is located
+by the <code>AddUserStoryToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the addition of user story to a project behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>list project'. The app displays the list of projects in the Pocket Project by executing the `list project</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as falling under the class of <code>AddToCommand</code>
+by the <code>addto</code> keyword and passes the rest of the string to the <code>AddToCommandParser</code> to identify which type of <code>AddToCommand</code> is being executed and what are the arguments.
+The <code>AddToCommandParser</code> then creates the <code>AddUserStoryTo</code> command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to add the user story to the project.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[project index]</code> given must refer to some existing project.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[userstory]</code> added needs to be of the correct format. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="remove-user-story-from-project-command"><a class="link" href="#remove-user-story-from-project-command">Remove user story from project command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is supported by the <code>Model#removeUserStoryFrom(Project, UserStory)</code> method as well as the <code>Model#getProjectWithName(Name)</code> method in the <code>Model</code> interface.
+This method does not require the <code>[user story]</code> as arguments since the corresponding <code>[user story]</code> object associated with the Project object can be found by`RemoveUserStoryFromCommand#execute()`
+before the methods of <code>Model</code> are called using the index specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of the removing of a user story from a project is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user enters <code>removefrom Apollo userstory 1</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as a <code>RemoveFromCommand</code> from the <code>removefrom</code> keyword inputted and passes the rest of the string to the <code>RemoveFromCommandParser</code> to identify which type of <code>RemoveFromCommand</code> is being executed.
+The <code>RemoveFromCommandParser</code> then detects that the keyword <code>userstory</code> is inputted and created a <code>RemoveUserStoryFrom</code> command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to remove the corresponding user story from the project.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[userstory index]</code> given must refer to some existing user story. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="edit-user-story-command"><a class="link" href="#edit-user-story-command">Edit user story command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit project [project name] userstory [userstory index] `&#8201;&#8212;&#8201;edits the user story at index `[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is supported by the <code>Project#SetUserStory(UserStory, UserStory)</code> method in the <code>Project</code> class as well as the <code>Model#getProjectWithName(Name)</code> method in the <code>Model</code> class. It takes
+in as arguments firstly, the old user story to edit, and secondly the new user story to replace it with. The <code>EditProjectUserStoryCommand</code> checks for the validity of the old and new user stories
+before the <code>Project#SetUserStory(UserStory, UserStory)</code> method is called.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of the editing of a user story in a project is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user enters <code>edit project Apollo userstory 1 as a user i want to login</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as a <code>EditCommand</code> from the <code>edit</code> keyword inputted and passes the rest of the string to the <code>EditCommandParser</code>.
+The <code>EditCommandParser</code> then detects that the keyword <code>project</code> is inputted and passes the rest of the string to the <code>EditProjectCommandParser</code>. The <code>EditProjectCommandParser</code> then detects the keyword <code>userstory</code> and creates a <code>EditUserStory</code> command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to locate the project and remove the corresponding user story from the project.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[userstory index]</code> given must refer to some existing user story and the new <code>[user story]</code> must be valid. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="update-user-story-command"><a class="link" href="#update-user-story-command">Update user story command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>update [project_name] userstory [userstory index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the user story at the <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is supported by the <code>UserStory#UpdateStatus(Status)</code> method in the <code>UserStory</code> class as well as the <code>Model#getProjectWithName(Name)</code> method in the <code>Model</code> class.
+It takes in as arguments the new status of the user story. The <code>UpdateUserStoryCommand</code> checks for the validity of the arguments and locates the specified user story from the project. It then calls the <code>UserStory#UpdateStatus(status)</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of updating a user story status is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user enters <code>update Apollo userstory 1 ongoing</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as a <code>UpdateCommand</code> from the <code>update</code> keyword inputted and passes the rest of the string to the <code>UpdateCommandParser</code>.
+The <code>UpdateCommandParser</code> then detects the keyword <code>userstory</code> and creates a <code>UpdateUserStory</code> command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to locate the project and update the status of the corresponding user story in the project.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[userstory index]</code> given must refer to some existing user story and the new <code>[status]</code> must be valid. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.8.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project-2"><a class="link" href="#aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project-2">Aspect: How to structure the user story details to be inputted into the project</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Use a <code>regex</code> to indicate the importance/priority of a user story, then have the user key in the user story in the specified format <code>as a&#8230;&#8203;i want to&#8230;&#8203;so that&#8230;&#8203;</code>(Current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Use only <code>regex</code> to denote the different parts of a user story. For example, <code>i/</code> to denote the importance level, <code>u/</code> to denote user etc&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Alternative 3: Store the entire string as given by the user as it is and not parse the input.</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 3 is the simplest and most straight forward way to handle the user input, but it does not provide much functionality. As user stories should be organised and easy to read as a list,
+we will need to use some sort of <code>TableView</code> or <code>ListView</code> to view the stories. Thus, using alternative 3 will only allow the entire string to be generated and is not user friendly.
+Between alternative 2 and alternative 1, alternative 2 provides an easier way for the program to generate and partition the input using <code>regex</code> expressions. However, as there are many parts to a user
+story, having to remember 4 different <code>regex</code> expressions may be hard for a user to remember and may be inconvenient. Using alternative 1 is a mix of both 2 and 3, which allows abit more flexibility
+and smoothness for a user by allowing them to type in full sentences how they would normally do for a user story, while allowing proper classification of the components of the story to be able to
+be displayed in the UI component as a <code>TableView</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-userstory-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-userstory-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo userstory 1</code>) is parsed</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Let <code>PocketProjectParser</code> handle the whole string and construct the command.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Having 2 parsing stages where the <code>PocketProjectParser</code> identify that the command string is trying to execute a <code>RemoveFromCommand</code> from the <code>removefrom</code> key word, then passes
+the rest of the string to another specialized <code>RemoveFromCommandParser</code>. (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 2 is better  as it provides better abstraction as the details of the 2 different types of <code>RemoveFromCommand</code> will be hidden away, hence it is more in line with OOP principles.
+There will also be less clutter in <code>PocketProjectParser</code> as there are already a lot of other commands being parsed.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-show-store-the-list-of-user-stories"><a class="link" href="#aspect-how-to-show-store-the-list-of-user-stories">Aspect: How to show/store the list of user stories</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Sort the user stories only by decreasing priority.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Sort the user stories by the sequence it is added.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 3: Sort the user stories only by the names of the target user.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 4: Sort the user stories by decreasing priority, followed by the name of the target user.</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 2 is the simplest and most straightforward approach, but does not provide any value adding to the user. Both alternative 1 and 3 are useful,
+hence we decided to combine them to produce alternative 4, which allows not only the important user stories to be listed first, but also provides better readability as similar user stories are grouped together.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-planned-enhancements"><a class="link" href="#future-planned-enhancements">6.8.4. Future Planned Enhancements</a></h4>
+<div class="paragraph">
+<p>The following additional features are scheduled to be implemented in future version.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Allow more varied types of sorting for the users. Since there is no one-size-fit-all solution when deciding which user stories are more relevant, the user should be able to decide how he/she wants them arranged.
+Hence this proposed feature will allow users to be able to click the user stories table and customise the order in which user stories are shown.</p>
+</li>
+<li>
+<p>Provide even greater flexibility when parsing user stories. Currently, user stories require specific keywords <code>as a</code>, <code>i want to</code>, <code>so that</code>. In future, users should be able to type sentences naturally and it can still be parsed.
+This will be made available by widening the range of keywords the parser is able to detect as well as the different sentence structures possible.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1608,7 +1865,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">6.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -3704,4 +3961,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:21:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:49:43 UTC</div></div></div></body></html>
