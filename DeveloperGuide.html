@@ -1337,7 +1337,7 @@ planned to support 2 main commands:</p>
 <p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, deadlines etc.</p>
 </li>
 <li>
-<p><code>stats PROJ_INDEX</code> or <code>stats PROJ_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJ_INDEX or PROJ_NAME.</p>
+<p><code>stats PROJECT_INDEX</code> or <code>stats PROJECT_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJECT_INDEX or PROJECT_NAME.</p>
 </li>
 </ul>
 </div>
@@ -1350,16 +1350,28 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 <p>The following sequence diagrams show how the stats command will work:</p>
 </div>
 <div class="paragraph">
-<p>Overview of all projects:
-image::OverallStatsSequenceDiagram.png[width="1000"]
-Individual Project:
-image::IndividualStatsSequenceDiagram.png[width="1000"]
-Usage Scenario example for <code>stats</code>:</p>
+<p>Overview of all projects:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/overallStatsSequenceDiagram.png" alt="overallStatsSequenceDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Individual Project:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/individualStatsSequenceDiagram.png" alt="individualStatsSequenceDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Usage Scenario example for <code>stats</code>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>stats</code>/<code>stats PROJ_INDEX</code>/<code>stats PROJ_NAME</code> to view project statistics in Pocket Project.</p>
+<p>User executes <code>stats</code>/<code>stats PROJECT_INDEX</code>/<code>stats PROJECT_NAME</code> to view project statistics in Pocket Project.</p>
 </li>
 <li>
 <p><code>PocketProjectParser</code> will parse and identify the command as a <code>IndividualStatsCommand</code> or <code>OverallStatsCommand</code>, parse any additional argument accordingly and return the command object.</p>
@@ -4282,4 +4294,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:28:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:05:09 UTC</div></div></div></body></html>

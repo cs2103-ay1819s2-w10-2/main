@@ -33,7 +33,7 @@
 <li><a href="#date-feature-in-pocket-project">4.2. Date Feature in Pocket Project</a></li>
 <li><a href="#adding-an-employee-or-project-to-the-application-code-add-code">4.3. Adding an employee or project to the application: <code>add</code></a></li>
 <li><a href="#add-an-employee-milestone-project-task-user-story-to-a-project-code-addto-code">4.4. Add an employee/milestone/project task/user story to a project : <code>addto</code></a></li>
-<li><a href="#delete-an-employee-or-a-project-from-the-application-code-delete-code">4.5. Delete an employee or a project from the application <code>delete</code></a></li>
+<li><a href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">4.5. Delete a project or an employee from the application <code>delete</code></a></li>
 <li><a href="#remove-an-employee-milestone-project-task-user-story-from-a-project-code-removefrom-code">4.6. Remove an employee/milestone/project task/user story from a project : <code>removefrom</code></a></li>
 <li><a href="#edit-an-employee-project-in-the-application-code-edit-code">4.7. Edit an employee/project in the application : <code>edit</code></a></li>
 <li><a href="#locating-employees-projects-or-skills-by-name-code-find-code">4.8. Locating employees, projects or skills by name: <code>find</code></a></li>
@@ -1078,42 +1078,63 @@ You may need to toggle the buttons to get to the correct panel.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-an-employee-or-a-project-from-the-application-code-delete-code"><a class="link" href="#delete-an-employee-or-a-project-from-the-application-code-delete-code">4.5. Delete an employee or a project from the application <code>delete</code></a></h3>
+<h3 id="delete-a-project-or-an-employee-from-the-application-code-delete-code"><a class="link" href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">4.5. Delete a project or an employee from the application <code>delete</code></a></h3>
 <div class="sect3">
-<h4 id="delete-an-employee-from-the-application-code-delete-employee-code"><a class="link" href="#delete-an-employee-from-the-application-code-delete-employee-code">4.5.1. Delete an employee from the application: <code>delete employee</code></a></h4>
+<h4 id="delete-a-project-from-the-application-code-delete-project-code"><a class="link" href="#delete-a-project-from-the-application-code-delete-project-code">4.5.1. Delete a project from the application: <code>delete project</code></a></h4>
+<div class="paragraph">
+<p>Deletes a project from the list of projects.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete project PROJECT_NAME</code> or <code>delete project PROJECT_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Deletes the project at the specified <code>PROJECT_INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of projects.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list. The <code>PROJECT_NAME</code> must be the name
+of an existing project.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-deleteproject_before.png" alt="ug deleteproject before">
+</div>
+<div class="title">Figure 16. <strong>Deleting a project at index 1 - before</strong></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-deleteproject_after.png" alt="ug deleteproject after">
+</div>
+<div class="title">Figure 17. <strong>Deleting a project at index 1 - after</strong></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete project 1</code><br>
+Deletes the first project shown in the most recent displayed list of projects. Figure 16 shows the command being typed but not entered yet
+and figure 17 shows the effect of the command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-employee-from-the-application-code-delete-employee-code"><a class="link" href="#delete-an-employee-from-the-application-code-delete-employee-code">4.5.2. Delete an employee from the application: <code>delete employee</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified employee from the employee list.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete employee INDEX</code></p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the employee at the specified <code>INDEX</code> based on
-the displayed list of employees.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Either the <code>list employee</code> command or the <code>find employee</code> command needs to be invoked
-before calling the <code>delete employee</code> command as the index is referenced from the last returned list
-of employees.</p>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p><code>list employees</code><br>
 <code>delete employee 2</code><br>
@@ -1124,31 +1145,13 @@ Deletes the 2nd person in the displayed employee list.</p>
 <code>delete employee 1</code><br>
 Deletes the 1st person in the resultant employee list shown by the <code>find</code> command.</p>
 </li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-project-from-the-application-code-delete-project-code"><a class="link" href="#delete-a-project-from-the-application-code-delete-project-code">4.5.2. Delete a project from the application: <code>delete project</code></a></h4>
-<div class="paragraph">
-<p>Deletes the project from the list of projects.</p>
+</ul>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete project PROJECT_NAME</code> or <code>delete project PROJECT_INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>delete project Apollo</code><br>
-Deletes project "Apollo" from project list.</p>
-</li>
-<li>
-<p><code>delete project 2</code><br>
-Deletes the second project shown in the most recent displayed list of projects.</p>
-</li>
-</ol>
+<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Either the <code>list employee</code> command or the <code>find employee</code> command needs to be invoked
+before calling the <code>delete employee</code> command as the index is referenced from the last returned list
+of employees.</p>
 </div>
 </div>
 </div>
@@ -1165,14 +1168,28 @@ Deletes the second project shown in the most recent displayed list of projects.<
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-removeemployee_before.png" alt="ug removeemployee before">
+</div>
+<div class="title">Figure 18. <strong>Removing an employee at index 1 - before</strong></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-removeemployee_after.png" alt="ug removeemployee after">
+</div>
+<div class="title">Figure 19. <strong>Removing an employee at index 1 - after</strong></div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>view project Apollo</code><br>
-<code>removefrom Apollo employee 3</code><br>
-Removes the employee at 3rd position at displayed list of employees from Project Apollo.</p>
+<p><code>view project 1</code><br>
+click on the right arrowhead till the page showing the list of employees in the project<br>
+<code>removefrom p1 employee 1</code><br>
+Removes the employee at first position at displayed list of employees from the project 'p1'. The effect of the command is
+demonstrated in figures 18 and 19.</p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -1256,7 +1273,7 @@ The 1st project task in the task list under the 2nd milestone of the displayed m
 <div class="content">
 <img src="images/ug-removeprojecttask.png" alt="ug removeprojecttask">
 </div>
-<div class="title">Figure 16. <strong>Before and after comparison when removing a task from a project&#8217;s milestone</strong></div>
+<div class="title">Figure 20. <strong>Before and after comparison when removing a task from a project&#8217;s milestone</strong></div>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1298,7 +1315,7 @@ Removes the user story at the 2nd position of the displayed list of user stories
 <div class="content">
 <img src="images/removefrom-user-story-ui.png" alt="removefrom user story ui">
 </div>
-<div class="title">Figure 17. Before and after comparison of removing a user story</div>
+<div class="title">Figure 21. Before and after comparison of removing a user story</div>
 </div>
 </div>
 </div>
@@ -1363,13 +1380,13 @@ used to show the difference will be <code>edit employee 2 n/The magician p/98637
 <div class="content">
 <img src="images/edit_employee_before.png" alt="edit employee before">
 </div>
-<div class="title">Figure 18. Before entering the edit command</div>
+<div class="title">Figure 22. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit_employee_after.png" alt="edit employee after">
 </div>
-<div class="title">Figure 19. After entering the edit command</div>
+<div class="title">Figure 23. After entering the edit command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1427,13 +1444,13 @@ also after the date of the latest milestone in the project.</p></td>
 <div class="content">
 <img src="images/edit_project_before.png" alt="edit project before">
 </div>
-<div class="title">Figure 20. Before entering hte edit command</div>
+<div class="title">Figure 24. Before entering hte edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit_project_after.png" alt="edit project after">
 </div>
-<div class="title">Figure 21. After the edit command is entered</div>
+<div class="title">Figure 25. After the edit command is entered</div>
 </div>
 </div>
 <div class="sect3">
@@ -1480,13 +1497,13 @@ this.</p>
 <div class="content">
 <img src="images/edit_project_milestone_before.png" alt="edit project milestone before">
 </div>
-<div class="title">Figure 22. Before entering the edit command</div>
+<div class="title">Figure 26. Before entering the edit command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit_project_milestone_after.png" alt="edit project milestone after">
 </div>
-<div class="title">Figure 23. After entering the edit command</div>
+<div class="title">Figure 27. After entering the edit command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1532,7 +1549,7 @@ this.</p>
 <div class="content">
 <img src="images/edit-user-story-ui.png" alt="edit user story ui">
 </div>
-<div class="title">Figure 24. Before and after comparisons of the user story&#8217;s importance level</div>
+<div class="title">Figure 28. Before and after comparisons of the user story&#8217;s importance level</div>
 </div>
 </div>
 </div>
@@ -1599,7 +1616,7 @@ Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code
 <div class="content">
 <img src="images/find_employee.png" alt="find employee">
 </div>
-<div class="title">Figure 25. After entering <code>find employee stark</code> command</div>
+<div class="title">Figure 29. After entering <code>find employee stark</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1632,7 +1649,7 @@ Returns a list of employees who have either java or C or both.</p>
 <div class="content">
 <img src="images/find_skill.png" alt="find skill">
 </div>
-<div class="title">Figure 26. After entering <code>find skill java</code> command</div>
+<div class="title">Figure 30. After entering <code>find skill java</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1661,7 +1678,7 @@ Returns a list of projects with names that contain Apollo</p>
 <div class="content">
 <img src="images/find_project.png" alt="find project">
 </div>
-<div class="title">Figure 27. After entering <code>find project apollo</code> command</div>
+<div class="title">Figure 31. After entering <code>find project apollo</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1690,7 +1707,7 @@ Returns a list of projects which contains either software or food or both.</p>
 <div class="content">
 <img src="images/find_all%201.png" alt="find all 1">
 </div>
-<div class="title">Figure 28. After entering <code>find all management</code> command</div>
+<div class="title">Figure 32. After entering <code>find all management</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1735,7 +1752,7 @@ Returns a list of projects which has 15/04/2019 as the deadline or has deadlines
 <div class="content">
 <img src="images/find_deadline.png" alt="find deadline">
 </div>
-<div class="title">Figure 29. After entering <code>find deadline this month 31</code> command</div>
+<div class="title">Figure 33. After entering <code>find deadline this month 31</code> command</div>
 </div>
 </div>
 </div>
@@ -1789,7 +1806,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="content">
 <img src="images/update-user-story-ui.png" alt="update user story ui">
 </div>
-<div class="title">Figure 30. Before and after comparisons of the status of a user story</div>
+<div class="title">Figure 34. Before and after comparisons of the status of a user story</div>
 </div>
 </div>
 </div>
@@ -1820,7 +1837,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="content">
 <img src="images/list-employee-ui.png" alt="list employee ui" width="280">
 </div>
-<div class="title">Figure 31. Employees list showing a list of all employees</div>
+<div class="title">Figure 35. Employees list showing a list of all employees</div>
 </div>
 </div>
 <div class="sect3">
@@ -1848,7 +1865,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="content">
 <img src="images/list-project-ui.png" alt="list project ui" width="280">
 </div>
-<div class="title">Figure 32. Projects list showing a list of all projects</div>
+<div class="title">Figure 36. Projects list showing a list of all projects</div>
 </div>
 </div>
 </div>
@@ -1895,7 +1912,7 @@ Displays details of the employee at index 1 of the employees list</p>
 <div class="content">
 <img src="images/view-employee-ui.png" alt="view employee ui">
 </div>
-<div class="title">Figure 33. Details of the employee at index 1 of the employees list is shown</div>
+<div class="title">Figure 37. Details of the employee at index 1 of the employees list is shown</div>
 </div>
 </div>
 <div class="sect3">
@@ -1926,14 +1943,15 @@ Displays details of the project at index 1 of the projects list.</p>
 <div class="content">
 <img src="images/view-project-ui.png" alt="view project ui">
 </div>
-<div class="title">Figure 34. Details of the project at index 1 of the projects list is shown</div>
+<div class="title">Figure 38. Details of the project at index 1 of the projects list is shown</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">4.12. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
-<p>Indicates that a project is completed.</p>
+<p>Indicates that a project is completed. Currently this command has similar effect to deleting the project, but
+it is meant to support the enhanced statistics feature for V2.0.</p>
 </div>
 <div class="paragraph">
 <p>Format:  <code>complete PROJECT_INDEX COMPLETION_DATE</code></p>
@@ -2315,4 +2333,4 @@ e.g. <code>complete 1 11/11/2011</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 10:28:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:05:09 UTC</div></div></div></body></html>

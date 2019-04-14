@@ -1,0 +1,512 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lin Dehui - Project Portfolio for Pocket Project</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lin Dehui - Project Portfolio for Pocket Project</h1></div><div id="content"><div class="sect1">
+<h2 id="about-the-project"><a class="link" href="#about-the-project">1. About the Project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My team and I were tasked with enhancing a basic command line interface addressbook for our
+Software Engineering project. We chose to morph it into a project management system for software engineering project managers.
+This enhanced application allows managers to keep track of employees and projects under his/her management.
+My role was to design and write the codes for the Statistics feature(with the <code>Stats</code> command). The following sections
+illustrate these enhancements in more detail, as well as the relevant sections I have added to the
+user and developer guides in relation to these enhancements.</p>
+</div>
+<div class="paragraph">
+<p>Note the following symbols used in this document:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Legend</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/highlight.png" alt="highlight" width=""></span></p>
+<p class="tableblock"> <span class="image"><img src="../images/component.png" alt="component" width=""></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight (called a mark-up) indicates that this is a command
+ that can be inputted into the command line and executed by the
+ application or indicates a component, class or object in
+                the architecture of the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any useful tips or things that users
+need to take note of while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon indicates any shortcuts
+that users can use while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that users
+ can take note of while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-smart.png" alt="ug smart" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The graduation cap icon indicates any advanced usages or
+ extra technical information about how a particular command works should the
+ users be interested to know.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary Of Contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my coding, documentation, and other helpful contributions to the
+team project.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enhancement added: I added the feature to be able to have an overview of all the ongoing projects and also the individual progress overview of individual projects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: There are two ways to use it. When only the <code>stats</code> command is keyed in without arguments, an overview of all projects is given.
+When the command is followed by a project name or an index (e.g. <code>stats 1</code>, <code>stats Project Apollo</code>), it returns an overview of the progress of the project.</p>
+</li>
+<li>
+<p>Justification: Our app is targeted at project managers managing many projects and it would be inconvenient for them to look
+through the long lists of employees and projects to get the large picture of all the projects they are managing, that is why we have overview for
+all projects. Individual project progress helps the manager to gauge the progress of individual projects so that they can adjust their plans accordingly.</p>
+</li>
+<li>
+<p>Highlights: This enhancement is very extensible and more useful statistics can be displayed if they are supported by the underlying data model.</p>
+</li>
+<li>
+<p>Credits:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Teammates for fixing typos here and there in the documentations.</p>
+</li>
+<li>
+<p>There was originally a implementation section in the developer guide for the <code>stats</code> command by Daryl Tan, I have modified and extended
+it to its present state.</p>
+</li>
+<li>
+<p>My teammate Jothi is the one who came up with the icons used in the documentations.
+*</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Coding</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implementation of the part of the <code>removefrom</code> command which allows removal of employees or milestones from projects(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/79">79</a>]).</p>
+</li>
+<li>
+<p>Implementation of the <code>delete</code> command which allows the deletion of projects from the app. Refactored the <code>delete</code> command of the original address book to one which deletes employees.
+(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/39">39</a>])</p>
+</li>
+<li>
+<p>Implementation of the <code>complete</code> command which allows indication of projects as completed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Project Management</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set up Travis Continuous Integration and Coverall</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The sections below are the parts that are written by me, and may not be in the same order as in the user guide.
+Some of the figure numbers are changed too.</p>
+</div>
+<div class="sect2">
+<h3 id="delete-a-project-or-an-employee-from-the-application-code-delete-code"><a class="link" href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">3.1. Delete a project or an employee from the application <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="delete-a-project-from-the-application-code-delete-project-code"><a class="link" href="#delete-a-project-from-the-application-code-delete-project-code">3.1.1. Delete a project from the application: <code>delete project</code></a></h4>
+<div class="paragraph">
+<p>Deletes the a from the list of projects.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete project PROJ_NAME</code> or <code>delete project PROJ_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Deletes the project at the specified <code>PROJ_INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of projects.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list. The <code>PROJ_NAME</code> must be the name
+of an existing project.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete project Apollo</code><br>
+Deletes project "Apollo" from project list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-deleteproject_before.png" alt="ug deleteproject before">
+</div>
+<div class="title">Figure 1. <strong>Deleting a project at index 1 - before</strong></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-deleteproject_after.png" alt="ug deleteproject after">
+</div>
+<div class="title">Figure 2. <strong>Deleting a project at index 1 - after</strong></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete project 1</code><br>
+Deletes the first project shown in the most recent displayed list of projects. Figure 1 shows the command being typed but not entered yet
+and figure 2 shows the effect of the command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-employee-from-the-application-code-delete-employee-code"><a class="link" href="#delete-an-employee-from-the-application-code-delete-employee-code">3.1.2. Delete an employee from the application: <code>delete employee</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified employee from the employee list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete employee INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list employees</code><br>
+<code>delete employee 2</code><br>
+Deletes the 2nd person in the displayed employee list.</p>
+</li>
+<li>
+<p><code>find employee Betsy</code><br>
+<code>delete employee 1</code><br>
+Deletes the 1st person in the resultant employee list shown by the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Either the <code>list employee</code> command or the <code>find employee</code> command needs to be invoked
+before calling the <code>delete employee</code> command as the index is referenced from the last returned list
+of employees.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">3.2. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></h3>
+<div class="sect3">
+<h4 id="remove-an-employee-from-a-project-code-removefrom-proj_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-proj_name-employee-code">3.2.1. Remove an employee from a project: <code>removefrom PROJ_NAME employee</code></a></h4>
+<div class="paragraph">
+<p>Removing an employee from a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>removefrom PROJ_NAME employee EMPLOYEE_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-removeemployee_before.png" alt="ug removeemployee before">
+</div>
+<div class="title">Figure 3. <strong>Removing an employee at index 1 - before</strong></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-removeemployee_after.png" alt="ug removeemployee after">
+</div>
+<div class="title">Figure 4. <strong>Removing an employee at index 1 - after</strong></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view project 1</code><br>
+click on the right arrowhead till the page showing the list of employees in the project<br>
+<code>removefrom p1 employee 1</code><br>
+Removes the employee at first position at displayed list of employees from the project 'p1'. The effect of the command is
+demonstrated in figures 3 and 4.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-milestone-from-a-project-code-removefrom-proj_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-proj_name-milestone-code">3.2.2. Remove a milestone from a project: <code>removefrom PROJ_NAME milestone</code></a></h4>
+<div class="paragraph">
+<p>Removing a milestone from a project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>removefrom PROJ_NAME milestone MS_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view project Apollo</code><br>
+<code>removefrom Apollo milestone 1</code><br>
+Removes the milestone at 1st position of displayed list of milestone from Project Apollo.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
+Removes the employee at the specified <code>INDEX</code>.
+The index refers to the index number (one-based) shown in the displayed list of employees.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
+The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">3.3. To indicate the project has been completed : <code>complete</code></a></h3>
+<div class="paragraph">
+<p>Indicates that a project is completed.</p>
+</div>
+<div class="paragraph">
+<p>Format:  <code>complete PROJ_INDEX COMPLETION_DATE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list projects</code><br>
+The list of ongoing projects are listed.
+<code>complete 1 11/11/2011</code><br>
+The first project in the shown list is indicated as completed on 11/11/2011.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-statistics-regarding-the-projects-code-stats-code"><a class="link" href="#display-statistics-regarding-the-projects-code-stats-code">3.4. Display statistics regarding the projects : <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Returns an overview of all ongoing projects/the progress of an individual project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats</code> or <code>stats PROJ_NAME</code>/<code>stats PROJ_INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>+
+add something here.
+Examples:</p>
+</div>
+<div class="paragraph">
+<p><code>stats</code><br>
+Number of ongoing projects: 5<br>
+Projects with deadline in this month:<br>
+------------------------<br>
+1. Project6 | deadline: 17/04/2019|reached 0 out of 1 milestones<br>
+------------------------<br>
+2. Project2 | deadline: 17/06/2019|reached 1 out of 1 milestones<br>
+3. Project3 | deadline: 17/06/2019|reached 1 out of 1 milestones<br>
+4. Project1 | deadline: 17/05/2019|reached 0 out of 1 milestones<br>
+5. Project4 | deadline: 17/05/2019|reached 0 out of 0 milestones<br></p>
+</div>
+<div class="paragraph">
+<p><code>stats 1</code><br>
+Progress of p1:<br>
+deadline: 29/04/2019 | reached 0 out of 1 milestones<br>
+Milestones not reached yet:<br>
+1. Finish userguide | deadline: 28/04/2019 | 0 out of 1 tasks completed.<br></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">4.1. Remove employee/milestone from projects feature</a></h3>
+<div class="paragraph">
+<p>The part on userstory is done by my team mate: Jeff Gan</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The removing of employee,milestone or user story from projects is facilitated by the model component of the PocketProject.
+This feature currently supports these three commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removefrom [project name] employee [employee index]</code>&#8201;&#8212;&#8201;removes the employee at index <code>[employee index]</code> in the list of employees in the project named <code>[project name]</code>.</p>
+</li>
+<li>
+<p><code>removefrom [project name] milestone [milestone index]</code>&#8201;&#8212;&#8201;removes the milestone at index <code>[milestone index]</code> in the list of milestones in the project named <code>[project name]</code>.</p>
+</li>
+<li>
+<p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
+The methods does not take in indices as arguments since the corresponding Employee,Milestone or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
+before the methods of <code>Model</code> are called.
+The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone and user stories are similar:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/remove_employee_from_sequence_diagram.png" alt="remove employee from sequence diagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the removal of employee/milestone/user story feature behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of employees and milestones in the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters <code>removefrom Apollo employee 1</code>. The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as falling under the class of <code>RemoveFromCommand</code> (which constitutes of <code>RemoveEmployeeFromCommand</code>
+and <code>RemoveMilestoneFromCommand</code> by the <code>removefrom</code> keyword and passes the rest of the string to the <code>RemoveFromCommandParser</code> to identify which type of <code>RemoveFromCommand</code> is being executed and what are the arguments.
+The <code>RemoveFromCommandParser</code> then creates command object and passes it to the <code>LogicManager</code> to be executed. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to remove the corresponding objects.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes 'removefrom Apollo milestone 2'. The execution of this command is similar to step 2, just that the type of object changes from <code>Employee</code> to <code>Milestone</code>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
+Tip: The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code> or <code>[milestone index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo employee 1</code>) is parsed</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Let <code>PocketProjectParser</code> handle the whole string and construct the command.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Having 2 parsing stages where the <code>PocketProjectParser</code> identify that the command string is trying to execute a <code>RemoveFromCommand</code> from the <code>removefrom</code> key word, then passes
+the rest of the string to another specialized <code>RemoveFromCommandParser</code>. (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>Using alternative 2 is better  as it provides better abstraction as the details of the 2 different types of <code>RemoveFromCommand</code> will be hidden away, hence it is more in line with OOP principles.
+There will also be less clutter in <code>PocketProjectParser</code> as there are already a lot of other commands being parsed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stats-feature"><a class="link" href="#stats-feature">4.2. Stats feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">4.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The displaying of statistics in Pocket Project will be facilitated by the model component. This feature is
+planned to support 2 main commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, closest deadline etc.</p>
+</li>
+<li>
+<p><code>stats PROJECT_INDEX</code> or <code>stats PROJECT_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJECT_INDEX or PROJECT_NAME.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The operation will be supported by the methods in the <code>Model</code> interface: <code>Model#overallStats()</code> and <code>Model#individualStats(Project)</code>.
+<code>Model#overallStats()</code> will retrieve the data on all the projects/employees to pass to <code>StatsUtil</code>, an utility class to produce a string which describes
+the status of all projects. <code>Model#individualStats(Project)</code> passes the given project to <code>StatsUtil</code> to produce a string in a similar fashion.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams show how the stats command will work:</p>
+</div>
+<div class="paragraph">
+<p>Overview of all projects:
+image::OverallStatsSequenceDiagram.png[width="1000"]
+Individual Project:
+image::IndividualStatsSequenceDiagram.png[width="1000"]
+Usage Scenario example for <code>stats</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>stats</code>/<code>stats PROJECT_INDEX</code>/<code>stats PROJECT_NAME</code> to view project statistics in Pocket Project.</p>
+</li>
+<li>
+<p><code>PocketProjectParser</code> will parse and identify the command as a <code>IndividualStatsCommand</code> or <code>OverallStatsCommand</code>, parse any additional argument accordingly and return the command object.</p>
+</li>
+<li>
+<p><code>LogicManager</code> then executes the returned command, calling the <code>Model#individualStats()</code> or <code>Model#overallStats(Project)</code> accordingly to obtain the string describing the status of concern.</p>
+</li>
+<li>
+<p>The returned string is used to construct the result of the command.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-string-is-constructed"><a class="link" href="#aspect-how-the-string-is-constructed">Aspect: How the string is constructed.</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Retrieve all the relevant project(s), find out the relevant information and construct the string in the <code>execute()</code> method
+of the command object.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Do the construction in the model.</p>
+</div>
+<div class="paragraph">
+<p>Alternative 3: Do it somewhere else.</p>
+</div>
+<div class="paragraph">
+<p>I have decided to use alternative 3 and create a specialized helper class to scrap the relevant information from the list of projects to
+produce the string. This is chosen because I have decided to have several helper methods to construct the different parts of the string(e.g. about the number of ongoing projects etc..).
+It would be inappropriate to put these methods under the command class or the model because they are not very related.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:05:09 UTC</div></div></div></body></html>
