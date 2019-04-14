@@ -1384,7 +1384,7 @@ used to show the difference will be <code>edit employee 2 n/The magician p/98637
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/edit_employee_after.png" alt="edit employee after">
+<img src="images/edit_employee_after1.png" alt="edit employee after1">
 </div>
 <div class="title">Figure 23. After entering the edit command</div>
 </div>
@@ -1435,22 +1435,26 @@ Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and
 <td class="tableblock halign-left valign-top"><p class="tableblock">Note that the start date is unmodifiable and the deadline should be after the start date of the project and
 also after the date of the latest milestone in the project.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="70"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note that there is a minor bug that does not allow 'info' as part of the argument for the description of the project (e.g. 'desc/A project info&#8230;&#8203;' is not accepted). We are working hard to fix this issue soon.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Below are some before and after screenshot of how the command should work.</p>
+<p>Below is the before and after screenshots when the command <code>edit project PocketProjcet info desc/A project management tool d/20/05/2019</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit_project_before.png" alt="edit project before">
 </div>
-<div class="title">Figure 24. Before entering hte edit command</div>
+<div class="title">Figure 24. Before entering the edit project command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit_project_after.png" alt="edit project after">
 </div>
-<div class="title">Figure 25. After the edit command is entered</div>
+<div class="title">Figure 25. After the edit project command is entered</div>
 </div>
 </div>
 <div class="sect3">
@@ -1459,7 +1463,7 @@ also after the date of the latest milestone in the project.</p></td>
 <p>You can edit the milestone of the existing project whenever there are changes made to it.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit project PROJECT_NAME milestone INDEX [m/milestone] [d/date]</code></p>
+<p>Format: <code>edit project PROJECT_NAME milestone MILESTONE_INDEX [m/milestone] [d/date]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1486,10 +1490,14 @@ Change the milestone at index 2 in Apollo to 'Implement edit command (09/04/2019
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A blank input for milestone description will not be accepted as an input. (e.g. <code>edit milestone m/</code>)</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note that there is a minor bug that does not allow 'milestone' as part of the argument for the description of the milestone (e.g. 'm/A milestone for ui' is not accepted). We are working hard to fix this issue soon.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Below are some before and after screenshot of how the command should work. The command
+<p>Below is the before and after screenshot of how the command should work. The command
 <code>edit project Orbital milestone 1 m/Version 1.1 refactoring d/03/08/2019</code> will be used to show
 this.</p>
 </div>
@@ -1610,7 +1618,7 @@ Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code
 </ol>
 </div>
 <div class="paragraph">
-<p>Below is a screenshot of what a successful find command will look like.</p>
+<p>Below is a screenshot of what a successful find employee command will look like.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1655,7 +1663,7 @@ Returns a list of employees who have either java or C or both.</p>
 <div class="sect3">
 <h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">4.8.3. Find projects in the application: <code>find project</code></a></h4>
 <div class="paragraph">
-<p>Similarly for the project, you can find projects using the project names as keywords.</p>
+<p>Similarly for the projects, you can find projects using the project names as keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
@@ -1713,10 +1721,10 @@ Returns a list of projects which contains either software or food or both.</p>
 <div class="sect3">
 <h4 id="find-projects-with-deadline-find-deadline"><a class="link" href="#find-projects-with-deadline-find-deadline">4.8.5. Find projects with deadline: 'find deadline'</a></h4>
 <div class="paragraph">
-<p>In order to manage your workload and be aware of the upcoming deadline, you can find all the project which will be due before the deadline you have entered.</p>
+<p>In order to manage your workload and be aware of the upcoming deadline, you can find all the project which will be due before a certain date.</p>
 </div>
 <div class="paragraph">
-<p>Format: `find deadline KEYWORD</p>
+<p>Format: <code>find deadline KEYWORD</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -2253,49 +2261,79 @@ data of your previous Pocket Project folder.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom Apollo userstory 2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Employee&#8217;s details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit employee INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GITHUB] [s/SKILL]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit employee 2 n/Betsy Crower s/C s/HTML</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Project details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project PROJECT_NAME info [n/name] [c/client] [d/deadline] [desc/description]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project Apollo info n/Gemini c/John d/12/09/2020 desc/An application for project management</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit milestone details in the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project PROJECT_NAME milestone MILESTONE_INDEX [m/milestone] [d/date]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project Apollo milestone 2 m/Implement edit command d/09/04/2019</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Userstory details in the project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 6</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find employees using name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find employee KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find employee John</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find employees using skills</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find skill KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find skill java</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find project KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find project Apollo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using words found in name and description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find all KEYWORDS [MORE KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find all management</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find deadline KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find deadline 15/04/2019</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 7</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 8</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 9</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 9</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 9</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Complete</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complete</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 10</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 10</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 10</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 11</p></td>
 </tr>
 </tbody>
 </table>
@@ -2333,4 +2371,4 @@ e.g. <code>complete 1 11/11/2011</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:18:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 13:40:48 UTC</div></div></div></body></html>
