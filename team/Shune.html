@@ -88,10 +88,37 @@
 </table>
 <div class="sect2">
 <h3 id="locating-employees-projects-or-skills-by-name-code-find-code"><a class="link" href="#locating-employees-projects-or-skills-by-name-code-find-code">Locating employees, projects or skills by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>There are several ways available for you to search for employees and projects in PocketProject. Below are the things you should take note for all the find command.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect3">
 <h4 id="find-employees-in-the-application-code-find-employee-code"><a class="link" href="#find-employees-in-the-application-code-find-employee-code">Find employees in the application: <code>find employee</code></a></h4>
 <div class="paragraph">
-<p>Finds employees whose names contain any of the given keywords.</p>
+<p>You can search for employees by using their names as of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find employee KEYWORD [MORE_KEYWORDS]</code></p>
@@ -115,31 +142,18 @@ Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">Find projects in the application: <code>find project</code></a></h4>
 <div class="paragraph">
-<p>Finds projects whose names contain any of the given keywords.</p>
+<p>Below is a screenshot of what a successful find command will look like.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find project Apollo</code><br>
-Returns a list of projects with names that contain Apollo</p>
-</li>
-</ul>
+<div class="title">Afte entering <code>find employee stark</code> command</div>
+<p><span class="image"><img src="../images/find_employee.png" alt="find employee"></span></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="find-employees-with-skills-code-find-skill-code"><a class="link" href="#find-employees-with-skills-code-find-skill-code">Find employees with skills: <code>find skill</code></a></h4>
 <div class="paragraph">
-<p>Finds employees with the chosen skill.</p>
+<p>You can also look for employees using their skills as keyword. This will make things easier for you when you need to find employees to assign to projects which require a certain skill.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find skill KEYWORD [MORE_KEYWORDS]</code></p>
@@ -159,11 +173,45 @@ Returns a list of employees who have either java or C or both.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find skill command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find skill java</code> command</div>
+<p><span class="image"><img src="../images/find_skill.png" alt="find skill"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">Find projects in the application: <code>find project</code></a></h4>
+<div class="paragraph">
+<p>Similarly for the project, you can find projects using the project names as keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find project Apollo</code><br>
+Returns a list of projects with names that contain Apollo</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find project command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find project apollo</code> command</div>
+<p><span class="image"><img src="../images/find_project.png" alt="find project"></span></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-projects-with-any-keywords-code-find-all-code"><a class="link" href="#find-projects-with-any-keywords-code-find-all-code">Find projects with any keywords: <code>find all</code></a></h4>
 <div class="paragraph">
-<p>Find projects that contain any of the keywords in the project name, description, deadline.</p>
+<p>This <code>find all</code> command allows you to find projects even if you have forgotten the project name. You can simply try to find the project using words that appear in the description of the project.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find all KEYWORDS [MORE KEYWORDS]</code></p>
@@ -179,11 +227,18 @@ Returns a list of projects which contains either software or food or both.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find all command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find all management</code> command</div>
+<p><span class="image"><img src="../images/find_all%201.png" alt="find all 1"></span></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-projects-with-deadline-find-deadline"><a class="link" href="#find-projects-with-deadline-find-deadline">Find projects with deadline: 'find deadline'</a></h4>
 <div class="paragraph">
-<p>Find projects which has deadline that are before or same as the input provided by the user.</p>
+<p>In order to manage your workload and be aware of the upcoming deadline, you can find all the project which will be due before the deadline you have entered.</p>
 </div>
 <div class="paragraph">
 <p>Format: `find deadline KEYWORD</p>
@@ -200,41 +255,36 @@ Returns a list of projects which has 15/04/2019 as the deadline or has deadlines
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-Only accept one argument. e.g. will not accept <code>find deadline 15/04/2019 20/12/2019</code></p>
+<p>Below is a screenshot of what a successful find project command will look like.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Accepts both flexible date and calender date</p>
+<div class="title">Afte entering <code>find deadline this month 31</code> command</div>
+<p><span class="image"><img src="../images/find_deadline.png" alt="find deadline"></span></p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-command-usage-scenario"><a class="link" href="#find-command-usage-scenario">Find Command Usage Scenario</a></h4>
-<div class="paragraph">
-<p>For example, to delete Bernice Yu from the employee list, you can follow these steps:</p>
-</div>
-<div class="paragraph">
-<p>Step 1: <code>find employee Bernice</code> - to narrow down the list to all employees with name containing Bernice</p>
-</div>
-<div class="paragraph">
-<p>Step 2: <code>delete employee 1</code> - deletes Bernice Yu who is the 1st employee in the result of the <code>find employee Bernice</code> command.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only accept one argument. e.g. will not accept <code>find deadline 15/04/2019 20/12/2019</code></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepts both flexible date and calender date</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -344,4 +394,4 @@ Only full words will be matched e.g. <code>Han</code> will not match <code>Hans<
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:26:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:21:29 UTC</div></div></div></body></html>

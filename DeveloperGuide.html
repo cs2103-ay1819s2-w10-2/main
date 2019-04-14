@@ -3,7 +3,13 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>PocketProject - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team CS2103-AY1819S2-W10-2</code>      Since: <code>Jan 2019</code>      Licence: <code>MIT</code></p>
+<p>Authors: <code>Daryl Tan, Jeff Gan, Jothinandan Pillay, Lin Dehui, Shune Lei</code></p>
+</div>
+<div class="paragraph">
+<p>Team: CS2103-AY1819S2-W10-2</p>
+</div>
+<div class="paragraph">
+<p>Since: <code>January 2019</code> License: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -37,16 +43,18 @@
 </li>
 <li><a href="#implementation">6. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#add-employee-milestone-user-story-to-projects-feature">6.1. Add employee/milestone/user story to projects feature</a></li>
-<li><a href="#remove-employee-milestone-from-projects-feature">6.2. Remove employee/milestone from projects feature</a></li>
-<li><a href="#find-employee-project-skill-all-feature">6.3. Find Employee/Project/Skill/All feature</a></li>
-<li><a href="#list-employee-project-feature">6.4. List Employee/Project feature</a></li>
-<li><a href="#stats-feature">6.5. Stats feature</a></li>
-<li><a href="#user-story-feature">6.6. User Story feature</a></li>
-<li><a href="#undo-redo-feature">6.7. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">6.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">6.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">6.10. Configuration</a></li>
+<li><a href="#pocket-project-dates">6.1. Pocket Project Dates</a></li>
+<li><a href="#add-employee-milestone-user-story-to-projects-feature">6.2. Add employee/milestone/user story to projects feature</a></li>
+<li><a href="#remove-employee-milestone-from-projects-feature">6.3. Remove employee/milestone from projects feature</a></li>
+<li><a href="#edit-project-feature">6.4. Edit Project feature</a></li>
+<li><a href="#find-employee-project-skill-all-feature">6.5. Find Employee/Project/Skill/All feature</a></li>
+<li><a href="#list-employee-project-feature">6.6. List Employee/Project feature</a></li>
+<li><a href="#stats-feature">6.7. Stats feature</a></li>
+<li><a href="#user-story-feature">6.8. User Story feature</a></li>
+<li><a href="#undo-redo-feature">6.9. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">6.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">6.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">6.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">7. Documentation</a>
@@ -208,6 +216,12 @@ through the course of the Developer Guide.</p>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alphanumeric</p></td>
@@ -226,6 +240,12 @@ through the course of the Developer Guide.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Milestone</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A key event that is completed during the entire timeline of the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Short-form for regular expression. A regular expression is a pattern used to match character
+combinations in strings. Basically it is used to check if a given input matches the prescribed pattern or
+format.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One-Based Indexing</p></td>
@@ -723,9 +743,169 @@ As a more OOP model, we can store a <code>Skill</code> list in <code>Pocket Proj
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="add-employee-milestone-user-story-to-projects-feature"><a class="link" href="#add-employee-milestone-user-story-to-projects-feature">6.1. Add employee/milestone/user story to projects feature</a></h3>
+<h3 id="pocket-project-dates"><a class="link" href="#pocket-project-dates">6.1. Pocket Project Dates</a></h3>
+<div class="paragraph">
+<p>As expected, when it comes to a project manager application, the use of dates are used
+extensively in other features and commands throughout the application. These include,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The setting of <code>START_DATE</code> and  <code>DEADLINE</code> when adding a project to the Pocket Project application.</p>
+</li>
+<li>
+<p>The setting of <code>MILESTONE_DATE</code> when adding a milestone to a particular project.</p>
+</li>
+<li>
+<p>The setting of <code>COMPLETION_DATE</code> when completing a particular project.</p>
+</li>
+<li>
+<p>The editing of the above mentioned dates after it has been set.</p>
+</li>
+<li>
+<p>The finding of projects that are due by a certain <code>DEADLINE</code>.</p>
+</li>
+</ol>
+</div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">6.1.1. Current Implementation</a></h4>
+<h4 id="what-is-supports"><a class="link" href="#what-is-supports">6.1.1. What is Supports</a></h4>
+<div class="paragraph">
+<p>As it is widely used, it is important that the user is able to easily input any target date but at the same time
+retain some flexibility so that the feature is more user-friendly.</p>
+</div>
+<div class="paragraph">
+<p>So, keeping that in mind, the dates used in the Pocket Project supports 2 main formats, the Fixed Date Format, which supports 1 main sub-type, and the Flexible Date Format,
+which supports 3 main sub types, all of which are explained below in the following section. A total of 4 sub-types are supported
+across 2 formats and choosing any 1 of 4 will be accepted as a suitable input.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">6.1.2. How it is Implemented</a></h4>
+<div class="sect4">
+<h5 id="fixed-date-format"><a class="link" href="#fixed-date-format">Fixed Date Format</a></h5>
+<div class="paragraph">
+<p>Format: <code>DD/MM/YYYY</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>23/12/2019</code></p>
+</li>
+<li>
+<p><code>09/03/2020</code></p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The fixed date format follows the required <code>DD/MM/YYYY</code> format
+strictly and so <code>09/04/2023</code> is a valid input but <code>9/4/2023</code> is not.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="fixed-date-format-how-it-works-part-1"><a class="link" href="#fixed-date-format-how-it-works-part-1">Fixed Date Format: How it Works (Part 1)</a></h5>
+<div class="paragraph">
+<p>The input is parsed and the validity of the format is determined through the use of a regex as follows:</p>
+</div>
+<div class="paragraph">
+<p>Validation Regex = <code>"(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/((20)\d\d)"</code></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="flexible-date-format"><a class="link" href="#flexible-date-format">Flexible Date Format</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 25%;">
+<col style="width: 45%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Chooses the date relative to the &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>today/tomorrow/yesterday</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tomorrow</code><br>
+This would select tomorrow&#8217;s date as the target date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>this/next/last week DAY_OF_WEEK</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>next week 7</code><br>
+This would select next week&#8217;s Sunday as the target date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>this/next/last month DAY_OF_MONTH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last month 6</code><br>
+This would select last month&#8217;s 6th day as the target date.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_WEEK</code> takes an integer in the range of 1 to 7 which
+corresponds to Monday to Sunday respectively.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_MONTH</code> takes the value of positive integer but it cannot exceed
+the maximum number of days of a particular month in the chosen year.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="flexible-date-format-how-it-works-part-1"><a class="link" href="#flexible-date-format-how-it-works-part-1">Flexible Date Format: How it Works (Part 1)</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="date-formats-how-it-works-part-1"><a class="link" href="#date-formats-how-it-works-part-1">Date Formats: How it Works (Part 1)</a></h5>
+
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-it-is-implemented-2"><a class="link" href="#how-it-is-implemented-2">6.1.3. How it is Implemented</a></h4>
+<div class="paragraph">
+<p>This feature was mainly facilitated by the Java LocalDateTime class and the model and logic component of the Pocket
+Project application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-employee-milestone-user-story-to-projects-feature"><a class="link" href="#add-employee-milestone-user-story-to-projects-feature">6.2. Add employee/milestone/user story to projects feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">6.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>This feature focuses on the adding of employees or milestones to a selected project and is mainly facilitated
 by the model component of the PocketProject application. This feature supports two main commands:</p>
@@ -783,7 +963,7 @@ the milestone added needs to be of the correct format. If not, exceptions would 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">6.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">6.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project"><a class="link" href="#aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project">Aspect: How to structure the user story details to be inputted into the project</a></h5>
 <div class="paragraph">
@@ -806,7 +986,7 @@ be displayed in the UI component as a <code>TableView</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-planned-implementations"><a class="link" href="#future-planned-implementations">6.1.3. Future Planned Implementations</a></h4>
+<h4 id="future-planned-implementations"><a class="link" href="#future-planned-implementations">6.2.3. Future Planned Implementations</a></h4>
 <div class="paragraph">
 <p>The following additional features are scheduled to be implemented in future version.</p>
 </div>
@@ -835,9 +1015,9 @@ input as such:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">6.2. Remove employee/milestone from projects feature</a></h3>
+<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">6.3. Remove employee/milestone from projects feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">6.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">6.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The removing of employee,milestone or user story from projects is facilitated by the model component of the PocketProject.
 This feature currently supports these three commands:</p>
@@ -886,7 +1066,7 @@ Tip: The <code>[project name]</code> entered must be valid and exists in the app
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo employee 1</code>) is parsed</a></h5>
 <div class="paragraph">
@@ -904,9 +1084,69 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-employee-project-skill-all-feature"><a class="link" href="#find-employee-project-skill-all-feature">6.3. Find Employee/Project/Skill/All feature</a></h3>
+<h3 id="edit-project-feature"><a class="link" href="#edit-project-feature">6.4. Edit Project feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">6.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">6.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>This feature allows editing of several components which are under project and is mainly facilitated by the model component. This feature supports 3 main commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>edit project PROJECT_NAME info [ARGUMENTS]</code> - allow editing of project&#8217;s name, deadline, description</p>
+</li>
+<li>
+<p><code>edit project PROJECT_NAME milestone [ARGUMENTS]</code> - allow editing of details of project milestone such as milestone description and date</p>
+</li>
+<li>
+<p><code>edit project PROJECT_NAME userstory [ARGUMENTS]</code> - allow editing of details of project&#8217;s userstory (refer to Jeff&#8217;s portion)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>EditProjectCommand Parser</code> differentiate these 3 commands based on the <code>COMMAND_KEYWORD</code> which are info, milestone and userstory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>edit project info</code> command works;</p>
+</div>
+<div class="paragraph">
+<p>Given below is the example usage scenario of how <code>edit project info</code> command works:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>edit project PocketProject info desc/A project management tool d/20/05/2019</code> to edit description and deadline of the project named PocketProject</p>
+</li>
+<li>
+<p><code>PocketProjectParser</code> will parse and identify the command as an <code>EditCommand</code> and pass on the argument <code>project PocketProject info desc/A project management tool d/20/05/2019</code>.</p>
+</li>
+<li>
+<p><code>EditCommandParser</code> identify the command as a <code>EditProjectCommand</code> based on the word <code>project</code> and pass it onto <code>EditProjectCommandParser</code></p>
+</li>
+<li>
+<p><code>EditProjectCommandParser</code> then identify the command as a <code>EditProjectInfoCommand</code> based on the <code>COMMAND_KEYWORD</code> <code>info</code> and create the respective command and return it back to the <code>LogicManager</code></p>
+</li>
+<li>
+<p><code>LogicManager</code> then execute the command and check the validity of the parameters to be edited (in this case, the deadline and the description parameters are checked). The method <code>Model#setProject(projectToEdit, editedProject)</code> to replace the old project with the edited project with the new parameters.</p>
+</li>
+<li>
+<p>Finally, the project PicketProject is edited and the details showing on the ui is updated as well.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The working mechanism behind <code>EditProjectMilestoneCommand</code> is similar as well, instead of replacing the whole project, only the milestone list in the project is edited and replaced through <code>Model#setMilestone(milestoneToEdit, editedMilestone)</code> method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">6.4.2. Design Consideration</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-employee-project-skill-all-feature"><a class="link" href="#find-employee-project-skill-all-feature">6.5. Find Employee/Project/Skill/All feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">6.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>For the current <code>find</code> feature, there are 4 main commands that the user can execute:</p>
 </div>
@@ -970,7 +1210,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-find-code-command-is-parsed"><a class="link" href="#aspect-how-code-find-code-command-is-parsed">Aspect: How <code>find</code> command is parsed</a></h5>
 <div class="paragraph">
@@ -986,9 +1226,9 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-employee-project-feature"><a class="link" href="#list-employee-project-feature">6.4. List Employee/Project feature</a></h3>
+<h3 id="list-employee-project-feature"><a class="link" href="#list-employee-project-feature">6.6. List Employee/Project feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">6.4.1. Current implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">6.6.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>For the current list feature, there are 2 main commands that the user can execute:</p>
 </div>
@@ -1037,7 +1277,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-list-command-code-is-parsed"><a class="link" href="#aspect-how-code-list-command-code-is-parsed">Aspect: How <code>list command</code> is parsed</a></h5>
 <div class="paragraph">
@@ -1053,9 +1293,9 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 </div>
 </div>
 <div class="sect2">
-<h3 id="stats-feature"><a class="link" href="#stats-feature">6.5. Stats feature</a></h3>
+<h3 id="stats-feature"><a class="link" href="#stats-feature">6.7. Stats feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">6.5.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">6.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The displaying of statistics in Pocket Project will be facilitated by the model component. This feature is
 planned to support 2 main commands:</p>
@@ -1103,7 +1343,7 @@ Usage Scenario example for <code>stats</code>:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-string-is-constructed"><a class="link" href="#aspect-how-the-string-is-constructed">Aspect: How the string is constructed.</a></h5>
 <div class="paragraph">
@@ -1125,9 +1365,9 @@ It would be inappropriate to put these methods under the command class or the mo
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-feature"><a class="link" href="#user-story-feature">6.6. User Story feature</a></h3>
+<h3 id="user-story-feature"><a class="link" href="#user-story-feature">6.8. User Story feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">6.6.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">6.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of user stories in Pocket Project is facilitated by the <code>model</code> component, and in particular, the <code>Project</code> class
 which will store the relevant user stories as a <code>SortedUserStoryList</code>.</p>
@@ -1226,19 +1466,19 @@ order of the user stories in the <code>SortedUserStoryList</code> hence changing
 <div class="ulist">
 <ul>
 <li>
-<p><code>addto PROJ_NAME userstory [story]</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-user-story-to-projects-feature">Section 6.1, &#8220;Add employee/milestone/user story to projects feature&#8221;</a></p>
+<p><code>addto PROJ_NAME userstory [story]</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-user-story-to-projects-feature">Section 6.2, &#8220;Add employee/milestone/user story to projects feature&#8221;</a></p>
 </li>
 <li>
-<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-from-projects-feature">Section 6.2, &#8220;Remove employee/milestone from projects feature&#8221;</a></p>
+<p><code>removefrom PROJ_NAME userstory INDEX</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-from-projects-feature">Section 6.3, &#8220;Remove employee/milestone from projects feature&#8221;</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">6.7. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">6.9. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">6.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">6.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedPocketProject</code>.
 It extends <code>PocketProject</code> with an undo/redo history, stored internally as an <code>pocketProjectStateList</code> and <code>currentStatePointer</code>.
@@ -1368,7 +1608,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1438,20 +1678,20 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">6.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">6.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">6.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">6.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 6.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 6.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1482,7 +1722,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">6.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">6.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3464,4 +3704,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:26:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:21:29 UTC</div></div></div></body></html>

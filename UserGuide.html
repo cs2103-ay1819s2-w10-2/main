@@ -6,6 +6,9 @@
 <p>Authors: <code>Daryl Tan, Jeff Gan, Jothinandan Pillay, Lin Dehui, Shune Lei</code></p>
 </div>
 <div class="paragraph">
+<p>Team: CS2103-AY1819S2-W10-2</p>
+</div>
+<div class="paragraph">
 <p>Since: <code>January 2019</code> License: <code>MIT</code></p>
 </div>
 </div>
@@ -131,11 +134,11 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list employee</code></strong> : lists all employees</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com g/mainmanjohn</code> : adds an employee named
 <code>John Doe</code> to the Pocket Project.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd employee shown in the current list</p>
+<p><strong><code>delete employee</code></strong><code>3</code> : deletes the 3rd employee shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -204,8 +207,8 @@ special information such as tips and warnings.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <thead>
 <tr>
@@ -216,24 +219,24 @@ special information such as tips and warnings.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any useful tips or things that users
+<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any useful tips or things that you
 need to take note of while using the Pocket Project application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon indicates any shortcuts
-that users can use while using the Pocket Project application.</p></td>
+that you can use while using the Pocket Project application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that users
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that you
  can take note of while using the Pocket Project application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-smart.png" alt="ug smart" width="60"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The graduation cap icon indicates any advanced usages or
- extra technical information about how a particular command works should the
- users be interested to know.</p></td>
+ extra technical information about how a particular command works
+ should you be interested to know.</p></td>
 </tr>
 </tbody>
 </table>
@@ -275,14 +278,14 @@ that users can use while using the Pocket Project application.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>…</code>​</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Can be used multiple times</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>[s/SKILL]&#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Can have multiple skills: <code>[s/SKILL1] [t/SKILL2] [t/SKILL3]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can have multiple skills: <code>[s/SKILL1] [s/SKILL2] [s/SKILL3]</code></p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -313,8 +316,7 @@ through the course of the User Guide.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alphanumeric</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only contains either digits (0-9) or letters of the English
-                alphabet (A-Z).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only contains either digits (0-9) or letters of the English alphabet (A-Z).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Command Line Interface (CLI)</p></td>
@@ -330,12 +332,22 @@ through the course of the User Guide.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A key event that is completed during the entire timeline of the project.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Short-form for regular expression. A regular expression is used to check if a given input matches
+the prescribed pattern or format.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One-Based Indexing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Way of numbering in which the initial element of a sequence is assigned the index 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Way of numbering in which the initial element of a sequence of elements is assigned the index 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Story</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used primarily for planning of a feature in a project or application. The user story describes the type
+of user, what they want, why and the importance/significance of the feature</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Zero-Based Indexing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Way of numbering in which the initial element of a sequence is assigned the index 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Way of numbering in which the initial element of a sequence of elements is assigned the index 0.</p></td>
 </tr>
 </tbody>
 </table>
@@ -359,12 +371,12 @@ outline how the various commands can be used through examples and illustrations.
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternatively, you can press <kbd>F1</kbd>
 or click <code>Help</code> which can be found on the menu bar at the top left hand corner of the application.</p></td>
 </tr>
@@ -372,7 +384,7 @@ or click <code>Help</code> which can be found on the menu bar at the top left ha
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/ug-helpcommand.png" alt="ug helpcommand" width="800">
+<img src="images/ug-helpcommand.png" alt="ug helpcommand" width="400">
 </div>
 <div class="title">Figure 5. <strong>Accessing help from menu bar</strong></div>
 </div>
@@ -381,7 +393,7 @@ or click <code>Help</code> which can be found on the menu bar at the top left ha
 <h3 id="date-feature-in-pocket-project"><a class="link" href="#date-feature-in-pocket-project">4.2. Date Feature in Pocket Project</a></h3>
 <div class="paragraph">
 <p>In this application, a few commands involve the use of calendar dates. Examples of such
-commands include the setting of start dates, deadlines and completion dates to projects and the setting of
+commands include the setting of start dates and deadlines to projects and the setting of
 completion dates to projects, milestones and tasks.</p>
 </div>
 <div class="paragraph">
@@ -411,15 +423,27 @@ below mentioned formats.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The fixed date format follows the required <code>DD/MM/YYYY</code> format
-strictly and so it requires <code>DD</code> for the day field and <code>MM</code> for the month field even if the value is only
-single number. For example, <code>09/04/2023</code> is a valid input for the fixed date format but <code>9/4/2023</code> is not.</p></td>
+strictly and so <code>09/04/2023</code> is a valid input but <code>9/4/2023</code> is not.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The year field will not accept values beyond the
+year <code>2099</code> and acts as a loose safety feature for accidental errors while inputting the year.</p></td>
 </tr>
 </tbody>
 </table>
@@ -432,7 +456,9 @@ allows you to give an input with relation to the current date. It supports the b
 </div>
 <div class="paragraph">
 <p>The 3 flexible date formats will also be demonstrated with screenshots using the of the <code>add project</code> command which requires
-a <code>s/START_DATE</code> and a <code>d/DEADLINE</code>. More details will be expounded on later in</p>
+a <code>s/START_DATE</code> and a <code>d/DEADLINE</code>. This is all the relevant information that you need to know for this section
+but more details about the <code>add project</code> command will be covered later in
+<a href="#add-a-project-to-the-application-code-add-project-code">Section 4.3.2, &#8220;Add a project to the application: <code>add project</code>&#8221;</a></p>
 </div>
 <div class="sect4">
 <h5 id="choosing-a-date-relative-to-the-current-day"><a class="link" href="#choosing-a-date-relative-to-the-current-day">Choosing a date relative to the current day</a></h5>
@@ -464,8 +490,8 @@ current date is 12 April 2019 (12/04/2019).</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -515,12 +541,12 @@ current date is 12 April 2019 (12/04/2019), Friday.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_MONTH</code> takes the value of positive integer but it cannot exceed
 the maximum number of days of a particular month in the chosen year.</p></td>
 </tr>
@@ -555,10 +581,13 @@ current date is 12 April 2019 (12/04/2019), Friday.</p>
 </div>
 <div class="title">Figure 8. <strong>Using "this/next/last month DAY_OF_MONTH" as a flexible date input</strong></div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="some-additional-information"><a class="link" href="#some-additional-information">Some additional information</a></h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -568,21 +597,12 @@ is able to differentiate it based on the input received.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application will also automatically help to check the validity of the target
+<div class="paragraph">
+<p>The application will also automatically help to check the validity of the target
 date. Should you accidentally target an invalid dates such as <code>31/04/2019</code>, it will be rejected as the month of April
 only has 30 days. Additionally, leap years are also considered. So, as 2020 is a leap year, <code>29/02/2020</code> is considered a valid input but <code>29/02/2019</code> will be rejected
-as 2019 is not a leap year.</p></td>
-</tr>
-</tbody>
-</table>
+as 2019 is not a leap year.</p>
+</div>
 </div>
 </div>
 </div>
@@ -613,8 +633,8 @@ them in the future.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -640,8 +660,8 @@ above in Step 5 of Figure 5 and the GitHub repository of the employee will be vi
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -653,8 +673,8 @@ repository. Otherwise, the page will not load.</p></td>
 </table>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -674,14 +694,14 @@ can be assigned to them in the future.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The project, when created, has a default description which can be
-edited using the <code>edit project info</code> command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The project has a default description when created and this can be
+edited using <a href="#edits-name-client-deadline-description-of-a-project-code-edit-project-info-code">Section 4.6.2, &#8220;Edits name/client/deadline/description of a project: <code>edit project info</code>&#8221;</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -690,14 +710,14 @@ edited using the <code>edit project info</code> command.</p></td>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Both the fixed date format and the flexible date format
-can be used to select the target <code>START_DATE</code> and <code>DEADLINE</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both the fixed and flexible date format can be used to
+select the target <code>START_DATE</code> and `DEADLINE`as shown in <a href="#date-feature-in-pocket-project">Section 4.2, &#8220;Date Feature in Pocket Project&#8221;</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -716,8 +736,8 @@ can be used to select the target <code>START_DATE</code> and <code>DEADLINE</cod
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -739,12 +759,12 @@ and looks like.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="70"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">You can also view the list of all employees currently working on the project,
 a list of milestones and tasks, and a list of user stories by toggling the arrows on the details panel.</p></td>
 </tr>
@@ -846,19 +866,10 @@ Deletes the second project shown in the most recent displayed list of projects.<
 <div class="sect3">
 <h4 id="edit-an-employee-in-the-application-code-edit-employee-code"><a class="link" href="#edit-an-employee-in-the-application-code-edit-employee-code">4.6.1. Edit an employee in the application: <code>edit employee</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing employee.</p>
+<p>You can edit the details of an existing employees whenever there are changes made to the employee&#8217;s details such as name, phone, email, github and their skills.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>edit employee INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GITHUB] [s/SKILL]&#8230;&#8203;</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Edits the employee at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed employee list.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-At least one of the optional fields must be provided and all existing values will be updated with the input values.
-When editing skills, the existing skills of the person will be removed i.e adding of skills is not cumulative.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -867,7 +878,7 @@ When editing skills, the existing skills of the person will be removed i.e addin
 <ul>
 <li>
 <p><code>edit employee 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+Edits the phone number and email address of the 1st employee to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
 <p><code>edit employee 2 n/Betsy Crower s/Java</code><br>
@@ -880,21 +891,77 @@ Edits the name of the 2nd employee to be <code>Betsy Crower</code> and sets C an
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
+<p>Below is the before and after screenshot to illustrate better.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-You can remove all the person&#8217;s skills by typing <code>s/</code> without specifying any skills after it.</p>
+<div class="title">Before entering the command <code>edit employee 2 n/The magician p/98637251 s/</code></div>
+<p><span class="image"><img src="images/edit_employee_before.png" alt="edit employee before"></span></p>
 </div>
+<div class="paragraph">
+<div class="title">After entering the command <code>edit employee 2 n/The magician p/98637251 s/</code></div>
+<p><span class="image"><img src="images/edit_employee_after.png" alt="edit employee after"></span></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits the employee at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed employee list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At least one of the optional fields must be provided and all existing values will be updated with the input values.
+When editing skills, the existing skills of the person will be removed i.e adding of skills is not cumulative.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can remove all the person&#8217;s skills by typing <code>s/</code> without specifying any skills after it.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="edits-name-client-deadline-description-of-a-project-code-edit-project-info-code"><a class="link" href="#edits-name-client-deadline-description-of-a-project-code-edit-project-info-code">4.6.2. Edits name/client/deadline/description of a project: <code>edit project info</code></a></h4>
 <div class="paragraph">
-<p>Edits the existing project components such as project name, client, deadline, description of the project.</p>
+<p>You can use this command to edit the general details of an existing project such as project name, deadline, client and description which are shown on the summary panel of the projects.</p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This command can be used to change the default description that is assigned to the project when the project is added.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>Format: <code>edit project PROJ_NAME info [n/name] [c/client] [d/deadline] [desc/description]</code></p>
+<p>Format: <code>edit project PROJECT_NAME info [n/name] [c/client] [d/deadline] [desc/description]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -907,11 +974,50 @@ Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below are some before and after screenshot of how the command should work.</p>
+</div>
+<div class="paragraph">
+<div class="title">Before entering hte edit command</div>
+<p><span class="image"><img src="images/edit_project_before.png" alt="edit project before"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">After the edit command is entered</div>
+<p><span class="image"><img src="images/edit_project_after.png" alt="edit project after"></span></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both the fixed date format and the flexible date can be used here to edit the deadline.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note that the deadline should be after the start date of the project and also after the date of the latest milestone in the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note that project start date is not modifiable.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="edits-milestone-of-a-project-code-edit-project-milestone-code"><a class="link" href="#edits-milestone-of-a-project-code-edit-project-milestone-code">4.6.3. Edits milestone of a project: <code>edit project milestone</code></a></h4>
 <div class="paragraph">
-<p>Edits the existing milestone in the milestone list of a project.</p>
+<p>You can edit the milestone of the existing project whenever there are changes made to it.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>edit project PROJ_NAME milestone INDEX [m/milestone] [d/date]</code></p>
@@ -923,10 +1029,37 @@ Change project Apollo name to Gemini, client to John, deadline to 12/09/2020 and
 <ul>
 <li>
 <p><code>edit project Apollo milestone 2 m/Implement edit command d/09/04/2019</code>
-Change the milestone at index 2 in Apollo to 'Implement edit command 09/04/2019'</p>
+Change the milestone at index 2 in Apollo to 'Implement edit command (09/04/2019)'</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below are some before and after screenshot of how the command should work.</p>
+</div>
+<div class="paragraph">
+<div class="title">Before entering the <code>edit project Orbital milestone 1 m/Version 1.1 refactoring d/03/08/2019</code> command</div>
+<p><span class="image"><img src="images/edit_project_milestone_before.png" alt="edit project milestone before"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">After entering the <code>edit project Orbital milestone 1 m/Version 1.1 refactoring d/03/08/2019</code> command</div>
+<p><span class="image"><img src="images/edit_project_milestone_after.png" alt="edit project milestone after"></span></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date of the milestone must be between the start date and the deadline of the project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A blank input for milestone description will not be accepted as an input. (e.g. <code>edit milestone m/</code>)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="edits-userstory-of-a-project-code-edit-project-userstory-code-coming-in-v2-0"><a class="link" href="#edits-userstory-of-a-project-code-edit-project-userstory-code-coming-in-v2-0">4.6.4. Edits UserStory of a project: <code>edit project userstory</code> [coming in v2.0]</a></h4>
@@ -937,10 +1070,37 @@ Change the milestone at index 2 in Apollo to 'Implement edit command 09/04/2019'
 </div>
 <div class="sect2">
 <h3 id="locating-employees-projects-or-skills-by-name-code-find-code"><a class="link" href="#locating-employees-projects-or-skills-by-name-code-find-code">4.7. Locating employees, projects or skills by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>There are several ways available for you to search for employees and projects in PocketProject. Below are the things you should take note for all the find command.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect3">
 <h4 id="find-employees-in-the-application-code-find-employee-code"><a class="link" href="#find-employees-in-the-application-code-find-employee-code">4.7.1. Find employees in the application: <code>find employee</code></a></h4>
 <div class="paragraph">
-<p>Finds employees whose names contain any of the given keywords.</p>
+<p>You can search for employees by using their names as of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find employee KEYWORD [MORE_KEYWORDS]</code></p>
@@ -964,31 +1124,18 @@ Returns any employee having names <code>Betsy</code>, <code>Tim</code>, or <code
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">4.7.2. Find projects in the application: <code>find project</code></a></h4>
 <div class="paragraph">
-<p>Finds projects whose names contain any of the given keywords.</p>
+<p>Below is a screenshot of what a successful find command will look like.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find project Apollo</code><br>
-Returns a list of projects with names that contain Apollo</p>
-</li>
-</ul>
+<div class="title">Afte entering <code>find employee stark</code> command</div>
+<p><span class="image"><img src="images/find_employee.png" alt="find employee"></span></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-employees-with-skills-code-find-skill-code"><a class="link" href="#find-employees-with-skills-code-find-skill-code">4.7.3. Find employees with skills: <code>find skill</code></a></h4>
+<h4 id="find-employees-with-skills-code-find-skill-code"><a class="link" href="#find-employees-with-skills-code-find-skill-code">4.7.2. Find employees with skills: <code>find skill</code></a></h4>
 <div class="paragraph">
-<p>Finds employees with the chosen skill.</p>
+<p>You can also look for employees using their skills as keyword. This will make things easier for you when you need to find employees to assign to projects which require a certain skill.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find skill KEYWORD [MORE_KEYWORDS]</code></p>
@@ -1008,11 +1155,45 @@ Returns a list of employees who have either java or C or both.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find skill command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find skill java</code> command</div>
+<p><span class="image"><img src="images/find_skill.png" alt="find skill"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-projects-in-the-application-code-find-project-code"><a class="link" href="#find-projects-in-the-application-code-find-project-code">4.7.3. Find projects in the application: <code>find project</code></a></h4>
+<div class="paragraph">
+<p>Similarly for the project, you can find projects using the project names as keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find project KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find project Apollo</code><br>
+Returns a list of projects with names that contain Apollo</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find project command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find project apollo</code> command</div>
+<p><span class="image"><img src="images/find_project.png" alt="find project"></span></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-projects-with-any-keywords-code-find-all-code"><a class="link" href="#find-projects-with-any-keywords-code-find-all-code">4.7.4. Find projects with any keywords: <code>find all</code></a></h4>
 <div class="paragraph">
-<p>Find projects that contain any of the keywords in the project name, description, deadline.</p>
+<p>This <code>find all</code> command allows you to find projects even if you have forgotten the project name. You can simply try to find the project using words that appear in the description of the project.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find all KEYWORDS [MORE KEYWORDS]</code></p>
@@ -1028,11 +1209,18 @@ Returns a list of projects which contains either software or food or both.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Below is a screenshot of what a successful find all command will look like.</p>
+</div>
+<div class="paragraph">
+<div class="title">Afte entering <code>find all management</code> command</div>
+<p><span class="image"><img src="images/find_all%201.png" alt="find all 1"></span></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-projects-with-deadline-find-deadline"><a class="link" href="#find-projects-with-deadline-find-deadline">4.7.5. Find projects with deadline: 'find deadline'</a></h4>
 <div class="paragraph">
-<p>Find projects which has deadline that are before or same as the input provided by the user.</p>
+<p>In order to manage your workload and be aware of the upcoming deadline, you can find all the project which will be due before the deadline you have entered.</p>
 </div>
 <div class="paragraph">
 <p>Format: `find deadline KEYWORD</p>
@@ -1049,41 +1237,36 @@ Returns a list of projects which has 15/04/2019 as the deadline or has deadlines
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-Only accept one argument. e.g. will not accept <code>find deadline 15/04/2019 20/12/2019</code></p>
+<p>Below is a screenshot of what a successful find project command will look like.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Accepts both flexible date and calender date</p>
+<div class="title">Afte entering <code>find deadline this month 31</code> command</div>
+<p><span class="image"><img src="images/find_deadline.png" alt="find deadline"></span></p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-command-usage-scenario"><a class="link" href="#find-command-usage-scenario">4.7.6. Find Command Usage Scenario</a></h4>
-<div class="paragraph">
-<p>For example, to delete Bernice Yu from the employee list, you can follow these steps:</p>
-</div>
-<div class="paragraph">
-<p>Step 1: <code>find employee Bernice</code> - to narrow down the list to all employees with name containing Bernice</p>
-</div>
-<div class="paragraph">
-<p>Step 2: <code>delete employee 1</code> - deletes Bernice Yu who is the 1st employee in the result of the <code>find employee Bernice</code> command.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only accept one argument. e.g. will not accept <code>find deadline 15/04/2019 20/12/2019</code></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepts both flexible date and calender date</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1148,24 +1331,27 @@ in the displayed list.</p>
 <div class="paragraph">
 <p>Format: <code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
 </div>
+<div class="paragraph">
+<p>The employee at the specified <code>EMPLOYEE_INDEX</code> is added to the
+project specified by the <code>PROJECT_NAME</code>.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The employee at the specified <code>EMPLOYEE_INDEX</code> is added to the
-project specified by the <code>PROJECT_NAME</code>. The index refers to the serial number (one-based indexing) shown in
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index refers to the serial number (one-based indexing) shown in
 the displayed list of employees.</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
@@ -1224,12 +1410,12 @@ and looks like.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="70"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">As shown in the figure above, instead of calling
 the <code>list employees</code> command, we can simple click on the <code>employees</code> tab located at the top of the side tab panel.</p></td>
 </tr>
@@ -1248,25 +1434,25 @@ created, project tasks can be assigned to it.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both the fixed date format and the flexible date format
-can be used to select the target <code>MILESTONE_DATE</code></p></td>
+can be used to select the target <code>MILESTONE_DATE</code>. Refer to <a href="#date-feature-in-pocket-project">Section 4.2, &#8220;Date Feature in Pocket Project&#8221;</a></p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">As the milestone is part of a project&#8217;s timeline, the
 <code>MILESTONE_DATE</code> the input date cannot be before the <code>START_DATE</code> and after <code>DEADLINE</code> of the project.</p></td>
 </tr>
@@ -1291,12 +1477,12 @@ of milestones in project "Orbital".</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 35%;">
+<col style="width: 65%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The list of milestones inside the target project
 will automatically be sorted by its date every time a new entry is added.</p></td>
 </tr>
@@ -1732,4 +1918,4 @@ e.g. <code>sort name</code> <code>sort deadline</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 19:26:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:21:29 UTC</div></div></div></body></html>
