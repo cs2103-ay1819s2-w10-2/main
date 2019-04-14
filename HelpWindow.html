@@ -195,9 +195,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/project_detail_panel.png" alt="project detail panel">
+<img src="images/project_detail_panel2.png" alt="project detail panel2">
 </div>
-<div class="title">Figure 4. Detail Panels of a project [1] Summary: display project name, client and deadline of the project [2] User Stories for the project [3] List of employees working on the project</div>
+<div class="title">Figure 4. Detail Panels of a project [1] Summary: display project name, client and deadline of the project [2] User Stories for the project [3] List of employees working on the project [4] Milestones and project tasks list in a project</div>
 </div>
 </div>
 <div class="sect2">
@@ -1267,7 +1267,7 @@ The 1st project task in the task list under the 2nd milestone of the displayed m
 </ol>
 </div>
 <div class="paragraph">
-<p>You can refer to the screenshot below to have a clearer picture of how it looks like.</p>
+<p>You can refer to the figure below to have a clearer picture of how it looks like when the command <code>removefrom Orbital projecttask 2 1</code> is called.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1817,6 +1817,52 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="title">Figure 34. Before and after comparisons of the status of a user story</div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="update-the-status-of-a-project-task-code-update-projecttask-code"><a class="link" href="#update-the-status-of-a-project-task-code-update-projecttask-code">4.9.2. Update the status of a project task: <code>update projecttask</code></a></h4>
+<div class="paragraph">
+<p>You can update the status of a project task to indicate its progress.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>update PROJECT_NAME projecttask MILESTONE_INDEX PROJECT_TASK_INDEX STATUS</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="70"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_INDEX</code> and <code>PROJECT_TASK_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestones and tasks list.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>update Apollo projecttask 1 1 ongoing</code><br>
+Updates the status of the first project task in the first milestone of project 'Apollo' to "ongoing".</p>
+</li>
+<li>
+<p><code>update Orbital projecttask 2 1 complete</code><br>
+Updates the status of the first project task in the second milestone of project 'Orbital' to "complete".</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You may refer to the diagram below to get a clearer picture of how updating a project task&#8217;s status looks like when the command <code>update Orbital projecttask 2 1 complete</code> is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug-updateprojecttask.png" alt="ug updateprojecttask">
+</div>
+<div class="title">Figure 35. Before and after comparison when updating a project task&#8217;s status</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-employees-or-projects-in-application-code-list-code"><a class="link" href="#listing-all-employees-or-projects-in-application-code-list-code">4.10. Listing all employees or projects in application : <code>list</code></a></h3>
@@ -1845,7 +1891,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="content">
 <img src="images/list-employee-ui.png" alt="list employee ui" width="280">
 </div>
-<div class="title">Figure 35. Employees list showing a list of all employees</div>
+<div class="title">Figure 36. Employees list showing a list of all employees</div>
 </div>
 </div>
 <div class="sect3">
@@ -1873,7 +1919,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="content">
 <img src="images/list-project-ui.png" alt="list project ui" width="280">
 </div>
-<div class="title">Figure 36. Projects list showing a list of all projects</div>
+<div class="title">Figure 37. Projects list showing a list of all projects</div>
 </div>
 </div>
 </div>
@@ -1920,7 +1966,7 @@ Displays details of the employee at index 1 of the employees list</p>
 <div class="content">
 <img src="images/view-employee-ui.png" alt="view employee ui">
 </div>
-<div class="title">Figure 37. Details of the employee at index 1 of the employees list is shown</div>
+<div class="title">Figure 38. Details of the employee at index 1 of the employees list is shown</div>
 </div>
 </div>
 <div class="sect3">
@@ -1951,7 +1997,7 @@ Displays details of the project at index 1 of the projects list.</p>
 <div class="content">
 <img src="images/view-project-ui.png" alt="view project ui">
 </div>
-<div class="title">Figure 38. Details of the project at index 1 of the projects list is shown</div>
+<div class="title">Figure 39. Details of the project at index 1 of the projects list is shown</div>
 </div>
 </div>
 </div>
@@ -2248,12 +2294,12 @@ data of your previous Pocket Project folder.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove Milestone From Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom PROJECT_NAME milestone MILESTONE_INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`removefrom Apollo milestone 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom Apollo milestone 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove Project Task From Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom PROJECT_NAME projecttask PROJECTTASK_INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`removefrom Apollo projecttask 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom Apollo projecttask 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove User Story From Project</p></td>
@@ -2261,107 +2307,99 @@ data of your previous Pocket Project folder.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>removefrom Apollo userstory 2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Employee&#8217;s details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Employee&#8217;s Details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit employee INDEX [n/NAME] [p/PHONE] [e/EMAIL] [g/GITHUB] [s/SKILL]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit employee 2 n/Betsy Crower s/C s/HTML</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Project details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Project Details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project PROJECT_NAME info [n/name] [c/client] [d/deadline] [desc/description]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project Apollo info n/Gemini c/John d/12/09/2020 desc/An application for project management</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit milestone details in the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Milestone Details In The Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project PROJECT_NAME milestone MILESTONE_INDEX [m/milestone] [d/date]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project Apollo milestone 2 m/Implement edit command d/09/04/2019</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Userstory details in the project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Userstory Details In The Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project PROJECT_NAME userstory STORY_INDEX STORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit project Apollo userstory 1 as a user i want to be able to login</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find employees using name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Employees Using Name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find employee KEYWORD [MORE_KEYWORDS]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find employee John</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find employees using skills</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Employees Using Skills</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find skill KEYWORD [MORE_KEYWORDS]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find skill java</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Projects Using Name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find project KEYWORD [MORE_KEYWORDS]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find project Apollo</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using words found in name and description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Projects Using Words Found In Name And Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find all KEYWORDS [MORE KEYWORDS]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find all management</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find projects using deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find Projects Using Deadline</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find deadline KEYWORD</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find deadline 15/04/2019</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update User Story Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>update PROJECT_NAME userstory STORY_INDEX STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>update Apollo userstory 1 complete</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Project Task Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>update PROJECT_NAME projecttask MILESTONE_INDEX PROJECTTASK_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>update Apollo projecttask 2 1 on hold</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List All Employees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list employee</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List All Projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list project</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Complete</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View Employee Details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view employee EMPLOYEE_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view employee 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stats</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View Project Details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view project PROJECT_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view project 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complete A Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>complete PROJECT_INDEX COMPLETION_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>complete 1 11/11/2011</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display Statistics Of All Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display Statistics Of A Single Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats PROJECT_NAME/PROJECT_INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stats 1</code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
-<li>
-<p><strong>List</strong> : <code>list COMMAND_KEYWORD</code><br>
-e.g. <code>list employee</code> <code>list project</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [g/GITHUB] [s/Skill]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find COMMAND_KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find employee Jake</code> <code>find project Apollo</code> <code>find skill Java</code> <code>find all software</code></p>
-</li>
-<li>
-<p><strong>View</strong> : <code>view employee EMPLOYEE_INDEX</code> , <code>view project PROJECT_NAME</code><br>
-e.g. <code>view employee 3</code> <code>view project Apollo</code></p>
-</li>
-<li>
-<p><strong>Complete</strong> : <code>complete PROJECT_INDEX COMPLETION_DATE</code><br>
-e.g. <code>complete 1 11/11/2011</code></p>
-</li>
-<li>
-<p><strong>Stats</strong>: <code>stats</code></p>
-</li>
 <li>
 <p><strong>Exit</strong>:  <code>exit</code></p>
 </li>
@@ -2371,4 +2409,4 @@ e.g. <code>complete 1 11/11/2011</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:26:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:27:05 UTC</div></div></div></body></html>

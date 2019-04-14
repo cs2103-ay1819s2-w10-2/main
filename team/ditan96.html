@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Daryl Ignatius Tan - Project Portfolio for Pocket Project</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Daryl Ignatius Tan - Project Portfolio for Pocket Project</h1></div><div id="content"><div class="sect1">
+<h2 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to my Project Portfolio Page! My team and I were tasked to enhance an open source, basic command line interface (CLI) addressbook for our Software engineering project.
+Given the constraints that the final product had to use CLI as the primary mode of input and be functional offline,
+we decided to morph it into a project management application called Pocket Project.</p>
+</div>
+<div class="paragraph">
+<p>This upgraded application enables project managers to keep track of everything about ongoing and completed projects, as well as the data of employees under the manager, all in one place.</p>
+</div>
+<div class="paragraph">
+<p>My role was to design and write the code for the <code>addto projecttask</code>, <code>update projecttask</code> and <code>removefrom projecttask</code> features. The following sections will explain in more detail these features,
+as well as my documentation contributions in the user and developer guides during this project.</p>
+</div>
+<div class="paragraph">
+<p>Before we continue, do take note of the following symbols and formatting used in this document:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any information which you might find handy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon indicates any shortcuts
+that you can use while using application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that you might want to take note of when using Pocket Project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>addto</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight (called a mark-up) indicates that this is a command you can use in Pocket Project. In the documentation sections, this might refer to code-related implementations in the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code><span class="aqua">addto</span></code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight with light blue text indicates this is an abbreviated command shortened for the sake of brevity.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows you a summary of my coding, documentation, and other helpful contributions to the team project.</p>
+</div>
+<div class="paragraph">
+<p><strong>Major feature added</strong>: Project tasks which helps users to track a project&#8217;s progress.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Milestones give a broad overview of what is needed to complete a project. Project tasks in milestones help keep track of what needs to be done to reach the next milestone.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PPPmilestonesandtasks.png" alt="PPPmilestonesandtasks">
+</div>
+<div class="title">Figure 1. <strong>How the milestones and tasks feature looks like</strong></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The <code><span class="aqua">addto projecttask</span></code> command adds a task to a milestone in a project. The <code><span class="aqua">update projecttask</span></code> command allows the manager to set the status of the task to ongoing, on hold or complete.
+The <code><span class="aqua">removefrom projecttask</span></code> command removes the specified task completely from the milestone.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because it greatly enhances the level of organization and control which the manager has while planning out a schedule for projects.</p>
+</li>
+<li>
+<p>Highlights: The implementation of this feature was slightly unique and required an approach different from how other features were implemented as a project task is a component of milestones which is in a project.
+Most other features in Pocket Project directly interact with either employees or projects, unlike that of project tasks which interact only with milestones. It required me to make changes to the behaviour of the
+existing Milestone class and how it was stored in a project in order to get it to work as desired.</p>
+</li>
+<li>
+<p>Credits: The code for <code>addto</code> command parser which I extended for the project task feature and the original milestone code which I enhanced was done by my teammate Jothinandan Pillay.
+The code for <code>update</code> command parser was done by my teammate Jeff Gan. The code for <code>removefrom</code> command parser was done by my teammate Lin Dehui.</p>
+</li>
+<li>
+<p>Code contributed for project task feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding project task to milestone: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/141">#141</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/176">#176</a>]</p>
+</li>
+<li>
+<p>Update a project task&#8217;s status: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/219">#219</a>]</p>
+</li>
+<li>
+<p>Removing a project task from a milestone [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/228">#228</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Other contributions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.3.1</code> (3 releases) on GitHub</p>
+</li>
+<li>
+<p>Set up kanban with automation on Github</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Minor code changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Renamed instances of person to employee, addressbook to Pocket Project and tags to skills. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/27">#27</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/57">#57</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/91">#91</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Team contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Find and report bugs and suggest possible enhancements which can be done in the team&#8217;s issue tracker. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/issues/123">#123</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/issues/216">#216</a>]</p>
+</li>
+<li>
+<p>Helped to do debugging and resolve bugs in other team member&#8217;s code when they required help. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/225">#225</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs found in other team&#8217;s (CS2103-AY1819S2-W14-4) application [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/192">#192</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/85">#225</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/599">#599</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/773">#773</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/912">#912</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can view this section to see my contributions to the User Guide documentation for <code><span class="aqua">addto projecttask</span></code>, <code><span class="aqua">removefrom projecttask</span></code> and <code><span class="aqua">update projecttask</span></code> command.</p>
+</div>
+<div class="sect3">
+<h4 id="add-a-project-task-to-a-project-s-milestone-code-addto-projecttask-code"><a class="link" href="#add-a-project-task-to-a-project-s-milestone-code-addto-projecttask-code">Add a project task to a project&#8217;s milestone: <code>addto projecttask</code></a></h4>
+<div class="paragraph">
+<p>Building further on the functionality of milestones, you can also add project tasks to existing milestones in Pocket Project.
+This allows you to track and plan out in more detail what needs to be done between each milestone.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addto PROJECT_NAME projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestone list.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
+A project task with the given description will be added to the list of tasks under the milestone at index 1 in project "Apollo".</p>
+</li>
+<li>
+<p><code>addto Orbital projecttask m/2 n/Prepare concept design sketches</code><br>
+A project task with the given description will be added to the list of tasks under the milestone at index 2 in project "Orbital".</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There is no specific order for either the project task name or the milestone index when entering the command so either way is acceptable.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can refer to the screenshot below to have a clearer picture of how it works and looks like.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addprojecttask.png" alt="ug addprojecttask">
+</div>
+<div class="title">Figure 2. <strong>Adding a task to a project&#8217;s milestone</strong></div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clicking on the arrow beside a milestone containing existing tasks allows you
+to hide the list of tasks under the milestone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="remove-a-project-task-from-a-project-s-milestone-code-removefrom-project_name-projecttask-code"><a class="link" href="#remove-a-project-task-from-a-project-s-milestone-code-removefrom-project_name-projecttask-code">Remove a project task from a project&#8217;s milestone: <code>removefrom PROJECT_NAME projecttask</code></a></h4>
+<div class="paragraph">
+<p>You can remove existing project tasks from a milestone if there is a change in the planned project&#8217;s schedule.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>removefrom PROJECT_NAME projecttask MILESTONE_INDEX PROJECT_TASK_INDEX</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="70"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_INDEX</code> and <code>PROJECT_TASK_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestones and tasks list.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>removefrom Apollo projecttask 1 1</code><br>
+The 1st project task in the task list under the 1st milestone of the displayed milestone list in project "Apollo" will be removed.</p>
+</li>
+<li>
+<p><code>removefrom Orbital projecttask 2 1</code><br>
+The 1st project task in the task list under the 2nd milestone of the displayed milestone list in project "Orbital" will be removed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can refer to the figure below to have a clearer picture of how it looks like when the command <code>removefrom Orbital projecttask 2 1</code> is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-removeprojecttask.png" alt="ug removeprojecttask">
+</div>
+<div class="title">Figure 3. <strong>Before and after comparison when removing a task from a project&#8217;s milestone</strong></div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The arrow beside the milestone description for collapsing the task list will disappear if all tasks for that milestone are removed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="update-the-status-of-a-project-task-code-update-projecttask-code"><a class="link" href="#update-the-status-of-a-project-task-code-update-projecttask-code">Update the status of a project task: <code>update projecttask</code></a></h4>
+<div class="paragraph">
+<p>You can update the status of a project task to indicate its progress.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>update PROJECT_NAME projecttask MILESTONE_INDEX PROJECT_TASK_INDEX STATUS</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="70"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_INDEX</code> and <code>PROJECT_TASK_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestones and tasks list.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>update Apollo projecttask 1 1 ongoing</code><br>
+Updates the status of the first project task in the first milestone of project 'Apollo' to "ongoing".</p>
+</li>
+<li>
+<p><code>update Orbital projecttask 2 1 complete</code><br>
+Updates the status of the first project task in the second milestone of project 'Orbital' to "complete".</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You may refer to the diagram below to get a clearer picture of how updating a project task&#8217;s status looks like when the command <code>update Orbital projecttask 2 1 complete</code> is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-updateprojecttask.png" alt="ug updateprojecttask">
+</div>
+<div class="title">Figure 4. Before and after comparison when updating a project task&#8217;s status</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can view this section to see my contributions to the Developer Guide documentation which consists of the implementation of the project task feature and also several sections on manual testing Pocket Project (which unfortunately I am out of space to include in here, so check out this link if you&#8217;re interested! [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc#instructions-for-manual-testing">Manual testing, sections G3-G6, G12-G13</a>).</p>
+</div>
+<div class="sect2">
+<h3 id="project-task-feature"><a class="link" href="#project-task-feature">Project Task feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>This project task feature enhances the usage of the milestone feature in Pocket Project for keeping track of a project&#8217;s schedule by providing you with a list of tasks which needs to be done between milestones.
+The project task feature is mainly facilitated
+by the model component, and in particular, the <code>Milestone</code> class which stores the relevant project tasks in a <code>UniqueProjectTaskList</code>.
+ This feature supports three main commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addto [project name] projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code>&#8201;&#8212;&#8201;Adds the project task with the given <code>[PROJECT_TASK_DESCRIPTION]</code> to the milestone specified by <code>[milestone index]</code> in the project named <code>[project name]</code>.</p>
+</li>
+<li>
+<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;Removes the project task at the specified <code>[project task index]</code> from the milestone specified by <code>[milestone index]</code> in the project with name <code>[proejct name]</code>.</p>
+</li>
+<li>
+<p><code>update [project name] projecttask [milestone index] [project task index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the project task at the specified <code>[project task index]</code> in the milestone specified by <code>[milestone index]</code> in the project with name <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Project tasks contain statuses to help you oversee its progress, whether its "Ongoing", "On hold" or "Complete".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-project-task-commands"><a class="link" href="#implementation-of-project-task-commands">Implementation of project task commands</a></h4>
+<div class="paragraph">
+<p>The project task commands are supported by the methods in the <code>Model</code> interface: <code>Model#addProjectTaskTo(Project, Milestone, ProjectTask)</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#updateProjectTask(Project, Milestone, ProjectTask, Status)</code>.
+These three methods take in <code>Project</code>, <code>Milestone</code> and <code>ProjectTask</code> as common arguments. Hence, the correct project/milestone/project task which the commands act on are first located through
+<code>AddProjectTaskToCommand#excute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>UpdateProjectTaskCommand#execute()</code> before the methods of <code>Model</code> acting on the milestone/project task are called.</p>
+</div>
+<div class="sect4">
+<h5 id="update-status-of-project-task"><a class="link" href="#update-status-of-project-task">Update status of project task</a></h5>
+<div class="paragraph">
+<p>Given below is an example usage scenario and a showcase of how a project task status is updated in a project&#8217;s milestone at each step.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>update [project name] projecttask [milestone index] [project task index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the project task at the specified <code>[project task index]</code> in the milestone specified by <code>[milestone index]</code> in the project with name <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of updating a project task status is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpdateProjectTaskSequenceDiagram.png" alt="UpdateProjectTaskSequenceDiagram" width="1000">
+</div>
+<div class="title">Figure 5. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>update Apollo projecttask 2 1 Complete</code>.
+The <code>LogicManager</code> then passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as falling under the class of <code>UpdateCommand</code>
+and passes the rest of the string to the <code>UpdateCommandParser</code> to identify which type of <code>UpdateCommand</code> is being executed and what are the arguments.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>UpdateCommandParser</code> then identifies the "projecttask" keyword and  creates an <code>UpdateProjectTaskCommand</code> and passes it to the <code>LogicManager</code> to be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. On execution of the command, the validity of the arguments are checked and then call the methods of the <code>Model</code> component to locate and obtain the necessary objects.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>Model</code> component then searches for the project with name <code>Apollo</code>. After which, it searches for the milestone at index 2 of the project&#8217;s milestone list. Then, it retrieves the specified project task at index 1 in the milestone&#8217;s project task list.
+In each of these 3 searches for the specified object, after the object is found, it is returned to the <code>UpdateProjectTaskCommand</code> object and used for the next search.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The update status method of the retrieved task is then called with "Complete" as an argument. This updates the project task status to "Complete" and execution of the <code>UpdateProjectTaskCommand</code> ends.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[milestone index]</code> and <code>[project task index]</code> given must refer to some existing milestone and project task. Also,
+                                       the status to be updated to needs to be of the correct format. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>In this section, I will talk about certain alternatives that could have been taken when designing this feature and why I did or did not use them.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-should-project-task-objects-be-stored-within-a-project"><a class="link" href="#aspect-how-should-project-task-objects-be-stored-within-a-project">Aspect: How should project task objects be stored within a project</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Store project tasks in a <code>UniqueProjectTaskList</code> which is in turn stored under a specified milestone. (Current implementation)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only milestone objects are in direct contact with the project tasks through the <code>UniqueProjectTaskList</code> container class and checks to ensure project tasks work as they should only need to be done within the milestone instead of in the entire project itself.</p>
+</li>
+<li>
+<p>Cons: Somewhat harder to implement as it requires finding the correct milestone in a project first before anything can be done for the project task specified in the user&#8217;s command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Store project tasks directly in a project and keep a reference to the milestone which it should be under.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and will have similar behaviour to existing implementations of other objects stored directly in a project.</p>
+</li>
+<li>
+<p>Cons: It can be confusing in the backend as the user can have tasks under different milestones with the same project task descriptions. This also goes against the Object-Oriented Programming(OOP) Guideline, Law of Demeter
+as project tasks only need to be in direct contact with milestones but not necessarily with projects themselves.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Based on the above pros and cons for each alternative, I decided on Alternative 1 for 2 reasons:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As it was in line with the OOP guidelines and principle.</p>
+</li>
+<li>
+<p>As it allowed me to implement a more robust and efficient checking system for project tasks which was constrained within a milestone itself.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-planned-enhancements"><a class="link" href="#future-planned-enhancements">Future planned enhancements</a></h4>
+<div class="paragraph">
+<p>The following features are scheduled to be implemented in a future version of Pocket Project:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Allow the assigning of project tasks to employees in a project which gives you a better overview of who is in charge of doing what task during the project&#8217;s duration.</p>
+</li>
+<li>
+<p>Include the completion date of a project task when it is completed, allowing you to backtrack from the completion date of the project task to see what was done for the project task&#8217;s completion.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:27:05 UTC</div></div></div></body></html>

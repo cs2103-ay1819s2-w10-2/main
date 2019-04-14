@@ -104,25 +104,25 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#add-command">G.2. Add Command</a></li>
-<li><a href="#delete-command">G.3. Delete Command</a></li>
-<li><a href="#editing-an-employee">G.4. Editing an employee</a></li>
-<li><a href="#deleting-a-project-3">G.5. Deleting a project</a></li>
-<li><a href="#removing-an-employee-from-a-project-2">G.6. Removing an employee from a project</a></li>
-<li><a href="#removing-a-milestone-from-a-project-2">G.7. Removing a milestone from a project</a></li>
-<li><a href="#removing-a-project-task-from-a-project">G.8. Removing a project task from a project</a></li>
-<li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.9. Finding an employee/project by keywords in their names</a></li>
-<li><a href="#finding-employees-with-specific-skills">G.10. Finding employees with specific skills</a></li>
-<li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.11. Finding projects with specific keywords in their name, description or deadline</a></li>
-<li><a href="#indicating-a-project-as-completed">G.12. Indicating a project as completed</a></li>
+<li><a href="#adding-a-project">G.3. Adding a project</a></li>
+<li><a href="#adding-a-milestone">G.4. Adding a milestone</a></li>
+<li><a href="#adding-a-project-task">G.5. Adding a project task</a></li>
+<li><a href="#adding-a-userstory">G.6. Adding a UserStory</a></li>
+<li><a href="#delete-command">G.7. Delete Command</a></li>
+<li><a href="#editing-an-employee">G.8. Editing an employee</a></li>
+<li><a href="#deleting-a-project-3">G.9. Deleting a project</a></li>
+<li><a href="#removing-an-employee-from-a-project-2">G.10. Removing an employee from a project</a></li>
+<li><a href="#removing-a-milestone-from-a-project-2">G.11. Removing a milestone from a project</a></li>
+<li><a href="#removing-a-project-task-from-a-project">G.12. Removing a project task from a project</a></li>
 <li><a href="#updating-status-of-a-project-task">G.13. Updating status of a project task</a></li>
-<li><a href="#clearing-all-data-from-the-app">G.14. Clearing all data from the app</a></li>
-<li><a href="#exiting-from-the-app">G.15. Exiting from the app</a></li>
-<li><a href="#undoing-a-data-modification">G.16. Undoing a data modification</a></li>
-<li><a href="#redoing-a-data-modification-that-has-been-undone">G.17. Redoing a data modification that has been undone</a></li>
-<li><a href="#adding-a-project">G.18. Adding a project</a></li>
-<li><a href="#adding-a-milestone">G.19. Adding a milestone</a></li>
-<li><a href="#adding-a-project-task">G.20. Adding a project task</a></li>
-<li><a href="#adding-a-userstory">G.21. Adding a UserStory</a></li>
+<li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.14. Finding an employee/project by keywords in their names</a></li>
+<li><a href="#finding-employees-with-specific-skills">G.15. Finding employees with specific skills</a></li>
+<li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.16. Finding projects with specific keywords in their name, description or deadline</a></li>
+<li><a href="#indicating-a-project-as-completed">G.17. Indicating a project as completed</a></li>
+<li><a href="#clearing-all-data-from-the-app">G.18. Clearing all data from the app</a></li>
+<li><a href="#exiting-from-the-app">G.19. Exiting from the app</a></li>
+<li><a href="#undoing-a-data-modification">G.20. Undoing a data modification</a></li>
+<li><a href="#redoing-a-data-modification-that-has-been-undone">G.21. Redoing a data modification that has been undone</a></li>
 <li><a href="#saving-data">G.22. Saving data</a></li>
 </ul>
 </li>
@@ -1068,6 +1068,7 @@ The sequence diagram for the execution of the removing of employee from a projec
 <div class="content">
 <img src="images/remove_employee_from_sequence_diagram.png" alt="remove employee from sequence diagram" width="1000">
 </div>
+<div class="title">Figure 9. Sequence diagram showing execution of <code>removefrom Apollo employee 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the removal of employee/milestone/project task/user story feature behaves at each step.</p>
@@ -1577,6 +1578,7 @@ before the methods of <code>Model</code> are called using the index specified by
 <div class="content">
 <img src="images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
 </div>
+<div class="title">Figure 10. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
@@ -1625,6 +1627,7 @@ before the <code>Project#SetUserStory(UserStory, UserStory)</code> method is cal
 <div class="content">
 <img src="images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
 </div>
+<div class="title">Figure 11. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
@@ -1672,6 +1675,7 @@ It takes in as arguments the new status of the user story. The <code>UpdateUserS
 <div class="content">
 <img src="images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
 </div>
+<div class="title">Figure 12. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
@@ -1803,11 +1807,11 @@ by the model component, and in particular, the <code>Milestone</code> class whic
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-individual-commands-2"><a class="link" href="#implementation-of-individual-commands-2">6.9.2. Implementation of individual commands</a></h4>
+<h4 id="implementation-of-project-task-commands"><a class="link" href="#implementation-of-project-task-commands">6.9.2. Implementation of project task commands</a></h4>
 <div class="paragraph">
-<p>The project task commands are supported by the methods in the <code>Model</code> interface: <code>Model#addProjectTaskTo(Project, Milestone, ProjectTask);</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#updateProjectTask(Project, Milestone, ProjectTask, Status)</code>.
+<p>The project task commands are supported by the methods in the <code>Model</code> interface: <code>Model#addProjectTaskTo(Project, Milestone, ProjectTask)</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#updateProjectTask(Project, Milestone, ProjectTask, Status)</code>.
 These three methods take in <code>Project</code>, <code>Milestone</code> and <code>ProjectTask</code> as common arguments. Hence, the correct project/milestone/project task which the commands act on are first located through
-<code>AddProjectTaskToCommand#excute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>UpdateProjectTaskCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
+<code>AddProjectTaskToCommand#excute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>UpdateProjectTaskCommand#execute()</code> before the methods of <code>Model</code> acting on the milestone/project task are called.</p>
 </div>
 <div class="sect4">
 <h5 id="update-status-of-project-task"><a class="link" href="#update-status-of-project-task">Update status of project task</a></h5>
@@ -1828,6 +1832,7 @@ These three methods take in <code>Project</code>, <code>Milestone</code> and <co
 <div class="content">
 <img src="images/UpdateProjectTaskSequenceDiagram.png" alt="UpdateProjectTaskSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 13. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>update Apollo projecttask 2 1 Complete</code>.
@@ -1838,10 +1843,14 @@ and passes the rest of the string to the <code>UpdateCommandParser</code> to ide
 <p>Step 2. The <code>UpdateCommandParser</code> then identifies the "projecttask" keyword and  creates an <code>UpdateProjectTaskCommand</code> and passes it to the <code>LogicManager</code> to be executed.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to locate and obtain the specified <code>Project</code>, <code>Milestone</code> and <code>ProjectTask</code> objects.</p>
+<p>Step 3. On execution of the command, the validity of the arguments are checked and then call the methods of the <code>Model</code> component to locate and obtain the necessary objects.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The status of the retrieved task is then updated to "Complete" and execution of the <code>UpdateProjectTaskCommand</code> ends.</p>
+<p>Step 4. The <code>Model</code> component then searches for the project with name <code>Apollo</code>. After which, it searches for the milestone at index 2 of the project&#8217;s milestone list. Then, it retrieves the specified project task at index 1 in the milestone&#8217;s project task list.
+In each of these 3 searches for the specified object, after the object is found, it is returned to the <code>UpdateProjectTaskCommand</code> object and used for the next search.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The update status method of the retrieved task is then called with "Complete" as an argument. This updates the project task status to "Complete" and execution of the <code>UpdateProjectTaskCommand</code> ends.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1856,32 +1865,6 @@ and passes the rest of the string to the <code>UpdateCommandParser</code> to ide
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="add-project-task-to-a-milestone-in-project"><a class="link" href="#add-project-task-to-a-milestone-in-project">Add project task to a milestone in project</a></h5>
-<div class="paragraph">
-<p>Refer to previous section on the implementation of adding to project.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addto [project name] projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-project-task-user-story-to-projects-feature">Section 6.2, &#8220;Add employee/milestone/project task/user story to projects feature&#8221;</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="remove-project-task-from-a-milestone-in-project"><a class="link" href="#remove-project-task-from-a-milestone-in-project">Remove project task from a milestone in project</a></h5>
-<div class="paragraph">
-<p>Refer to previous section on the implementation of removing from project.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-project-task-user-story-from-projects-feature">Section 6.3, &#8220;Remove employee/milestone/project task/user story from projects feature&#8221;</a></p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -2263,7 +2246,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3554,9 +3537,6 @@ is the <code>user</code>, unless specified otherwise)</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -3695,396 +3675,7 @@ Expected: Addition failed because of lack of '@' in the given email.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-command"><a class="link" href="#delete-command">G.3. Delete Command</a></h3>
-<div class="sect3">
-<h4 id="deleting-an-employee-2"><a class="link" href="#deleting-an-employee-2">G.3.1. Deleting an employee</a></h4>
-<div class="paragraph">
-<p>Deleting a employee while all employees are listed</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete employee 1</code><br>
-Expected: First employee is deleted from the list. Details of the deleted employee shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete employee 0</code><br>
-Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete employee</code>, <code>delete employee y</code>,  (where y is not a positive integer), <code>delete employee x</code>, (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-project-2"><a class="link" href="#deleting-a-project-2">G.3.2. Deleting a project</a></h4>
-<div class="paragraph">
-<p>Deleting a project while all projects are listed</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete project 1</code><br>
-Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete project p</code><br>
-Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>delete project 0</code><br>
-Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-employee"><a class="link" href="#editing-an-employee">G.4. Editing an employee</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Assumption: Two addition of employee commands has been called on a blank pocket project: <code>add employee n/Peter p/12345678 e/a@gmail.com g/abc.com</code>
-+ and <code>add employee n/John p/87654321 e/b@gmail.com g/cba.com</code>. Peter is the first in the display list and John second.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><code>edit 1 n/Peter p/22345678 e/a@gmail.com g/abc.com</code><br>
-Expected: Command is executed successfully and the phone number of peter is changed.</p>
-</li>
-<li>
-<p><code>edit 1 n/John p/22345678 e/a@gmail.com g/abc.com</code><br>
-Expected: Command fails as John already exists.</p>
-</li>
-<li>
-<p><code>edit 3 n/Alice p/32345678 e/c@gmail.com g/ccc.com</code><br>
-Expected: Command fails as there is no employee at index 3.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-project-3"><a class="link" href="#deleting-a-project-3">G.5. Deleting a project</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a project while all projects are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete project 1</code><br>
-Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete project p</code><br>
-Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>delete project 0</code><br>
-Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="removing-an-employee-from-a-project-2"><a class="link" href="#removing-an-employee-from-a-project-2">G.6. Removing an employee from a project</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Prerequisites: Project with the name 'Apollo' exists and has 3 employees in it.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>removefrom Apollo employee 1</code><br>
-Expected: First employee in Apollo is removed from it. Details of the removed employee is shown in the status message and timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo employee 4</code><br>
-Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo employee x</code> where x is not a positive integer<br>
-Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom X employee 1</code> where no project in the app has the name 'X'<br>
-Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="removing-a-milestone-from-a-project-2"><a class="link" href="#removing-a-milestone-from-a-project-2">G.7. Removing a milestone from a project</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: Project with name 'Apollo' exists and has 1 milestone in it.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo milestone 1</code> where the project named 'Apollo' exists in app and is ongoing and there is at least one<br>
-milestone for the project.
-Expected: The first milestone in the list of milestones for the project is removed.</p>
-</li>
-<li>
-<p>Test case: <code>remove from Apollo milestone 0</code><br>
-Expected: Command fails and an error message is returned.</p>
-</li>
-<li>
-<p>Test case: <code>remove from invalid milestone 1</code> where no project named 'invalid' exists<br>
-Expected: Command fails and an error message is returned.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="removing-a-project-task-from-a-project"><a class="link" href="#removing-a-project-task-from-a-project">G.8. Removing a project task from a project</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: Project with name 'Apollo' exists and has only 1 milestone with only 1 project task in it.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo projecttask 1 1</code><br>
-Expected: The first project task of the first milestone in the milestones and tasks list is removed.
-Details of the removed project task is shown in the status message and the timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo projecttask 1 2</code><br>
-Expected: No project task is removed. Invalid project task index error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo projecttask 2 1</code><br>
-Expected: No project task is removed. Invalid milestone index error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>removefrom Apollo projecttask 1</code><br>
-Expected: No project task is removed. Invalid command format error details shown in the status message. Status bar remains the same.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="finding-an-employee-project-by-keywords-in-their-names"><a class="link" href="#finding-an-employee-project-by-keywords-in-their-names">G.9. Finding an employee/project by keywords in their names</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>find project a b c</code><br>
-Expected: projects with 'a', 'b' or 'c' in their names as separate words would be listed</p>
-</li>
-<li>
-<p>Test case: <code>find employee x y z</code><br>
-Expected: employees with 'x', 'y' or 'z' in their names as separate words would be listed</p>
-</li>
-<li>
-<p>Test case <code>find abc</code><br>
-Expected: error will be returned</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="finding-employees-with-specific-skills"><a class="link" href="#finding-employees-with-specific-skills">G.10. Finding employees with specific skills</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>find skill java</code><br>
-Expected: All employees with the skill java will be listed</p>
-</li>
-<li>
-<p>Test case: <code>find abc java</code><br>
-Expected: error will be returned</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="finding-projects-with-specific-keywords-in-their-name-description-or-deadline"><a class="link" href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.11. Finding projects with specific keywords in their name, description or deadline</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>find all software food</code><br>
-Expected: Returns a list of projects containing the word 'software' or 'food' or both in their name, description or deadline.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="indicating-a-project-as-completed"><a class="link" href="#indicating-a-project-as-completed">G.12. Indicating a project as completed</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>complete 1 11/11/2011</code> where there this at least one project shown in the list of projects<br>
-Expected: The first project in the list is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>complete x 11/11/2011</code> where x is not the index of a displayed project<br>
-Expected: Error detail shown. The Timestamp in the status bar is not updated.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="updating-status-of-a-project-task"><a class="link" href="#updating-status-of-a-project-task">G.13. Updating status of a project task</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisite: Project with name 'Apollo' exists and has only 1 milestone with at least 1 project task in it.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 1 complete</code><br>
-Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to complete.
-Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 1 on hold</code><br>
-Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to on hold.
-Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 1 ongoing</code><br>
-Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to ongoing.
-Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 1 invalid</code><br>
-Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 complete</code><br>
-Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 2 1 complete</code><br>
-Expected: Status of project task is not updated. Invalid milestone index format error displayed in status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Test case: <code>update Apollo projecttask 1 2 complete</code><br>
-Expected: Status of project task is not updated. Invalid project task index format error displayed in status message. Status bar remains the same.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.14. Clearing all data from the app</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>clear</code><br>
-Expected: All data of employees and projects are deleted from the app.</p>
-</li>
-<li>
-<p>Test case: <code>clear q23rfdq3w</code><br>
-Expected: All data cleared. The string of characters after the word clear is ignored.</p>
-</li>
-<li>
-<p>Test case: <code>clear</code> with leading and trailing whitespaces<br>
-Expected: Data still cleared. Leading and trailing spaces are ignored.</p>
-</li>
-<li>
-<p>Test case: <code>abc clear</code><br>
-Expected: Error message about unrecognized command is returned.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-from-the-app"><a class="link" href="#exiting-from-the-app">G.15. Exiting from the app</a></h3>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>exit</code><br>
-Expected: The window of the app should close. The effect is the same as clicking on the cross icon on the top right.</p>
-</li>
-<li>
-<p>Test case: <code>exit q23rfdq3w</code><br>
-Expected: The app ends. The string of characters after the word clear is ignored.</p>
-</li>
-<li>
-<p>Test case: <code>exit</code> with leading and trailing whitespaces<br>
-Expected: The app ends. Leading and trailing spaces are ignored.</p>
-</li>
-<li>
-<p>Test case: <code>abc exit</code><br>
-Expected: Error message about unrecognized command is returned.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-a-data-modification"><a class="link" href="#undoing-a-data-modification">G.16. Undoing a data modification</a></h3>
-<div class="paragraph">
-<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>delete employee 1</code> followed by <code>undo</code><br>
-Expected: The first command will delete the first employee in the list from the app while the undo command will restore it.</p>
-</li>
-<li>
-<p>Test case: <code>delete employee 1</code> followed by <code>list employee</code> followed by <code>undo</code><br>
-Expected: The first employee in the list is deleted by the delete command. The list command lists all the remaining employees. The undo command<br>
-restores the deleted employee. The undo command ignores the list command which does not modify internal data and will only undo the last data modifying command.</p>
-</li>
-<li>
-<p>Test case: <code>undo</code> is entered as the first command on start-up<br>
-Expected: Output Messages says that there is no more command to undo.</p>
-</li>
-<li>
-<p>Test case: <code>delete employee 1</code> is followed by repetitions of <code>undo</code> and <code>redo</code><br>
-Expected: The <code>undo</code> and <code>redo</code> can go on forever because redo is a data modification that can be undone.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-a-data-modification-that-has-been-undone"><a class="link" href="#redoing-a-data-modification-that-has-been-undone">G.17. Redoing a data modification that has been undone</a></h3>
-<div class="paragraph">
-<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>delete employee 1</code> followed by <code>undo</code> followed by <code>redo</code><br>
-Expected: The first command will delete the first employee in the list from the app while the undo command will restore it. The redo command deletes it again.</p>
-</li>
-<li>
-<p>Test case: <code>redo</code> is entered as the first command on start-up<br>
-Expected: Output error message. There is no undone command to redo.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-project"><a class="link" href="#adding-a-project">G.18. Adding a project</a></h3>
+<h3 id="adding-a-project"><a class="link" href="#adding-a-project">G.3. Adding a project</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4155,7 +3746,7 @@ Expected: No new project is added. Duplicate project error details shown in stat
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-milestone"><a class="link" href="#adding-a-milestone">G.19. Adding a milestone</a></h3>
+<h3 id="adding-a-milestone"><a class="link" href="#adding-a-milestone">G.4. Adding a milestone</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4210,9 +3801,12 @@ Expected: A new milestone is added to 'Apollo'. Details of the added milestone s
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-project-task"><a class="link" href="#adding-a-project-task">G.20. Adding a project task</a></h3>
+<h3 id="adding-a-project-task"><a class="link" href="#adding-a-project-task">G.5. Adding a project task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a project task to a project&#8217;s milestone</p>
 <div class="olist loweralpha">
-<div class="title">Adding a project task to a project&#8217;s milestone</div>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisite: Project list has a project named 'Apollo' and has only 2 existing milestone in it.</p>
@@ -4243,9 +3837,12 @@ Expected: No new project task is added. Invalid command format error details sho
 </li>
 </ol>
 </div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-userstory"><a class="link" href="#adding-a-userstory">G.21. Adding a UserStory</a></h3>
+<h3 id="adding-a-userstory"><a class="link" href="#adding-a-userstory">G.6. Adding a UserStory</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4264,11 +3861,400 @@ Expected: A new user story is added to 'Apollo'. Details of the added user story
 Expected: No new user story is added. Invalid command format error details shown in status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other invalid add userstory commands to try: <code>addto Apollo userstory x AAA y AAA z AAA</code> (where expected <code>x</code> = as a, <code>y</code> = i want to, <code>z</code> = so that, <code>AAA</code> can be anything. Modify <code>x</code> or <code>y</code> or <code>z</code> to be different from expected.)<br>
+<p>Test case: <code>addto Project Apollo userstory as a project manager i want to add employees into a project so that track which employees are in a project</code><br>
+Expected: No new user story is added. Invalid command format error details shown in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-command"><a class="link" href="#delete-command">G.7. Delete Command</a></h3>
+<div class="sect3">
+<h4 id="deleting-an-employee-2"><a class="link" href="#deleting-an-employee-2">G.7.1. Deleting an employee</a></h4>
+<div class="paragraph">
+<p>Deleting a employee while all employees are listed</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all employees using the <code>list</code> command. Multiple employees in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 1</code><br>
+Expected: First employee is deleted from the list. Details of the deleted employee shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 0</code><br>
+Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete employee</code>, <code>delete employee y</code>,  (where y is not a positive integer), <code>delete employee x</code>, (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-project-2"><a class="link" href="#deleting-a-project-2">G.7.2. Deleting a project</a></h4>
+<div class="paragraph">
+<p>Deleting a project while all projects are listed</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 1</code><br>
+Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete project p</code><br>
+Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 0</code><br>
+Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-employee"><a class="link" href="#editing-an-employee">G.8. Editing an employee</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Assumption: Two addition of employee commands has been called on a blank pocket project: <code>add employee n/Peter p/12345678 e/a@gmail.com g/abc.com</code>
++ and <code>add employee n/John p/87654321 e/b@gmail.com g/cba.com</code>. Peter is the first in the display list and John second.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>edit 1 n/Peter p/22345678 e/a@gmail.com g/abc.com</code><br>
+Expected: Command is executed successfully and the phone number of peter is changed.</p>
+</li>
+<li>
+<p><code>edit 1 n/John p/22345678 e/a@gmail.com g/abc.com</code><br>
+Expected: Command fails as John already exists.</p>
+</li>
+<li>
+<p><code>edit 3 n/Alice p/32345678 e/c@gmail.com g/ccc.com</code><br>
+Expected: Command fails as there is no employee at index 3.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-project-3"><a class="link" href="#deleting-a-project-3">G.9. Deleting a project</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a project while all projects are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all projects using the <code>list projects</code> command. Multiple projects in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 1</code><br>
+Expected: First project is deleted from the list. Details of the deleted project shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete project p</code><br>
+Expected: project with the name 'p' is deleted if it exists in the app and the details of the deleted project shown in the status message. If no project with the name 'p' exists, error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete project 0</code><br>
+Expected: No project is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size or is negative)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-an-employee-from-a-project-2"><a class="link" href="#removing-an-employee-from-a-project-2">G.10. Removing an employee from a project</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prerequisites: Project with the name 'Apollo' exists and has 3 employees in it.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>removefrom Apollo employee 1</code><br>
+Expected: First employee in Apollo is removed from it. Details of the removed employee is shown in the status message and timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo employee 4</code><br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo employee x</code> where x is not a positive integer<br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom X employee 1</code> where no project in the app has the name 'X'<br>
+Expected: No employee is removed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-a-milestone-from-a-project-2"><a class="link" href="#removing-a-milestone-from-a-project-2">G.11. Removing a milestone from a project</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Project with name 'Apollo' exists and has 1 milestone in it.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo milestone 1</code> where the project named 'Apollo' exists in app and is ongoing and there is at least one<br>
+milestone for the project.
+Expected: The first milestone in the list of milestones for the project is removed.</p>
+</li>
+<li>
+<p>Test case: <code>remove from Apollo milestone 0</code><br>
+Expected: Command fails and an error message is returned.</p>
+</li>
+<li>
+<p>Test case: <code>remove from invalid milestone 1</code> where no project named 'invalid' exists<br>
+Expected: Command fails and an error message is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-a-project-task-from-a-project"><a class="link" href="#removing-a-project-task-from-a-project">G.12. Removing a project task from a project</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Project with name 'Apollo' exists and has only 1 milestone with only 1 project task in it.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1 1</code><br>
+Expected: The first project task of the first milestone in the milestones and tasks list is removed.
+Details of the removed project task is shown in the status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1 2</code><br>
+Expected: No project task is removed. Invalid project task index error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 2 1</code><br>
+Expected: No project task is removed. Invalid milestone index error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1</code><br>
+Expected: No project task is removed. Invalid command format error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-status-of-a-project-task"><a class="link" href="#updating-status-of-a-project-task">G.13. Updating status of a project task</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: Project with name 'Apollo' exists and has only 1 milestone with at least 1 project task in it.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 complete</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to complete.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 on hold</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to on hold.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 ongoing</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to ongoing.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 invalid</code><br>
+Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 complete</code><br>
+Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 2 1 complete</code><br>
+Expected: Status of project task is not updated. Invalid milestone index format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 2 complete</code><br>
+Expected: Status of project task is not updated. Invalid project task index format error displayed in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-an-employee-project-by-keywords-in-their-names"><a class="link" href="#finding-an-employee-project-by-keywords-in-their-names">G.14. Finding an employee/project by keywords in their names</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find project a b c</code><br>
+Expected: projects with 'a', 'b' or 'c' in their names as separate words would be listed</p>
+</li>
+<li>
+<p>Test case: <code>find employee x y z</code><br>
+Expected: employees with 'x', 'y' or 'z' in their names as separate words would be listed</p>
+</li>
+<li>
+<p>Test case <code>find abc</code><br>
+Expected: error will be returned</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-employees-with-specific-skills"><a class="link" href="#finding-employees-with-specific-skills">G.15. Finding employees with specific skills</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find skill java</code><br>
+Expected: All employees with the skill java will be listed</p>
+</li>
+<li>
+<p>Test case: <code>find abc java</code><br>
+Expected: error will be returned</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-projects-with-specific-keywords-in-their-name-description-or-deadline"><a class="link" href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.16. Finding projects with specific keywords in their name, description or deadline</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>find all software food</code><br>
+Expected: Returns a list of projects containing the word 'software' or 'food' or both in their name, description or deadline.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="indicating-a-project-as-completed"><a class="link" href="#indicating-a-project-as-completed">G.17. Indicating a project as completed</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>complete 1 11/11/2011</code> where there this at least one project shown in the list of projects<br>
+Expected: The first project in the list is removed from the list of ongoing projects and indicated as completed. Timestamp shown in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>complete x 11/11/2011</code> where x is not the index of a displayed project<br>
+Expected: Error detail shown. The Timestamp in the status bar is not updated.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.18. Clearing all data from the app</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>clear</code><br>
+Expected: All data of employees and projects are deleted from the app.</p>
+</li>
+<li>
+<p>Test case: <code>clear q23rfdq3w</code><br>
+Expected: All data cleared. The string of characters after the word clear is ignored.</p>
+</li>
+<li>
+<p>Test case: <code>clear</code> with leading and trailing whitespaces<br>
+Expected: Data still cleared. Leading and trailing spaces are ignored.</p>
+</li>
+<li>
+<p>Test case: <code>abc clear</code><br>
+Expected: Error message about unrecognized command is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-from-the-app"><a class="link" href="#exiting-from-the-app">G.19. Exiting from the app</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>exit</code><br>
+Expected: The window of the app should close. The effect is the same as clicking on the cross icon on the top right.</p>
+</li>
+<li>
+<p>Test case: <code>exit q23rfdq3w</code><br>
+Expected: The app ends. The string of characters after the word clear is ignored.</p>
+</li>
+<li>
+<p>Test case: <code>exit</code> with leading and trailing whitespaces<br>
+Expected: The app ends. Leading and trailing spaces are ignored.</p>
+</li>
+<li>
+<p>Test case: <code>abc exit</code><br>
+Expected: Error message about unrecognized command is returned.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-a-data-modification"><a class="link" href="#undoing-a-data-modification">G.20. Undoing a data modification</a></h3>
+<div class="paragraph">
+<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>undo</code><br>
+Expected: The first command will delete the first employee in the list from the app while the undo command will restore it.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>list employee</code> followed by <code>undo</code><br>
+Expected: The first employee in the list is deleted by the delete command. The list command lists all the remaining employees. The undo command<br>
+restores the deleted employee. The undo command ignores the list command which does not modify internal data and will only undo the last data modifying command.</p>
+</li>
+<li>
+<p>Test case: <code>undo</code> is entered as the first command on start-up<br>
+Expected: Output Messages says that there is no more command to undo.</p>
+</li>
+<li>
+<p>Test case: <code>delete employee 1</code> is followed by repetitions of <code>undo</code> and <code>redo</code><br>
+Expected: The <code>undo</code> and <code>redo</code> can go on forever because redo is a data modification that can be undone.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-a-data-modification-that-has-been-undone"><a class="link" href="#redoing-a-data-modification-that-has-been-undone">G.21. Redoing a data modification that has been undone</a></h3>
+<div class="paragraph">
+<p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete employee 1</code> followed by <code>undo</code> followed by <code>redo</code><br>
+Expected: The first command will delete the first employee in the list from the app while the undo command will restore it. The redo command deletes it again.</p>
+</li>
+<li>
+<p>Test case: <code>redo</code> is entered as the first command on start-up<br>
+Expected: Output error message. There is no undone command to redo.</p>
 </li>
 </ol>
 </div>
@@ -4294,4 +4280,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:26:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:27:05 UTC</div></div></div></body></html>
