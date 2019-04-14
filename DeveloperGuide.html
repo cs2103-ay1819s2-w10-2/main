@@ -44,17 +44,18 @@
 <li><a href="#implementation">6. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#pocket-project-dates">6.1. Pocket Project Dates</a></li>
-<li><a href="#add-employee-milestone-user-story-to-projects-feature">6.2. Add employee/milestone/user story to projects feature</a></li>
-<li><a href="#remove-employee-milestone-from-projects-feature">6.3. Remove employee/milestone from projects feature</a></li>
+<li><a href="#add-employee-milestone-project-task-user-story-to-projects-feature">6.2. Add employee/milestone/project task/user story to projects feature</a></li>
+<li><a href="#remove-employee-milestone-project-task-user-story-from-projects-feature">6.3. Remove employee/milestone/project task/user story from projects feature</a></li>
 <li><a href="#edit-project-feature">6.4. Edit Project feature</a></li>
 <li><a href="#find-employee-project-skill-all-feature">6.5. Find Employee/Project/Skill/All feature</a></li>
 <li><a href="#list-employee-project-feature">6.6. List Employee/Project feature</a></li>
 <li><a href="#stats-feature">6.7. Stats feature</a></li>
 <li><a href="#user-story-feature">6.8. User Story feature</a></li>
-<li><a href="#undo-redo-feature">6.9. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">6.10. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">6.11. Logging</a></li>
-<li><a href="#Implementation-Configuration">6.12. Configuration</a></li>
+<li><a href="#project-task-feature">6.9. Project Task feature</a></li>
+<li><a href="#undo-redo-feature">6.10. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">6.11. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">6.12. Logging</a></li>
+<li><a href="#Implementation-Configuration">6.13. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">7. Documentation</a>
@@ -107,19 +108,22 @@
 <li><a href="#editing-an-employee">G.4. Editing an employee</a></li>
 <li><a href="#deleting-a-project-3">G.5. Deleting a project</a></li>
 <li><a href="#removing-an-employee-from-a-project-2">G.6. Removing an employee from a project</a></li>
-<li><a href="#removing-a-milestone-from-a-porject">G.7. Removing a milestone from a porject</a></li>
-<li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.8. Finding an employee/project by keywords in their names</a></li>
-<li><a href="#finding-employees-with-specific-skills">G.9. Finding employees with specific skills</a></li>
-<li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.10. Finding projects with specific keywords in their name, description or deadline</a></li>
-<li><a href="#indicating-a-project-as-completed">G.11. Indicating a project as completed</a></li>
-<li><a href="#clearing-all-data-from-the-app">G.12. Clearing all data from the app</a></li>
-<li><a href="#exiting-from-the-app">G.13. Exiting from the app</a></li>
-<li><a href="#undoing-a-data-modification">G.14. Undoing a data modification</a></li>
-<li><a href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></li>
-<li><a href="#adding-a-project">G.16. Adding a project</a></li>
-<li><a href="#adding-a-milestone">G.17. Adding a milestone</a></li>
-<li><a href="#adding-a-userstory">G.18. Adding a UserStory</a></li>
-<li><a href="#saving-data">G.19. Saving data</a></li>
+<li><a href="#removing-a-milestone-from-a-project-2">G.7. Removing a milestone from a project</a></li>
+<li><a href="#removing-a-project-task-from-a-project">G.8. Removing a project task from a project</a></li>
+<li><a href="#finding-an-employee-project-by-keywords-in-their-names">G.9. Finding an employee/project by keywords in their names</a></li>
+<li><a href="#finding-employees-with-specific-skills">G.10. Finding employees with specific skills</a></li>
+<li><a href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.11. Finding projects with specific keywords in their name, description or deadline</a></li>
+<li><a href="#indicating-a-project-as-completed">G.12. Indicating a project as completed</a></li>
+<li><a href="#updating-status-of-a-project-task">G.13. Updating status of a project task</a></li>
+<li><a href="#clearing-all-data-from-the-app">G.14. Clearing all data from the app</a></li>
+<li><a href="#exiting-from-the-app">G.15. Exiting from the app</a></li>
+<li><a href="#undoing-a-data-modification">G.16. Undoing a data modification</a></li>
+<li><a href="#redoing-a-data-modification-that-has-been-undone">G.17. Redoing a data modification that has been undone</a></li>
+<li><a href="#adding-a-project">G.18. Adding a project</a></li>
+<li><a href="#adding-a-milestone">G.19. Adding a milestone</a></li>
+<li><a href="#adding-a-project-task">G.20. Adding a project task</a></li>
+<li><a href="#adding-a-userstory">G.21. Adding a UserStory</a></li>
+<li><a href="#saving-data">G.22. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -240,6 +244,10 @@ through the course of the Developer Guide.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Milestone</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A key event that is completed during the entire timeline of the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project Task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Events which are completed during a milestone to achieve the next milestone.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Regex</p></td>
@@ -903,7 +911,7 @@ Project application.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-employee-milestone-user-story-to-projects-feature"><a class="link" href="#add-employee-milestone-user-story-to-projects-feature">6.2. Add employee/milestone/user story to projects feature</a></h3>
+<h3 id="add-employee-milestone-project-task-user-story-to-projects-feature"><a class="link" href="#add-employee-milestone-project-task-user-story-to-projects-feature">6.2. Add employee/milestone/project task/user story to projects feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">6.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -919,17 +927,20 @@ by the model component of the PocketProject application. This feature supports t
 <p><code>addto [project name] milestone [milestone details]</code>&#8201;&#8212;&#8201;adds the milestone specified in <code>[milestone details]</code> to the list of milestones in the project named <code>[project name]</code>.</p>
 </li>
 <li>
+<p><code>addto [project name] projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code>&#8201;&#8212;&#8201;adds the project task with given description <code>PROJECT_TASK_DESCRIPTION</code> to the milestone specified by <code>MILESTONE_INDEX</code> in the project with name <code>[project name]</code>.</p>
+</li>
+<li>
 <p><code>addto [project name] userstory i/IMPORTANCE [story]</code>&#8201;&#8212;&#8201;adds the user story specified in <code>[story]</code> to the list of user stories in the project with name <code>[project name]</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code>, <code>Model#addMilestoneTo(Project, Milestone)</code> and <code>Model#addUserStoryTo(Project, UserStory)</code>.
-These three methods only take in the project and employee/milestone as arguments as the correct Employee/Milestone/UserStory object would be located by
-<code>AddEmployeeToCommand#excute()</code>, <code>AddMilestoneToCommand#execute()</code> or <code>AddUserStoryToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#addEmployeeTo(Project, Employee)</code>, <code>Model#addMilestoneTo(Project, Milestone)</code>, <code>Model#addProjectTaskTo(Project, Milestone, ProjectTask)</code> and <code>Model#addUserStoryTo(Projectm UserStory)</code>.
+These four methods only take in the project and employee/milestone/project task/user story as arguments as the correct Employee/Milestone/ProjectTask/UserStory object would be located by
+<code>AddEmployeeToCommand#excute()</code>, <code>AddMilestoneToCommand#execute()</code>, <code>AddProjectTaskToCommand#execute()</code> or <code>AddUserStoryToCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the addition of employee/milestone/user story to a project feature behaves at each step.</p>
+<p>Given below is an example usage scenario and how the addition of employee/milestone/project task/user story to a project feature behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p><code>AddEmployeeTo Command</code></p>
@@ -951,8 +962,17 @@ similar to Step 2 of the `AddEmployeeTo Command</code> mentioned above. Only the
 milestone depending on the user input.</p>
 </div>
 <div class="paragraph">
-<p><code>AddUserStoryTo Command</code>
-Step 1. The user enters the command <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The rest of the
+<p><code>AddProjectTaskTo Command</code></p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>addto Apollo projecttask n/Create feature XYZ m/1</code>. The rest of the execution process is similar to Step 2 of the <code>AddEmployeeToCommand</code> mentioned above.
+The only differences being that the object being added is a project task and that it is being added to a milestone within a project, instead of directly to the project.</p>
+</div>
+<div class="paragraph">
+<p><code>AddUserStoryTo Command</code></p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The rest of the
 execution process is similar to Step 2 of the <code>AddEmployeeTo Command</code>.Only the object added is decided between an employee, user story or a
 milestone depending on the user input.</p>
 </div>
@@ -1015,7 +1035,7 @@ input as such:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">6.3. Remove employee/milestone from projects feature</a></h3>
+<h3 id="remove-employee-milestone-project-task-user-story-from-projects-feature"><a class="link" href="#remove-employee-milestone-project-task-user-story-from-projects-feature">6.3. Remove employee/milestone/project task/user story from projects feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">6.3.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1031,15 +1051,18 @@ This feature currently supports these three commands:</p>
 <p><code>removefrom [project name] milestone [milestone index]</code>&#8201;&#8212;&#8201;removes the milestone at index <code>[milestone index]</code> in the list of milestones in the project named <code>[project name]</code>.</p>
 </li>
 <li>
+<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;removes the project task at index <code>[project task index]</code> in the list of tasks under the milestone specified by <code>[milestone index]</code> in the project named <code>[project name]</code>.</p>
+</li>
+<li>
 <p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
-The methods does not take in indices as arguments since the corresponding Employee,Milestone or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
+The methods does not take in indices as arguments since the corresponding Employee, Milestone, ProjectTask or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
 before the methods of <code>Model</code> are called.
-The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone and user stories are similar:</p>
+The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone, project tasks and user stories are similar:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1047,7 +1070,7 @@ The sequence diagram for the execution of the removing of employee from a projec
 </div>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the removal of employee/milestone/user story feature behaves at each step.</p>
+<p>Given below is an example usage scenario and how the removal of employee/milestone/project task/user story feature behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of employees and milestones in the project named "Apollo" by executing the `view</code> command.</p>
@@ -1060,10 +1083,18 @@ The <code>RemoveFromCommandParser</code> then creates command object and passes 
 <div class="paragraph">
 <p>Step 3. The user executes 'removefrom Apollo milestone 2'. The execution of this command is similar to step 2, just that the type of object changes from <code>Employee</code> to <code>Milestone</code>.</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Tip: The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code> or <code>[milestone index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code>, <code>[milestone index]</code>, <code>[project task index]</code> or <code>[user story index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.3.2. Design Considerations</a></h4>
@@ -1733,9 +1764,184 @@ This will be made available by widening the range of keywords the parser is able
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">6.9. Undo/Redo feature</a></h3>
+<h3 id="project-task-feature"><a class="link" href="#project-task-feature">6.9. Project Task feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">6.9.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>This project task feature enhances the usage of the milestone feature in Pocket Project for keeping track of a project&#8217;s schedule by providing you with a list of tasks which needs to be done between milestones.
+The project task feature is mainly facilitated
+by the model component, and in particular, the <code>Milestone</code> class which stores the relevant project tasks in a <code>UniqueProjectTaskList</code>.
+ This feature supports three main commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addto [project name] projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code>&#8201;&#8212;&#8201;Adds the project task with the given <code>[PROJECT_TASK_DESCRIPTION]</code> to the milestone specified by <code>[milestone index]</code> in the project named <code>[project name]</code>.</p>
+</li>
+<li>
+<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;Removes the project task at the specified <code>[project task index]</code> from the milestone specified by <code>[milestone index]</code> in the project with name <code>[proejct name]</code>.</p>
+</li>
+<li>
+<p><code>update [project name] projecttask [milestone index] [project task index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the project task at the specified <code>[project task index]</code> in the milestone specified by <code>[milestone index]</code> in the project with name <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Project tasks contain statuses to help you oversee its progress, whether its "Ongoing", "On hold" or "Complete".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-individual-commands-2"><a class="link" href="#implementation-of-individual-commands-2">6.9.2. Implementation of individual commands</a></h4>
+<div class="paragraph">
+<p>The project task commands are supported by the methods in the <code>Model</code> interface: <code>Model#addProjectTaskTo(Project, Milestone, ProjectTask);</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#updateProjectTask(Project, Milestone, ProjectTask, Status)</code>.
+These three methods take in <code>Project</code>, <code>Milestone</code> and <code>ProjectTask</code> as common arguments. Hence, the correct project/milestone/project task which the commands act on are first located through
+<code>AddProjectTaskToCommand#excute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>UpdateProjectTaskCommand#execute()</code> before the methods of <code>Model</code> are called.</p>
+</div>
+<div class="sect4">
+<h5 id="update-status-of-project-task"><a class="link" href="#update-status-of-project-task">Update status of project task</a></h5>
+<div class="paragraph">
+<p>Given below is an example usage scenario and a showcase of how a project task status is updated in a project&#8217;s milestone at each step.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>update [project name] projecttask [milestone index] [project task index] [status]</code>&#8201;&#8212;&#8201;Updates the status of the project task at the specified <code>[project task index]</code> in the milestone specified by <code>[milestone index]</code> in the project with name <code>[project name]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of updating a project task status is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpdateProjectTaskSequenceDiagram.png" alt="UpdateProjectTaskSequenceDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>update Apollo projecttask 2 1 Complete</code>.
+The <code>LogicManager</code> then passes the entered string to the <code>PocketProjectParser</code>. The <code>PocketProjectParser</code> parses the string received and identifies the command as falling under the class of <code>UpdateCommand</code>
+and passes the rest of the string to the <code>UpdateCommandParser</code> to identify which type of <code>UpdateCommand</code> is being executed and what are the arguments.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>UpdateCommandParser</code> then identifies the "projecttask" keyword and  creates an <code>UpdateProjectTaskCommand</code> and passes it to the <code>LogicManager</code> to be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to locate and obtain the specified <code>Project</code>, <code>Milestone</code> and <code>ProjectTask</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The status of the retrieved task is then updated to "Complete" and execution of the <code>UpdateProjectTaskCommand</code> ends.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[milestone index]</code> and <code>[project task index]</code> given must refer to some existing milestone and project task. Also,
+                                       the status to be updated to needs to be of the correct format. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="add-project-task-to-a-milestone-in-project"><a class="link" href="#add-project-task-to-a-milestone-in-project">Add project task to a milestone in project</a></h5>
+<div class="paragraph">
+<p>Refer to previous section on the implementation of adding to project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addto [project name] projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code>&#8201;&#8212;&#8201;<a href="#add-employee-milestone-project-task-user-story-to-projects-feature">Section 6.2, &#8220;Add employee/milestone/project task/user story to projects feature&#8221;</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="remove-project-task-from-a-milestone-in-project"><a class="link" href="#remove-project-task-from-a-milestone-in-project">Remove project task from a milestone in project</a></h5>
+<div class="paragraph">
+<p>Refer to previous section on the implementation of removing from project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;<a href="#remove-employee-milestone-project-task-user-story-from-projects-feature">Section 6.3, &#8220;Remove employee/milestone/project task/user story from projects feature&#8221;</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">6.9.3. Design Considerations</a></h4>
+<div class="paragraph">
+<p>In this section, I will talk about certain alternatives that could have been taken when designing this feature and why I did or did not use them.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-should-project-task-objects-be-stored-within-a-project"><a class="link" href="#aspect-how-should-project-task-objects-be-stored-within-a-project">Aspect: How should project task objects be stored within a project</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Store project tasks in a <code>UniqueProjectTaskList</code> which is in turn stored under a specified milestone. (Current implementation)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only milestone objects are in direct contact with the project tasks through the <code>UniqueProjectTaskList</code> container class and checks to ensure project tasks work as they should only need to be done within the milestone instead of in the entire project itself.</p>
+</li>
+<li>
+<p>Cons: Somewhat harder to implement as it requires finding the correct milestone in a project first before anything can be done for the project task specified in the user&#8217;s command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Store project tasks directly in a project and keep a reference to the milestone which it should be under.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and will have similar behaviour to existing implementations of other objects stored directly in a project.</p>
+</li>
+<li>
+<p>Cons: It can be confusing in the backend as the user can have tasks under different milestones with the same project task descriptions. This also goes against the Object-Oriented Programming(OOP) Guideline, Law of Demeter
+as project tasks only need to be in direct contact with milestones but not necessarily with projects themselves.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Based on the above pros and cons for each alternative, I decided on Alternative 1 for 2 reasons:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As it was in line with the OOP guidelines and principle.</p>
+</li>
+<li>
+<p>As it allowed me to implement a more robust and efficient checking system for project tasks which was constrained within a milestone itself.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-planned-enhancements-2"><a class="link" href="#future-planned-enhancements-2">6.9.4. Future planned enhancements</a></h4>
+<div class="paragraph">
+<p>The following features are scheduled to be implemented in a future version of Pocket Project:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Allow the assigning of project tasks to employees in a project which gives you a better overview of who is in charge of doing what task during the project&#8217;s duration.</p>
+</li>
+<li>
+<p>Include the completion date of a project task when it is completed, allowing you to backtrack from the completion date of the project task to see what was done for the project task&#8217;s completion.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">6.10. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">6.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedPocketProject</code>.
 It extends <code>PocketProject</code> with an undo/redo history, stored internally as an <code>pocketProjectStateList</code> and <code>currentStatePointer</code>.
@@ -1865,7 +2071,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">6.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">6.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1935,20 +2141,20 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">6.10. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">6.11. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">6.11. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">6.12. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 6.12, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 6.13, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1979,7 +2185,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">6.12. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">6.13. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3323,7 +3529,16 @@ is the <code>user</code>, unless specified otherwise)</p>
 <p>Should be able to hold up to 1000 employees without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
+<p>Should be user-friendly for software engineering project managers and should help them manage their projects more efficiently and effectively.</p>
+</li>
+<li>
+<p>Should have automated tests to do regression testing whenever an existing feature is enhanced or a new feature is added.</p>
+</li>
+<li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>The system should respond to user input within 2 seconds, whether it is valid or invalid input.</p>
 </li>
 </ol>
 </div>
@@ -3589,7 +3804,7 @@ Expected: Similar to previous.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>prerequisites: project with the name 'Apollo' exists and has 3 employees in it.</p>
+<p>Prerequisites: Project with the name 'Apollo' exists and has 3 employees in it.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3615,9 +3830,12 @@ Expected: No employee is removed. Error details shown in the status message. Sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-a-milestone-from-a-porject"><a class="link" href="#removing-a-milestone-from-a-porject">G.7. Removing a milestone from a porject</a></h3>
+<h3 id="removing-a-milestone-from-a-project-2"><a class="link" href="#removing-a-milestone-from-a-project-2">G.7. Removing a milestone from a project</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Project with name 'Apollo' exists and has 1 milestone in it.</p>
+</li>
 <li>
 <p>Test case: <code>removefrom Apollo milestone 1</code> where the project named 'Apollo' exists in app and is ongoing and there is at least one<br>
 milestone for the project.
@@ -3635,7 +3853,34 @@ Expected: Command fails and an error message is returned.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-an-employee-project-by-keywords-in-their-names"><a class="link" href="#finding-an-employee-project-by-keywords-in-their-names">G.8. Finding an employee/project by keywords in their names</a></h3>
+<h3 id="removing-a-project-task-from-a-project"><a class="link" href="#removing-a-project-task-from-a-project">G.8. Removing a project task from a project</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Project with name 'Apollo' exists and has only 1 milestone with only 1 project task in it.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1 1</code><br>
+Expected: The first project task of the first milestone in the milestones and tasks list is removed.
+Details of the removed project task is shown in the status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1 2</code><br>
+Expected: No project task is removed. Invalid project task index error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 2 1</code><br>
+Expected: No project task is removed. Invalid milestone index error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>removefrom Apollo projecttask 1</code><br>
+Expected: No project task is removed. Invalid command format error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-an-employee-project-by-keywords-in-their-names"><a class="link" href="#finding-an-employee-project-by-keywords-in-their-names">G.9. Finding an employee/project by keywords in their names</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3654,7 +3899,7 @@ Expected: error will be returned</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-employees-with-specific-skills"><a class="link" href="#finding-employees-with-specific-skills">G.9. Finding employees with specific skills</a></h3>
+<h3 id="finding-employees-with-specific-skills"><a class="link" href="#finding-employees-with-specific-skills">G.10. Finding employees with specific skills</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3669,7 +3914,7 @@ Expected: error will be returned</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-projects-with-specific-keywords-in-their-name-description-or-deadline"><a class="link" href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.10. Finding projects with specific keywords in their name, description or deadline</a></h3>
+<h3 id="finding-projects-with-specific-keywords-in-their-name-description-or-deadline"><a class="link" href="#finding-projects-with-specific-keywords-in-their-name-description-or-deadline">G.11. Finding projects with specific keywords in their name, description or deadline</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3680,7 +3925,7 @@ Expected: Returns a list of projects containing the word 'software' or 'food' or
 </div>
 </div>
 <div class="sect2">
-<h3 id="indicating-a-project-as-completed"><a class="link" href="#indicating-a-project-as-completed">G.11. Indicating a project as completed</a></h3>
+<h3 id="indicating-a-project-as-completed"><a class="link" href="#indicating-a-project-as-completed">G.12. Indicating a project as completed</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3695,7 +3940,48 @@ Expected: Error detail shown. The Timestamp in the status bar is not updated.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.12. Clearing all data from the app</a></h3>
+<h3 id="updating-status-of-a-project-task"><a class="link" href="#updating-status-of-a-project-task">G.13. Updating status of a project task</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: Project with name 'Apollo' exists and has only 1 milestone with at least 1 project task in it.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 complete</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to complete.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 on hold</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to on hold.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 ongoing</code><br>
+Expected: Status of the first project task in the first milestone displayed in 'Apollo' milestones and tasks list updated to ongoing.
+Project task updated success message is shown in status message and the timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 1 invalid</code><br>
+Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 complete</code><br>
+Expected: Status of project task is not updated. Invalid command format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 2 1 complete</code><br>
+Expected: Status of project task is not updated. Invalid milestone index format error displayed in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update Apollo projecttask 1 2 complete</code><br>
+Expected: Status of project task is not updated. Invalid project task index format error displayed in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-data-from-the-app"><a class="link" href="#clearing-all-data-from-the-app">G.14. Clearing all data from the app</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3718,7 +4004,7 @@ Expected: Error message about unrecognized command is returned.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-from-the-app"><a class="link" href="#exiting-from-the-app">G.13. Exiting from the app</a></h3>
+<h3 id="exiting-from-the-app"><a class="link" href="#exiting-from-the-app">G.15. Exiting from the app</a></h3>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3741,7 +4027,7 @@ Expected: Error message about unrecognized command is returned.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-a-data-modification"><a class="link" href="#undoing-a-data-modification">G.14. Undoing a data modification</a></h3>
+<h3 id="undoing-a-data-modification"><a class="link" href="#undoing-a-data-modification">G.16. Undoing a data modification</a></h3>
 <div class="paragraph">
 <p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
 </div>
@@ -3768,7 +4054,7 @@ Expected: The <code>undo</code> and <code>redo</code> can go on forever because 
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-a-data-modification-that-has-been-undone"><a class="link" href="#redoing-a-data-modification-that-has-been-undone">G.15. Redoing a data modification that has been undone</a></h3>
+<h3 id="redoing-a-data-modification-that-has-been-undone"><a class="link" href="#redoing-a-data-modification-that-has-been-undone">G.17. Redoing a data modification that has been undone</a></h3>
 <div class="paragraph">
 <p>Assumption: all the objects being manipulated in these test cases exist in the app.</p>
 </div>
@@ -3786,7 +4072,7 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-project"><a class="link" href="#adding-a-project">G.16. Adding a project</a></h3>
+<h3 id="adding-a-project"><a class="link" href="#adding-a-project">G.18. Adding a project</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3857,7 +4143,7 @@ Expected: No new project is added. Duplicate project error details shown in stat
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-milestone"><a class="link" href="#adding-a-milestone">G.17. Adding a milestone</a></h3>
+<h3 id="adding-a-milestone"><a class="link" href="#adding-a-milestone">G.19. Adding a milestone</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3912,7 +4198,42 @@ Expected: A new milestone is added to 'Apollo'. Details of the added milestone s
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-userstory"><a class="link" href="#adding-a-userstory">G.18. Adding a UserStory</a></h3>
+<h3 id="adding-a-project-task"><a class="link" href="#adding-a-project-task">G.20. Adding a project task</a></h3>
+<div class="olist loweralpha">
+<div class="title">Adding a project task to a project&#8217;s milestone</div>
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: Project list has a project named 'Apollo' and has only 2 existing milestone in it.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
+Expected: A new project task with description "Create feature XYZ" is added to the first milestone in project named 'Apollo'. Details of the added project task shown in status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask n/Create feature XYZ m/2</code><br>
+Expected: A new project task with description "Create feature XYZ" is added to the second milestone in project named 'Apollo'. Details of the added project task shown in status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
+Expected: No new project task is added. Duplicate project task error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask n/Create feature XYZ m/3</code><br>
+Expected: No new project task is added. Invalid milestone index error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask n/Create feature XYZ</code><br>
+Expected: No new project task is added. Invalid command format error details shown in status message. Status bar remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>addto Apollo projecttask m/1</code><br>
+Expected: No new project task is added. Invalid command format error details shown in status message. Status bar remain the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-userstory"><a class="link" href="#adding-a-userstory">G.21. Adding a UserStory</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3941,7 +4262,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.19. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.22. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3961,4 +4282,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:49:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:58:37 UTC</div></div></div></body></html>

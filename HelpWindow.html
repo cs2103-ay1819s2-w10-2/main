@@ -1196,7 +1196,7 @@ Displays details of the project at index 1 of the projects list.</p>
 <p class="tableblock">Refer to the screenshot below to see the changes in the screen after a <code>view project 1</code> command is executed.</p>
 <p class="tableblock">.Details of the project at index 1 of the projects list is shown
 image::view-project-ui.png[]</p>
-<p class="tableblock">=== Add an employee/milestone/user story to a project : <code>addto</code></p>
+<p class="tableblock">=== Add an employee/milestone/project task/user story to a project : <code>addto</code></p>
 <p class="tableblock">==== Add an employee to a project: <code>addto employee</code></p>
 <p class="tableblock">You can add an employee to any projects already created in the Pocket Project application. You can
 do this by first listing all employees using the basic <code>list employees</code> command or by first filtering all the
@@ -1312,20 +1312,7 @@ will automatically be sorted by its date every time a new entry is added.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1428%;">
-<col style="width: 7.1436%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
@@ -1333,22 +1320,57 @@ will automatically be sorted by its date every time a new entry is added.</p>
 and looks like.</p>
 <p class="tableblock">.<strong>Adding a milestone to a project</strong>
 image::ug-addtomilestone.png[]</p>
-<p class="tableblock">==== Add a task to a project milestone: <code>addto projecttask</code></p>
-<p class="tableblock">Adds a task to a project milestone.</p>
-<p class="tableblock">Format: <code>addto PROJECT_NAME projecttask [n/TASK_NAME] [m/MILESTONE_INDEX]</code></p>
-<p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Adds the project task to the milestone at the specified <code>MILESTONE_INDEX</code>.
-The index refers to the index number (one-based) shown in the displayed list of milestones.</p>
-<p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
-<p class="tableblock">Example:</p>
-<p class="tableblock">* <code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
-   Adds to the milestone at index 1 in project with name "Apollo", a new project task called "Create feature XYZ".</p>
-<p class="tableblock">* <code>addto Apollo projecttask m/2 n/Modify feature XYZ</code><br>
-   Adds to the milestone at index 2 in project with name "Apollo", a new project task called "Modify feature XYZ".</p>
-<p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-There is no specific order for either the project task name or the milestone index so either way is acceptable.</p>
-<p class="tableblock">==== Add a User Story to a project: <code>addto userstory</code></p>
+<p class="tableblock">==== Add a project task to a project&#8217;s milestone: <code>addto projecttask</code></p>
+<p class="tableblock">Building further on the functionality of milestones, you can also add project tasks to existing milestones in Pocket Project.
+This allows you to track and plan out in more detail what needs to be done between each milestone.</p>
+<p class="tableblock">Format: <code>addto PROJECT_NAME projecttask n/PROJECT_TASK_DESCRIPTION m/MILESTONE_INDEX</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>|<span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span>| The <code>MILESTONE_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestone list.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Examples:</p>
+<p class="tableblock">. <code>addto Apollo projecttask n/Create feature XYZ m/1</code><br>
+   A project task with the given description will be added to the list of tasks under the milestone at index 1 in project "Apollo".
+. <code>addto Orbital projecttask m/2 n/Prepare concept design sketches</code><br>
+   A project task with the given description will be added to the list of tasks under the milestone at index 2 in project "Orbital".</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>|<span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>|There is no specific order for either the project task name or the milestone index when entering the command so either way is acceptable.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can refer to the screenshot below to have a clearer picture of how it works and looks like.</p>
+<p class="tableblock">.<strong>Adding a task to a project&#8217;s milestone</strong>
+image::ug-addprojecttask.png[]</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>|<span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="50"></span>| Clicking on the arrow beside a milestone containing existing tasks allows you to hide the list of tasks under the milestone.
+The arrow will only appear when there are one or more tasks in your project&#8217;s milestone.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">==== Add a User Story to a project: <code>addto userstory</code></p>
 <p class="tableblock">You can add a user story to a project.
 In case you didn&#8217;t know what user stories are, they are tools to capture the description of a feature from an end-user&#8217;s perspective.</p>
 <p class="tableblock">Format: <code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code></p>
@@ -1372,7 +1394,7 @@ E.g <code>as a user i want to log in</code> is a valid user story.</p>
 <p class="tableblock">Refer to the diagram below to see how the new user story is shown.</p>
 <p class="tableblock">.User stories list showing the newly added user story
 image::addto-user-story-ui.png[]</p>
-<p class="tableblock">=== Remove an employee/milestone/user story from a project : <code>removefrom</code></p>
+<p class="tableblock">=== Remove an employee/milestone/project task/user story from a project : <code>removefrom</code></p>
 <p class="tableblock">==== Remove an employee from a project: <code>removefrom PROJECT_NAME employee</code></p>
 <p class="tableblock">Removing an employee from a project.</p>
 <p class="tableblock">Format: <code>removefrom PROJECT_NAME employee EMPLOYEE_INDEX</code></p>
@@ -1392,7 +1414,56 @@ Removes the employee at the specified <code>INDEX</code>.
 The index refers to the index number (one-based) shown in the displayed list of employees.</p>
 <p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
 The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
-<p class="tableblock">==== Remove a user story from a project: <code>removefrom userstory</code></p>
+<p class="tableblock">==== Remove a project task from a project&#8217;s milestone: <code>removefrom PROJECT_NAME projecttask</code></p>
+<p class="tableblock">You can remove existing project tasks from a milestone if there is a change in the planned project&#8217;s schedule.</p>
+<p class="tableblock">Format: <code>removefrom PROJECT_NAME projecttask MILESTONE_INDEX PROJECT_TASK_INDEX</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>|<span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span>| The <code>MILESTONE_INDEX</code> and <code>PROJECT_TASK_INDEX</code> must be a positive integer and cannot be
+larger than the size of the displayed milestones and tasks list.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Examples:</p>
+<p class="tableblock">. <code>removefrom Apollo projecttask 1 1</code><br>
+The 1st project task in the task list under the 1st milestone of the displayed milestone list in project "Apollo" will be removed.
+. <code>removefrom Orbital projecttask 2 1</code><br>
+The 1st project task in the task list under the 2nd milestone of the displayed milestone list in project "Orbital" will be removed.</p>
+<p class="tableblock">You can refer to the screenshot below to have a clearer picture of how it looks like.</p>
+<p class="tableblock">.<strong>Before and after comparison when removing a task from a project&#8217;s milestone</strong>
+image::ug-removeprojecttask.png[]</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>|<span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="50"></span>| The arrow beside the milestone description for collapsing the task list will disappear if all tasks for that milestone are removed.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1428%;">
+<col style="width: 7.1436%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">==== Remove a user story from a project: <code>removefrom userstory</code></p>
 <p class="tableblock">You can remove a user story from a project.</p>
 <p class="tableblock">Format: <code>removefrom PROJECT_NAME userstory INDEX</code></p>
 <p class="tableblock">Examples:</p>
@@ -1556,4 +1627,4 @@ e.g. <code>sort name</code> <code>sort deadline</code>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:49:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 07:58:37 UTC</div></div></div></body></html>
