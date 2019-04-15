@@ -318,6 +318,91 @@ to our Developer&#8217;s Guide: [<a href="https://github.com/cs2103-ay1819s2-w10
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="sect4">
+<h5 id="add-user-story-to-project-command"><a class="link" href="#add-user-story-to-project-command">Add user story to project command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code>&#8201;&#8212;&#8201;adds the user story specified in <code>STORY</code> to the list of user stories in the project with name <code>PROJECT_NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation uses the <code>Model#addUserStoryTo(Project, UserStory)</code> and the <code>Model#getProjectWithName(Name)</code> methods in the <code>Model</code> interface.
+It takes in the project and user story as arguments. After checking that the <code>PROJECT_NAME</code> is valid and <code>STORY</code> is created, the <code>AddUserStoryToCommand#execute()</code> method is executed to add the <code>STORY</code> into the project.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the addition of user story to a project behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>list project'. The app displays the list of projects in the Pocket Project by executing the `list project</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The <code>LogicManager</code> passes the string into the <code>PocketProjectParser</code> which detects it as a <code>AddToCommand</code>. It then passes the string to the <code>AddToCommandParser</code>
+which creates an <code>AddUserStoryTo</code> command. The <code>LogicManager</code> then checks for the validity of the user story and executes the <code>Model#addUserStoryTo(Project, UserStory)</code> method to add the new user story.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>PROJECT_NAME</code> entered must be valid and the <code>STORY</code> added needs to be of the correct format. Else, exceptions would be thrown.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="remove-user-story-from-project-command"><a class="link" href="#remove-user-story-from-project-command">Remove user story from project command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removefrom PROJECT_NAME userstory STORY_INDEX</code>&#8201;&#8212;&#8201;removes the user story at index <code>STORY_INDEX</code> in the list of user stories in the project named <code>PROJECT_NAME</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation uses the <code>Model#removeUserStoryFrom(Project, UserStory)</code> and the <code>Model#getProjectWithName(Name)</code> methods in the <code>Model</code> interface.
+It does not require the user story as an argument since the corresponding user story object can be found by the specified <code>STORY_INDEX</code>. After checking that the <code>PROJECT_NAME</code> and user story is valid, the <code>AddUserStoryToCommand#execute()</code> method is executed to remove the user story from the project.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the execution of the removing of a user story from a project is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
+</div>
+<div class="title">Figure 5. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user enters <code>removefrom Apollo userstory 1</code>. The <code>LogicManager</code> passes the string into the <code>PocketProjectParser</code> which detects it as a <code>RemoveFromCommand</code>.
+It then passes the string to the <code>RemoveFromCommandParser</code> which creates an <code>RemoveUserStoryFrom</code> command. The <code>LogicManager</code> then checks for the validity of the user
+story and project and executes the <code>Model#removeUserStoryFrom(Project, UserStory)</code> method to remove the user story.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>PROJECT_NAME</code> entered must be valid and exists in the app. The <code>STORY_INDEX</code> given must refer to some existing user story. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
 <h5 id="edit-user-story-command"><a class="link" href="#edit-user-story-command">Edit user story command</a></h5>
 <div class="ulist">
 <ul>
@@ -338,7 +423,7 @@ before the <code>Project#setUserStory(UserStory, UserStory)</code> method is cal
 <div class="content">
 <img src="../images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 5. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
+<div class="title">Figure 6. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
@@ -387,7 +472,7 @@ It takes in as arguments the new status of the user story. The <code>UpdateUserS
 <div class="content">
 <img src="../images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 6. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
+<div class="title">Figure 7. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
@@ -477,4 +562,4 @@ This will be made available by widening the range of keywords the parser is able
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:17:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:18:35 UTC</div></div></div></body></html>
