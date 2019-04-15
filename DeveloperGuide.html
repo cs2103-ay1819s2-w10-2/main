@@ -170,7 +170,7 @@ also the proposed schedule for the weeks ahead until the project is due for comp
 <h3 id="symbols"><a class="link" href="#symbols">3.1. Symbols</a></h3>
 <div class="paragraph">
 <p>The following section details and previews a few symbols that will
-be used throughout the user guide. These symbols are used to represent
+be used throughout the developer guide. These symbols are used to represent
 special information such as tips and warnings.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -1231,13 +1231,13 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>edit project PROJECT_NAME info [ARGUMENTS]</code> - allow editing of project&#8217;s name, deadline, description</p>
+<p><code>edit project PROJECT_NAME info [n/name] [c/client] [d/deadline] [desc/description]</code> - allow editing of project&#8217;s name, deadline, description</p>
 </li>
 <li>
-<p><code>edit project PROJECT_NAME milestone [ARGUMENTS]</code> - allow editing of details of project milestone such as milestone description and date</p>
+<p><code>edit project PROJECT_NAME milestone MILESTONE_INDEX [m/milestone] [d/date]</code> - allow editing of details of project milestone such as milestone description and date</p>
 </li>
 <li>
-<p><code>edit project PROJECT_NAME userstory [ARGUMENTS]</code> - allow editing of details of project&#8217;s userstory (refer to Jeff&#8217;s portion)</p>
+<p><code>edit project PROJECT_NAME userstory USERSTORY_INDEX STORY</code> - allow editing of details of project&#8217;s userstory (explained here <a href="#edit-user-story-command">Section 6.8.2.3, &#8220;Edit user story command&#8221;</a>)</p>
 </li>
 </ol>
 </div>
@@ -1245,40 +1245,83 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <p>The <code>EditProjectCommand Parser</code> differentiate these 3 commands based on the <code>COMMAND_KEYWORD</code> which are info, milestone and userstory.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how <code>edit project info</code> command works;</p>
+<div class="title">Class diagram showing inheritance for <code>EditCommand</code></div>
+<p><span class="image"><img src="images/edit_command_class_diagram.png" alt="width:&quot;300&quot;"></span></p>
 </div>
 <div class="paragraph">
-<p>Given below is the example usage scenario of how <code>edit project info</code> command works:</p>
+<p>All the 3 commands are inherited from the <code>EditProjectCommand</code>. This allows flexibility as more edit project command can be easily added when there are new components added to the project.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>edit project info</code> command works:</p>
+</div>
+<div class="paragraph">
+<div class="title">Sequence diagram for <code>edit project Apollo info n/Gemini d/12/05/2019</code></div>
+<p><span class="image"><img src="images/edit_project_sequence_diagram.png" alt="width:&quot;800&quot;"></span></p>
+</div>
+<div class="paragraph">
+<p>Given below is the explanation of what happens when the user enter the <code>edit project info</code> command based on the diagram above:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>edit project PocketProject info desc/A project management tool d/20/05/2019</code> to edit description and deadline of the project named PocketProject</p>
+<p>User executes <code>edit project Apollo info n/Gemini d/12/05/2019</code> to edit name and deadline of the project named Apollo.</p>
 </li>
 <li>
-<p><code>PocketProjectParser</code> will parse and identify the command as an <code>EditCommand</code> and pass on the argument <code>project PocketProject info desc/A project management tool d/20/05/2019</code>.</p>
+<p><code>PocketProjectParser</code> will identify the command as an <code>EditCommand</code> based on the word <code>edit</code> and pass on the argument to the EditCommandParser.</p>
 </li>
 <li>
-<p><code>EditCommandParser</code> identify the command as a <code>EditProjectCommand</code> based on the word <code>project</code> and pass it onto <code>EditProjectCommandParser</code></p>
+<p><code>EditCommandParser</code> will identify the command as a <code>EditProjectCommand</code> based on the word <code>project</code> and pass it onto <code>EditProjectCommandParser</code></p>
 </li>
 <li>
-<p><code>EditProjectCommandParser</code> then identify the command as a <code>EditProjectInfoCommand</code> based on the <code>COMMAND_KEYWORD</code> <code>info</code> and create the respective command and return it back to the <code>LogicManager</code></p>
+<p><code>EditProjectCommandParser</code> then identify the command as a <code>EditProjectInfoCommand</code> based on the word <code>info</code> and create the respective command and return it back to the <code>LogicManager</code></p>
 </li>
 <li>
-<p><code>LogicManager</code> then execute the command and check the validity of the parameters to be edited (in this case, the deadline and the description parameters are checked). The method <code>Model#setProject(projectToEdit, editedProject)</code> to replace the old project with the edited project with the new parameters.</p>
+<p><code>LogicManager</code> then execute the command. Validity of the arguments are checked here as well. The method <code>Model#setProject(projectToEdit, editedProject)</code> is called to replace the old project with the edited project with the new parameters.
+This method also update the list of project names in the employees who are assigned to project Apollo.</p>
 </li>
 <li>
-<p>Finally, the project PicketProject is edited and the details showing on the ui is updated as well.</p>
+<p>Finally, the project Apollo is edited and the details showing on the ui are updated as well.</p>
 </li>
 </ol>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the arguments provided are invalid, a <code>CommandException</code> will be thrown and error message will be shown.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>The working mechanism behind <code>EditProjectMilestoneCommand</code> is similar as well, instead of replacing the whole project, only the milestone list in the project is edited and replaced through <code>Model#setMilestone(milestoneToEdit, editedMilestone)</code> method.</p>
+<p>The working mechanism behind <code>EditProjectMilestoneCommand</code> is similar as well. Instead of replacing the whole project, only the milestone list in the project is edited by replacing the milestone at the given index through <code>Model#setMilestone(milestoneToEdit, editedMilestone)</code> method.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-consideration"><a class="link" href="#design-consideration">6.4.2. Design Consideration</a></h4>
-
+<div class="sect4">
+<h5 id="aspect-how-to-structure-the-classes-under-edit-command"><a class="link" href="#aspect-how-to-structure-the-classes-under-edit-command">Aspect how to structure the classes under edit command</a></h5>
+<div class="paragraph">
+<p>Alternative 1: Have a single edit project command that allow users to edit all the parts of the project in one command</p>
+</div>
+<div class="paragraph">
+<p>Alternative 2: Have several separate commands that edit different parts of the project (current implementation)</p>
+</div>
+<div class="paragraph">
+<p>For alternative 1, the user will not need to remember many commands just to edit the project. However since there are a lot of components in the project,
+different prefixes will be needed for different component so that the parser can identify which component to edit. There are also overlapping attributes in the
+components such as milestone date and project deadline or milestone description and project description. Therefore it is going to be messy in terms of code
+as well as in terms of usage of the command.</p>
+</div>
+<div class="paragraph">
+<p>Even though alternative 2 involves having to remember different commands, it can be implemented in a way so that the commands are intuitive to the user. For instance,
+the command format for current implementation is quite intuitive. The user just need to specify <code>edit project</code> then add in name of the project to edit and the components the user wish to edit.
+Thus, alternative 2 is chosen as it is less confusing both in term of code and usage and can be tweaked to make the command user-friendly.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1286,26 +1329,29 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">6.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>For the current <code>find</code> feature, there are 4 main commands that the user can execute:</p>
+<p>For the current <code>find</code> feature, there are 5 main commands that the user can execute:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>find employee [keywords]</code> - display employees with name containing keywords</p>
+<p><code>find employee [KEYWORDS]</code> - display employees with name containing keywords</p>
 </li>
 <li>
-<p><code>find project [keywords]</code> - display projects with name containing keywords</p>
+<p><code>find project [KEYWORDS]</code> - display projects with name containing keywords</p>
 </li>
 <li>
-<p><code>find skill [keywords]</code> - display employees who has skills matching the keywords</p>
+<p><code>find skill [KEYWORDS]</code> - display employees who has skills matching the keywords</p>
 </li>
 <li>
-<p><code>find all [keywords]</code> - display projects which contains words matching the keywords</p>
+<p><code>find all [KEYWORDS]</code> - display projects which contains words matching the keywords</p>
+</li>
+<li>
+<p><code>find deadline KEYWORD</code> - display projects which contains deadline before the keyword</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The <code>FindCommandParser</code> differentiate these 3 commands based on the <code>COMMAND_KEYWORDS</code> entered by the users (e.g. employee/project/skill).</p>
+<p>The <code>FindCommandParser</code> differentiate these 5 commands based on the <code>COMMAND_KEYWORDS</code> entered by the users (e.g. employee/project/skill/all/deadline).</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>find employee</code> command works:</p>
@@ -1314,6 +1360,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="content">
 <img src="images/findcommand_sequence_diagram.png" alt="findcommand sequence diagram" width="1000">
 </div>
+<div class="title">Figure 11. Sequence diagram for <code>find employee John</code> command</div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>find employee</code>:</p>
@@ -1330,7 +1377,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <p><code>FindCommandParser</code> identify the command based on the <code>COMMAND_KEYWORD</code> employee.</p>
 </li>
 <li>
-<p><code>find employee</code> command is executed. Employees with name consisting the keywords are filtered out from the employeelist. The filtering is done using a predicate that checks through the names of the employee int the application.</p>
+<p><code>find employee</code> command is executed. Employees with name consisting the keywords are filtered out from the employeelist. The filtering is done through the use of <code>ProjectNameContainsKeywordPredicate</code> that checks through the names of the employee int the application.</p>
 </li>
 <li>
 <p>Finally, the <code>filteredEmployees</code> list which is the list displayed on the ui is updated.</p>
@@ -1341,10 +1388,13 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <p>The working mechanism for <code>find project</code> is similar to <code>find employee</code>. Instead of updating the <code>filteredEmployees</code>, <code>filteredProjects</code> is updated instead to display the list of projects with name consisting the keywords.</p>
 </div>
 <div class="paragraph">
-<p>For <code>find all</code> command, the predicate is used to check for the matching keywords in the project name , description, client and deadline, thereby filtering out any projects that contains the keyword in any component of the project.</p>
+<p>For <code>find all</code> command, the predicate is used to check for the matching keywords in the project name , description and client, thereby filtering out any projects that contains the keyword in these components of the project.</p>
 </div>
 <div class="paragraph">
 <p>For <code>find skill</code> command, the <code>List&lt;Skills&gt;skills</code> from employee is retrieved as a <code>String</code> to match against the keywords. Then the matched employees are filtered and displayed on the ui.</p>
+</div>
+<div class="paragraph">
+<p><code>find deadline</code> uses the <code>ProjectContainsDeadlinePredicate</code> to compare the deadline of the project against the supplied deadline and filter out the projects with deadline earlier or same as the deadline supplied by the user.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1352,13 +1402,14 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="sect4">
 <h5 id="aspect-how-code-find-code-command-is-parsed"><a class="link" href="#aspect-how-code-find-code-command-is-parsed">Aspect: How <code>find</code> command is parsed</a></h5>
 <div class="paragraph">
-<p>Alternative 1: Have a nested <code>FindCommandParser</code> (current implementation)</p>
+<p>Alternative 1: Have a separate <code>FindCommandParser</code> to parse the command (current implementation)</p>
 </div>
 <div class="paragraph">
 <p>Alternative 2: Let <code>PocketProjectParser</code> handle parsing of all the <code>find</code> commands</p>
 </div>
 <div class="paragraph">
-<p>Using Alternative 1 is better as it provides better abstraction as the details of the 3 different commands will be hidden away. Hence it is more in line with OOP principles. There will also be less clutter in <code>FindCommandParser</code> as there are already a lot of other commands being parsed.</p>
+<p>Using Alternative 1 is better because it provides better abstraction as the details of the 5 different find commands will be hidden away as just a single FindCommand.
+Hence it is more in line with OOP principles. There will also be less clutter in <code>PocketProjectParser</code> as there are already a lot of other commands being parsed.</p>
 </div>
 </div>
 </div>
@@ -1390,6 +1441,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="content">
 <img src="images/listcommand_sequence_diagram.png" alt="listcommand sequence diagram" width="1000">
 </div>
+<div class="title">Figure 12. Sequence diagram for <code>list employee</code> command</div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>list employee</code>:</p>
@@ -1463,6 +1515,7 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 <div class="content">
 <img src="images/overallStatsSequenceDiagram.png" alt="overallStatsSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 13. Sequence diagram for stats</div>
 </div>
 <div class="paragraph">
 <p>Individual Project:</p>
@@ -1471,6 +1524,7 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 <div class="content">
 <img src="images/individualStatsSequenceDiagram.png" alt="individualStatsSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 14. Sequence diagram for stats</div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>stats</code>:</p>
@@ -1668,7 +1722,7 @@ It does not require the user story as an argument since the corresponding user s
 <div class="content">
 <img src="images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
 </div>
-<div class="title">Figure 11. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
+<div class="title">Figure 15. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
@@ -1718,7 +1772,7 @@ before the <code>Project#setUserStory(UserStory, UserStory)</code> method is cal
 <div class="content">
 <img src="images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 12. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
+<div class="title">Figure 16. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
@@ -1767,7 +1821,7 @@ It takes in as arguments the new status of the user story. The <code>UpdateUserS
 <div class="content">
 <img src="images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 13. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
+<div class="title">Figure 17. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
@@ -1910,7 +1964,7 @@ These three methods take in <code>Project</code>, <code>Milestone</code> and <co
 <div class="content">
 <img src="images/UpdateProjectTaskSequenceDiagram.png" alt="UpdateProjectTaskSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 14. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
+<div class="title">Figure 18. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>update Apollo projecttask 2 1 Complete</code>.
@@ -2324,7 +2378,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 19. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4358,4 +4412,4 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 01:03:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 01:15:28 UTC</div></div></div></body></html>
