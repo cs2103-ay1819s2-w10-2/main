@@ -4,7 +4,7 @@
 <h2 id="about-pocketproject"><a class="link" href="#about-pocketproject">About PocketProject</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PocketProject is a project developed by my team and I as part of our Software Engineering Project. Our team decided to morph the original codebase given to us into a project management plus employee management software to help software engineering project managers keep track of their projects and employees. In particular, some notable features PocketProject provides includes recording of milestones, user stories amongst other parts of a project as well as recording details of an employee such as their skillsets and GitHub profile.</p>
+<p>PocketProject is a project developed by my team and I as part of our Software Engineering Project. Our team decided to morph the original codebase given to us into a project management plus employee management software to help software engineering project managers keep track of their projects and employees. In particular, some notable features PocketProject provides includes recording of milestones, user stories, employees information as well as a statistics feature for managers.</p>
 </div>
 </div>
 </div>
@@ -12,7 +12,7 @@
 <h2 id="before-we-begin"><a class="link" href="#before-we-begin">Before we begin</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lets start by taking a look at some of the common notations, technical terms as well as symbols used throughout this document.</p>
+<p>Lets start by taking a look at some of the common notations, technical terms as well as symbols used throughout this document:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -68,7 +68,7 @@ need to take note.</p></td>
 <p>Why its important: User stories are integral to projects and thus its important to be able to record and keep track of them. Being able to see the progress of different user stories can give a good gauge of the progression of the whole project and whether its on track, as well as allow prioritisation of different enhancements to prioritise based on how important the user story is.</p>
 </li>
 <li>
-<p>Highlights: This enhancement makes use of a unique parsing method which allows users to be able to be flexible in entering input yet allow proper processing of the input to be able to show up elegantly on the UI. In addition, it uses an implicit sort function to sort the user stories by order of importance.</p>
+<p>Highlights: This enhancement makes use of a unique parsing method which allows users to be able to be flexible in entering input yet allow proper processing of the input to be able to show up elegantly on the UI. In addition, it arranges the user stories by order of their importance for ease of readability.</p>
 </li>
 </ul>
 </div>
@@ -169,13 +169,12 @@ need to take note.</p></td>
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this section, I will showcase some of my contributions to the User Guide to demonstrate my ability to write documentation targetting users of Pocket Project. Note that the snippets shown here are not an exhaustive list of all my contributions.</p>
+<p>In this section, I will showcase some of my contributions to the User Guide to demonstrate my ability to write documentation targetting users of Pocket Project. For a complete list of the documentation I wrote, you may refer to our User Guide: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/UserGuide.adoc" class="bare">https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/UserGuide.adoc</a>]</p>
 </div>
 <div class="sect3">
 <h4 id="add-a-user-story-to-a-project-code-addto-userstory-code"><a class="link" href="#add-a-user-story-to-a-project-code-addto-userstory-code">Add a user story to a project: <code>addto userstory</code></a></h4>
 <div class="paragraph">
-<p>You can add a user story to a project which is useful in the planning stage of a project where the implementation
-of certain features can be prioritized over others.</p>
+<p>You can add a user story to a project. User stories are tools used in software development to capture a description of a software feature from an end-user perspective.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>addto PROJECT_NAME userstory i/STORY_IMPORTANCE STORY</code></p>
@@ -222,8 +221,8 @@ important and 1 being the least.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-smart.png" alt="ug smart" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A valid user story can also be simply: <code>as a &#8230;&#8203; i want to&#8230;&#8203;</code>.
-E.g <code>as a user i want to log in</code> is a valid user story.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A valid user story can also be simply: <code>as a &#8230;&#8203; i want to&#8230;&#8203;</code>.</p>
+<p class="tableblock">E.g <code>as a user i want to log in</code> is a valid user story.</p></td>
 </tr>
 </tbody>
 </table>
@@ -232,7 +231,7 @@ E.g <code>as a user i want to log in</code> is a valid user story.</p></td>
 You may need to toggle the buttons to get to the correct panel.</p>
 </div>
 <div class="paragraph">
-<p>Refer to the diagram below to see how the new user story is shown.</p>
+<p>Refer to the screenshot below to see how the new user story is shown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -257,12 +256,12 @@ You may need to toggle the buttons to get to the correct panel.</p>
 <li>
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo userstory 2</code><br>
-Removes the user story at the 2nd position of the displayed list of user stories from Project Apollo.</p>
+Removes the user story at the 2nd position of the list of user stories from Project Apollo.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Refer to the diagram below to see the changes in the user stories list after the command above has been executed.</p>
+<p>Refer to the screenshots below to see the changes in the user stories list after the command above has been executed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -307,7 +306,7 @@ Updates the first user story in Apollo to be on hold.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, I will showcase some of my contributions to the Developer&#8217;s Guide to demonstrate my ability to write technical documentation. For a complete list of the documentation I wrote, you may refer
-to our Developer&#8217;s Guide: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc" class="bare">https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc</a>]</p>
+to our Developer Guide: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc" class="bare">https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc</a>]</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
@@ -334,7 +333,7 @@ It takes in the project and user story as arguments. After checking that the <co
 <p>Given below is an example usage scenario and how the addition of user story to a project behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters the command <code>list project'. The app displays the list of projects in the Pocket Project by executing the `list project</code> command.</p>
+<p>Step 1. The user enters the command <code>list project</code>. The app displays the list of projects in the Pocket Project by executing the <code>list project</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user enters <code>addto Apollo userstory i/1 as a user i want to view user stories so that i can track them</code>. The <code>LogicManager</code> passes the string into the <code>PocketProjectParser</code> which detects it as a <code>AddToCommand</code>. It then passes the string to the <code>AddToCommandParser</code>
@@ -349,55 +348,6 @@ which creates an <code>AddUserStoryTo</code> command. The <code>LogicManager</co
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The <code>PROJECT_NAME</code> entered must be valid and the <code>STORY</code> added needs to be of the correct format. Else, exceptions would be thrown.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="remove-user-story-from-project-command"><a class="link" href="#remove-user-story-from-project-command">Remove user story from project command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removefrom PROJECT_NAME userstory STORY_INDEX</code>&#8201;&#8212;&#8201;removes the user story at index <code>STORY_INDEX</code> in the list of user stories in the project named <code>PROJECT_NAME</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This operation uses the <code>Model#removeUserStoryFrom(Project, UserStory)</code> and the <code>Model#getProjectWithName(Name)</code> methods in the <code>Model</code> interface.
-It does not require the user story as an argument since the corresponding user story object can be found by the specified <code>STORY_INDEX</code>. After checking that the <code>PROJECT_NAME</code> and user story is valid, the <code>AddUserStoryToCommand#execute()</code> method is executed to remove the user story from the project.</p>
-</div>
-<div class="paragraph">
-<p>The sequence diagram for the execution of the removing of a user story from a project is as follows:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
-</div>
-<div class="title">Figure 5. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. The user enters <code>removefrom Apollo userstory 1</code>. The <code>LogicManager</code> passes the string into the <code>PocketProjectParser</code> which detects it as a <code>RemoveFromCommand</code>.
-It then passes the string to the <code>RemoveFromCommandParser</code> which creates an <code>RemoveUserStoryFrom</code> command. The <code>LogicManager</code> then checks for the validity of the user
-story and project and executes the <code>Model#removeUserStoryFrom(Project, UserStory)</code> method to remove the user story.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 35%;">
-<col style="width: 65%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>PROJECT_NAME</code> entered must be valid and exists in the app. The <code>STORY_INDEX</code> given must refer to some existing user story. If not, exceptions would be thrown during the execution of the command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -423,13 +373,13 @@ before the <code>Project#setUserStory(UserStory, UserStory)</code> method is cal
 <div class="content">
 <img src="../images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 6. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
+<div class="title">Figure 5. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+<p>Step 1. The user enters the command <code>view project Apollo</code>. The app displays the list of details of the project named "Apollo" by executing the <code>view</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
@@ -472,13 +422,13 @@ It takes in as arguments the new status of the user story. The <code>UpdateUserS
 <div class="content">
 <img src="../images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 7. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
+<div class="title">Figure 6. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of details of the project named "Apollo" by executing the `view</code> command.</p>
+<p>Step 1. The user enters the command <code>view project Apollo</code>. The app displays the list of details of the project named "Apollo" by executing the <code>view</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user can use the buttons in the details panel to scroll to the panel showing the user stories.</p>
@@ -562,4 +512,4 @@ This will be made available by widening the range of keywords the parser is able
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:21:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:12:06 UTC</div></div></div></body></html>
