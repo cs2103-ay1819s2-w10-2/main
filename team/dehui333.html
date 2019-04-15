@@ -114,11 +114,11 @@ it to its present state.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Implementation of the part of the <code>removefrom</code> command which allows removal of employees or milestones from projects(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/79">79</a>]).</p>
+<p>Implementation of the part of the <code>removefrom</code> command which allows removal of employees or milestones from projects(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/79">#79</a>]).</p>
 </li>
 <li>
 <p>Implementation of the <code>delete</code> command which allows the deletion of projects from the app. Refactored the <code>delete</code> command of the original address book to one which deletes employees.
-(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/39">39</a>])</p>
+(Pull Request [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/39">#39</a>])</p>
 </li>
 <li>
 <p>Implementation of the <code>complete</code> command which allows indication of projects as completed.</p>
@@ -136,6 +136,26 @@ it to its present state.</p>
 </ol>
 </div>
 </li>
+<li>
+<p>Team Contributions</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Find and report bugs and suggest possible enhancements which can be done in the team&#8217;s issue tracker. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/issues/82">#82</a>]</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Community Contributions</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Reported bugs found in other team&#8217;s (CS2103-AY1819S2-W11-2) application [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/40">#40</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/317">#317</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/370">#370</a>] [<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/621">#621</a>]</p>
+</li>
+</ol>
+</div>
+</li>
 </ul>
 </div>
 </li>
@@ -147,99 +167,11 @@ it to its present state.</p>
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The sections below are the parts that are written by me, and may not be in the same order as in the user guide.
-Some of the figure numbers are changed too.</p>
-</div>
-<div class="sect2">
-<h3 id="delete-a-project-or-an-employee-from-the-application-code-delete-code"><a class="link" href="#delete-a-project-or-an-employee-from-the-application-code-delete-code">3.1. Delete a project or an employee from the application <code>delete</code></a></h3>
-<div class="sect3">
-<h4 id="delete-a-project-from-the-application-code-delete-project-code"><a class="link" href="#delete-a-project-from-the-application-code-delete-project-code">3.1.1. Delete a project from the application: <code>delete project</code></a></h4>
-<div class="paragraph">
-<p>Deletes the a from the list of projects.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete project PROJECT_NAME</code> or <code>delete project PROJECT_INDEX</code></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Deletes the project at the specified <code>PROJECT_INDEX</code>.
-The index refers to the index number (one-based) shown in the displayed list of projects.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="60"></span>
-The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list. The <code>PROJECT_NAME</code> must be the name
-of an existing project.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete project Apollo</code><br>
-Deletes project "Apollo" from project list.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ug-deleteproject_before.png" alt="ug deleteproject before">
-</div>
-<div class="title">Figure 1. <strong>Deleting a project at index 1 - before</strong></div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ug-deleteproject_after.png" alt="ug deleteproject after">
-</div>
-<div class="title">Figure 2. <strong>Deleting a project at index 1 - after</strong></div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete project 1</code><br>
-Deletes the first project shown in the most recent displayed list of projects. Figure 1 shows the command being typed but not entered yet
-and figure 2 shows the effect of the command.</p>
-</li>
-</ul>
-</div>
+<p>You can view these sections to see my contributions to the User Guide documentation for <code><span class="aqua">removefrom employee</span></code>, <code><span class="aqua">removefrom milestone</span></code> command, <code><span class="aqua">complete</span></code> command and <code><span class="aqua">stats</span></code> command.
+The part on the <code><span class="aqua">delete</span></code> command is excluded due to insufficient space, please go to [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/UserGuide.adoc#delete-a-project-or-an-employee-from-the-application-delete">User Guide Section 4.5 -delete command</a>] if you are interested.</p>
 </div>
 <div class="sect3">
-<h4 id="delete-an-employee-from-the-application-code-delete-employee-code"><a class="link" href="#delete-an-employee-from-the-application-code-delete-employee-code">3.1.2. Delete an employee from the application: <code>delete employee</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified employee from the employee list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete employee INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list employees</code><br>
-<code>delete employee 2</code><br>
-Deletes the 2nd person in the displayed employee list.</p>
-</li>
-<li>
-<p><code>find employee Betsy</code><br>
-<code>delete employee 1</code><br>
-Deletes the 1st person in the resultant employee list shown by the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Either the <code>list employee</code> command or the <code>find employee</code> command needs to be invoked
-before calling the <code>delete employee</code> command as the index is referenced from the last returned list
-of employees.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code"><a class="link" href="#remove-an-employee-milestone-user-story-from-a-project-code-removefrom-code">3.2. Remove an employee/milestone/user story from a project : <code>removefrom</code></a></h3>
-<div class="sect3">
-<h4 id="remove-an-employee-from-a-project-code-removefrom-project_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-project_name-employee-code">3.2.1. Remove an employee from a project: <code>removefrom PROJECT_NAME employee</code></a></h4>
+<h4 id="remove-an-employee-from-a-project-code-removefrom-project_name-employee-code"><a class="link" href="#remove-an-employee-from-a-project-code-removefrom-project_name-employee-code">3.1. Remove an employee from a project: <code>removefrom PROJECT_NAME employee</code></a></h4>
 <div class="paragraph">
 <p>Removing an employee from a project.</p>
 </div>
@@ -253,13 +185,13 @@ of employees.</p>
 <div class="content">
 <img src="../images/ug-removeemployee_before.png" alt="ug removeemployee before">
 </div>
-<div class="title">Figure 3. <strong>Removing an employee at index 1 - before</strong></div>
+<div class="title">Figure 1. <strong>Removing an employee at index 1 - before</strong></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ug-removeemployee_after.png" alt="ug removeemployee after">
 </div>
-<div class="title">Figure 4. <strong>Removing an employee at index 1 - after</strong></div>
+<div class="title">Figure 2. <strong>Removing an employee at index 1 - after</strong></div>
 </div>
 <div class="ulist">
 <ul>
@@ -268,13 +200,13 @@ of employees.</p>
 click on the right arrowhead till the page showing the list of employees in the project<br>
 <code>removefrom p1 employee 1</code><br>
 Removes the employee at first position at displayed list of employees from the project 'p1'. The effect of the command is
-demonstrated in figures 3 and 4.</p>
+demonstrated in the two figures above.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code">3.2.2. Remove a milestone from a project: <code>removefrom PROJECT_NAME milestone</code></a></h4>
+<h4 id="remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code"><a class="link" href="#remove-a-milestone-from-a-project-code-removefrom-project_name-milestone-code">3.2. Remove a milestone from a project: <code>removefrom PROJECT_NAME milestone</code></a></h4>
 <div class="paragraph">
 <p>Removing a milestone from a project.</p>
 </div>
@@ -284,30 +216,38 @@ demonstrated in figures 3 and 4.</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p><code>view project Apollo</code><br>
 <code>removefrom Apollo milestone 1</code><br>
 Removes the milestone at 1st position of displayed list of milestone from Project Apollo.</p>
 </li>
-</ul>
+</ol>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span>
-Removes the employee at the specified <code>INDEX</code>.
-The index refers to the index number (one-based) shown in the displayed list of employees.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span>
-The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes the employee at the specified <code>INDEX</code> based on
+the displayed list of employees.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The index must be a <strong>positive integer</strong> and cannot be larger than the size of the list.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="to-indicate-the-project-has-been-completed-code-complete-code"><a class="link" href="#to-indicate-the-project-has-been-completed-code-complete-code">3.3. To indicate the project has been completed : <code>complete</code></a></h3>
 <div class="paragraph">
-<p>Indicates that a project is completed.</p>
+<p>Indicates that a project is completed. Currently this command has similar effect to deleting the project, but
+it is meant to support the enhanced statistics feature for V2.0.</p>
 </div>
 <div class="paragraph">
 <p>Format:  <code>complete PROJECT_INDEX COMPLETION_DATE</code></p>
@@ -336,6 +276,7 @@ The first project in the shown list is indicated as completed on 11/11/2011.</p>
 </div>
 <div class="paragraph">
 <p>+
+add something here.
 Examples:</p>
 </div>
 <div class="paragraph">
@@ -363,11 +304,11 @@ Milestones not reached yet:<br>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="remove-employee-milestone-from-projects-feature"><a class="link" href="#remove-employee-milestone-from-projects-feature">4.1. Remove employee/milestone from projects feature</a></h3>
 <div class="paragraph">
-<p>The part on userstory is done by my team mate: Jeff Gan</p>
+<p>You can view this section to see my contributions to the Developer Guide documentation which consists of the implementation of the removefrom feature(only the parts on employees and milestones, others are added by my teammates) and stats feature and also several sections on manual testing Pocket Project (which unfortunately there is no space to include in here, so check out this link if you&#8217;re interested! [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc#instructions-for-manual-testing">Manual testing, sections G2, G7-G11, G14-G21</a>).</p>
 </div>
+<div class="sect2">
+<h3 id="remove-employee-milestone-project-task-user-story-from-projects-feature"><a class="link" href="#remove-employee-milestone-project-task-user-story-from-projects-feature">4.1. Remove employee/milestone/project task/user story from projects feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -383,23 +324,27 @@ This feature currently supports these three commands:</p>
 <p><code>removefrom [project name] milestone [milestone index]</code>&#8201;&#8212;&#8201;removes the milestone at index <code>[milestone index]</code> in the list of milestones in the project named <code>[project name]</code>.</p>
 </li>
 <li>
+<p><code>removefrom [project name] projecttask [milestone index] [project task index]</code>&#8201;&#8212;&#8201;removes the project task at index <code>[project task index]</code> in the list of tasks under the milestone specified by <code>[milestone index]</code> in the project named <code>[project name]</code>.</p>
+</li>
+<li>
 <p><code>removefrom [project name] userstory [userstory index]</code>&#8201;&#8212;&#8201;removes the user story at index <code>[userstory index]</code> in the list of user stories in the project named <code>[project name]</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
-The methods does not take in indices as arguments since the corresponding Employee,Milestone or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
+<p>These operations are supported by the methods in the <code>Model</code> interface: <code>Model#removeEmployeeFrom(Project, Employee)</code>, <code>Model#removeMilestoneFrom(Project, Milestone)</code>, <code>Model#removeProjectTaskFrom(Project, Milestone, ProjectTask)</code> and <code>Model#removeUserStoryFrom(Project, UserStory)</code>.
+The methods does not take in indices as arguments since the corresponding Employee, Milestone, ProjectTask or UserStory object associated with the Project object would be found by <code>RemoveEmployeeFromCommand#excute()</code>, <code>RemoveMilestoneFromCommand#execute()</code>, <code>RemoveProjectTaskFromCommand#execute()</code> or <code>RemoveUserStoryFromCommand#execute()</code>
 before the methods of <code>Model</code> are called.
-The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone and user stories are similar:</p>
+The sequence diagram for the execution of the removing of employee from a project is as follows, the sequence for the removal of milestone, project tasks and user stories are similar:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/remove_employee_from_sequence_diagram.png" alt="remove employee from sequence diagram" width="1000">
 </div>
+<div class="title">Figure 3. Sequence diagram showing execution of <code>removefrom Apollo employee 1</code>.</div>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the removal of employee/milestone/user story feature behaves at each step.</p>
+<p>Given below is an example usage scenario and how the removal of employee/milestone/project task/user story feature behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>view project Apollo'. The app displays the list of employees and milestones in the project named "Apollo" by executing the `view</code> command.</p>
@@ -412,10 +357,18 @@ The <code>RemoveFromCommandParser</code> then creates command object and passes 
 <div class="paragraph">
 <p>Step 3. The user executes 'removefrom Apollo milestone 2'. The execution of this command is similar to step 2, just that the type of object changes from <code>Employee</code> to <code>Milestone</code>.</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span>
-Tip: The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code> or <code>[milestone index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>[project name]</code> entered must be valid and exists in the app. The <code>[employee index]</code>, <code>[milestone index]</code>, <code>[project task index]</code> or <code>[user story index]</code> given must refer to some existing employee or milestone. If not, exceptions would be thrown during the execution of the command.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
@@ -446,7 +399,7 @@ planned to support 2 main commands:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, closest deadline etc.</p>
+<p><code>stats</code>&#8201;&#8212;&#8201;Displays an overview of all the projects: the number of ongoing projects, deadlines etc.</p>
 </li>
 <li>
 <p><code>stats PROJECT_INDEX</code> or <code>stats PROJECT_NAME</code>&#8201;&#8212;&#8201;Display a summary of the progress of the project with the given PROJECT_INDEX or PROJECT_NAME.</p>
@@ -468,14 +421,13 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 <div class="content">
 <img src="../images/overallStatsSequenceDiagram.png" alt="overallStatsSequenceDiagram" width="1000">
 </div>
-</div>
-<div class="paragraph">
-<p>Individual Project:</p>
+<div class="title">Figure 4. Sequence diagram showing execution of <code>stats</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/individualStatsSequenceDiagram.png" alt="individualStatsSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 5. Sequence diagram showing execution of <code>stats 1</code></div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>stats</code>:</p>
@@ -512,12 +464,12 @@ of the command object.</p>
 <p>Alternative 3: Do it somewhere else.</p>
 </div>
 <div class="paragraph">
-<p>I have decided to use alternative 3 and create a specialized helper class to scrap the relevant information from the list of projects to
-produce the string. This is chosen because I have decided to have several helper methods to construct the different parts of the string(e.g. about the number of ongoing projects etc..).
+<p>I have decided to use alternative 3 and create a specialized helper class to scrap the relevant information from the list of projects/employees to
+produce the string. This is chosen because I have decided to have several helper methods to construct the different parts of the string(e.g. about the number of ongoing projects, project with closest deadline etc..).
 It would be inappropriate to put these methods under the command class or the model because they are not very related.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 01:15:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 09:17:21 UTC</div></div></div></body></html>
