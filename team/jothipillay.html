@@ -10,12 +10,51 @@ This application was created with the intention of supporting software engineeri
 throughout the lifetime of a project, from the planning phase until it is delivered to the client.</p>
 </div>
 <div class="paragraph">
-<p>Pocket Project&#8217;s <strong>core functionality</strong> includes:
-* Adding employees and projects to the application
-* Adding user stories to a project which is essential for planning.
-* Assigning projects to employees based on their individual skill sets.
-* Monitoring the progress of a project through milestones and tasks.</p>
+<p>Pocket Project&#8217;s <strong>core functionality</strong> includes adding user stories to a project which is essential for planning, assigning
+projects to employees based on their individual skill sets and monitoring the progress of a project through milestones and tasks.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-we-begin"><a class="link" href="#before-we-begin">Before We Begin</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section details and previews a few symbols and formats that will
+be used in this portfolio.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The note pad icon indicates any useful tips or things that you
+need to take note of while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The light bulb icon indicates any shortcuts
+that you can use while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The exclamation mark icon indicates any warnings that you
+ can take note of while using the Pocket Project application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>code</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Words highlighted, known as <code>markups</code>, are used to indicate code segments or commands in the application.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -25,10 +64,9 @@ throughout the lifetime of a project, from the planning phase until it is delive
 <p>In this section, I detail some of my key contributions towards this application in terms of both features and
 documentation.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Major Contribution</strong>: Smart Dates</p>
+<div class="paragraph">
+<p><strong>Major Contribution: Smart Dates</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -36,12 +74,12 @@ documentation.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Firstly, it supports a fixed date format where users can key in a date according to <strong>"DD/MM/YYYY"</strong>.</p>
+<p>Firstly, it supports a fixed date format where users can key in a date according to <code>DD/MM/YYYY</code>.</p>
 </li>
 <li>
-<p>Secondly, it also accepts flexible input from the user. If the user wants a day relative to the current day, he/she can simply type <strong>"today/tomorrow/yesterday"</strong>. Otherwise
-if the user wants a day relative to current week, he/she can input <strong>"this/next/last week DAY_OF_WEEK"</strong>. Lastly if the user wants a date
-relative to the current month, he/she can simply go for <strong>"this/next/last month DAY_OF_MONTH"</strong>.</p>
+<p>Secondly, it also accepts flexible input from the user. If the user wants a date relative to the current day, he/she can simply type <code>today/tomorrow/yesterday</code>. Otherwise
+if the user wants a date relative to current week, he/she can input <code>this/next/last week DAY_OF_WEEK</code>. Lastly if the user wants a date
+relative to the current month, he/she can simply go for <code>this/next/last month DAY_OF_MONTH</code>.</p>
 </li>
 <li>
 <p>The validity of the target date is also verified.</p>
@@ -50,10 +88,9 @@ relative to the current month, he/she can simply go for <strong>"this/next/last 
 </div>
 </li>
 <li>
-<p><strong>Why is it useful and important</strong>: As expected, when it comes to a project manager application, the use of dates are used
-extensively in other features throughout the application. In addition, there is likely to be changes
-in dates of milestones or deadlines throughout the lifetime a project. So, this feature enables the user a quick and user-friendly way
-to execute certain commands, greatly improving efficiency. Some of these commands include,</p>
+<p><strong>Why it is useful and important</strong>: In this application, dates are used
+extensively in other features. So, smart dates provides the user with a quick and user-friendly way
+to execute certain commands. Some of these commands include:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -63,131 +100,477 @@ to execute certain commands, greatly improving efficiency. Some of these command
 <p>Editing of the all components with dates inside a particular project.</p>
 </li>
 <li>
-<p>Finding projects that are due by a certain <strong>DEADLINE</strong>.</p>
+<p>Finding projects that are due by a certain <code>DEADLINE</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>The code that I contributed</strong>: [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/144">Functional Code &amp; Tests</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/172">Re-structure &amp; Abstraction</a>]</p>
-</li>
-</ul>
-</div>
+<p><strong>Highlights</strong>: The flexible date input is parsed by a separate <code>PocketProjectDateParser</code>. Also, the user does not need to indicate his/her intended format as the
+feature is designed to differentiate based on the input received.</p>
 </li>
 <li>
-<p><strong>Minor Contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Created functionality for the below mentioned features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Enabled adding projects to the application. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/49">#49</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/116">#116</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/198">#198</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/208">#208</a>]</p>
-</li>
-<li>
-<p>Enabled adding employees and milestones to projects. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/88">#88</a>][<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/95">#95</a>][<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/109">#109</a>] [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/120">#120</a>]</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Changed functionality for the below mentioned features</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Changed the address attribute of an employee to GitHub account as it is more
-useful in a software engineering project context. [<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/130">#130</a>]</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhanced appearance of the User Interface (UI)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Designed the Pocket Project application logo (seen below)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<p><strong>The code that I contributed</strong>: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/144">Functional Code &amp; Tests Part 1</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/172">Functional Code &amp; Tests Part 2</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/32" class="bare">https://github.com/cs2103-ay1819s2-w10-2/main/pull/32</a>
-<a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/34" class="bare">https://github.com/cs2103-ay1819s2-w10-2/main/pull/34</a></p>
+<p><strong>Minor Contributions</strong>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Overall Code Contributions</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=jothipillay">RepoSense</a>]</p>
+<p>Enabled adding projects to the application. <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/49">#49</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/116">#116</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/198">#198</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/208">#208</a></p>
+</li>
+<li>
+<p>Enabled adding employees and milestones to projects. <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/88">#88</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/95">#95</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/109">#109</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/120">#120</a></p>
+</li>
+<li>
+<p>Designed the Pocket Project application logo.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PPLogo.png" alt="PPLogo" width="100">
+</div>
+<div class="title">Figure 1. Pocket Project Logo</div>
+</div>
+<div class="paragraph">
+<p><strong>Overall Code Contributions</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=jothipillay">RepoSense</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Other Contributions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Project Management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped track issues on the team repository using labels and assignees.</p>
+</li>
+<li>
+<p>Compiled and formatted the entire User Guide after individual contributions by team members: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/242">#242</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other Enhancements/Fixes to Existing Features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Abstracted out common code in classes in the Model to reduce code duplication: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/221">#221</a></p>
+</li>
+<li>
+<p>Fixed Various Bugs: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/172">#172</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/232">#232</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/245">#245</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhanced documentation of existing and new features such as <code>help</code>, <code>add employee</code> among others: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/229">#229</a></p>
+</li>
+<li>
+<p>Created a set of symbols/legends for User Guide and Developer Guide <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/84">#84</a></p>
+</li>
+<li>
+<p>Documented all user stories used in planning in the Developer Guide <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/149">#149</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed pull requests with valid non-trivial feedback: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/118">#118</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/126">#126</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/141">#141</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/214">#214</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/230">#230</a></p>
+</li>
+<li>
+<p>Reported bugs and offered suggestions to another team, CS2103-AY1819S2-T12-4, in the module: <a href="https://github.com/CS2103-AY1819S2-T12-4/main/issues/247">#247</a></p>
+</li>
+<li>
+<p>The Smart Date feature that I implemented was adopted by my some of my fellow teammates for use in their own individual features: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/165">#165</a> <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/209">#209</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a new GitHub plugin, Codacy, to the GitHub team repository: <a href="https://github.com/cs2103-ay1819s2-w10-2/main/pull/154">#154</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="sect2">
 <h3 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>I contributed to the following sections in the User Guide</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Section 1: Introduction</p>
-</li>
-<li>
-<p>Section 2: Background Information</p>
-</li>
-<li>
-<p>Section 3.3: Symbols</p>
-</li>
-<li>
-<p>Section 3.4: Glossary</p>
-</li>
-<li>
-<p>Section 4: Features</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In this section, I detail some of the key contributions I made to the User Guide targeted at helping users
+understand how to use the application.</p>
 </div>
-</li>
-</ul>
+</div>
+<div class="sect2">
+<h3 id="date-feature-in-pocket-project"><a class="link" href="#date-feature-in-pocket-project">Date Feature in Pocket Project</a></h3>
+<div class="paragraph">
+<p>Whenever a particular command requires a date field, you can choose to use either of the
+below mentioned formats.</p>
+</div>
+<div class="sect3">
+<h4 id="fixed-date-format"><a class="link" href="#fixed-date-format">Fixed Date Format</a></h4>
+<div class="paragraph">
+<p>You can input a date using the fixed date format.<br>
+Format: <code>DD/MM/YYYY</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:<br>
+1. <code>23/12/2019</code><br>
+2. <code>09/03/2020</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The year field will not accept values beyond the
+year <code>2099</code> and acts as a loose safety feature for accidental errors while inputting the year.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="flexible-date-format"><a class="link" href="#flexible-date-format">Flexible Date Format</a></h4>
+<div class="paragraph">
+<p>Alternatively, you can also input a date using the flexible date format. The flexible date format
+allows you to give an input with relation to the current date. It supports the below mentioned 3 formats.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choosing a date relative to the current day</strong><br>
+You can key in <code>today</code>,<code>tomorrow</code> and <code>yesterday</code> to get today&#8217;s, tomorrow&#8217;s and
+yesterday&#8217;s date respectively.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>today/tomorrow/yesterday</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Choosing a date relative to the current week</strong>
+You can also aim to choose a date with relation to the current week.<br>
+Format: <code>this/next/last week DAY_OF_WEEK</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_WEEK</code> takes an integer in the range of 1 to 7 which
+corresponds to Monday to Sunday respectively.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:<br>
+1. <code>next week 7</code><br>
+This would select next week&#8217;s Sunday as the target date.<br>
+2. <code>last week 2</code><br>
+This would select last week&#8217;s Tuesday as the target date.</p>
+</div>
+<div class="paragraph">
+<p>You can refer to the screenshots of the program below for a clearer picture. Assume that the
+current date is 12 April 2019 (12/04/2019), Friday.  It will be demonstrated using the <code>add project</code> command which requires
+a <code>s/START_DATE</code> and a <code>d/DEADLINE</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-dateweek.png" alt="][width=&quot;500&quot;">
+</div>
+<div class="title">Figure 2. <strong>Using "this/next/last week DAY_OF_WEEK" as a flexible date input</strong></div>
+</div>
+<div class="paragraph">
+<p><strong>Choosing a date relative to the current month</strong></p>
+</div>
+<div class="paragraph">
+<p>You can also aim to choose a date with relation to the current week.<br>
+Format: <code>this/next/last month DAY_OF_MONTH</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_MONTH</code> takes the value of positive integer but it cannot exceed
+the maximum number of days of a particular month in the chosen year.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:<br>
+1. <code>this month 24</code><br>
+This would select the current month&#8217;s 24th day as the target date.<br>
+2. <code>next month 17</code><br>
+This would select next month&#8217;s 17th day as the target date.
+==== Add a project to the application: <code>add project</code></p>
+</div>
+<div class="paragraph">
+<p>You can add a project to the Pocket Project when the team takes on a new project
+so that key details of the project are stored and employees, milestones, tasks and user stories
+can be assigned to them in the future.</p>
+</div>
+<div class="paragraph">
+<p>The project has a default description when created and this can be
+edited using the <code>edit project info</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add project n/NAME c/CLIENT_NAME s/START_DATE d/DEADLINE</code></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The deadline of the project should minimally be 1 day after the
+start of a project.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples:<br>
+1. <code>add project n/Apollo s/10/03/2019 d/12/12/2019 c/FairPrice</code><br>
+2. <code>add project n/Xtreme c/John Smith s/09/02/2020 d/13/04/2020</code></p>
+</div>
+<div class="paragraph">
+<p>You can refer to the screenshot below to have a clearer picture of how it works
+and looks like.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug-addproject.png" alt="][width=&quot;500&quot;">
+</div>
+<div class="title">Figure 3. <strong>Adding a project to the application and what we can do with it</strong></div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You can also view the list of all employees currently working on the project,
+a list of milestones and tasks, and a list of user stories by toggling the arrows on the details panel.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>These sections are not exhaustive of my contributions and the rest can be
+viewed at <a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/UserGuide.adoc">Pocket Project: User Guide</a></p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>I contributed to the following sections in the Developer Guide</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Section 1: Introduction</p>
-</li>
-<li>
-<p>Section 2: Background Information</p>
-</li>
-<li>
-<p>Section 3: Before We Begin</p>
-</li>
-<li>
-<p>Section 6.1: Add employee/milestone/user story to projects feature</p>
-</li>
-<li>
-<p>Appendix A: Product Scope</p>
-</li>
-<li>
-<p>Appendix B: User Stories</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>In this section, I detail some of the key contributions I made to the Developer Guide targeted at helping
+fellow developers understand the implementation and design considerations that went behind the building of
+the application.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="pocket-project-dates-smart-dates"><a class="link" href="#pocket-project-dates-smart-dates">Pocket Project Dates (Smart Dates)</a></h3>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">Overview</a></h4>
+<div class="paragraph">
+<p>As dates are widely used throughout the application, it is important that the user is able to easily input any target date but at the same time
+retain some flexibility so that it is more user-friendly. Therefore, the dates used in the Pocket Project supports 2 main formats as shown below.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:15:00 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><strong>Fixed Date Format</strong>
+Format(s):<br>
+1. <code>DD/MM/YYYY</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Flexible Date Format</strong>
+Format(s):<br>
+1.<code>today/tomorrow/yesterday</code><br>
+2.<code>this/next/last week DAY_OF_WEEK</code><br>
+3.<code>this/next/last month DAY_OF_MONTH</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-it-works"><a class="link" href="#how-it-works">How it Works</a></h4>
+<div class="paragraph">
+<p>The section details how a fixed and flexible date format is parsed and processed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dg-activitydiagdate.png" alt="dg activitydiagdate" width="500">
+</div>
+<div class="title">Figure 4. Activity Diagram: Showing how a fixed and flexible date format is parsed and processed.</div>
+</div>
+<div class="paragraph">
+<p>Refer to the Activity Diagram above while reading the summary below so as to have a visual
+representation of what happens.</p>
+</div>
+<div class="paragraph">
+<p>To simplify the explanation, the process can be summarized into the following key points:<br>
+1.  A check is first made to determine if the input is a fixed or flexible date format. This is done by
+checking for the presence of a <code>/</code> in the input.<br>
+2. If it is a fixed format input, a check is made to determine if it conforms to the <code>DD/MM/YYYY</code> format.<br>
+3. If it is a flexible format input, the input is parsed and the <code>PocketProjectParser</code> identifies keywords to determine the appropriate methods to call from the model. The target
+date is then formatted into the <code>DD/MM/YYYY</code> format.<br>
+4. Regardless of the initial format of the input, the current string would represent the form
+of <code>DD/MM/YYYY</code> at this stage. The validity of the date is then checked.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the code snippet below to see how the validity of the date is verified.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dg-codesnippet.png" alt="dg codesnippet" width="500">
+</div>
+<div class="title">Figure 5. Code snippet showing verification of a validity of a date.</div>
+</div>
+<div class="paragraph">
+<p>As can be seen above, the code not only checks if the selected day falls within the maximum number of days
+in a month, but it also checks for leap years. This ensures that only valid calendar dates are accepted
+as a viable input.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Potential Design 1</strong><br>
+User keys in  <code>Wednesday</code>, <code>next Wednesday</code>, <code>last Wednesday</code> to denote the current, next and last week&#8217;s Wednesday respectively</p>
+</div>
+<div class="paragraph">
+<p><strong>Potential Design 2 (Selected Implementation)</strong><br>
+User keys in  <code>this week 3</code>, <code>next week 3</code>, <code>last week 3</code>  to denote the current, next and last week&#8217;s Wednesday respectively</p>
+</div>
+<div class="paragraph">
+<p>The second design was chosen as the first one is subjective to an individual&#8217;s language
+use. For example, if today was Monday, and a person was to mention <code>next Wednesday</code>, some people may be thinking of the Wednesday in 2 days time
+whereas others may be thinking of next week&#8217;s Wednesday. Thus to remove confusion, the keyword this/next/last was added. In addition, instead of spelling out the days,
+users can key in the day number instead. This speeds things up and also reduces errors due to spelling mistakes in the name of the day.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-employees-and-milestones-to-a-project"><a class="link" href="#adding-employees-and-milestones-to-a-project">Adding Employees and Milestones to a Project</a></h3>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>This feature focuses on the adding of employees and milestones to a selected project. It supports two commands which are explained below.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code><br>
+Adds the employee at index <code>EMPLOYEE_INDEX</code> to the list of employees in the project named <code>PROJECT_NAME</code>.</p>
+</li>
+<li>
+<p><code>addto PROJECT_NAME milestone m/MILESTONE_DESCRIPTION d/MILESTONE_DATE</code><br>
+Adds the specified milestone to the list of milestones in project named <code>PROJECT_NAME</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In addition, the <code>AddToEmployeeCommand</code> class and <code>AddToMilestoneCommand</code> class is
+abstracted into a <code>AddToCommand</code> class which inherits from <code>Command</code> class. This allows for
+further <code>AddTo</code> functionalities to be added while conforming to the Open-Closed Principle.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the Class Diagram below for a better visualization of the inheritance relationship.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dg-addtoclassdiagram.png" alt="dg addtoclassdiagram" width="700">
+</div>
+<div class="title">Figure 6. Class Diagram: Showing inheritance relationship between the commands.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-it-works-2"><a class="link" href="#how-it-works-2">How it Works</a></h4>
+<div class="paragraph">
+<p>The section details how a <code>AddToCommand</code> is parsed and processed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dg-addemployeeto.png" alt="dg addemployeeto" width="1000">
+</div>
+<div class="title">Figure 7. Sequence Diagram: How the Add Employee To Command Works</div>
+</div>
+<div class="paragraph">
+<p>Refer to the sequence diagram above to better understand how the <code>AddEmployeeTo</code> Command
+works. The diagram shows the sequence when a <code>addto Apollo employee 1</code> is executed.</p>
+</div>
+<div class="paragraph">
+<p>To simplify the explanation, the process can be summarized into the following key points:<br>
+1. The <code>PocketProjectParser</code> parses the string received and uses the <code>addto</code> keyword to identify that the input
+is linked with the <code>AddToCommand</code> class.<br>
+2. The <code>AddToCommandParser</code> then identifies the type of <code>AddToCommand</code> that is being executed and the arguments involved.<br>
+3. The <code>AddToCommandParser</code> then creates the <code>AddEmployeeToCommand</code>/<code>AddMilestoneToCommand</code> object and this is passed on to the <code>LogicManager</code> for execution.<br>
+4. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to add the corresponding
+employee/milestone to the project.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The main difference between the 2 commands is deciding the object
+to be added (Employee or Milestone) from model based on the user input.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Potential Design 1</strong><br>
+The idea is to have only 1 parser ,<code>PocketProjectParser</code>, which receives and parses the whole input string
+before constructing the relevant command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Potential Design 2 (Selected Implementation)</strong><br>
+The idea is to have a total of 2 parsers where the first parser, <code>PocketProjectParser</code> identifies the <code>addto</code> key word
+and the rest of the input string is then parsed by the corresponding second parser, <code>AddToCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>The 2nd design was chosen as there is better abstraction of the details and it also allows further functionality
+to be add on top of the implemented parser. If future developers want to add more objects to the project, they can simply
+make use of this <code>AddToCommandParser</code> to handle different inputs. Choosing this design was a good choice as it helped with the
+implementation of adding user stories and project tasks to a project after this was initially constructed.</p>
+</div>
+<div class="paragraph">
+<p>These sections are not exhaustive of my contributions and the rest can be
+viewed at <a href="https://github.com/cs2103-ay1819s2-w10-2/main/blob/master/docs/DeveloperGuide.adoc">Pocket Project: Developer Guide</a></p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:49:46 UTC</div></div></div></body></html>

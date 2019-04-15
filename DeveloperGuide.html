@@ -43,7 +43,7 @@
 </li>
 <li><a href="#implementation-of-key-features">6. Implementation of Key Features</a>
 <ul class="sectlevel2">
-<li><a href="#pocket-project-dates">6.1. Pocket Project Dates</a></li>
+<li><a href="#pocket-project-dates-smart-dates">6.1. Pocket Project Dates (Smart Dates)</a></li>
 <li><a href="#adding-employees-and-milestones-to-a-project">6.2. Adding Employees and Milestones to a Project</a></li>
 <li><a href="#remove-employee-milestone-project-task-user-story-from-projects-feature">6.3. Remove employee/milestone/project task/user story from projects feature</a></li>
 <li><a href="#edit-project-feature">6.4. Edit Project feature</a></li>
@@ -751,364 +751,173 @@ As a more OOP model, we can store a <code>Skill</code> list in <code>Pocket Proj
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="pocket-project-dates"><a class="link" href="#pocket-project-dates">6.1. Pocket Project Dates</a></h3>
-<div class="paragraph">
-<p>As expected, when it comes to a project manager application, the use of dates are used
-extensively in other features and commands throughout the application. These include,</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The setting of <code>START_DATE</code> and  <code>DEADLINE</code> when adding a project to the Pocket Project application.</p>
-</li>
-<li>
-<p>The setting of <code>MILESTONE_DATE</code> when adding a milestone to a particular project.</p>
-</li>
-<li>
-<p>The setting of <code>COMPLETION_DATE</code> when completing a particular project.</p>
-</li>
-<li>
-<p>The editing of the above mentioned dates after it has been set.</p>
-</li>
-<li>
-<p>The finding of projects that are due by a certain <code>DEADLINE</code>.</p>
-</li>
-</ol>
-</div>
+<h3 id="pocket-project-dates-smart-dates"><a class="link" href="#pocket-project-dates-smart-dates">6.1. Pocket Project Dates (Smart Dates)</a></h3>
 <div class="sect3">
-<h4 id="what-is-supports"><a class="link" href="#what-is-supports">6.1.1. What is Supports</a></h4>
+<h4 id="overview"><a class="link" href="#overview">6.1.1. Overview</a></h4>
 <div class="paragraph">
-<p>As it is widely used, it is important that the user is able to easily input any target date but at the same time
-retain some flexibility so that the feature is more user-friendly.</p>
+<p>As dates are widely used throughout the application, it is important that the user is able to easily input any target date but at the same time
+retain some flexibility so that it is more user-friendly. Therefore, the dates used in the Pocket Project supports 2 main formats as shown below.</p>
 </div>
 <div class="paragraph">
-<p>So, keeping that in mind, the dates used in the Pocket Project supports 2 main formats, the Fixed Date Format, which supports 1 main sub-type, and the Flexible Date Format,
-which supports 3 main sub types, all of which are explained below in the following section. A total of 4 sub-types are supported
-across 2 formats and choosing any 1 of 4 will be accepted as a suitable input.</p>
+<p><strong>Fixed Date Format</strong>
+Format(s):<br>
+1. <code>DD/MM/YYYY</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Flexible Date Format</strong>
+Format(s):<br>
+1.<code>today/tomorrow/yesterday</code><br>
+2.<code>this/next/last week DAY_OF_WEEK</code><br>
+3.<code>this/next/last month DAY_OF_MONTH</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">6.1.2. How it is Implemented</a></h4>
-<div class="sect4">
-<h5 id="fixed-date-format"><a class="link" href="#fixed-date-format">Fixed Date Format</a></h5>
+<h4 id="how-it-works"><a class="link" href="#how-it-works">6.1.2. How it Works</a></h4>
 <div class="paragraph">
-<p>Format: <code>DD/MM/YYYY</code></p>
+<p>The section details how a fixed and flexible date format is parsed and processed.</p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/dg-activitydiagdate.png" alt="dg activitydiagdate" width="500">
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>23/12/2019</code></p>
-</li>
-<li>
-<p><code>09/03/2020</code></p>
-</li>
-</ol>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 35%;">
-<col style="width: 65%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The fixed date format follows the required <code>DD/MM/YYYY</code> format
-strictly and so <code>09/04/2023</code> is a valid input but <code>9/4/2023</code> is not.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="fixed-date-format-how-it-works-part-1"><a class="link" href="#fixed-date-format-how-it-works-part-1">Fixed Date Format: How it Works (Part 1)</a></h5>
-<div class="paragraph">
-<p>The input is parsed and the validity of the format is determined through the use of a regex as follows:</p>
+<div class="title">Figure 9. Activity Diagram: Showing how a fixed and flexible date format is parsed and processed.</div>
 </div>
 <div class="paragraph">
-<p>Validation Regex = <code>"(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/((20)\d\d)"</code></p>
+<p>Refer to the Activity Diagram above while reading the summary below so as to have a visual
+representation of what happens.</p>
 </div>
+<div class="paragraph">
+<p>To simplify the explanation, the process can be summarized into the following key points:<br>
+1.  A check is first made to determine if the input is a fixed or flexible date format. This is done by
+checking for the presence of a <code>/</code> in the input.<br>
+2. If it is a fixed format input, a check is made to determine if it conforms to the <code>DD/MM/YYYY</code> format.<br>
+3. If it is a flexible format input, the input is parsed and the <code>PocketProjectParser</code> identifies keywords to determine the appropriate methods to call from the model. The target
+date is then formatted into the <code>DD/MM/YYYY</code> format.<br>
+4. Regardless of the initial format of the input, the current string would represent the form
+of <code>DD/MM/YYYY</code> at this stage. The validity of the date is then checked.</p>
 </div>
-<div class="sect4">
-<h5 id="flexible-date-format"><a class="link" href="#flexible-date-format">Flexible Date Format</a></h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 25%;">
-<col style="width: 45%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Chooses the date relative to the &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>today/tomorrow/yesterday</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">current day</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tomorrow</code><br>
-This would select tomorrow&#8217;s date as the target date.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>this/next/last week DAY_OF_WEEK</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">current week</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>next week 7</code><br>
-This would select next week&#8217;s Sunday as the target date.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>this/next/last month DAY_OF_MONTH</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">current month</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last month 6</code><br>
-This would select last month&#8217;s 6th day as the target date.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 35%;">
-<col style="width: 65%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-notepadpencil.png" alt="ug notepadpencil" width="40"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_WEEK</code> takes an integer in the range of 1 to 7 which
-corresponds to Monday to Sunday respectively.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 35%;">
-<col style="width: 65%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="60"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>DAY_OF_MONTH</code> takes the value of positive integer but it cannot exceed
-the maximum number of days of a particular month in the chosen year.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Refer to the code snippet below to see how the validity of the date is verified.</p>
 </div>
-<div class="sect4">
-<h5 id="flexible-date-format-how-it-works-part-1"><a class="link" href="#flexible-date-format-how-it-works-part-1">Flexible Date Format: How it Works (Part 1)</a></h5>
-
+<div class="imageblock">
+<div class="content">
+<img src="images/dg-codesnippet.png" alt="dg codesnippet" width="500">
 </div>
-<div class="sect4">
-<h5 id="date-formats-how-it-works-part-1"><a class="link" href="#date-formats-how-it-works-part-1">Date Formats: How it Works (Part 1)</a></h5>
-
+<div class="title">Figure 10. Code snippet showing verification of a validity of a date.</div>
+</div>
+<div class="paragraph">
+<p>As can be seen above, the code not only checks if the selected day falls within the maximum number of days
+in a month, but it also checks for leap years. This ensures that only valid calendar dates are accepted
+as a viable input.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-it-is-implemented-2"><a class="link" href="#how-it-is-implemented-2">6.1.3. How it is Implemented</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">6.1.3. Design Considerations</a></h4>
 <div class="paragraph">
-<p>This feature was mainly facilitated by the Java LocalDateTime class and the model and logic component of the Pocket
-Project application.</p>
+<p><strong>Potential Design 1</strong><br>
+User keys in  <code>Wednesday</code>, <code>next Wednesday</code>, <code>last Wednesday</code> to denote the current, next and last week&#8217;s Wednesday respectively</p>
+</div>
+<div class="paragraph">
+<p><strong>Potential Design 2 (Selected Implementation)</strong><br>
+User keys in  <code>this week 3</code>, <code>next week 3</code>, <code>last week 3</code>  to denote the current, next and last week&#8217;s Wednesday respectively</p>
+</div>
+<div class="paragraph">
+<p>The second design was chosen as the first one is subjective to an individual&#8217;s language
+use. For example, if today was Monday, and a person was to mention <code>next Wednesday</code>, some people may be thinking of the Wednesday in 2 days time
+whereas others may be thinking of next week&#8217;s Wednesday. Thus to remove confusion, the keyword this/next/last was added. In addition, instead of spelling out the days,
+users can key in the day number instead. This speeds things up and also reduces errors due to spelling mistakes in the name of the day.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-employees-and-milestones-to-a-project"><a class="link" href="#adding-employees-and-milestones-to-a-project">6.2. Adding Employees and Milestones to a Project</a></h3>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">6.2.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">6.2.1. Overview</a></h4>
 <div class="paragraph">
-<p>This feature focuses on the adding of employees and milestones to a selected project.
-This feature supports two commands which are explained below.</p>
-</div>
-<div class="paragraph">
-<p><strong>Add Employee To Project Command Overview</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds the employee at index <code>EMPLOYEE_INDEX</code> in the displayed list of employees to the list of employees in the project named <code>PROJECT_NAME</code>.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>PROJECT_NAME</code> entered must be valid and must already exist in the application.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>EMPLOYEE_INDEX</code> given must refer to some existing employee in the application.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><strong>Add Milestone To Project Command Overview</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addto PROJECT_NAME milestone m/MILESTONE_DESCRIPTION d/MILESTONE_DATE</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Adds the milestone specified in <code>m/MILESTONE_DESCRIPTION</code> and <code>MILESTONE_DATE</code> to the list of milestones in the project named <code>PROJECT_NAME</code>.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_DESCRIPTION</code> must not be empty or contain only whitespaces.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-exclamation.png" alt="ug exclamation" width="50"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>MILESTONE_DATE</code> given must conform to either the Fixed or Flexible Date Format.
-See <a href="#pocket-project-dates">Section 6.1, &#8220;Pocket Project Dates&#8221;</a>.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="how-it-works"><a class="link" href="#how-it-works">6.2.2. How it Works</a></h4>
-<div class="paragraph">
-<p>These 2 commands are actually similar in nature and both of them are mainly facilitated
-by the model component of the Pocket Project application.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Model#addEmployeeTo(Project, Employee)</code></p>
-</li>
-<li>
-<p><code>Model#addMilestoneTo(Project, Milestone)</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These 2 methods only take in the Project and Employee/Milestone as arguments as the correct Employee/Milestone object would be located by
-<code>AddEmployeeToCommand#excute()</code>, <code>AddMilestoneToCommand#execute()</code> before <code>Model#addEmployeeTo(Project, Employee)</code>
-and <code>Model#addMilestoneTo(Project, Milestone)</code> is called.</p>
-</div>
-<div class="sect4">
-<h5 id="example-usage-scenario"><a class="link" href="#example-usage-scenario">Example Usage Scenario</a></h5>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the addition of employee/milestone to a project feature behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p><strong>Add Employee To Project Command Usage Scenario</strong></p>
+<p>This feature focuses on the adding of employees and milestones to a selected project. It supports two commands which are explained below.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user enters the command <code>list employees</code>.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The app displays the list of employees in the Pocket Project by executing the <code>list</code> command.</p>
-</li>
-</ol>
-</div>
+<p><code>addto PROJECT_NAME employee EMPLOYEE_INDEX</code><br>
+Adds the employee at index <code>EMPLOYEE_INDEX</code> to the list of employees in the project named <code>PROJECT_NAME</code>.</p>
 </li>
 <li>
-<p>The user enters <code>addto Apollo employee 1</code>.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The <code>LogicManager</code> passes the entered string to the <code>PocketProjectParser</code>.</p>
-</li>
-<li>
-<p>The <code>PocketProjectParser</code> parses the string received and uses the <code>addto</code> keyword to identify that the input
-is linked with the <code>AddToCommand</code> class.</p>
-</li>
-<li>
-<p>The rest of the string is then passed to the <code>AddToCommandParser</code> to identify the type of <code>AddToCommand</code>
-that is being executed and the arguments involved.</p>
-</li>
-<li>
-<p>The <code>AddToCommandParser</code> then creates the <code>AddEmployeeToCommand</code> object and this is passed on to the <code>LogicManager</code> for execution.</p>
-</li>
-<li>
-<p>The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to add the corresponding
-employee to the project.</p>
-</li>
-</ol>
-</div>
+<p><code>addto PROJECT_NAME milestone m/MILESTONE_DESCRIPTION d/MILESTONE_DATE</code><br>
+Adds the specified milestone to the list of milestones in project named <code>PROJECT_NAME</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Refer to the sequence diagram below to better understanding how the <code>AddEmployeeTo</code> Command
-works.</p>
+<p>In addition, the <code>AddToEmployeeCommand</code> class and <code>AddToMilestoneCommand</code> class is
+abstracted into a <code>AddToCommand</code> class which inherits from <code>Command</code> class. This allows for
+further <code>AddTo</code> functionalities to be added while conforming to the Open-Closed Principle.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the Class Diagram below for a better visualization of the inheritance relationship.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dg-addtoclassdiagram.png" alt="dg addtoclassdiagram" width="700">
+</div>
+<div class="title">Figure 11. Class Diagram: Showing inheritance relationship between the commands.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-it-works-2"><a class="link" href="#how-it-works-2">6.2.2. How it Works</a></h4>
+<div class="paragraph">
+<p>The section details how a <code>AddToCommand</code> is parsed and processed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/dg-addemployeeto.png" alt="dg addemployeeto" width="1000">
 </div>
-<div class="title">Figure 9. How the Add Employee To Command Works</div>
+<div class="title">Figure 12. Sequence Diagram: How the Add Employee To Command Works</div>
 </div>
 <div class="paragraph">
-<p><strong>Add Milestone To Project Command Usage Scenario</strong></p>
+<p>Refer to the sequence diagram above to better understand how the <code>AddEmployeeTo</code> Command
+works. The diagram shows the sequence when a <code>addto Apollo employee 1</code> is executed.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user enters the command <code>addto Apollo milestone m/MILESTONE_DESCRIPTION d/MILESTONE_DATE</code>.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The rest of the execution process is similar to Step 2 of the <strong>Add Employee To Command</strong> mentioned above except that
-an <code>AddMilestoneToCommand</code> object is created instead in Step 2d and the corresponding milestone is added to the
-project in Step 2e.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
+<div class="paragraph">
+<p>To simplify the explanation, the process can be summarized into the following key points:<br>
+1. The <code>PocketProjectParser</code> parses the string received and uses the <code>addto</code> keyword to identify that the input
+is linked with the <code>AddToCommand</code> class.<br>
+2. The <code>AddToCommandParser</code> then identifies the type of <code>AddToCommand</code> that is being executed and the arguments involved.<br>
+3. The <code>AddToCommandParser</code> then creates the <code>AddEmployeeToCommand</code>/<code>AddMilestoneToCommand</code> object and this is passed on to the <code>LogicManager</code> for execution.<br>
+4. The command execution will check the validity of the arguments and then call the methods of the <code>Model</code> component to add the corresponding
+employee/milestone to the project.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-smart.png" alt="ug smart" width="60"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">With reference to the above usage scenarios, the main difference is deciding the object
-to be added (Employee or Milestone) based on the user input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/ug-lightbulb.png" alt="ug lightbulb" width="50"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The main difference between the 2 commands is deciding the object
+to be added (Employee or Milestone) from model based on the user input.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">6.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.2.3. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Potential Design 1</strong><br>
-Have only 1 parser where the <code>PocketProjectParser</code> receives and parses the whole input string
+The idea is to have only 1 parser ,<code>PocketProjectParser</code>, which receives and parses the whole input string
 before constructing the relevant command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Potential Design 2 (Selected Implementation)</strong><br>
-Have a total of 2 parsers, the first being <code>PocketProjectParser</code> which uses the <code>addto</code> key word to
-identify that it is a <code>AddToCommand</code> command. The rest of the input string minus the <code>addto</code> keyword is then parsed by the second
-parser which is the  <code>AddToCommandParser</code>.</p>
+The idea is to have a total of 2 parsers where the first parser, <code>PocketProjectParser</code> identifies the <code>addto</code> key word
+and the rest of the input string is then parsed by the corresponding second parser, <code>AddToCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p>The 2nd design was chosen as there is better abstraction of the details and it also allows further functionality
 to be add on top of the implemented parser. If future developers want to add more objects to the project, they can simply
 make use of this <code>AddToCommandParser</code> to handle different inputs. Choosing this design was a good choice as it helped with the
-implementation of adding user stories and project tasks to a project after this was initially constructed. Refer to <a href="#user-story-feature">Section 6.8, &#8220;User Story feature&#8221;</a>
-and <a href="#project-task-feature">Section 6.9, &#8220;Project Task feature&#8221;</a> to learn more about these features.</p>
+implementation of adding user stories and project tasks to a project after this was initially constructed.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1174,7 +983,7 @@ The sequence diagram for the execution of the removing of employee from a projec
 <div class="content">
 <img src="images/remove_employee_from_sequence_diagram.png" alt="remove employee from sequence diagram" width="1000">
 </div>
-<div class="title">Figure 10. Sequence diagram showing execution of <code>removefrom Apollo employee 1</code>.</div>
+<div class="title">Figure 13. Sequence diagram showing execution of <code>removefrom Apollo employee 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the removal of employee/milestone/project task/user story feature behaves at each step.</p>
@@ -1204,7 +1013,7 @@ The <code>RemoveFromCommandParser</code> then creates command object and passes 
 </table>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">6.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed"><a class="link" href="#aspect-how-the-command-string-e-g-code-removefrom-apollo-employee-1-code-is-parsed">Aspect: How the command string (e.g. <code>removefrom Apollo employee 1</code>) is parsed</a></h5>
 <div class="paragraph">
@@ -1248,7 +1057,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="content">
 <img src="images/edit_command_class_diagram.png" alt="width:&quot;300&quot;">
 </div>
-<div class="title">Figure 11. Class diagram showing inheritance for <code>EditCommand</code></div>
+<div class="title">Figure 14. Class diagram showing inheritance for <code>EditCommand</code></div>
 </div>
 <div class="paragraph">
 <p>All these 3 commands are inherited from the <code>EditProjectCommand</code> as shown in the diagram above. This allows flexibility as more edit project command can be easily added when there are new components added to the project.</p>
@@ -1260,7 +1069,7 @@ There will also be less clutter in <code>PocketProjectParser</code> as there are
 <div class="content">
 <img src="images/edit_project_sequence_diagram.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 12. Sequence diagram for <code>edit project Apollo info n/Gemini d/12/05/2019</code></div>
+<div class="title">Figure 15. Sequence diagram for <code>edit project Apollo info n/Gemini d/12/05/2019</code></div>
 </div>
 <div class="paragraph">
 <p>Given below is the explanation of what happens when the user enter the <code>edit project Apollo info n/Gemini d/12/05/2019</code> command based on the diagram above:</p>
@@ -1358,7 +1167,7 @@ Thus, alternative 2 is chosen as it is less confusing both in term of code and u
 <div class="content">
 <img src="images/find_parser_activity.png" alt="find parser activity">
 </div>
-<div class="title">Figure 13. Activity diagram on behavior of <code>FindCommandParser</code></div>
+<div class="title">Figure 16. Activity diagram on behavior of <code>FindCommandParser</code></div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>find employee</code> command works:</p>
@@ -1367,7 +1176,7 @@ Thus, alternative 2 is chosen as it is less confusing both in term of code and u
 <div class="content">
 <img src="images/findcommand_sequence_diagram.png" alt="findcommand sequence diagram" width="1000">
 </div>
-<div class="title">Figure 14. Sequence diagram for <code>find employee John</code> command</div>
+<div class="title">Figure 17. Sequence diagram for <code>find employee John</code> command</div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>find employee</code>:</p>
@@ -1405,7 +1214,7 @@ Thus, alternative 2 is chosen as it is less confusing both in term of code and u
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">6.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-find-code-command-is-parsed"><a class="link" href="#aspect-how-code-find-code-command-is-parsed">Aspect: How <code>find</code> command is parsed</a></h5>
 <div class="paragraph">
@@ -1448,7 +1257,7 @@ Hence it is more in line with OOP principles. There will also be less clutter in
 <div class="content">
 <img src="images/listcommand_sequence_diagram.png" alt="listcommand sequence diagram" width="1000">
 </div>
-<div class="title">Figure 15. Sequence diagram for <code>list employee</code> command</div>
+<div class="title">Figure 18. Sequence diagram for <code>list employee</code> command</div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>list employee</code>:</p>
@@ -1474,7 +1283,7 @@ Hence it is more in line with OOP principles. There will also be less clutter in
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">6.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-list-command-code-is-parsed"><a class="link" href="#aspect-how-code-list-command-code-is-parsed">Aspect: How <code>list command</code> is parsed</a></h5>
 <div class="paragraph">
@@ -1522,13 +1331,13 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 <div class="content">
 <img src="images/overallStatsSequenceDiagram.png" alt="overallStatsSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 16. Sequence diagram showing execution of <code>stats</code></div>
+<div class="title">Figure 19. Sequence diagram showing execution of <code>stats</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/individualStatsSequenceDiagram.png" alt="individualStatsSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 17. Sequence diagram showing execution of <code>stats 1</code></div>
+<div class="title">Figure 20. Sequence diagram showing execution of <code>stats 1</code></div>
 </div>
 <div class="paragraph">
 <p>Usage Scenario example for <code>stats</code>:</p>
@@ -1551,7 +1360,7 @@ the status of all projects. <code>Model#individualStats(Project)</code> passes t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">6.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-string-is-constructed"><a class="link" href="#aspect-how-the-string-is-constructed">Aspect: How the string is constructed.</a></h5>
 <div class="paragraph">
@@ -1726,7 +1535,7 @@ It does not require the user story as an argument since the corresponding user s
 <div class="content">
 <img src="images/remove_user_story_from_sequence_diagram.png" alt="remove user story from sequence diagram" width="1000">
 </div>
-<div class="title">Figure 18. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
+<div class="title">Figure 21. Sequence diagram showing execution of <code>removefrom Apollo userstory 1</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the removal of a user story behaves at each step.</p>
@@ -1776,7 +1585,7 @@ before the <code>Project#setUserStory(UserStory, UserStory)</code> method is cal
 <div class="content">
 <img src="images/edit_user_story_sequence_diagram.png" alt="edit user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 19. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
+<div class="title">Figure 22. Sequence diagram showing execution of <code>edit project Apollo userstory 1 as a user I want to login</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the editing of a user story behaves at each step.</p>
@@ -1825,7 +1634,7 @@ It takes in as arguments the new status of the user story. The <code>UpdateUserS
 <div class="content">
 <img src="images/update_user_story_sequence_diagram.png" alt="update user story sequence diagram" width="1000">
 </div>
-<div class="title">Figure 20. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
+<div class="title">Figure 23. Sequence diagram showing execution of <code>update Apollo userstory 1 ongoing</code>.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the updating of a user story behaves at each step.</p>
@@ -1855,7 +1664,7 @@ The <code>UpdateCommandParser</code> then detects the keyword <code>userstory</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">6.8.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">6.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project"><a class="link" href="#aspect-how-to-structure-the-user-story-details-to-be-inputted-into-the-project">Aspect: How to structure the user story details to be inputted into the project</a></h5>
 <div class="paragraph">
@@ -1968,7 +1777,7 @@ These three methods take in <code>Project</code>, <code>Milestone</code> and <co
 <div class="content">
 <img src="images/UpdateProjectTaskSequenceDiagram.png" alt="UpdateProjectTaskSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 21. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
+<div class="title">Figure 24. Sequence diagram showing execution of <code>update Apollo projecttask 2 1 Complete</code></div>
 </div>
 <div class="paragraph">
 <p>Step 1. The user enters the command <code>update Apollo projecttask 2 1 Complete</code>.
@@ -2004,7 +1813,7 @@ In each of these 3 searches for the specified object, after the object is found,
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">6.9.3. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">6.9.3. Design Considerations</a></h4>
 <div class="paragraph">
 <p>In this section, I will talk about certain alternatives that could have been taken when designing this feature and why I did or did not use them.</p>
 </div>
@@ -2202,7 +2011,7 @@ If the <code>currentStatePointer</code> is at index <code>pocketProjectStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">6.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">6.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -2382,7 +2191,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -4416,4 +4225,4 @@ Expected: Output error message. There is no undone command to redo.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:15:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:49:46 UTC</div></div></div></body></html>
